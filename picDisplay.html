@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Picture Display</title>
+		<style>
+			body {
+			 margin: 0px;
+			 padding: 0px;
+			}
+			img {
+			 border: none;
+			 outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="" width="100%" height="100%">
+	</body>
+	<script>
+		var loc = location.href;
+		var loc2 = loc.split('#');
+		var loc3 = loc2[1];
+		document.getElementsByTagName('img')[0].src = 'pictures/' + loc3;
+	</script>
+</html>

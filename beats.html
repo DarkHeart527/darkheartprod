@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<!--<link rel="stylesheet/less" type="text/css" href="styles.less" />-->
+		<!--<script src="less.min.js" type="text/javascript"></script>-->
+		<link href="styling/styleNew.css" type="text/css" rel="stylesheet"/>
+		<script src="scripts/autoLinks.js">
+		</script>
+		<script src="scripts/musicSetup.js">
+		</script>
+		<style> <!-- Styling is here for specificly this page -->
+			.pageDisplay {
+			 display: grid;
+			 grid-template-rows: auto;
+			 grid-template-colmns: 1fr 1fr;
+			}
+		</style> 
+	</head>
+	<body>
+		<noscript>
+			<!-- Put Some Type Of Notice Here -->
+		</noscript>
+		<div class="header">
+			
+		</div>
+		<div class="middle">
+			<div class="sidebar">
+				<ul class="links">
+				</ul>
+			</div>
+			<div class="pageDisplay">
+			</div>
+		</div>
+		<div class="footer">
+			
+		</div>
+	</body>
+	<script>
+		
+		
+		// Inspect element priveleges denial
+		
+		let denyIE = {
+			denyIE: new Image(),
+			denied: false,
+		};
+		denyIE.denyIE.__defineGetter__("id", function() {
+			//denyIE.denied = true;
+		});
+		var denyIEChecker = setInterval( function() {
+			if (denyIE.denied === true) {
+				document.write('You may not use Inspect Element!');
+				clearInterval(denyIEChecker);
+				denyIE.denied = 'has been';
+			} else if (denyIE.denied === false) {
+				console.log(denyIE.denyIE);
+				console.clear();
+			}
+			if (denyIE.denied == 'has been') {
+				setInterval( function() { 
+				}); // Put data protection here
+			}
+		}, 100000000000000); // 10 to prevent lag but to keep it working smoothly
+	</script>
+</html>

@@ -5,15 +5,104 @@
 		<link href="styling/styleNew.css" type="text/css" rel="stylesheet"/>
 		<script src="scripts/autoLinks.js">
 		</script>
-		<script src="scripts/musicSetup.js">
-		</script>
-		<style> <!-- Styling is here for specificly this page -->
+		<!-- Styling is here for specificly this page -->
+		<style>
 			.pageDisplay {
 			 display: grid;
-			 grid-template-rows: auto;
-			 grid-template-colmns: 1fr 1fr;
+			 grid-template-rows: 1fr 1fr auto;
+			 grid-template-columns: 1fr 1fr;
+			 margin: 0px;
+			 background-color: rgb(50, 50, 50);
 			}
-		</style> 
+			
+			.music {
+			 margin: 0px;
+			 border-radius: 25px;
+			 margin-left: 15px;
+			 margin-top: 15px;
+			 background-color: grey;
+			 border: 15px solid grey;
+			}
+			
+			.music * {
+			 margin: 0px;
+			}
+			
+			.music .title {
+			 text-align: center;
+			 text-shadow: 10px 10px 10px black;
+			 font-size: 50px;
+			 color: white;
+			}
+			
+			.music .playButton {
+			 color: blue;
+			 transition: color 0.5s, text-shadow 1s;
+			 width: 125px;
+			 cursor: pointer;
+			 text-align: center;
+			 background-color: rgba(150, 150, 150, 1);
+			 height: 50px;
+			 border-radius: 25px;
+			 font-size: 42px;
+			}
+			
+			.music .playButton:hover {
+			 text-shadow: 5px 5px 5px black;
+			 color: white;
+			}
+			
+			.music .year {
+			 color: white;
+			 text-shadow: 10px 10px 10px black;
+			 font-size: 35px;
+			 text-align: center;
+			}
+			
+			.music .desc {
+			 background-color: rgba(75, 75, 75, 1);
+			 border-radius: 25px;
+			 font-size: 25px;
+			 color: white;
+			 border: 15px rgba(75, 75, 75, 1) solid;
+			 text-shadow: 10px 10px 10px black;
+			}
+			
+			.footer {
+			 display: grid;
+			 grid-template-columns: 1fr 7fr;
+			 grid-template-rows: 1fr;
+			}
+			
+			.footerInfo {
+			 
+			}
+			
+			.musicButtons {
+			 font-size: 35px;
+			}
+			
+			.progressBar {
+			 width: 50%;
+			 height: 25px;
+			 border-radius: 25px;
+			 background-color: rgba(255, 0, 0, 0.5);
+			 position: absolute;
+			 top: 35%;
+			 right: 5%;
+			}
+			
+			#progress {
+			 height: 100%;
+			 width: 0px;
+			 border-radius: 25px;
+			 background-color: rgba(0, 255, 0, 0.5);
+			}
+			
+			#speed, #volume {
+			 transform: rotate(-90deg)
+			}
+		</style>
 	</head>
 	<body>
 		<noscript>
@@ -31,7 +120,20 @@
 			</div>
 		</div>
 		<div class="footer">
-			
+			<div class="footerInfo">
+				
+			</div>
+			<div class="musicButtons">
+				<img src="">
+				<img src="">
+				<div class="progressBar">
+					<div id="progress">
+					</div>
+				</div>
+				<img src="">
+				<input type="range" max="100" min="0" step="0.01" id="volume" />
+				<input type="range" max="4" min="0.5" step="0.01" id="speed" />
+			</div>
 		</div>
 	</body>
 	<script>
@@ -61,4 +163,6 @@
 			}
 		}, 100000000000000); // 10 to prevent lag but to keep it working smoothly
 	</script>
+		<script src="scripts/musicSetup.js">
+		</script>
 </html>

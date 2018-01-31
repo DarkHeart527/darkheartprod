@@ -9,7 +9,7 @@ var links = {
 		main: 'beats.html',
 		'My Beats': 'tagService.html#beats.html#darkheartprod',
 	},
-	'Jennifer': 'forme.html#onesosmallandsocute',
+	'Personal': 'forme.html',
 }
 
 function autoLinks() {

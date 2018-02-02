@@ -7,6 +7,24 @@ let music = {
 		 year: 2018,
 		 desc: 'This one did not take too long and I got really good comments about this. It uses a Celeste Piano with background sound made with Tize!',
 	 },
+	 '121': {
+		 source: 'tracks/121.mp3',
+		 year: 2017,
+		 desc: 'No desc',
+		 download: false,
+	 },
+	 'Chill': {
+		 source: 'tracks/Chill.mp3',
+		 year: 2017,
+		 desc: 'No desc',
+		 download: false,
+	 },
+	 'Death': {
+		 source: 'tracks/Death.mp3',
+		 year: 2017,
+		 desc: 'No desc',
+		 download: false,
+	 },
 	 'Another': {
 		 source: 'tracks/Another.mp3',
 		 download: false,
@@ -74,6 +92,10 @@ mp.music.onended = () => {
 setInterval( () => { 
 	mp.progress.time = mp.music.currentTime;
 	mp.progress.el.style.width = mp.progress.time / mp.progress.duration * 100 + '%';
+	document.getElementById('volumeNumber').innerHTML = Math.floor(document.getElementById('volume').value);
+	document.getElementById('speedNumber').innerHTML = 'x' + Number(document.getElementById('speed').value).toFixed(2);
+	mp.volume(document.getElementById('volume').value / 100);
+	mp.speed(document.getElementById('speed').value);
 }, 10);
 
  for (let i = 0; i < Object.keys(music).length; i++) {

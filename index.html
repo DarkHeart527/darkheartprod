@@ -5,6 +5,7 @@
 		<link href="styling/styleNew.css" type="text/css" rel="stylesheet"/>
 		<script src="scripts/autoLinks.js">
 		</script>
+		<script type="text/javascript" src="//d3aq14vri881or.cloudfront.net/kiip.js"></script>
 	</head>
 	<body>
 		<noscript>
@@ -19,6 +20,7 @@
 				</ul>
 			</div>
 			<div class="pageDisplay">
+				<div onclick='kiipView()'>Click Me</div>
 			</div>
 		</div>
 		<div class="footer">
@@ -27,7 +29,10 @@
 	</body>
 	<script>
 		
-		
+		function kiipView() {
+		var kiipInstance = new Kiip('c8f9a0bca8f946635252e0332c3146c5');
+		kiipInstance.postMoment('View');
+		}
 		// Inspect element priveleges denial
 		
 		let denyIE = {

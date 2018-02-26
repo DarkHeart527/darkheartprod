@@ -42,6 +42,10 @@ body {
  color: white;
 }
 
+.sidebar ul a:ntn-child(even) {
+ color: grey;
+}
+
 .sidebar ul {
  color: white;
  font-size: 25px;

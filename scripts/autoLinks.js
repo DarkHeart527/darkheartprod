@@ -9,6 +9,15 @@ var links = {
 		main: 'beats.html',
 		'My Beats': 'tagService.html#beats.html#darkheartprod',
 	},
+	'Programming': {
+		main: '#programming.html',
+		'HTML': '#programmingHtml.html',
+		'Javascript': '#programmingJavascript.html',
+	},
+	'Language Improvement': {
+		main: '#languageI.html'	
+	},
+	'Website Languages': 'languages.html',
 	'Personal': 'forme.html',
 }
 

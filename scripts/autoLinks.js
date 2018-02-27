@@ -74,3 +74,4 @@ const loadSCripts = () => {
 		document.body.appendChild(script);
 	}, 500);
 }
+loadScripts();

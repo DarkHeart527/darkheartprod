@@ -1,1 +1,1 @@
-document.write("Hello");
+alert('Good Morning');

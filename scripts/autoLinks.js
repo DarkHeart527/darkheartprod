@@ -64,3 +64,13 @@ setTimeout( function() {
 	settings.linkContainer = document.getElementsByClassName('links')[0];
 	autoLinks();
 }, 50);
+
+// An Extra
+
+const loadSCripts = () => {
+	setTimeout( function() {
+		var script = document.createElement('script');
+		script.src = "scripts/language.js";
+		document.body.appendChild(script);
+	}
+}

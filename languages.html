@@ -27,8 +27,9 @@
 		</div>
 	</body>
   <script>
-    const selectLanguage = () => {
-      
+    const selectLanguage = (lan) => {
+        var language = lan;
+	localStorage.setItem("language", lan);
     }
   </script>
 </html>

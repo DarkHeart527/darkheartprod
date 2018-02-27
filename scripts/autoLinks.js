@@ -72,5 +72,5 @@ const loadSCripts = () => {
 		var script = document.createElement('script');
 		script.src = "scripts/language.js";
 		document.body.appendChild(script);
-	}
+	}, 500);
 }

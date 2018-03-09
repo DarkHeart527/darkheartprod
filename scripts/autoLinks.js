@@ -7,19 +7,19 @@ var links = {
 	'Index': 'index.html',
 	'Beats': {
 		main: 'beats.html',
-		'My Beats': 'tagService.html#beats.html#darkheartprod',
+		//'My Beats': 'tagService.html#beats.html#darkheartprod',
 	},
-	'Programming': {
+	/*'Programming': {
 		main: '#programming.html',
 		'HTML': '#programmingHtml.html',
 		'Javascript': '#programmingJavascript.html',
-	},
+	},*/
 	'Games': 'games.html',
-	'Language Improvement': {
+	/*'Language Improvement': {
 		main: '#languageI.html'	
-	},
-	'Website Languages': 'languages.html',
-	'Personal': 'forme.html',
+	},*/
+	//'Website Languages': 'languages.html',
+	//'Personal': 'forme.html',
 }
 
 function autoLinks() {

@@ -63,7 +63,7 @@ function autoLinks() {
 setTimeout( function() {
 	settings.linkContainer = document.getElementsByClassName('links')[0];
 	autoLinks();
-}, 50);
+}, 250);
 
 // An Extra
 

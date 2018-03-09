@@ -14,6 +14,7 @@ var links = {
 		'HTML': '#programmingHtml.html',
 		'Javascript': '#programmingJavascript.html',
 	},
+	'Games': 'games.html',
 	'Language Improvement': {
 		main: '#languageI.html'	
 	},

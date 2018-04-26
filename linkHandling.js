@@ -1,6 +1,6 @@
 (function() {
 let lHHref = location.href;
-let lHTypes = ['open'];
+let lHTypes = ['open', 'ref', 'openNew'];
 let lHTypesStated = lHHref.split('#');
 if (lHTypesStated.length > 1) {
 	lHTypesStated = lHTypesStated[1].split('&');

@@ -7,6 +7,11 @@ let app = {
 			description: 'This was made at the top of my head, fire, yet simple. Note that this is only a preview (or teaser).',
 			releaseDate: '4 - 24 - 2018',
 		},
+		'Melted Mixtape': {
+			source: 'Melted Mixtape.mp3',
+			description: 'This is fire, I made this in only ONE day, actually a few hours, the synths were made by accident (made it but not intended to sound like it does) and just went with it.',
+			releaseDate: '3 - 10 - 2018',
+		},
 		'121': {
 			source: '121.mp3',
 			releaseDate: '',
@@ -24,7 +29,7 @@ let app = {
 		},
 		'Chaotic': {
 			source: 'Chaotic.mp3',
-			releaseDate: '',
+			releaseDate: '2 - 7 - 2018',
 			description: '',
 		},
 		'Chill': {
@@ -59,7 +64,7 @@ let app = {
 		},
 		'In Your Head': {
 			source: 'In your head.mp3',
-			releaseDate: '',
+			releaseDate: '2 - 9 - 2018',
 			description: '',
 		},
 		'Life Is Life': {

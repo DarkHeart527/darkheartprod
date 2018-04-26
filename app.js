@@ -14,7 +14,7 @@ let app = {
 		},
 		'121': {
 			source: '121.mp3',
-			releaseDate: '',
+			releaseDate: 'Unknown',
 			description: '',
 		},
 		'Another': {
@@ -24,7 +24,7 @@ let app = {
 		},
 		'Celeste': {
 			source: 'Celeste.mp3',
-			releaseDate: '',
+			releaseDate: '1 - 7 - 2018',
 			description: '',
 		},
 		'Chaotic': {
@@ -84,7 +84,7 @@ let app = {
 		},
 		'Money': {
 			source: 'Money.mp3',
-			releaseDate: '',
+			releaseDate: '12 - 15 - 2018',
 			description: '',
 		},
 		'Nearly Nothing': {

@@ -100,7 +100,7 @@ let app = {
 		},
 		'Money': {
 			source: 'Money.mp3',
-			releaseDate: '12 - 15 - 2018',
+			releaseDate: '12 - 15 - 2017',
 			description: '',
 			fireRating: 3,
 		},

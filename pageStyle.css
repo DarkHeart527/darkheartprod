@@ -1,0 +1,147 @@
+*:focus {
+ outline: none;
+}
+
+body {
+ margin: 0px;
+}
+
+header {
+ width: 100%;
+ height: 10%;
+ background-color: black;
+ border-bottom: 1px solid orange;
+}
+
+.pageContainer {
+ width: 100%;
+ height: 80%;
+ background-color: black;
+ display: inline-flex;
+}
+
+.page {
+ width: 80%;
+ height: 100%;
+ background-color: black;
+}
+
+.trackList {
+ width: 19.5%;
+ height: 100%;
+ border-right: 1px solid orange;
+ background-color: black;
+ overflow-y: auto;
+}
+
+footer {
+ position: fixed;
+ width: 98%;
+ height: 10%;
+ background-color: black;
+ display: grid;
+ grid-template-rows: 1fr;
+ grid-template-columns: 1fr 1fr 1fr 1fr 8fr;
+ align-items: center;
+ justify-items: center;
+ padding-left: 1%;
+ padding-right: 1%;
+ border-top: 1px solid orange;
+}
+
+.page p {
+ color: white;
+ font-size: 50px;
+ text-align: center;
+ margin-top: 50px;
+}
+
+#searchTracks {
+ color: white;
+ font-size: 25px;
+ width: 100%;
+ height: auto;
+ border: none;
+ background-color: rgba(255, 255, 255, 0.25);
+ border-bottom: 1px solid rgba(255, 255, 255, 1);
+ transition: background-color 0.5s, border-bottom 0.5s;
+}
+
+#searchTracks:focus {
+ border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+ background-color: rgba(255, 255, 255, 0.15);
+}
+
+.trackList .track {
+ color: rgba(255, 255, 255, 1);
+ font-size: 25px;
+ width: auto;
+ height: auto;
+ border-bottom: 1px dashed orange;
+ margin-top: 10px;
+ cursor: pointer;
+ text-align: center;
+}
+
+.trackList .track:hover {
+ color: orange;
+ border-bottom: 1px dashed rgba(0, 0, 255, 1);
+}
+
+#searchBy {
+ width: 100%;
+ height: 5%;
+ font-size: 22px;
+ background-color: rgba(255, 255, 255, 0.75);
+ transition: background-color 0.5s;
+ border: none;
+}
+
+select option:disabled {
+	color: red;
+}
+
+#searchBy:focus {
+ background-color: rgba(255, 255, 255, 1);
+}
+
+.searchByText {
+ color: white;
+ font-size: 25px;
+ margin: 0px;
+}
+
+#noResults {
+	color: red;
+	font-size: 35px;
+	text-align: center;
+	display: none;
+	margin: 0px;
+}
+
+#canvas {
+	width: 50%;
+	height: 80%;
+	margin-top: 10%;
+	background-color: red;
+}
+
+.progressBar {
+	background-color: red;
+	height: 80%;
+	width: 90%;
+	border-radius: 25px;
+}
+
+#progress {
+	height: 100%;
+	width: 50%;
+	background-color: orange;
+	box-shadow: 0px 0px 25px orange;
+	border-radius: 25px;
+}
+
+#previousBtn, #nextBtn, #playBtn, #time {
+	color: orange;
+	font-size: 35px;
+}

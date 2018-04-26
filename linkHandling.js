@@ -1,4 +1,4 @@
-//(function() {
+(function() {
 let lHHref = location.href;
 let lHTypes = ['open'];
 let lHTypesStated = lHHref.split('#');
@@ -18,5 +18,4 @@ if (lHTypesStated.length > 1) {
 		}
 	}
 }
-console.log(lHTypesStated);
-//});
+});

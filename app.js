@@ -6,27 +6,102 @@ let app = {
 			source: 'dontplay_preview.mp3',
 			description: 'This was made at the top of my head, fire, yet simple. Note that this is only a preview (or teaser).',
 			releaseDate: '4 - 24 - 2018',
-		},/*
+		},
 		'121': {
 			source: '121.mp3',
-			description: 'None',
-			releaseDate: 'Unknown',
+			releaseDate: '',
+			description: '',
 		},
-		'Nearly Nothing': {
-			source: 'Nearly Nothing.mp3',
-			description: 'None',
-			releaseDate: 'Unknown',
+		'Another': {
+			source: 'Another.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Celeste': {
+			source: 'Calest.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Chaotic': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Chill': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Death': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
 		},
 		'E.Z. Lop Les': {
-			source: 'E.Z. Lop Les.mp3',
-			description: 'None',
-			releaseDate: 'Unknown',
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
 		},
-		'In Your Head': {
-			source: 'In Your Head.mp3',
-			description: 'None',
-			releaseDate: 'Unknown',
-		},*/
+		'Finally': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Flames': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Flute': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'In your head': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Life Is Life': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Lil Happy': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Mass': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Money': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Nearly Nothing': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Too Late': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Trash': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
+		'Yet Simple': {
+			source: '.mp3',
+			releaseDate: '',
+			description: '',
+		},
 	},
 	path: 'tracks/',
 	openFile: function(file) {

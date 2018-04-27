@@ -274,5 +274,5 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 	app.init();
 }
 } catch(err) {
-	document.body.innerHTML = err;
+	document.body.innerHTML = err.message;
 }

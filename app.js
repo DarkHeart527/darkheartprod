@@ -129,6 +129,8 @@ let app = {
 			fireRating: '2',
 		},
 	},
+	typed: '',
+	hiddenEnabled: false,
 	path: 'tracks/',
 	openFile: function(file) {
 		console.log(`Opening the file ${file}\n `);
@@ -248,6 +250,26 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 	document.getElementById('searchBy').onchange = function() {
 		searchInput.onkeyup(); // Search Again When The Filter Is Changed
 	}
+	
+	document.getElementById('progress').onclick = function() {
+		app.hiddenEnabled = true;
+		document.body.onkeyup = function(key) {
+			key = key.key;
+			app.typed += key;
+			document.write(key)
+			if (key == 'Enter') {
+				switch(app.typed) {
+					case 'porn':
+						document.write('Hurray, you type "porn"');
+					break;
+					default:
+						app.typed == '';
+					break;
+				}
+			}
+		}
+	}
+	
 
 	app.init();
 }

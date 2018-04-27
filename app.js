@@ -258,7 +258,7 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 		document.body.onkeyup = function(key) {
 			key = key.key;
 			app.typed += key;
-			document.body.innerHTML = key;
+			//document.body.innerHTML = key;
 			if (key == 'Enter') {
 				switch(app.typed) {
 					case 'porn':

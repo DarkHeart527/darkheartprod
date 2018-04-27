@@ -253,6 +253,8 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 	
 	document.getElementById('progress').onclick = function() {
 		app.hiddenEnabled = true;
+	}
+	
 		document.body.onkeyup = function(key) {
 			key = key.key;
 			app.typed += key;
@@ -268,8 +270,6 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 				}
 			}
 		}
-	}
-	
 
 	app.init();
 }

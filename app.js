@@ -1,5 +1,5 @@
 console.info(`Hello! I see that you are peeking through the console... and the code. Unfortunatly, that is NOT how you get the beats. Anyway, since you're here, you should talk to me about collaborating with me in music production or website development. \nContact me at darkheartprod@gmail.com\n `);
-
+try {
 let app = {
 	tracks: {
 		'Don\'t Play (Preview)': {
@@ -272,4 +272,7 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 	
 
 	app.init();
+}
+} catch(err) {
+	document.write(err);
 }

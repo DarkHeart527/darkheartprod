@@ -256,11 +256,11 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 		document.body.onkeyup = function(key) {
 			key = key.key;
 			app.typed += key;
-			document.write(key)
+			document.body.innerHTML = key;
 			if (key == 'Enter') {
 				switch(app.typed) {
 					case 'porn':
-						document.write('Hurray, you type "porn"');
+						document.body.innerHTML = 'Hurray, you type "porn"';
 					break;
 					default:
 						app.typed == '';
@@ -274,5 +274,5 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 	app.init();
 }
 } catch(err) {
-	document.write(err);
+	document.body.innerHTML = err;
 }

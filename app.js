@@ -255,7 +255,7 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 		app.hiddenEnabled = true;
 	}
 	
-		document.body.onkeyup = function(key) {
+		document.getElementById('searchTracks').onkeyup = function(key) {
 			key = key.key;
 			app.typed += key;
 			//document.body.innerHTML = key;

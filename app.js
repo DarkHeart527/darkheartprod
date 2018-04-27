@@ -255,12 +255,12 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 		app.hiddenEnabled = true;
 	}
 	
-		document.getElementById('searchTracks').onkeyup = function(key) {
-			key = key.key;
-			app.typed += key;
+		document.getElementById('searchTracks').onkeyup = function() {
+			document.getElementById('searchTracks').value = key
+			//app.typed += key;
 			//document.body.innerHTML = key;
-			if (key == 'Enter') {
-				switch(app.typed) {
+			//if (key == 'Enter') {
+				switch(key) {
 					case 'porn':
 						document.body.innerHTML = 'Hurray, you type "porn"';
 					break;
@@ -268,7 +268,7 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 						app.typed == '';
 					break;
 				}
-			}
+			//}
 		}
 
 	app.init();

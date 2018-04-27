@@ -260,13 +260,8 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 			//app.typed += key;
 			//document.body.innerHTML = key;
 			//if (key == 'Enter') {
-				switch(key) {
-					case 'porn':
+				if (key == 'porn') {
 						document.body.innerHTML = 'Hurray, you type "porn"';
-					break;
-					default:
-						app.typed == '';
-					break;
 				}
 			//}
 		}

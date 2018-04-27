@@ -257,7 +257,7 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 	
 		document.getElementById('searchTracks').onkeydown = function() {
 			let key;
-			document.getElementById('searchTracks').value = key
+			key = document.getElementById('searchTracks').value
 			//app.typed += key;
 			//document.body.innerHTML = key;
 			//if (key == 'Enter') {

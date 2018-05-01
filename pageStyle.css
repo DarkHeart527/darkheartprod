@@ -11,6 +11,8 @@ header {
  height: 10%;
  background-color: black;
  border-bottom: 1px solid orange;
+ box-shadow: 0px 0px 25px orange;
+ position: sticky;
 }
 
 .pageContainer {
@@ -85,7 +87,8 @@ footer {
 
 .trackList .track:hover {
  color: orange;
- border-bottom: 1px dashed rgba(0, 0, 255, 1);
+ border-bottom: 1px dashed rgba(0, 0, 255, 1) !important;
+ text-shadow: 0px 0px 15px orange;
 }
 
 #searchBy {
@@ -144,4 +147,9 @@ select option:disabled {
 #previousBtn, #nextBtn, #playBtn, #time {
 	color: orange;
 	font-size: 35px;
+	text-shadow: 0px 0px 15px orange;
+}
+
+#previousBtn, #nextBtn, #playBtn {
+	cursor: pointer;
 }

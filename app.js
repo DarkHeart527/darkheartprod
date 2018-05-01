@@ -1,7 +1,20 @@
+(function() {
 console.info(`Hello! I see that you are peeking through the console... and the code. Unfortunatly, that is NOT how you get the beats. Anyway, since you're here, you should talk to me about collaborating with me in music production or website development. \nContact me at darkheartprod@gmail.com\n `);
-try {
+
 let app = {
-	tracks: {
+	tracks: { /* Please note that tracks that start with a number must be at the top */
+		'121': {
+			source: '121.mp3',
+			releaseDate: 'Unknown',
+			description: '',
+			fireRating: '3',
+		},
+		'Don\'t Play': {
+			source: 'dontplay.mp3',
+			description: 'This was made at the top of my head, fire, yet simple.',
+			releaseDate: '4 - 30 - 2018',
+			fireRating: 'Not rated',
+		},
 		'Don\'t Play (Preview)': {
 			source: 'dontplay_preview.mp3',
 			description: 'This was made at the top of my head, fire, yet simple. Note that this is only a preview (or teaser).',
@@ -14,47 +27,23 @@ let app = {
 			releaseDate: '3 - 10 - 2018',
 			fireRating: '5',
 		},
-		'121': {
-			source: '121.mp3',
-			releaseDate: 'Unknown',
-			description: '',
-			fireRating: '3',
-		},
-		'Another': {
-			source: 'Another.mp3',
-			releaseDate: '',
-			description: '',
-			fireRating: '1',
-		},
 		'Celeste': {
 			source: 'Celeste.mp3',
 			releaseDate: '1 - 7 - 2018',
 			description: '',
 			fireRating: '4',
 		},
+		'Money': {
+			source: 'Money.mp3',
+			releaseDate: '12 - 15 - 2017',
+			description: '',
+			fireRating: '3',
+		},
 		'Chaotic': {
 			source: 'Chaotic.mp3',
 			releaseDate: '2 - 7 - 2018',
 			description: '',
 			fireRating: '3',
-		},
-		'Chill': {
-			source: 'Chill.mp3',
-			releaseDate: '',
-			description: '',
-			fireRating: '2',
-		},
-		'Death': {
-			source: 'Death.mp3',
-			releaseDate: '',
-			description: '',
-			fireRating: '3',
-		},
-		'E.Z. Lop Les': {
-			source: 'E.Z. Lop Les.mp3',
-			releaseDate: '',
-			description: '',
-			fireRating: '4',
 		},
 		'Finally': {
 			source: 'Finally.mp3',
@@ -68,11 +57,29 @@ let app = {
 			description: '',
 			fireRating: '3',
 		},
+		'E.Z. Lop Les': {
+			source: 'E.Z. Lop Les.mp3',
+			releaseDate: '',
+			description: '',
+			fireRating: '4',
+		},
+		'Death': {
+			source: 'Death.mp3',
+			releaseDate: '',
+			description: '',
+			fireRating: '3',
+		},
+		'Chill': {
+			source: 'Chill.mp3',
+			releaseDate: '',
+			description: '',
+			fireRating: '2',
+		},
 		'Flute': {
 			source: 'Flute.mp3',
 			releaseDate: '',
 			description: '',
-			fireRating: '1',
+			fireRating: '2',
 		},
 		'In Your Head': {
 			source: 'In your head.mp3',
@@ -98,12 +105,6 @@ let app = {
 			description: '',
 			fireRating: '2',
 		},
-		'Money': {
-			source: 'Money.mp3',
-			releaseDate: '12 - 15 - 2017',
-			description: '',
-			fireRating: '3',
-		},
 		'Nearly Nothing': {
 			source: 'Nearly Nothing.mp3',
 			releaseDate: '',
@@ -128,27 +129,33 @@ let app = {
 			description: '',
 			fireRating: '2',
 		},
+		'Another': {
+			source: 'Another.mp3',
+			releaseDate: '',
+			description: '',
+			fireRating: '1',
+		},
 	},
-	typed: '',
-	hiddenEnabled: false,
-	path: 'tracks/',
+	path: '%74%72%61%43ks/',
+	easterEgg: {
+		
+	},
 	openFile: function(file) {
 		console.log(`Opening the file ${file}\n `);
-		// Set up a progress bar (Would love a canvas progress bar [nice looking!])
-		clearInterval(this.pBarInt)
-		this.audio.src = this.path + file;
+		/* Set up a progress bar (Would love a canvas progress bar [nice looking!]) */
+		clearInterval(this.pBarInt);
+		this.audio.src = this.path.toLowerCase() + file;
 		this.audio.onloadedmetadata = function() {
 			let pBar = document.getElementById('progress');
 			let time = document.getElementById('time');
 			this.pBarInt = setInterval( function() {
-				let cTime = Math.floor(app.audio.currentTime); // Remove Fractions
+				let cTime = Math.floor(app.audio.currentTime); /* Remove Fractions */
 				let minute = 0;
 				let second = cTime;
 				for (let i = 0; i < Math.floor(second)/60 - 1; i++) {
 					minute++;
 					second -= 60;
 				}
-				console.log(cTime);
 				if (second < 10) {
 					second = '0' + second;
 				}
@@ -158,36 +165,76 @@ let app = {
 			}, 50);
 			this.play();
 		}
+		document.getElementById('playBtn').innerHTML = 'Pause';
 	},
+	currentTrack: 0,
 	pBarInt: '',
-	play: function() {
-		this.audio.play();
+	started: false,
+	play: function(cPX) {
+		if (this.started) {
+		let msg;
+			if (this.audio.paused) {
+				this.audio.play();
+				msg = 'Pause';
+			} else {
+				this.audio.pause();
+				msg = 'Play';
+			}
+			return msg;
+		} else {
+			this.cPX++;
+			msg = '<center style="font-size: ' + this.cPX + 'px;">Select a track first</center>';
+			if (this.cPX == 24) {
+				/* Click the text when you first start 10 times without selecting a song */
+				app.easterEgg.One = document.createElement('link');
+				app.easterEgg.One.href = 'easterEggs/One.css';
+				app.easterEgg.One.type = 'text/css';
+				app.easterEgg.One.rel = 'stylesheet';
+				document.head.appendChild(app.easterEgg.One);
+			}
+			return msg;
+		}
 	},
-	pause: function() {
-		this.audio.pause();
-	},
+	cPX: 14,
 	restartSong: function() {
 		this.audio.currentTime = 0;
 	},
+	dblClickTrue: false,
 	previousTrack: function() {
-		if (!dblClickTrue) {
+		if (!app.dblClickTrue) {
 			dblClick = setTimeout( function() {
-				dblClickTrue = false;
+				app.dblClickTrue = false;
 			}, 1000);
 		}
-		if (!dblClickTrue) {
+		if (!app.dblClickTrue) {
 			this.restartSong();
-		} else if (dblClickTrue) {
-			// Previous Track
+		} else if (app.dblClickTrue) {
+			/* Previous Track */
 			this.currentTrack--;
 		}
-		dblClickTrue = true;
+		app.dblClickTrue = true;
+		this.setupTrack();
 	},
 	currentTrack: 0,
 	dblClick: '',
 	dblClickTrue: false,
 	nextTrack: function() {
 		this.currentTrack++;
+		this.setupTrack();
+	},
+	setupTrack: function() {
+		let num = app.currentTrack;
+		let obs = app.tracks;
+		let obsName = Object.keys(obs)[num];
+		obs = obs[obsName];
+		let trackName = obsName;
+		let trackRelease = obs.releaseDate;
+		let trackDesc = obs.description;
+		app.openFile(obs.source);
+		
+		document.getElementById('trackTitle').innerHTML = trackName;
+		document.getElementById('releaseDate').innerHTML = 'Release: ' + trackRelease;
+		document.getElementById('description').innerHTML = trackDesc;
 	},
 	audio: '',
 	init: function() {
@@ -199,7 +246,7 @@ let app = {
 	}
 }
 
-window.onload = function() { // Make sure to start the program AFTER the page loads
+window.onload = function() { /* Make sure to start the program AFTER the page loads */
 	for (let i = 0; i < app.tracks.length(); i++) {
 		let trackName = app.tracks.keys()[i];
 		let track = app.tracks[trackName];
@@ -212,6 +259,8 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 		trackEl.innerHTML = trackName;
 		trackEl.onclick = function() {
 			app.openFile(source);
+			app.started = true;
+			app.currentTrack = i;
 			document.getElementById('trackTitle').innerHTML = trackName;
 			document.getElementById('releaseDate').innerHTML = 'Release: ' + trackRelease;
 			document.getElementById('description').innerHTML = trackDesc;
@@ -231,7 +280,7 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 			} else if (document.getElementById('searchBy').value == 'release') {
 				searchTerm = app.tracks[tracksEx[j].innerHTML].releaseDate.toUpperCase().indexOf(val);
 			} else if (document.getElementById('searchBy').value == 'featured') {
-				//searchTerm = app.tracks[tracksEx[j].innerHTML].releaseDate.toUpperCase().indexOf(val);
+				/* searchTerm = app.tracks[tracksEx[j].innerHTML].releaseDate.toUpperCase().indexOf(val); */
 			} else if (document.getElementById('searchBy').value == 'fireRating') {
 				searchTerm = app.tracks[tracksEx[j].innerHTML].fireRating.toUpperCase().indexOf(val);
 			}
@@ -248,27 +297,20 @@ window.onload = function() { // Make sure to start the program AFTER the page lo
 		}
 	}
 	document.getElementById('searchBy').onchange = function() {
-		searchInput.onkeyup(); // Search Again When The Filter Is Changed
+		searchInput.onkeyup(); /* Search Again When The Filter Is Changed */
 	}
 	
-	document.getElementById('progress').onclick = function() {
-		app.hiddenEnabled = true;
+	document.getElementById('playBtn').onclick = function() {
+		this.innerHTML = app.play();
 	}
 	
-		document.getElementById('searchTracks').onkeydown = function() {
-			let key;
-			key = document.getElementById('searchTracks').value
-			//app.typed += key;
-			//document.body.innerHTML = key;
-			//if (key == 'Enter') {
-				if (key == 'porn') {
-						document.body.innerHTML = 'Hurray, you type "porn"';
-				}
-			//}
-		}
-
+	document.getElementById('nextBtn').onclick = function() {
+		app.nextTrack();
+	}
+	
+	document.getElementById('previousBtn').onclick = function() {
+		app.previousTrack();
+	}
 	app.init();
 }
-} catch(err) {
-	document.body.innerHTML = err.message;
-}
+})();

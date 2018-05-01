@@ -10,7 +10,7 @@ let app = {
 			fireRating: '3',
 		},
 		'Don\'t Play': {
-			source: 'dontplay.mp3',
+			source: 'dont play.mp3',
 			description: 'This was made at the top of my head, fire, yet simple.',
 			releaseDate: '4 - 30 - 2018',
 			fireRating: 'Not rated',

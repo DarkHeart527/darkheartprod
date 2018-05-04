@@ -9,11 +9,17 @@ let app = {
 			description: '',
 			fireRating: '3',
 		},
+		'Ooh Boi': {
+			source: 'oohboi.mp3',
+			description: 'Few hours to make, little edit the next day.',
+			releaseDate: '5 - 4 - 2018',
+			fireRating: '5',
+		},
 		'Don\'t Play': {
 			source: 'dont play.mp3',
 			description: 'This was made at the top of my head, fire, yet simple.',
 			releaseDate: '4 - 30 - 2018',
-			fireRating: 'Not rated',
+			fireRating: '5',
 		},
 		'Don\'t Play (Preview)': {
 			source: 'dontplay_preview.mp3',

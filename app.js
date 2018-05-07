@@ -9,6 +9,12 @@ let app = {
 			description: '',
 			fireRating: '3',
 		},
+		'Locking Bars': {
+			source: 'Locking Bars.mp3',
+			description: 'You might just like it! Made with lots of bass and drums with an agressive synth.',
+			releaseDate: '5 - 6 - 2018',
+			fireRating: '5',
+		},
 		'Ooh Boi': {
 			source: 'oohboi.mp3',
 			description: 'Few hours to make, little edit the next day.',
@@ -142,7 +148,7 @@ let app = {
 			fireRating: '1',
 		},
 	},
-	path: '%74%72%61%43ks/',
+	path: '%74%72%61%63ks/',
 	easterEgg: {
 		
 	},
@@ -151,6 +157,7 @@ let app = {
 		/* Set up a progress bar (Would love a canvas progress bar [nice looking!]) */
 		clearInterval(this.pBarInt);
 		this.audio.src = this.path.toLowerCase() + file;
+		console.log(unescape(this.path.toLowerCase()));
 		this.audio.onloadedmetadata = function() {
 			let pBar = document.getElementById('progress');
 			let time = document.getElementById('time');

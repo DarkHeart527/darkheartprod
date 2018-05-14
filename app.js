@@ -346,7 +346,7 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 				case 'open':
 					app.openFile(lHValue);
 				break;
-				case: 'redopen':
+				case 'redopen':
 					window.open(lHValue);
 				break;
 				default: 

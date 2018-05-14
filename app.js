@@ -224,6 +224,9 @@ let app = {
 		} else if (app.dblClickTrue) {
 			/* Previous Track */
 			this.currentTrack--;
+			if (this.currentTrack < 0) {
+				this.currentTrack = Object.keys(app.tracks).length;
+			}
 		}
 		app.dblClickTrue = true;
 		this.setupTrack();
@@ -233,6 +236,9 @@ let app = {
 	dblClickTrue: false,
 	nextTrack: function() {
 		this.currentTrack++;
+		if (this.currentTrack > Object.keys(app.tracks).length) {
+			this.currentTrack = 0;
+		}
 		this.setupTrack();
 	},
 	setupTrack: function() {

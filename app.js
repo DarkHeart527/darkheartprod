@@ -236,7 +236,7 @@ let app = {
 	dblClickTrue: false,
 	nextTrack: function() {
 		this.currentTrack++;
-		if (this.currentTrack > Object.keys(app.tracks).length) {
+		if (this.currentTrack >= Object.keys(app.tracks).length) {
 			this.currentTrack = 0;
 		}
 		this.setupTrack();

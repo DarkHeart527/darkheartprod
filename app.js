@@ -333,7 +333,7 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 	app.init();
 	// Link Handling
 	let lHHref = location.href;
-	let lHTypes = ['open'];
+	let lHTypes = ['open', 'redopen'];
 	let lHTypesStated = lHHref.split('#');
 	if (lHTypesStated.length > 1) {
 		lHTypesStated = lHTypesStated[1].split('&');
@@ -345,6 +345,9 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 			switch(lHCommand) {
 				case 'open':
 					app.openFile(lHValue);
+				break;
+				case: 'redopen':
+					window.open(lHValue);
 				break;
 				default: 
 					console.log(`Please note that the command ${lHCommand} was not found\n `);

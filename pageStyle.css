@@ -221,6 +221,7 @@ header .headerIntro img {
 	font-size: 25px;
 	height: 30px;
 	padding: 0px;
+	text-align: center;
 }
 
 #downloadPromptAccept {

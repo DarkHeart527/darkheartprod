@@ -105,7 +105,7 @@ footer {
 }
 
 select option:disabled {
-	color: red;
+ color: red;
 }
 
 #searchBy:focus {
@@ -119,128 +119,128 @@ select option:disabled {
 }
 
 #noResults {
-	color: red;
-	font-size: 35px;
-	text-align: center;
-	display: none;
-	margin: 0px;
+ color: red;
+ font-size: 35px;
+ text-align: center;
+ display: none;
+ margin: 0px;
 }
 
 #canvas {
-	width: 50%;
-	height: 80%;
-	margin-top: 10%;
-	background-color: red;
+ width: 50%;
+ height: 80%;
+ margin-top: 10%;
+ background-color: red;
 }
 
 .progressBar {
-	background-color: red;
-	height: 80%;
-	width: 90%;
-	border-radius: 25px;
+ background-color: red;
+ height: 80%;
+ width: 90%;
+ border-radius: 25px;
 }
 
 #progress {
-	height: 100%;
-	width: 0px;
-	background-color: rgb(255, 155, 0);
-	box-shadow: 0px 0px 25px rgb(255, 155, 0);
-	border-radius: 25px;
+ height: 100%;
+ width: 0px;
+ background-color: rgb(255, 155, 0);
+ box-shadow: 0px 0px 25px rgb(255, 155, 0);
+ border-radius: 25px;
 }
 
 .headerIntro {
-	color: rgb(255, 155, 0);
-	text-shadow: 0px 0px 25px rgb(255, 155, 0);
-	font-size: 35px;
-	margin: 0px;
-	justify-self: left;
-	margin-left: 35px;
+ color: rgb(255, 155, 0);
+ text-shadow: 0px 0px 25px rgb(255, 155, 0);
+ font-size: 35px;
+ margin: 0px;
+ justify-self: left;
+ margin-left: 35px;
 }
 
 #previousBtn, #nextBtn, #playBtn, #time {
-	color: rgb(255, 155, 0);
-	font-size: 35px;
-	text-shadow: 0px 0px 15px rgb(255, 155, 0);
+ color: rgb(255, 155, 0);
+ font-size: 35px;
+ text-shadow: 0px 0px 15px rgb(255, 155, 0);
 }
 
 #previousBtn, #nextBtn, #playBtn {
-	cursor: pointer;
+ cursor: pointer;
 }
 
 .downloadBtn {
-	position: relative;
-	right: 0px;
-	text-decoration: none;
-	font-size: 35px;
-	color: white;
+ position: relative;
+ right: 0px;
+ text-decoration: none;
+ font-size: 35px;
+ color: white;
 }
 
 header .headerIntro img {
-	width: 50px;
-	height: 50px;
-	margin: 0px;
-	border-radius: 50%;
+ width: 50px;
+ height: 50px;
+ margin: 0px;
+ border-radius: 50%;
 }
 
 #imageDisplay {
-	display: none;
-	position: absolute;
-	width: 25%;
-	height: 25%;
-	border: 2px solid white;
+ display: none;
+ position: absolute;
+ width: 25%;
+ height: 25%;
+ border: 2px solid white;
 }
 
 #downloadPrompt {
-	width: 50%;
-	height: 50%;
-	top: 25%;
-	left: 25%;
-	background-color: black;
-	position: absolute;
-	border-radius: 25px;
-	box-shadow: 0px 0px 25px rgb(255, 155, 0);
+ width: 50%;
+ height: 50%;
+ top: 25%;
+ left: 25%;
+ background-color: black;
+ position: absolute;
+ border-radius: 25px;
+ box-shadow: 0px 0px 25px rgb(255, 155, 0);
 }
 
 #downloadPromptText {
-	color: rgb(255, 155, 0);
-	text-shadow: 0px 0px 25px rgb(255, 155, 0);
-	font-size: 25px;
-	text-align: center;
+ color: rgb(255, 155, 0);
+ text-shadow: 0px 0px 25px rgb(255, 155, 0);
+ font-size: 25px;
+ text-align: center;
 }
 
 #downloadPromptInput {
-	resize: none;
-	margin: auto 0;
-	width: 50%;
-	margin-left: 25%;
-	border: none;
-	border-bottom: 1px solid rgb(255, 155, 0);
-	background-color: transparent;
-	color: rgb(255, 155, 0);
-	text-shadow: 0px 0px 5px rgb(255, 155, 0);
-	font-size: 25px;
-	height: 30px;
-	padding: 0px;
-	text-align: center;
+ resize: none;
+ margin: auto 0;
+ width: 50%;
+ margin-left: 25%;
+ border: none;
+ border-bottom: 1px solid rgb(255, 155, 0);
+ background-color: transparent;
+ color: rgb(255, 155, 0);
+ text-shadow: 0px 0px 5px rgb(255, 155, 0);
+ font-size: 25px;
+ height: 30px;
+ padding: 0px;
+ text-align: center;
 }
 
 #downloadPromptAccept {
-	text-align: center;
-	color: rgb(255, 155, 0);
-	text-shadow: 0px 0px 25px rgb(255, 155, 0);
-	font-size: 25px;
-	cursor: pointer;
+ text-align: center;
+ color: rgb(255, 155, 0);
+ text-shadow: 0px 0px 25px rgb(255, 155, 0);
+ font-size: 25px;
+ cursor: pointer;
 }
 
 #downloadPromptLink {
-	text-align: center;
-	color: rgb(255, 155, 0);
-	text-shadow: 0px 0px 25px rgb(255, 155, 0);
-	font-size: 25px;
-	text-decoration: none;
-	transition: color .25s;
+ text-align: center;
+ color: rgb(255, 155, 0);
+ text-shadow: 0px 0px 25px rgb(255, 155, 0);
+ font-size: 25px;
+ text-decoration: none;
+ transition: color .25s;
 }
 
 #downloadPromptLink:hover {
-	color: white;
+ color: white;
 }

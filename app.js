@@ -1,31 +1,40 @@
+let app;
 (function() {
 console.info(`Hello! I see that you are peeking through the console... and the code. Unfortunatly, that is NOT how you get the beats. Anyway, since you're here, you should talk to me about collaborating with me in music production or website development. \nContact me at darkheartprod@gmail.com\n `);
 
-let app = {
+app = {
 	tracks: { /* Please note that tracks that start with a number must be at the top */
-		'121': {
-			source: '121.mp3',
-			releaseDate: 'Unknown',
-			description: '',
-			fireRating: '3',
+		'Brass': {
+			source: 'Brass.mp3',
+			description: 'This was not posted until now. Pretty fire though!',
+			releaseDate: '5 - 19 - 2018',
+			fireRating: '5',
+			download: true,
+			code: 'onlyforkeanu',
 		},
 		'Locking Bars': {
 			source: 'Locking Bars.mp3',
 			description: 'You might just like it! Made with lots of bass and drums with an agressive synth.',
 			releaseDate: '5 - 6 - 2018',
 			fireRating: '5',
+			download: true,
+			code: 'lockem215',
 		},
 		'Ooh Boi': {
 			source: 'oohboi.mp3',
 			description: 'Few hours to make, little edit the next day.',
 			releaseDate: '5 - 4 - 2018',
 			fireRating: '5',
+			download: true,
+			code: 'onlyoohboimyboi',
 		},
 		'Don\'t Play': {
 			source: 'dont play.mp3',
 			description: 'This was made at the top of my head, fire, yet simple.',
 			releaseDate: '4 - 30 - 2018',
 			fireRating: '5',
+			download: true,
+			code: 'playinforfools',
 		},
 		'Don\'t Play (Preview)': {
 			source: 'dontplay_preview.mp3',
@@ -38,114 +47,160 @@ let app = {
 			description: 'This is fire, I made this in only ONE day, actually a few hours, the synths were made by accident (made it but not intended to sound like it does) and just went with it.',
 			releaseDate: '3 - 10 - 2018',
 			fireRating: '5',
+			download: true,
+			code: 'melted207',
+		},
+		' 121': {
+			source: '121.mp3',
+			releaseDate: 'Unknown',
+			description: '',
+			fireRating: '3',
+			download: true,
+			code: 'none',
 		},
 		'Celeste': {
 			source: 'Celeste.mp3',
 			releaseDate: '1 - 7 - 2018',
 			description: '',
 			fireRating: '4',
+			download: true,
+			code: 'none',
 		},
 		'Money': {
 			source: 'Money.mp3',
 			releaseDate: '12 - 15 - 2017',
 			description: '',
 			fireRating: '3',
+			download: true,
+			code: 'none',
 		},
 		'Chaotic': {
 			source: 'Chaotic.mp3',
 			releaseDate: '2 - 7 - 2018',
 			description: '',
 			fireRating: '3',
+			download: true,
+			code: 'none',
 		},
 		'Finally': {
 			source: 'Finally.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '2',
+			download: true,
+			code: 'none',
 		},
 		'Flames': {
 			source: 'Flames.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '3',
+			download: true,
+			code: 'none',
 		},
 		'E.Z. Lop Les': {
 			source: 'E.Z. Lop Les.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '4',
+			download: true,
+			code: 'none',
 		},
 		'Death': {
 			source: 'Death.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '3',
+			download: true,
+			code: 'none',
 		},
 		'Chill': {
 			source: 'Chill.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '2',
+			download: true,
+			code: 'none',
 		},
 		'Flute': {
 			source: 'Flute.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '2',
+			download: true,
+			code: 'none',
 		},
 		'In Your Head': {
 			source: 'In your head.mp3',
 			releaseDate: '2 - 9 - 2018',
 			description: '',
 			fireRating: '3',
+			download: true,
+			code: 'none',
 		},
 		'Life Is Life': {
 			source: 'Life Is Life.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '1',
+			download: true,
+			code: 'none',
 		},
 		'Lil Happy': {
 			source: 'Lil Happy.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '2',
+			download: true,
+			code: 'none',
 		},
 		'Mass': {
 			source: 'Mass.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '2',
+			download: true,
+			code: 'none',
 		},
 		'Nearly Nothing': {
 			source: 'Nearly Nothing.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '2',
+			download: true,
+			code: 'none',
 		},
 		'Too Late': {
 			source: 'Too Late.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '3',
+			download: true,
+			code: 'none',
 		},
 		'Trash': {
 			source: 'Trash.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '1',
+			download: true,
+			code: 'none',
 		},
 		'Yet Simple': {
 			source: 'Yet Simple.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '2',
+			download: true,
+			code: 'none',
 		},
 		'Another': {
 			source: 'Another.mp3',
 			releaseDate: '',
 			description: '',
 			fireRating: '1',
+			download: true,
+			code: 'none',
 		},
 	},
 	path: '%74%72%61%63ks/',
@@ -165,7 +220,7 @@ let app = {
 				let cTime = Math.floor(app.audio.currentTime); /* Remove Fractions */
 				let minute = 0;
 				let second = cTime;
-				for (let i = 0; i < Math.floor(second)/60 - 1; i++) {
+				while (second >= 60) {
 					minute++;
 					second -= 60;
 				}
@@ -259,6 +314,48 @@ let app = {
 			document.getElementById('description').innerHTML = trackDesc;
 		}
 	},
+	download: function(downloadP) {
+		let downloadEl = document.getElementsByClassName('downloadBtn')[0];
+		if (downloadP == 'disable') {
+			downloadEl.removeAttribute('download');
+			downloadEl.href = '#';
+		} else if (downloadP == 'enable') {
+			let trackName = Object.keys(app.tracks)[app.currentTrack];
+			let track = app.tracks[trackName];
+			console.log(track);
+			if (track.code == 'none') {
+				let date = new Date();
+				let seconds = date.getSeconds();
+				let minutes = date.getMinutes();
+				let hours = date.getHours();
+				downloadEl.download = `${trackName}_${hours}${minutes}${seconds}`;
+				downloadEl.href = app.path + track.source;
+			} else {
+				downloadEl.onclick = function() {
+					let downloadPrompt = document.getElementById('downloadPrompt');
+					downloadPrompt.style.display = 'block';
+					let downloadPromptText = document.getElementById('downloadPromptText')
+					downloadPromptText.innerHTML = `Please enter the download code for ${trackName}.`;
+					let downloadPromptLink = document.getElementById('downloadPromptLink');
+					downloadPromptLink.style.display = 'none';
+					let downloadPromptInput = document.getElementById('downloadPromptInput');
+					let downloadPromptAccept = document.getElementById('downloadPromptAccept');
+					downloadPromptAccept.onclick = function() {
+						let value = downloadPromptInput.value;
+						if (track.code == value.toLowerCase()) {
+						let date = new Date();
+						let seconds = date.getSeconds();
+						let minutes = date.getMinutes();
+						let hours = date.getHours();
+						downloadPromptLink.href = app.path + track.source;
+						downloadPromptLink.download = `${trackName}_${hours}${minutes}${seconds}`;
+						downloadPromptLink.style.display = 'block';
+						}
+					}
+				}
+			}
+		}
+	},
 	audio: '',
 	init: function() {
 		this.audio = new Audio();
@@ -334,6 +431,35 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 		
 		document.getElementById('previousBtn').onclick = function() {
 			app.previousTrack();
+		}
+		
+		document.getElementsByClassName('downloadBtn')[0].onmouseover = function() {
+			app.download('enable');
+		}
+		
+		document.getElementsByClassName('downloadBtn')[0].onclick = function() {
+			app.download();
+		}
+		
+		
+		document.getElementsByClassName('downloadBtn')[0].onmouseout = function() {
+			app.download('disable');
+		}
+		
+		let imgs = document.getElementsByTagName('img');
+		
+		for (let i = 0; i < imgs.length; i++) {
+			imgs[i].onmouseover = function(event) {
+				document.getElementById('imageDisplay').style.display = 'block';
+				this.onmousemove = function() {
+					document.getElementById('imageDisplay').style.left = event.clientX;
+					document.getElementById('imageDisplay').style.top = event.clientY;
+				}
+			}
+			imgs[i].onmouseout = function() {
+				this.onmousemove = '';
+				document.getElementById('imageDisplay').style.display = 'none';
+			}
 		}
 	}
 	app.init();

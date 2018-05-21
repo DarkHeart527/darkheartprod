@@ -313,7 +313,10 @@ app = {
 			document.getElementById('releaseDate').innerHTML = 'Release: ' + trackRelease;
 			document.getElementById('description').innerHTML = trackDesc;
 		}
+		let title = document.getElementsByTagName('title')[0];
+		title.innerHTML = `${trackName} - ${app.originalTitle}`
 	},
+	originalTitle: '',
 	download: function(downloadP) {
 		let downloadEl = document.getElementsByClassName('downloadBtn')[0];
 		if (downloadP == 'disable') {
@@ -445,6 +448,8 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 		document.getElementsByClassName('downloadBtn')[0].onmouseout = function() {
 			app.download('disable');
 		}
+		
+		app.originalTitle = document.getElementsByTagName('title')[0].innerHTML;
 		
 		let imgs = document.getElementsByTagName('img');
 		

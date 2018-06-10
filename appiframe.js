@@ -1,5 +1,4 @@
-(function() {
-console.info(`Music By DarkHeart527`);
+(function() {;
 
 let app = {
 	tracks: { /* Please note that tracks that start with a number must be at the top */
@@ -244,6 +243,8 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 			switch(lHCommand) {
 				case 'playlist':
 				
+				break;
+				default: 
 				break;
 			}
 		}

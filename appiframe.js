@@ -183,7 +183,7 @@ let app = {
 	dblClickTrue: false,
 	previousTrack: function() {
 		if (!app.dblClickTrue) {
-			dblClick = setTimeout( function() {
+			setTimeout( function() {
 				app.dblClickTrue = false;
 			}, 1000);
 		}

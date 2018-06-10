@@ -1,4 +1,4 @@
-(function() {;
+(function() {
 
 let app = {
 	tracks: { /* Please note that tracks that start with a number must be at the top */
@@ -160,7 +160,7 @@ let app = {
 	started: false,
 	play: function() {
 		if (this.started) {
-		let img;
+		let img = 'Play';
 			if (this.audio.paused) {
 				this.audio.play();
 				img = 'Pause';

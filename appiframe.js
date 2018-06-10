@@ -158,7 +158,7 @@ let app = {
 	},
 	pBarInt: '',
 	started: false,
-	play: function(cPX) {
+	play: function() {
 		if (this.started) {
 		let img;
 			if (this.audio.paused) {
@@ -168,11 +168,10 @@ let app = {
 				this.audio.pause();
 				img = 'Play';
 			}
-			return img;
 		}
+		return img;
 	},
 	iframe: false,
-	cPX: 14,
 	restartSong: function() {
 		this.audio.currentTime = 0;
 	},
@@ -209,7 +208,7 @@ let app = {
 		let obs = app.tracks;
 		let obsName = Object.keys(obs)[num];
 		obs = obs[obsName];
-		let trackName = obsName;
+		//let trackName = obsName;
 		app.openFile(obs.source);
 	},
 	audio: '',

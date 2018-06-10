@@ -156,7 +156,6 @@ let app = {
 			this.play();
 		}
 	},
-	currentTrack: 0,
 	pBarInt: '',
 	started: false,
 	play: function(cPX) {
@@ -177,7 +176,6 @@ let app = {
 	restartSong: function() {
 		this.audio.currentTime = 0;
 	},
-	dblClickTrue: false,
 	previousTrack: function() {
 		if (!app.dblClickTrue) {
 			setTimeout( function() {
@@ -212,8 +210,6 @@ let app = {
 		let obsName = Object.keys(obs)[num];
 		obs = obs[obsName];
 		let trackName = obsName;
-		let trackRelease = obs.releaseDate;
-		let trackDesc = obs.description;
 		app.openFile(obs.source);
 	},
 	audio: '',
@@ -233,16 +229,16 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 	app.init();
 	// Link Handling
 	let lHHref = location.href;
-	let lHTypes = ['open', 'redopen'];
+	//let lHTypes = ['open', 'redopen'];
 	let lHTypesStated = lHHref.split('#');
 	if (lHTypesStated.length > 1) {
 		lHTypesStated = lHTypesStated[1].split('&');
 		for (let i = 0; i < lHTypesStated.length; i++) {
 			let lHCommand = lHTypesStated[i].split('?=')[0];
-			let lHValue = lHTypesStated[i].split('?=')[1];
+			//let lHValue = lHTypesStated[i].split('?=')[1];
 			switch(lHCommand) {
 				case 'playlist':
-				
+					
 				break;
 				default: 
 				break;

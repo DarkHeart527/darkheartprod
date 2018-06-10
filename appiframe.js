@@ -150,11 +150,9 @@ let app = {
 	},
 	path: '%74%72%61%63ks/',
 	openFile: function(file) {
-		console.log(`Opening the file ${file}\n `);
 		/* Set up a progress bar (Would love a canvas progress bar [nice looking!]) */
 		clearInterval(this.pBarInt);
 		this.audio.src = this.path.toLowerCase() + file;
-		console.log(unescape(this.path.toLowerCase()));
 		this.audio.onloadedmetadata = function() {
 			this.play();
 		}
@@ -243,18 +241,12 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 		for (let i = 0; i < lHTypesStated.length; i++) {
 			let lHCommand = lHTypesStated[i].split('?=')[0];
 			let lHValue = lHTypesStated[i].split('?=')[1];
-			console.log(lHValue)
-			console.log(`Command ${lHCommand} recieved with the value of ${lHValue}\n `);
 			switch(lHCommand) {
 				case 'playlist':
 				
 				break;
-				default:
-					console.log(`Please note that the command ${lHCommand} was not found\n `);
-				break;
 			}
 		}
-	//console.log(lHTypesStated)
 	}
 }
 

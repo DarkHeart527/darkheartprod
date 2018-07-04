@@ -1,0 +1,206 @@
+<html>
+	<head>
+		<title>Loops - DarkHeart Productions</title>
+		<style>
+		body {
+		 margin: 0px;
+		}
+		header {
+		 width: 100%;
+		 height: 15%;
+		 background-color: black;
+		 display: grid;
+		 grid-template-columns: 2fr 5fr 12fr;
+		 justify-items: center;
+		 align-items: center;
+		}
+		header * {
+		 display: inline;
+		}
+		footer {
+		 width: 100%;
+		 height: 15%;
+		 background-color: black;
+		 position: fixed;
+		 bottom: 0px;
+		 left: 0px;
+		 display: grid;
+		 grid-template-columns: 2fr 2fr 6fr;
+		 justify-items: center;
+		 align-items: center;
+		}
+		footer * {
+		 margin: 15px;
+		}
+		.loopSet {
+		 width: 76%;
+		 padding: 2%;
+		 padding-right: 0%;
+		 height: auto;
+		 background-color: rgba(0, 0, 0, 1);
+		 margin: 0 auto;
+		 box-shadow: 0px 0px 25px black;
+		 border-radius: 25px;
+		 margin-top: 5%;
+		}
+		.loop {
+		 background-color: rgba(255, 155, 0, 1);
+		 width: 30%;
+		 height: 35%;
+		 margin: 1%;
+		 display: inline-block;
+		 text-align: center;
+		 border-radius: 25px;
+		 box-shadow: 0px 0px 25px rgba(255, 155, 0, 1);
+		 color: black;
+		 font-size: 25px;
+		}
+		.profilePicture {
+		 width: 75px;
+		 height: 75px;
+		 border-radius: 50%;
+		}
+		.name {
+		 color: rgb(255, 155, 0);
+		 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+		 font-size: 25px;
+		}
+		.header {
+		 /color: rgb(255, 155, 0);
+		 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+		 font-size: 25px;
+		}
+		#pauseandplay {
+		 color: rgb(255, 155, 0);
+		 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+		 font-size: 35px;
+		 cursor: pointer;
+		}
+		.loop * {
+		 margin: 5px;
+		}
+		.play {
+		 cursor: pointer;
+		}
+		.progressBar {
+		 background-color: grey;
+		 width: 75%;
+		 height: 25px;
+		}
+		#progress {
+		 background-color: orange;
+		 height: 100%;
+		 width: 0%;
+		 margin: 0px;
+		 box-shadow: 0px 0px 25px rgba(255, 155, 0, 1);
+		}
+		#time {
+		 color: rgb(255, 155, 0);
+		 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+		 font-size: 35px;
+		}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img class="profilePicture" src="../images/profile.jpg">
+			<h1 class="name">DarkHeart Productions</h1>
+			<h1 class="header">Here are your loops! New Followers: 32</h1>
+		</header>
+		<div>
+			<div class="loopSet">
+				<div class="loop">
+					<p class="loopTitle">Death</p>
+					<p class="loopBpm">BPM: 160</p>
+					<p class="loopLength">Length: 12 Seconds</p>
+					<p class="loopType">Type: Synth</p>
+					<p class="play" onclick="play(this.parentElement.getElementsByClassName('loopDownload')[0].href)">Play</p>
+					<p><a class="loopDownload" href="loops/Death.wav">Download</a></p>
+				</div>
+				<div class="loop">
+					<p class="loopTitle">Unbelievable</p>
+					<p class="loopBpm">BPM: 140</p>
+					<p class="loopLength">Length: 6 Seconds</p>
+					<p class="loopType">Type: Synth</p>
+					<p class="play" onclick="play(this.parentElement.getElementsByClassName('loopDownload')[0].href)">Play</p>
+					<p><a class="loopDownload" href="loops/Unbelievable.wav">Download</a></p>
+				</div>
+				<div class="loop">
+					<p class="loopTitle">Up And Down 1</p>
+					<p class="loopBpm">BPM: 160</p>
+					<p class="loopLength">Length: 12 Seconds</p>
+					<p class="loopType">Type: Synth</p>
+					<p class="play" onclick="play(this.parentElement.getElementsByClassName('loopDownload')[0].href)">Play</p>
+					<p><a class="loopDownload" href="loops/Up And Down 1.wav">Download</a></p>
+				</div>
+				<div class="loop">
+					<p class="loopTitle">Up And Down 2</p>
+					<p class="loopBpm">BPM: 160</p>
+					<p class="loopLength">Length: 12 Seconds</p>
+					<p class="loopType">Type: Synth</p>
+					<p class="play" onclick="play(this.parentElement.getElementsByClassName('loopDownload')[0].href)">Play</p>
+					<p><a class="loopDownload" href="loops/Up And Down 2.wav">Download</a></p>
+				</div>
+			</div>
+		</div>
+		<br /><br /><br /><br /><br /><br /><br />
+		<footer>
+			<h1 id="pauseandplay">Nothing is Playing</h1>
+			<h1 id="time">0:00 / 0:00</h1>
+			<div class="progressBar">
+				<div id="progress"></div>
+			</div>
+		</footer>
+		<audio id="audio" autoplay></audio>
+	</body>
+	<script>
+	let play = (val) => {
+		document.getElementById('audio').src = val;
+	}
+	document.getElementById('audio').onloadedmetadata = () => {
+		document.getElementById('pauseandplay').innerHTML = 'Pause';
+		document.getElementById('pauseandplay').onclick = () => {
+			document.getElementById('audio').pause();
+			document.getElementById('pauseandplay').innerHTML = "Play";
+			document.getElementById('pauseandplay').onclick = () => {
+				document.getElementById('audio').play();
+				document.getElementById('pauseandplay').innerHTML = "Pause";
+				document.getElementById('pauseandplay').onclick = () => { pause() };
+			}
+		}
+		document.getElementById('progress').attributes.max = document.getElementById('audio').duration;
+	}
+	document.getElementById('audio').onended = () => {
+		document.getElementById('audio').play();
+	}
+	let pause = () => {
+		document.getElementById('audio').pause();
+		document.getElementById('pauseandplay').innerHTML = "Play";
+		document.getElementById('pauseandplay').onclick = () => {
+			document.getElementById('audio').play();
+			document.getElementById('pauseandplay').innerHTML = "Pause";
+			document.getElementById('pauseandplay').onclick = () => {pause()};
+		}
+	}
+	let a = setInterval( function() {
+		if (!document.getElementById('progress').attributes.max) {
+		
+		} else {
+			document.getElementById('progress').style.width = (document.getElementById('audio').currentTime / document.getElementById('progress').attributes.max) * 100 + '%';
+			let duration = document.getElementById('progress').attributes.max;
+			let currentTime = document.getElementById('audio').currentTime;
+			if (currentTime < 10) {
+				currentTime = '0' + Math.floor(currentTime);
+			} else if (currentTime >= 10) {
+				currentTime = Math.floor(currentTime);
+			}
+			if (duration < 10) {
+				duration = '0' + Math.floor(duration);
+			} else if (duration => 10) {
+				duration = Math.floor(duration);
+			}
+			document.getElementById('time').innerHTML = `0:${currentTime} / 0:${duration}`;
+		}
+	}, 50);
+	</script>
+</html>

@@ -433,7 +433,7 @@ for (let j = 0; j < Object.keys(people).length; j++) {
 	let obj = people[name];
 	let tix = obj.tickets;
 	let chance = 0;
-	chance =  tix / tickets;
+	chance = (tix / tickets) * 100;
 	obj.chance = chance.toFixed(4);
 }
 // Wait for the page to load and add it to it

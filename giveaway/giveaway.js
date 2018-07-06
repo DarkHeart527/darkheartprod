@@ -405,6 +405,18 @@ let people = {
 	"robbie__bates": 1,
 	"alphalfa69_official": 1,
 	"batmetal_115": 1,}
+// Get device name by tag
+let device = location.href.split('#')[1];
+let user = location.href.split('#')[2];
+if (!device) {
+} else {
+	device = device.split('?=')[1];
+}
+if (!user) {
+	
+} else {
+	user = user.split('?=')[1];
+}
 // Add up all of the tickets and set peoples chances
 let tickets = 0;
 for (let i = 0; i < Object.keys(people).length; i++) {
@@ -427,23 +439,56 @@ for (let j = 0; j < Object.keys(people).length; j++) {
 // Wait for the page to load and add it to it
 window.onload = function() {
 	// Add search function
-	document.getElementById('search').onkeyup = function() {
-		let val = this.value;
-		if (!people[val] && val != '') {
-			document.getElementById('searchData').innerHTML = 'User Not Found, if you believe that this is an error. Please Message me <i>@darkheart_prod</i> on Instagram.';
-		} else if (people[val]) {
-			let person = people[val];
-			let chance = person.chance;
-			let tix = person.tickets;
-			let tixAmount;
-			if (tix == 1) {
-				tixAmount = '1 ticket';
-			} else {
-				tixAmount = `${tix} tickets`;
+	if (device != 'ios') {
+		document.getElementById('search').onkeyup = function() {
+			let val = this.value;
+			if (!people[val] && val != '') {
+				document.getElementById('searchData').innerHTML = 'User Not Found, if you believe that this is an error. Please Message me <i>@darkheart_prod</i> on Instagram.';
+			} else if (people[val]) {
+				let person = people[val];
+				let chance = person.chance;
+				let tix = person.tickets;
+				let tixAmount;
+				if (tix == 1) {
+					tixAmount = '1 ticket';
+				} else {
+					tixAmount = `${tix} tickets`;
+				}
+				document.getElementById('searchData').innerHTML = `<i>${val}</i> has ${tixAmount} and a chance of ${chance}%.`;
+			} else if (!val) {
+				document.getElementById('searchData').innerHTML = '';
 			}
-			document.getElementById('searchData').innerHTML = `<i>${val}</i> has ${tixAmount} and a chance of ${chance}%.`;
-		} else if (!val) {
-			document.getElementById('searchData').innerHTML = '';
+		}
+	} else {
+		let button = document.createElement('div');
+		button.innerHTML = 'Submit';
+		document.getElementById('page').appendChild(button);
+		button.id = 'submit';
+		button.onclick = function() {
+			let loc = location.href.split('#')[0];
+			location = `https://darkheart527.github.io/themoshpit/hashtagredirect`//`${loc}#device?=${device}#user?=${document.getElementById('search').value}`;
+		}
+		if (!user) {
+			
+		} else {
+			let val = user;
+			if (!people[val] && val != '') {
+				document.getElementById('searchData').innerHTML = 'User Not Found, if you believe that this is an error. Please Message me <i>@darkheart_prod</i> on Instagram.';
+			} else if (people[val]) {
+				let person = people[val];
+				let chance = person.chance;
+				let tix = person.tickets;
+				let tixAmount;
+				if (tix == 1) {
+					tixAmount = '1 ticket';
+				} else {
+					tixAmount = `${tix} tickets`;
+				}
+				document.getElementById('searchData').innerHTML = `<i>${val}</i> has ${tixAmount} and a chance of ${chance}%.`;
+			} else if (!val) {
+				document.getElementById('searchData').innerHTML = '';
+			}
+			document.getElementById('search').value = user;
 		}
 	}
 	// Make a sign in

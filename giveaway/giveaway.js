@@ -10,7 +10,6 @@ let people = {
 	"butk_gym": 1,
 	"zafarshah1540": 1,
 	"_aashika_fan_club": 1,
-	"lariiimariano": 1,
 	"m.u.r.a_d": 1,
 	"woualiii": 1,
 	"mustafa_hnyl_1905": 1,
@@ -466,7 +465,7 @@ window.onload = function() {
 		button.id = 'submit';
 		button.onclick = function() {
 			let loc = location.href.split('#')[0];
-			location = `https://darkheart527.github.io/darkheartprod/giveaway/index.html#device?=${device}#user?=${document.getElementById('search').value}`;
+			location = `https://darkheart527.github.io/themoshpit/hashtagredirect.html#https://darkheart527.github.io/darkheartprod/giveaway/index.html#device?=${device}#user?=${document.getElementById('search').value}`;
 		}
 		if (!user) {
 			

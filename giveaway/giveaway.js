@@ -466,7 +466,7 @@ window.onload = function() {
 		button.id = 'submit';
 		button.onclick = function() {
 			let loc = location.href.split('#')[0];
-			location = `https://darkheart527.github.io/themoshpit/hashtagredirect`//`${loc}#device?=${device}#user?=${document.getElementById('search').value}`;
+			location = `https://darkheart527.github.io/darkheartprod/giveaway/index.html#device?=${device}#user?=${document.getElementById('search').value}`;
 		}
 		if (!user) {
 			

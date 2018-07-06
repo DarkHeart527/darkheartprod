@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<title>Instagram Giveaway for Followers</title>
+		<script src="giveaway.js"></script>
+		<style>
+			#usersJoined {
+			 overflow-x: auto;
+			 width: 50%;
+			 height: 50%;
+			 position: absolute;
+			 left: 0px;
+			 bottom: 0px;
+			 border: 2px solid rgb(255, 155, 0);
+			 box-shadow: 0px 0px 25px rgb(255, 155, 0);
+			}
+			#usersJoined div:nth-child(odd) {
+			 background-color: rgb(255, 255, 255, 0.15);
+			 padding-top: 5px;
+			 padding-bottom: 5px;
+			}
+			input {
+			 background-color: transparent;
+			 color: rgb(255, 155, 0);
+			 border: none;
+			 outline: none;
+			 font-size: 25px;
+			 height: 40px;
+			 width: 250px;
+			 border-bottom: 2px solid rgb(255, 155, 0);
+			}
+			.input {
+			 margin: 0 auto;
+			 width: 250px;
+			}
+			#searchData {
+			 background-color: transparent;
+			 text-align: center;
+			 color: rgb(255, 155, 0);
+			 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+			 font-size: 35px;
+			 margin: 10px;
+			}
+			.searchDataContainer {
+			 width: 50%;
+			 height: 50%;
+			 right: 0px;
+			 bottom: 0px;
+			 position: absolute;
+			}
+			#tickets {
+			 font-size: 35px;
+			 color: rgb(255, 155, 0);
+			 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+			 text-align: center;
+			}
+			#usersJoined div p {
+			 text-align: center;
+			 color: rgb(255, 155, 0);
+			 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+			}
+			header {
+			 width: 100%;
+			 height: 20%;
+			 background-color: black;
+			 box-shadow: inset 0px 0px 25px rgb(255, 155, 0);
+			 display: grid;
+			 grid-template-columns: 1fr 3fr 1fr;
+			 align-items: center;
+			 justify-items: center;
+			}
+			body {
+			 margin: 0px;
+			 background-color: black;
+			}
+			#signin {
+			 color: rgb(255, 155, 0);
+			 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+			 font-size: 35px;
+			}
+			img {
+			 width: 75px;
+			 height: 75px;
+			 border-radius: 50%;
+			 margin: 10px;
+			}
+			.header {
+			 color: rgb(255, 155, 0);
+			 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+			 font-size: 45px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img src="../images/profile.jpg" />
+			<p class="header">DarkHeart Productions</p>
+			<p id="signin">Sign In (Not IG)</p>
+		</header>
+		<div>
+			<p id="tickets">Tickets: 0</p>
+			<div class="input">
+				<input id="search" value="" placeholder="IG Name">
+			</div>
+			<div class="searchDataContainer">
+				<div id="searchData">
+				</div>
+			</div>
+			<div id="usersJoined">
+				
+			</div>
+		</div>
+		<footer>
+		</footer>
+	</body>
+</html>

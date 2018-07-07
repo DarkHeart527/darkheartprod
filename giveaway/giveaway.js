@@ -213,7 +213,6 @@ let people = {
 	"nuri8804_": 1,
 	"yasminajudy": 1,
 	"sefaa_yilmazz01": 1,
-	"ahmeed._haassaan": 1,
 	"wryinb": 1,
 	"amit.patel.9256": 1,
 	"shubam4145": 1,

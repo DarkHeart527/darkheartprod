@@ -218,7 +218,6 @@ let people = {
 	"shubam4145": 1,
 	"errehaan88": 1,
 	"new_view_on_art": 1,
-	"itsdasungeunida": 1,
 	"vishalyadav220399": 1,
 	"x_ibociginiz_xd": 1,
 	"indian_legends5": 1,

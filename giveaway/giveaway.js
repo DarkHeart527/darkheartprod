@@ -293,7 +293,8 @@ let people = {
 	"meydiocre": 1,
 	"_.r.i.p": 1,
 	"blxck14": 1,
-	"itsmdk2020": 3,
+	"itsmdk2020": 28, // Follow Instagram (+1), Soundcloud (+2), Subcribe on YT (+2).
+	// Liked 23 Tracks (+23)
 	"jo._.lynn": 1,
 	"lil_daflipdgod2": 1,
 	"parcrew_": 1,

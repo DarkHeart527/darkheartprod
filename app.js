@@ -405,8 +405,9 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 				} else if (document.getElementById('searchBy').value == 'release') {
 					searchTerm = app.tracks[tracksEx[j].innerHTML].releaseDate.toUpperCase().indexOf(val);
 				} else if (document.getElementById('searchBy').value == 'featured') {
-if (app.tracks[tracksEx[j].featuring) {
-					searchTerm = app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase().indexOf(val);}
+					
+						searchTerm = app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase().indexOf(val);
+					
 				} else if (document.getElementById('searchBy').value == 'fireRating') {
 					searchTerm = app.tracks[tracksEx[j].innerHTML].fireRating.toUpperCase().indexOf(val);
 				}

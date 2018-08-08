@@ -11,6 +11,7 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'onlyforkeanu',
+			featuring: '',
 		},
 		'Locking Bars': {
 			source: 'Locking Bars.mp3',

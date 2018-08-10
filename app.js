@@ -299,7 +299,6 @@ app = {
 		/* Set up a progress bar (Would love a canvas progress bar [nice looking!]) */
 		clearInterval(this.pBarInt);
 		this.audio.src = this.path.toLowerCase() + file;
-		console.log(unescape(this.path.toLowerCase()));
 		this.audio.onloadedmetadata = function() {
 			let pBar = document.getElementById('progress');
 			let time = document.getElementById('time');

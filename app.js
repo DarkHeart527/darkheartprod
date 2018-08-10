@@ -83,6 +83,7 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'lockem215',
+			featuring: '',
 		},
 		'Ooh Boi': {
 			source: 'oohboi.mp3',
@@ -91,6 +92,7 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'onlyoohboimyboi',
+			featuring: '',
 		},
 		'Don\'t Play': {
 			source: 'dont play.mp3',
@@ -99,12 +101,14 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'playinforfools',
+			featuring: '',
 		},
 		'Don\'t Play (Preview)': {
 			source: 'dontplay_preview.mp3',
 			description: 'This was made at the top of my head, fire, yet simple. Note that this is only a preview (or teaser).',
 			releaseDate: '4 - 24 - 2018',
 			fireRating: 'Not rated',
+			featuring: '',
 		},
 		'Melted Mixtape': {
 			source: 'Melted Mixtape.mp3',
@@ -113,6 +117,7 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'melted207',
+			featuring: '',
 		},
 		' 121': {
 			source: '121.mp3',
@@ -121,6 +126,7 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Celeste': {
 			source: 'Celeste.mp3',
@@ -129,6 +135,7 @@ app = {
 			fireRating: '4',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Money': {
 			source: 'Money.mp3',
@@ -137,6 +144,7 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Chaotic': {
 			source: 'Chaotic.mp3',
@@ -145,6 +153,7 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Finally': {
 			source: 'Finally.mp3',
@@ -153,6 +162,7 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Flames': {
 			source: 'Flames.mp3',
@@ -161,6 +171,7 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'E.Z. Lop Les': {
 			source: 'E.Z. Lop Les.mp3',
@@ -169,6 +180,7 @@ app = {
 			fireRating: '4',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Death': {
 			source: 'Death.mp3',
@@ -177,6 +189,7 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Chill': {
 			source: 'Chill.mp3',
@@ -185,6 +198,7 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Flute': {
 			source: 'Flute.mp3',
@@ -201,6 +215,7 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Life Is Life': {
 			source: 'Life Is Life.mp3',
@@ -209,6 +224,7 @@ app = {
 			fireRating: '1',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Lil Happy': {
 			source: 'Lil Happy.mp3',
@@ -217,6 +233,7 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Mass': {
 			source: 'Mass.mp3',
@@ -225,6 +242,7 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Nearly Nothing': {
 			source: 'Nearly Nothing.mp3',
@@ -233,6 +251,7 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Too Late': {
 			source: 'Too Late.mp3',
@@ -241,6 +260,7 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Trash': {
 			source: 'Trash.mp3',
@@ -249,6 +269,7 @@ app = {
 			fireRating: '1',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Yet Simple': {
 			source: 'Yet Simple.mp3',
@@ -257,6 +278,7 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'Another': {
 			source: 'Another.mp3',
@@ -265,6 +287,7 @@ app = {
 			fireRating: '1',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 	},
 	path: '%74%72%61%63ks/',
@@ -468,11 +491,7 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 				} else if (document.getElementById('searchBy').value == 'release') {
 					searchTerm = app.tracks[tracksEx[j].innerHTML].releaseDate.toUpperCase().indexOf(val);
 				} else if (document.getElementById('searchBy').value == 'featured') {
-					if (app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase() != '') {
-						searchTerm = app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase().indexOf(val);
-					} else if (!app.tracks[tracksEx[j].innerHTML].featuring || app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase() == '') {
-						searchTerm = -1; // Ignore this search	
-					}
+					searchTerm = app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase().indexOf(val);
 				} else if (document.getElementById('searchBy').value == 'fireRating') {
 					searchTerm = app.tracks[tracksEx[j].innerHTML].fireRating.toUpperCase().indexOf(val);
 				}

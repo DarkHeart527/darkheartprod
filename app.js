@@ -470,7 +470,7 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 				} else if (document.getElementById('searchBy').value == 'featured') {
 					if (app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase() != '') {
 						searchTerm = app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase().indexOf(val);
-					} else {
+					} else if (!app.tracks[tracksEx[j].innerHTML].featuring || app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase() == '') {
 						searchTerm = -1; // Ignore this search	
 					}
 				} else if (document.getElementById('searchBy').value == 'fireRating') {

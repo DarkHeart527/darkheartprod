@@ -35,9 +35,9 @@ app = {
 			source: 'Bumpin.mp3',
 			description: 'Now we all can be bumpin a beat.',
 			releaseDate: '7 - 18 - 2018',
-			fireRating: '',
+			fireRating: '4',
 			download: true,
-			code: '4',
+			code: '',
 			featuring: '',
 		},
 		'Hit the Bass': {

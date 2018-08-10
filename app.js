@@ -32,7 +32,7 @@ app = {
 			featuring: '',
 		},
 		'Bumpin': {
-			source: '.mp3',
+			source: 'Bumpin.mp3',
 			description: 'Now we all can be bumpin a beat.',
 			releaseDate: '7 - 18 - 2018',
 			fireRating: '',

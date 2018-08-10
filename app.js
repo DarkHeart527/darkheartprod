@@ -207,6 +207,7 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
+			featuring: '',
 		},
 		'In Your Head': {
 			source: 'In your head.mp3',

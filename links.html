@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<style>
+			body {
+			 margin: 0px;
+			 color: white;
+			 background-color: black;
+			}
+			.round {
+			 border-radius: 50%;
+			}
+			.profilePic {
+			 width: 75px;
+			 height: 75px;
+			 box-shadow: 0px 0px 25px rgb(255, 155, 0);
+			 grid-area: 1/3;
+			}
+			.head {
+			 display: grid;
+			 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+			 justify-items: center;
+			 align-items: center;
+			}
+			.head p {
+			 display: inline-block;
+			 font-size: 45px;
+			 color: rgb(255, 155, 0);
+			 text-shadow: 0px 0px 25px rgb(255, 155, 0);
+			 grid-column-start: 4;
+			 grid-column-end: 7;
+			}
+			.links {
+			 width: 80%;
+			 height: auto;
+			 margin: 0 auto;
+			}
+			.links div {
+			 width: 49.5%;
+			 height: 49.5%;
+			 margin-top: 2%;
+			 background-color: grey;
+			 clear: left;
+			 display: inline-block;
+			 transition: .5s box-shadow, .5s border-radius, .5s width, .5s height, .5s margin-top, .5s margin-left, .5s margin-right, .5s margin-bottom;
+			 border-radius: 15px;
+			 box-shadow: 0px 0px 25px white;
+			}
+			.links div:nth-child(even) {
+			 float: right;
+			}
+			.links div * {
+			 color: rgb(255, 155, 0);
+			 margin: 15px;
+			 font-size: 35px;
+			 transition: .5s margin;
+			}
+			.links div:hover {
+			 cursor: pointer;
+			 box-shadow: 0px 0px 10px white;
+			}
+			.links div:hover * {
+			 margin: 25px;
+			}
+		</style>
+		<script>
+		let soundcloud = 'https://soundcloud.com/darkheartprod';
+		let instagram = 'https://instagram.com/darkheart_prod';
+		let facebook = '';
+		let youtube = '';
+		let website = 'https://darkheart527.github.io/darkheartprod/start.html';
+		let moshpit = 'https://darkheart527.github.io/themoshpit/links.html';
+		</script>
+	</head>
+	<body>
+		<div class="head">
+			<img class="profilePic round" src="images/profile.jpg" />
+			<p>DarkHeart Productions</p>
+		</div>
+		<div class="links">
+			<div onclick="location = soundcloud;">
+				<p>Soundcloud</p>
+			</div>
+			<div onclick="location = instagram;">
+				<p>Instagram</p>
+			</div>
+			<div onclick="location = website;">
+				<p>Website</p>
+			</div>
+			<div onclick="location = moshpit;">
+				<p>The Moshpit</p>
+			</div>
+		</div>
+	</body>
+</html>

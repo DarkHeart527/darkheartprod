@@ -431,6 +431,7 @@ app = {
 					downloadPromptLink.style.display = 'none';
 					let downloadPromptInput = document.getElementById('downloadPromptInput');
 					let downloadPromptAccept = document.getElementById('downloadPromptAccept');
+					let downloadPromptClose = document.getElementById('downloadPromptClose');
 					downloadPromptAccept.onclick = function() {
 						let value = downloadPromptInput.value;
 						if (track.code == value.toLowerCase()) {
@@ -442,6 +443,9 @@ app = {
 						downloadPromptLink.download = `${trackName}_${hours}${minutes}${seconds}.mp3`;
 						downloadPromptLink.style.display = 'block';
 						}
+					}
+					downloadPromptClose.onclick = function() {
+						downloadPrompt.style.display = 'none';
 					}
 				}
 			}

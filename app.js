@@ -13,6 +13,14 @@ app = {
 			code: '',
 			featuring: '',
 		},*/
+		'True': {
+			source: 'True.mp3',
+			description: 'Initially made for someone, but if you want it, it\'ll work!',
+			releaseDate: '8 - 23 - 18',
+			fireRating: '',
+			download: true,
+			code: '',
+		},
 		'War': {
 			source: 'War.mp3',
 			description: 'I can\'t even begin to explain how fire this is. It is just outrages! Many rappers have used this beat, I do not find all of them good but I will not give names.<br/>This beat comes with a lot of bass as well as an aggressive pluck. NOW WITH SNARE DROPS!',
@@ -330,9 +338,11 @@ app = {
 	updateTime: function(el) {
 		let time = new Date();
 		let h = time.getHours();
-		let prefix = ':';
+		let spacing = ':';
+		let suffix = 'AM';
 		if (h > 12) {
 			h -= 12;
+			suffix = 'PM';
 		}
 		let m = time.getMinutes();
 		let s = time.getSeconds();
@@ -341,8 +351,9 @@ app = {
 		}
 		if (m < 10) {
 			m = '0' + m;
+			
 		}
-		let msg = `${h}${prefix}${m}${prefix}${s}`;
+		let msg = `${h}${spacing}${m}${spacing}${s} ${suffix}`;
 		el.innerHTML = msg;
 	},
 	iframe: false,

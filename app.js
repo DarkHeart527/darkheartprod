@@ -20,7 +20,6 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: '',
-			featuring: '',
 		},
 		'Untitled': {
 			source: 'Untitled.mp3',
@@ -29,16 +28,6 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: '',
-			featuring: '',
-		},
-		'Bumpin': {
-			source: 'Bumpin.mp3',
-			description: 'Now we all can be bumpin a beat.',
-			releaseDate: '7 - 18 - 2018',
-			fireRating: '4',
-			download: true,
-			code: '',
-			featuring: '',
 		},
 		'Hit the Bass': {
 			source: 'Hit the Bass.mp3',
@@ -47,7 +36,6 @@ app = {
 			fireRating: '4',
 			download: true,
 			code: '',
-			featuring: '',
 		},
 		'Heavy': {
 			source: 'Heavy.mp3',
@@ -56,7 +44,6 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: '',
-			featuring: '',
 		},
 		'High (Experimental Track)': {
 			source: 'High.mp3',
@@ -67,6 +54,14 @@ app = {
 			code: '',
 			featuring: '',
 		},
+		'Bumpin': {
+			source: 'Bumpin.mp3',
+			description: 'Lots of kicks and tons of bass!',
+			releaseDate: '7. - 18 - 2018',
+			fireRating: '4',
+			download: true,
+			code: '',
+		},
 		'Brass': {
 			source: 'Brass.mp3',
 			description: 'This was not posted until now. Pretty fire though!',
@@ -74,7 +69,6 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'onlyforkeanu',
-			featuring: 'test',
 		},
 		'Locking Bars': {
 			source: 'Locking Bars.mp3',
@@ -83,7 +77,6 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'lockem215',
-			featuring: '',
 		},
 		'Ooh Boi': {
 			source: 'oohboi.mp3',
@@ -92,7 +85,6 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'onlyoohboimyboi',
-			featuring: '',
 		},
 		'Don\'t Play': {
 			source: 'dont play.mp3',
@@ -101,14 +93,12 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'playinforfools',
-			featuring: '',
 		},
 		'Don\'t Play (Preview)': {
 			source: 'dontplay_preview.mp3',
 			description: 'This was made at the top of my head, fire, yet simple. Note that this is only a preview (or teaser).',
 			releaseDate: '4 - 24 - 2018',
 			fireRating: 'Not rated',
-			featuring: '',
 		},
 		'Melted Mixtape': {
 			source: 'Melted Mixtape.mp3',
@@ -117,7 +107,6 @@ app = {
 			fireRating: '5',
 			download: true,
 			code: 'melted207',
-			featuring: '',
 		},
 		' 121': {
 			source: '121.mp3',
@@ -126,7 +115,6 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Celeste': {
 			source: 'Celeste.mp3',
@@ -135,7 +123,6 @@ app = {
 			fireRating: '4',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Money': {
 			source: 'Money.mp3',
@@ -144,7 +131,6 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Chaotic': {
 			source: 'Chaotic.mp3',
@@ -153,7 +139,6 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Finally': {
 			source: 'Finally.mp3',
@@ -162,7 +147,6 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Flames': {
 			source: 'Flames.mp3',
@@ -171,7 +155,6 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'E.Z. Lop Les': {
 			source: 'E.Z. Lop Les.mp3',
@@ -180,7 +163,6 @@ app = {
 			fireRating: '4',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Death': {
 			source: 'Death.mp3',
@@ -189,7 +171,6 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Chill': {
 			source: 'Chill.mp3',
@@ -198,7 +179,6 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Flute': {
 			source: 'Flute.mp3',
@@ -207,7 +187,6 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'In Your Head': {
 			source: 'In your head.mp3',
@@ -216,7 +195,6 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Life Is Life': {
 			source: 'Life Is Life.mp3',
@@ -225,7 +203,6 @@ app = {
 			fireRating: '1',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Lil Happy': {
 			source: 'Lil Happy.mp3',
@@ -234,7 +211,6 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Mass': {
 			source: 'Mass.mp3',
@@ -243,7 +219,6 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Nearly Nothing': {
 			source: 'Nearly Nothing.mp3',
@@ -252,7 +227,6 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Too Late': {
 			source: 'Too Late.mp3',
@@ -261,7 +235,6 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Trash': {
 			source: 'Trash.mp3',
@@ -270,7 +243,6 @@ app = {
 			fireRating: '1',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Yet Simple': {
 			source: 'Yet Simple.mp3',
@@ -279,7 +251,6 @@ app = {
 			fireRating: '2',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 		'Another': {
 			source: 'Another.mp3',
@@ -288,7 +259,6 @@ app = {
 			fireRating: '1',
 			download: true,
 			code: 'none',
-			featuring: '',
 		},
 	},
 	path: '%74%72%61%63ks/',
@@ -300,6 +270,7 @@ app = {
 		/* Set up a progress bar (Would love a canvas progress bar [nice looking!]) */
 		clearInterval(this.pBarInt);
 		this.audio.src = this.path.toLowerCase() + file;
+		console.log(unescape(this.path.toLowerCase()));
 		this.audio.onloadedmetadata = function() {
 			let pBar = document.getElementById('progress');
 			let time = document.getElementById('time');
@@ -348,9 +319,31 @@ app = {
 					app.easterEgg.One.rel = 'stylesheet';
 					document.head.appendChild(app.easterEgg.One);
 				}
+				if (this.cPX > 24) {
+					app.easterEgg.One.outerHTML = '';
+				}
 				return msg;
 			}
 		}
+	},
+	
+	updateTime: function(el) {
+		let time = new Date();
+		let h = time.getHours();
+		let prefix = ':';
+		if (h > 12) {
+			h -= 12;
+		}
+		let m = time.getMinutes();
+		let s = time.getSeconds();
+		if (s < 10) {
+			s = '0' + s;
+		}
+		if (m < 10) {
+			m = '0' + m;
+		}
+		let msg = `${h}${prefix}${m}${prefix}${s}`;
+		el.innerHTML = msg;
 	},
 	iframe: false,
 	cPX: 14,
@@ -400,10 +393,7 @@ app = {
 			document.getElementById('releaseDate').innerHTML = 'Release: ' + trackRelease;
 			document.getElementById('description').innerHTML = trackDesc;
 		}
-		let title = document.getElementsByTagName('title')[0];
-		title.innerHTML = `${trackName} - ${app.originalTitle}`
 	},
-	originalTitle: '',
 	download: function(downloadP) {
 		let downloadEl = document.getElementsByClassName('downloadBtn')[0];
 		if (downloadP == 'disable') {
@@ -418,7 +408,7 @@ app = {
 				let seconds = date.getSeconds();
 				let minutes = date.getMinutes();
 				let hours = date.getHours();
-				downloadEl.download = `${trackName}_${hours}${minutes}${seconds}`;
+				downloadEl.download = `${trackName}_${hours}${minutes}${seconds}.mp3`;
 				downloadEl.href = app.path + track.source;
 			} else {
 				downloadEl.onclick = function() {
@@ -438,7 +428,7 @@ app = {
 						let minutes = date.getMinutes();
 						let hours = date.getHours();
 						downloadPromptLink.href = app.path + track.source;
-						downloadPromptLink.download = `${trackName}_${hours}${minutes}${seconds}`;
+						downloadPromptLink.download = `${trackName}_${hours}${minutes}${seconds}.mp3`;
 						downloadPromptLink.style.display = 'block';
 						}
 					}
@@ -453,6 +443,7 @@ app = {
 		this.audio.onended = function() {
 			app.nextTrack();
 		}
+		setInterval(function() {app.updateTime(document.getElementsByClassName('headerTime')[0])}, 250);
 	}
 }
 
@@ -491,7 +482,12 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 				} else if (document.getElementById('searchBy').value == 'release') {
 					searchTerm = app.tracks[tracksEx[j].innerHTML].releaseDate.toUpperCase().indexOf(val);
 				} else if (document.getElementById('searchBy').value == 'featured') {
-					searchTerm = app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase().indexOf(val);
+					if (typeof(app.tracks[tracksEx[j].innerHTML].featuring) == 'undefined') {
+						searchTerm = -1;
+					} else {
+						console.log(app.tracks[tracksEx[j].innerHTML].featuring);
+						searchTerm = app.tracks[tracksEx[j].innerHTML].featuring.toUpperCase().indexOf(val);
+					}
 				} else if (document.getElementById('searchBy').value == 'fireRating') {
 					searchTerm = app.tracks[tracksEx[j].innerHTML].fireRating.toUpperCase().indexOf(val);
 				}
@@ -535,8 +531,6 @@ window.onload = function() { /* Make sure to start the program AFTER the page lo
 		document.getElementsByClassName('downloadBtn')[0].onmouseout = function() {
 			app.download('disable');
 		}
-		
-		app.originalTitle = document.getElementsByTagName('title')[0].innerHTML;
 		
 		let imgs = document.getElementsByTagName('img');
 		

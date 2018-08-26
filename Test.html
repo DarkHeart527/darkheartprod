@@ -20,7 +20,7 @@
 		<audio id="myAudio" src="tracks/High.mp3"></audio>
 		<div class="controls">
 			<p>Bars</p>
-			<input max="2500" min="1" id="barAmount" step="1" value="5" type="range"></input>
+			<input max="250" min="25" id="barAmount" step="1" value="25" type="range"></input>
 		</div>
 	</body>
 	<script>
@@ -28,40 +28,55 @@
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 	let c = canvas.getContext('2d');
-	let audio;
-		let data;
-		  var ctx = new AudioContext();
-		  audio = document.getElementById('myAudio');
-		  audio.crossOrigin = "anonymous";
-		  var audioSrc = ctx.createMediaElementSource(audio);
-		  var analyser = ctx.createAnalyser();
-		  // we have to connect the MediaElementSource with the analyser 
-		  audioSrc.connect(ctx.destination);
-		  audioSrc.connect(analyser);
-		  // we could configure the analyser: e.g. analyser.fftSize (for further infos read the spec)
-		 
-		  // frequencyBinCount tells you how many values you'll receive from the analyser
-		  var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-		 
-		  // we're ready to receive some data!
-		  let count = 10;
-		  // loop
-		  function renderFrame() {
-			 requestAnimationFrame(renderFrame);
-			 // update data in frequencyData
-			 data = analyser.getByteFrequencyData(frequencyData);
+	let settings = {
+		graphics: {
+			bars: 25,
+		},
+		volume: 100,
+		speed: 1,
+		mode: {
+			studio: true,
+			record: false,
+			preview: false,
+		},
+	};
+	let app = {
+		renderFrame: function() {
+			 requestAnimationFrame(app.renderFrame);
+			 let count = settings.graphics.bars;
 			 c.clearRect(0, 0, canvas.width, canvas.height);
-			 for (let i = 1; i < count + 1; i++) {
+			 for (let i = 1; i < settings.graphics.bars + 1; i++) {
 			  c.beginPath();
-			  c.fill = 'red';
-			  c.fillRect(window.innerWidth / 2 / count * i, innerHeight - 50, 5, -frequencyData[i] * 10);
+			  c.fillStyle = 'black';
+			  if (settings.mode.studio == false) {
+				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -this.frequencyData[i] * 10);
+			  } else {
+				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 250));
+			  }
+			  c.fill();
 			  c.closePath();
 			 }
-		  }
-		  audio.play();
-		  renderFrame();
-			 setInterval( function() {
-				count = document.getElementById('barAmount').value;
-			 }, 50);
+		},
+		start: function() {
+			app.renderFrame();
+			this.audioCtx = new AudioContext();
+			this.audio = document.getElementById('myAudio');
+			this.audioSrc = this.audioCtx.createMediaElementSource(this.audio);
+			this.analyser = this.audioCtx.createAnalyser();
+			this.audioSrc.connect(this.audioCtx.destination);
+			this.audioSrc.connect(this.analyser);
+			this.frequencyData = new Uint8Array(this.analyser.frequencyBinCount);
+			this.renderFrame();
+			setInterval( function() {
+				settings.graphics.bars = document.getElementById('barAmount').value;
+			}, 100);
+		},
+		audio: '',
+		audioCtx: '',
+		analyser: '',
+		audioSrc: '',
+		frequencyData: '',
+	};
+	app.start();
 	</script>
 </html>

@@ -49,8 +49,8 @@
 			  c.beginPath();
 			  c.fillStyle = 'black';
 			  if (settings.mode.studio == false) {
-				this.frequencyData = new Uint8Array(app.analyser.frequencyBinCount);
-				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -this.frequencyData[i] * 10);
+				app.frequencyData = new Uint8Array(app.analyser.frequencyBinCount);
+				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * 10);
 			  } else {
 				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 250));
 			  }
@@ -60,14 +60,14 @@
 		},
 		start: function() {
 			app.renderFrame();
-			this.audioCtx = new AudioContext();
-			this.audio = document.getElementById('myAudio');
-			this.audioSrc = this.audioCtx.createMediaElementSource(this.audio);
-			app.analyser = this.audioCtx.createAnalyser();
-			this.frequencyData = new Uint8Array(this.analyser.frequencyBinCount);
-			this.audioSrc.connect(this.audioCtx.destination);
-			this.audioSrc.connect(this.analyser);
-			this.renderFrame();
+			app.audioCtx = new AudioContext();
+			app.audio = document.getElementById('myAudio');
+			app.audioSrc = app.audioCtx.createMediaElementSource(this.audio);
+			app.analyser = app.audioCtx.createAnalyser();
+			app.frequencyData = new Uint8Array(app.analyser.frequencyBinCount);
+			app.audioSrc.connect(app.audioCtx.destination);
+			app.audioSrc.connect(app.analyser);
+			app.renderFrame();
 			setInterval( function() {
 				settings.graphics.bars = document.getElementById('barAmount').value;
 			}, 100);

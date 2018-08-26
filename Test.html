@@ -5,6 +5,7 @@
 	</body>
 	<script>
 	let audio;
+		let data;
 		  var ctx = new AudioContext();
 		  audio = document.getElementById('myAudio');
 		  audio.crossOrigin = "anonymous";
@@ -23,22 +24,7 @@
 		  function renderFrame() {
 			 requestAnimationFrame(renderFrame);
 			 // update data in frequencyData
-			 analyser.getByteFrequencyData(frequencyData);
-			 // render frame based on values in frequencyData
-			 // console.log(frequencyData)// a full circle
-			var twoPi = 2*Math.PI;
-			var objectsCount = 12;
-			var radius = 100
-			 
-			// you want to align objectsCount objects on the circular path
-			// with constant distance between neighbors
-			var change = twoPi/objectsCount;
-			for (var i=0; i < twoPi; i+=change) {
-			  var x = radius* Math.cos(i);
-			  var y = radius* Math.sin(i);
-			  // rotation of object in radians
-			  var rotation = i;
-			  // set the CSS properties to calculated values
+			 data = analyser.getByteFrequencyData(frequencyData);
 			}
 		  }
 		  audio.play();

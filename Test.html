@@ -49,7 +49,7 @@
 			  c.beginPath();
 			  c.fillStyle = 'black';
 			  if (settings.mode.studio == false) {
-				app.frequencyData = new Uint8Array(app.analyser.frequencyBinCount);
+				app.analyser.getByteFrequencyData(app.frequencyData);
 				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * 10);
 			  } else {
 				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 250));
@@ -59,7 +59,6 @@
 			 }
 		},
 		start: function() {
-			app.renderFrame();
 			app.audioCtx = new AudioContext();
 			app.audio = document.getElementById('myAudio');
 			app.audioSrc = app.audioCtx.createMediaElementSource(app.audio);
@@ -79,5 +78,37 @@
 		frequencyData: '',
 	};
 	app.start();
+	/*
+	
+		let data;
+		  var ctx = new AudioContext();
+		  audio = document.getElementById('myAudio');
+		  audio.crossOrigin = "anonymous";
+		  var audioSrc = ctx.createMediaElementSource(audio);
+		  var analyser = ctx.createAnalyser();
+		  // we have to connect the MediaElementSource with the analyser 
+		  audioSrc.connect(ctx.destination);
+		  audioSrc.connect(analyser);
+		  // we could configure the analyser: e.g. analyser.fftSize (for further infos read the spec)
+		 
+		  // frequencyBinCount tells you how many values you'll receive from the analyser
+		  var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+		 
+		  // we're ready to receive some data!
+		  let count = 10;
+		  // loop
+		  function renderFrame() {
+			 requestAnimationFrame(renderFrame);
+			 // update data in frequencyData
+			 data = analyser.getByteFrequencyData(frequencyData);
+			 c.clearRect(0, 0, canvas.width, canvas.height);
+			 for (let i = 1; i < count + 1; i++) {
+			  c.beginPath();
+			  c.fill = 'red';
+			  c.fillRect(window.innerWidth / 2 / count * i, innerHeight - 50, 5, -Math.floor(Math.random() * 100));
+			  c.closePath();
+			 }
+		  }
+	*/
 	</script>
 </html>

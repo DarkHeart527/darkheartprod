@@ -1,10 +1,32 @@
 <html>
+	<head>
+		<title>Audio Analyser</title>
+		<style>
+		body {
+		 margin: 0px;
+		}
+		.controls {
+		 position: absolute;
+		 right: 0px;
+		 top: 0px;
+		 background-color: rgba(0, 0, 0, 0.5);
+		 width: 25%;
+		 height: 50%;
+		}
+		</style>
+	</head>
 	<body>
-		<canvas id="canvas">
+		<canvas id="canvas"></canvas>
 		<audio id="myAudio" src="tracks/High.mp3"></audio>
+		<div class="controls">
+			<p>Bars</p>
+			<input max="2500" min="1" id="barAmount" step="1" value="5" type="range"></input>
+		</div>
 	</body>
 	<script>
 	let canvas = document.getElementById('canvas');
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
 	let c = canvas.getContext('2d');
 	let audio;
 		let data;
@@ -22,16 +44,24 @@
 		  var frequencyData = new Uint8Array(analyser.frequencyBinCount);
 		 
 		  // we're ready to receive some data!
+		  let count = 10;
 		  // loop
 		  function renderFrame() {
 			 requestAnimationFrame(renderFrame);
 			 // update data in frequencyData
 			 data = analyser.getByteFrequencyData(frequencyData);
-			 for (let i = 0; i < 10; i++) {
-			  c.rect(i * 2, 0, 2, frequencyData[i]); 
+			 c.clearRect(0, 0, canvas.width, canvas.height);
+			 for (let i = 1; i < count + 1; i++) {
+			  c.beginPath();
+			  c.fill = 'red';
+			  c.fillRect(window.innerWidth / 2 / count * i, innerHeight - 50, 5, frequencyData[i] * 10);
+			  c.closePath();
 			 }
 		  }
 		  audio.play();
 		  renderFrame();
+			 setInterval( function() {
+				count = document.getElementById('barAmount').value;
+			 }, 50);
 	</script>
 </html>

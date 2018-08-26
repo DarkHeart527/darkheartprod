@@ -62,7 +62,7 @@
 			app.renderFrame();
 			app.audioCtx = new AudioContext();
 			app.audio = document.getElementById('myAudio');
-			app.audioSrc = app.audioCtx.createMediaElementSource(this.audio);
+			app.audioSrc = app.audioCtx.createMediaElementSource(app.audio);
 			app.analyser = app.audioCtx.createAnalyser();
 			app.frequencyData = new Uint8Array(app.analyser.frequencyBinCount);
 			app.audioSrc.connect(app.audioCtx.destination);

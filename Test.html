@@ -4,6 +4,8 @@
 		<audio id="myAudio" src="tracks/High.mp3"></audio>
 	</body>
 	<script>
+	let canvas = document.getElementById('canvas');
+	let c = canvas.getContext('2d');
 	let audio;
 		let data;
 		  var ctx = new AudioContext();
@@ -25,6 +27,9 @@
 			 requestAnimationFrame(renderFrame);
 			 // update data in frequencyData
 			 data = analyser.getByteFrequencyData(frequencyData);
+			 for (let i = 0; i < 10; i++) {
+			  c.rect(i * 2, 0, 2, frequencyData[i]); 
+			 }
 		  }
 		  audio.play();
 		  renderFrame();

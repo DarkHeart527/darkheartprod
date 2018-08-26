@@ -49,7 +49,7 @@
 			  c.beginPath();
 			  c.fillStyle = 'black';
 			  if (settings.mode.studio == false) {
-			this.frequencyData = new Uint8Array(this.analyser.frequencyBinCount);
+				this.frequencyData = new Uint8Array(app.analyser.frequencyBinCount);
 				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -this.frequencyData[i] * 10);
 			  } else {
 				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 250));
@@ -63,7 +63,7 @@
 			this.audioCtx = new AudioContext();
 			this.audio = document.getElementById('myAudio');
 			this.audioSrc = this.audioCtx.createMediaElementSource(this.audio);
-			this.analyser = this.audioCtx.createAnalyser();
+			app.analyser = this.audioCtx.createAnalyser();
 			this.frequencyData = new Uint8Array(this.analyser.frequencyBinCount);
 			this.audioSrc.connect(this.audioCtx.destination);
 			this.audioSrc.connect(this.analyser);

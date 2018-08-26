@@ -70,6 +70,10 @@
 			setInterval( function() {
 				settings.graphics.bars = document.getElementById('barAmount').value;
 			}, 100);
+			window.onresize = function() {
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+			}
 		},
 		audio: '',
 		audioCtx: '',

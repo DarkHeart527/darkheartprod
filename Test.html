@@ -60,6 +60,8 @@
 				<p class="sectionHeader">Bars</p>
 				<p class="sectionDivision">Amount</p>
 				<input max="250" min="25" id="barAmount" step="1" value="25" type="range"></input>
+				<p class="sectionDivision">Max Size</p>
+				<input max="10" min="0" id="barMaxSize" step="0.01" value="1" type="range"></input>
 				<p class="sectionDivision">Color</p>
 				<div class="barColor">
 					<div id="normal">
@@ -83,6 +85,7 @@
 	let settings = {
 		graphics: {
 			bars: 25,
+			maxSize: 1,
 		},
 		volume: 100,
 		speed: 1,
@@ -101,12 +104,12 @@
 				c.clearRect(0, 0, canvas.width, canvas.height);
 				for (let i = 1; i < settings.graphics.bars + 1; i++) {
 					c.beginPath();
-					c.fillStyle = 'black';
+					c.fillStyle = `rgb(${document.getElementById('barRed').value},${document.getElementById('barGreen').value},${document.getElementById('barBlue').value})`;
 					if (settings.mode.studio == false) {
 						app.analyser.getByteFrequencyData(app.frequencyData);
-						c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * 10);
+						c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * settings.graphics.maxSize);
 					} else {
-						c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 250));
+						c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 255) * settings.graphics.maxSize);
 					}
 					c.fill();
 					c.closePath();
@@ -124,6 +127,7 @@
 			app.renderFrame();
 			setInterval( function() {
 				settings.graphics.bars = document.getElementById('barAmount').value;
+				settings.graphics.maxSize = document.getElementById('barMaxSize').value;
 			}, 100);
 			
 			window.onresize = function() {

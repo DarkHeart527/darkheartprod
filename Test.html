@@ -12,6 +12,37 @@
 		 background-color: rgba(0, 0, 0, 0.5);
 		 width: 25%;
 		 height: 50%;
+		 overflow-x: auto;
+		 padding: 5px;
+		}
+		.sectionHeader {
+		 color: white;
+		 font-size: 35px;
+		 border-bottom: 1px solid black;
+		 text-align: center;
+		}
+		
+		div {
+		 margin: 0 auto;
+		}
+		.menu {
+		 display: grid;
+		 grid-template-columns: 1fr 1fr;
+		 grid-template-rows: 1fr 1fr;
+		 justify-items: center;
+		 align-items: center;
+		}
+		.menu p {
+		 cursor: pointer;
+		 color: white;
+		 transition: .5s color, 1s padding, 1s outline;
+		 outline-color: #2cb200
+		 text-align: center;
+		}
+		.menu p:hover {
+		 color: #2cb200;
+		 outline: 3px solid white;
+		 padding: 5px;
 		}
 		</style>
 	</head>
@@ -19,8 +50,29 @@
 		<canvas id="canvas"></canvas>
 		<audio id="myAudio" src="tracks/High.mp3"></audio>
 		<div class="controls">
-			<p>Bars</p>
-			<input max="250" min="25" id="barAmount" step="1" value="25" type="range"></input>
+			<div class="menu">
+				<p>By DarkHeart Productions</p>
+				<p id="studioMode">Studio Mode: ON</p>
+				<p id="playpause">Audio: Paused</p>
+				<p id="additionalSettings">Additional Settings</p>
+			</div>
+			<div>
+				<p class="sectionHeader">Bars</p>
+				<p class="sectionDivision">Amount</p>
+				<input max="250" min="25" id="barAmount" step="1" value="25" type="range"></input>
+				<p class="sectionDivision">Color</p>
+				<div class="barColor">
+					<div id="normal">
+						<p class="sectionVariable">R</p>
+						<input max="255" min="0" id="barRed" step="1" value="0" type="range"></input>
+						<p class="sectionVariable">G</p>
+						<input max="255" min="0" id="barGreen" step="1" value="0" type="range"></input>
+						<p class="sectionVariable">B</p>
+						<input max="255" min="0" id="barBlue" step="1" value="0" type="range"></input>
+					</div>
+					<!--<div id="special"></div>-->
+				</div>
+			</div>
 		</div>
 	</body>
 	<script>
@@ -42,21 +94,24 @@
 	};
 	let app = {
 		renderFrame: function() {
-			 requestAnimationFrame(app.renderFrame);
-			 let count = settings.graphics.bars;
-			 c.clearRect(0, 0, canvas.width, canvas.height);
-			 for (let i = 1; i < settings.graphics.bars + 1; i++) {
-			  c.beginPath();
-			  c.fillStyle = 'black';
-			  if (settings.mode.studio == false) {
-				app.analyser.getByteFrequencyData(app.frequencyData);
-				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * 10);
-			  } else {
-				c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 250));
-			  }
-			  c.fill();
-			  c.closePath();
-			 }
+			requestAnimationFrame(app.renderFrame); // This still has to run though
+			if (app.audio.paused == false || settings.mode.studio == true) { // In other words... Don't run commands you do not need
+				// Also prevents lag time!!!
+				let count = settings.graphics.bars;
+				c.clearRect(0, 0, canvas.width, canvas.height);
+				for (let i = 1; i < settings.graphics.bars + 1; i++) {
+					c.beginPath();
+					c.fillStyle = 'black';
+					if (settings.mode.studio == false) {
+						app.analyser.getByteFrequencyData(app.frequencyData);
+						c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * 10);
+					} else {
+						c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 250));
+					}
+					c.fill();
+					c.closePath();
+				}
+			}
 		},
 		start: function() {
 			app.audioCtx = new AudioContext();
@@ -70,9 +125,34 @@
 			setInterval( function() {
 				settings.graphics.bars = document.getElementById('barAmount').value;
 			}, 100);
+			
 			window.onresize = function() {
 				canvas.width = window.innerWidth;
 				canvas.height = window.innerHeight;
+			}
+			document.getElementById('studioMode').onclick = function() {
+				if (settings.mode.studio == false) {
+					settings.mode.studio = true;
+					document.getElementById('studioMode').innerHTML = 'Studio Mode: ON';
+					c.clearRect(0, 0, canvas.width, canvas.height); // Clear to prevent leaving marks
+				} else {
+					settings.mode.studio = false;
+					document.getElementById('studioMode').innerHTML = 'Studio Mode: OFF';
+					c.clearRect(0, 0, canvas.width, canvas.height); // Clear to prevent leaving marks
+				}
+			}
+			document.getElementById('playpause').onclick = function() {
+				if (app.audio.paused == true) {
+					app.audio.play();
+					document.getElementById('playpause').innerHTML = 'Audio: Playing';
+					if (app.audio.paused == true) {
+						document.getElementById('playpause').innerHTML = 'Audio: Paused';
+						alert('There might be an error in the URL, please check the URL you used. \n\nIf this problem persists, please DM through Instagram. \n@darkheart_prod');
+					}
+				} else {
+					app.audio.pause();
+					document.getElementById('playpause').innerHTML = 'Audio: Paused';
+				}
 			}
 		},
 		audio: '',

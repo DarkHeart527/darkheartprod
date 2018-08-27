@@ -152,6 +152,7 @@
 				} else {
 					app.audio.pause();
 					document.getElementById('playpause').innerHTML = 'Audio: Paused';
+					c.clearRect(0, 0, canvas.width, canvas.height); // Clear to prevent leaving marks
 				}
 			}
 		},

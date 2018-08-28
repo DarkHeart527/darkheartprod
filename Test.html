@@ -78,8 +78,12 @@
 				<div class="choice">
 					<p id="changeToBars">Bars</p>
 					<p id="changeToCircles">Circles</p>
-					<!--<p id="bars">Bars</p>
-					<p id="bars">Bars</p>-->
+					<p id="changeToVibratingCircles">Vibrating Circles</p>
+					<!--<p id="bars">Bars</p>-->
+				</div>
+				<div id="vibrateSettings" style="display: none;">
+					<p class="sectionDivision">Vibrate Strength</p>
+					<input max="10" min="1" id="circleVibration" step="1" value="3" type="range"></input>
 				</div>
 				<p class="sectionDivision">Amount</p>
 				<input max="250" min="25" id="barAmount" step="1" value="25" type="range"></input>
@@ -114,6 +118,9 @@
 				type: 'bars',
 				maxSize: 1,
 			},
+			circles: {
+				vibrateStrength: 3,
+			},
 		},
 		volume: 100,
 		speed: 1,
@@ -131,6 +138,8 @@
 				let count = settings.graphics.bars.amount;
 				c.clearRect(0, 0, canvas.width, canvas.height);
 				for (let i = 1; i < settings.graphics.bars.amount + 1; i++) {
+					let vibOffSetX = Math.floor(Math.random() * settings.graphics.circles.vibrateStrength - Math.random() * settings.graphics.circles.vibrateStrength);
+					let vibOffSetY = Math.floor(Math.random() * settings.graphics.circles.vibrateStrength - Math.random() * settings.graphics.circles.vibrateStrength);
 					c.beginPath();
 					c.fillStyle = `rgba(${document.getElementById('barRed').value},${document.getElementById('barGreen').value},${document.getElementById('barBlue').value},${document.getElementById('barTransparency').value})`;
 					if (settings.mode.studio == false) {
@@ -139,12 +148,16 @@
 							c.ellipse(window.innerWidth / 2 / count * i, -app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						} else if (settings.graphics.bars.type == 'bars') {
 							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * settings.graphics.bars.maxSize);
+						} else if (settings.graphics.bars.type == 'vibratingCircles') { // NOT DONE
+							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						}
 					} else {
 						if (settings.graphics.bars.type == 'circles') {
 							c.ellipse(window.innerWidth / 2 / count * i, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						} else if (settings.graphics.bars.type == 'bars') {
 							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize);
+						} else if (settings.graphics.bars.type == 'vibratingCircles') { // NOT DONE
+							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						}
 					}
 					c.fill();
@@ -164,6 +177,7 @@
 			setInterval( function() {
 				settings.graphics.bars.amount = document.getElementById('barAmount').value;
 				settings.graphics.bars.maxSize = document.getElementById('barMaxSize').value;
+				settings.graphics.circles.vibrateStrength = document.getElementById('circleVibration').value;
 			}, 100);
 			
 			window.onresize = function() {
@@ -183,9 +197,15 @@
 			}
 			document.getElementById('changeToBars').onclick = function() {
 				settings.graphics.bars.type = 'bars';
+				document.getElementById('vibrateSettings').style.display = 'none';
 			}
 			document.getElementById('changeToCircles').onclick = function() {
 				settings.graphics.bars.type = 'circles';
+				document.getElementById('vibrateSettings').style.display = 'none';
+			}
+			document.getElementById('changeToVibratingCircles').onclick = function() {
+				settings.graphics.bars.type = 'vibratingCircles';
+				document.getElementById('vibrateSettings').style.display = 'block';
 			}
 			document.getElementById('playpause').onclick = function() {
 				if (app.audio.paused == true) {

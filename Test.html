@@ -44,6 +44,22 @@
 		 outline: 3px solid white;
 		 padding: 5px;
 		}
+		.choice {
+		 display: grid;
+		 grid-template-columns: 1fr 1fr;
+		 justify-items: center;
+		 align-items: center;
+		}
+		.choice p {
+		 color: white;
+		 cursor: pointer;
+		 transition: .5s color, 1s padding, 1s outline;
+		}
+		.choice p:hover {
+		 color: #2cb200;
+		 outline: 3px solid white;
+		 padding: 5px;
+		}
 		</style>
 	</head>
 	<body>
@@ -58,6 +74,13 @@
 			</div>
 			<div>
 				<p class="sectionHeader">Bars</p>
+				<p class="sectionDivision">Type</p>
+				<div class="choice">
+					<p id="changeToBars">Bars</p>
+					<p id="changeToCircles">Circles</p>
+					<!--<p id="bars">Bars</p>
+					<p id="bars">Bars</p>-->
+				</div>
 				<p class="sectionDivision">Amount</p>
 				<input max="250" min="25" id="barAmount" step="1" value="25" type="range"></input>
 				<p class="sectionDivision">Max Size</p>
@@ -71,6 +94,8 @@
 						<input max="255" min="0" id="barGreen" step="1" value="0" type="range"></input>
 						<p class="sectionVariable">B</p>
 						<input max="255" min="0" id="barBlue" step="1" value="0" type="range"></input>
+						<p class="sectionVariable">Transparency</p>
+						<input max="1" min="0" value="1" style="transform: rotate(180deg)" id="barTransparency" step="0.01" value="0" type="range"></input>
 					</div>
 					<!--<div id="special"></div>-->
 				</div>
@@ -84,8 +109,11 @@
 	let c = canvas.getContext('2d');
 	let settings = {
 		graphics: {
-			bars: 25,
-			maxSize: 1,
+			bars: {
+				amount: 25,
+				type: 'bars',
+				maxSize: 1,
+			},
 		},
 		volume: 100,
 		speed: 1,
@@ -100,16 +128,24 @@
 			requestAnimationFrame(app.renderFrame); // This still has to run though
 			if (app.audio.paused == false || settings.mode.studio == true) { // In other words... Don't run commands you do not need
 				// Also prevents lag time!!!
-				let count = settings.graphics.bars;
+				let count = settings.graphics.bars.amount;
 				c.clearRect(0, 0, canvas.width, canvas.height);
-				for (let i = 1; i < settings.graphics.bars + 1; i++) {
+				for (let i = 1; i < settings.graphics.bars.amount + 1; i++) {
 					c.beginPath();
-					c.fillStyle = `rgb(${document.getElementById('barRed').value},${document.getElementById('barGreen').value},${document.getElementById('barBlue').value})`;
+					c.fillStyle = `rgba(${document.getElementById('barRed').value},${document.getElementById('barGreen').value},${document.getElementById('barBlue').value},${document.getElementById('barTransparency').value})`;
 					if (settings.mode.studio == false) {
 						app.analyser.getByteFrequencyData(app.frequencyData);
-						c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * settings.graphics.maxSize);
+						if (settings.graphics.bars.type == 'circles') {
+							c.ellipse(window.innerWidth / 2 / count * i, -app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
+						} else if (settings.graphics.bars.type == 'bars') {
+							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * settings.graphics.bars.maxSize);
+						}
 					} else {
-						c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 255) * settings.graphics.maxSize);
+						if (settings.graphics.bars.type == 'circles') {
+							c.ellipse(window.innerWidth / 2 / count * i, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
+						} else if (settings.graphics.bars.type == 'bars') {
+							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize);
+						}
 					}
 					c.fill();
 					c.closePath();
@@ -126,8 +162,8 @@
 			app.audioSrc.connect(app.analyser);
 			app.renderFrame();
 			setInterval( function() {
-				settings.graphics.bars = document.getElementById('barAmount').value;
-				settings.graphics.maxSize = document.getElementById('barMaxSize').value;
+				settings.graphics.bars.amount = document.getElementById('barAmount').value;
+				settings.graphics.bars.maxSize = document.getElementById('barMaxSize').value;
 			}, 100);
 			
 			window.onresize = function() {
@@ -144,6 +180,12 @@
 					document.getElementById('studioMode').innerHTML = 'Studio Mode: OFF';
 					c.clearRect(0, 0, canvas.width, canvas.height); // Clear to prevent leaving marks
 				}
+			}
+			document.getElementById('changeToBars').onclick = function() {
+				settings.graphics.bars.type = 'bars';
+			}
+			document.getElementById('changeToCircles').onclick = function() {
+				settings.graphics.bars.type = 'circles';
 			}
 			document.getElementById('playpause').onclick = function() {
 				if (app.audio.paused == true) {

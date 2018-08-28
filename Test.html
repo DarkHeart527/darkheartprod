@@ -60,6 +60,22 @@
 		 outline: 3px solid white;
 		 padding: 5px;
 		}
+		#url {
+		 width: 80%;
+		 height: 25px;
+		 color: white;
+		 border: none;
+		 background-color: rgba(255, 255, 255, 0.25);
+		 padding: 5px;
+		 text-align: center;
+		 margin-left: 10%;
+		 border-bottom: 1px solid red;
+		 transition: 1s;
+		 cursor: pointer
+		}
+		#url:hover {
+		 background-color: rgba(255, 255, 255 0.5);
+		}
 		</style>
 	</head>
 	<body>
@@ -73,6 +89,8 @@
 				<p id="additionalSettings">Additional Settings</p>
 			</div>
 			<div>
+				<p class="sectionHeader">URL</p>
+				<input id="url" placeholder="https://awebsite.com/mysong.mp3" type="url">
 				<p class="sectionHeader">Bars</p>
 				<p class="sectionDivision">Type</p>
 				<div class="choice">
@@ -121,6 +139,12 @@
 			circles: {
 				vibrateStrength: 3,
 			},
+			time: {
+				pos: {
+					x: innerWidth/2,
+					y: innerHeight/2,
+				},
+			},
 		},
 		volume: 100,
 		speed: 1,
@@ -162,6 +186,9 @@
 					}
 					c.fill();
 					c.closePath();
+				}
+				if (settings.graphics.time.enabled == true) {
+					
 				}
 			}
 		},
@@ -208,6 +235,9 @@
 				document.getElementById('vibrateSettings').style.display = 'block';
 			}
 			document.getElementById('playpause').onclick = function() {
+				if (document.getElementById('url').value != app.audio.src) {
+					app.audio.src = document.getElementById('url').value;
+				}
 				if (app.audio.paused == true) {
 					app.audio.play();
 					document.getElementById('playpause').innerHTML = 'Audio: Playing';

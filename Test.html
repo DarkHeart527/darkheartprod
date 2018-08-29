@@ -91,6 +91,8 @@
 			<div>
 				<p class="sectionHeader">URL</p>
 				<input id="url" placeholder="https://awebsite.com/mysong.mp3" type="url">
+				<p class="sectionDivision">OR</p>
+				<input id="file" type="file" accept="audio/mp3,audio/ogg,audio/wav" />
 				<p class="sectionHeader">Bars</p>
 				<p class="sectionDivision">Type</p>
 				<div class="choice">
@@ -192,6 +194,19 @@
 				}
 			}
 		},
+		fileUploaded: function(file) {
+			let reader = new FileReader();
+			
+			reader.onload = function() {
+				app.audio.src = reader.result;
+			}
+			
+			if (file) {
+				reader.readAsDataURL(file);
+			} else {
+			 alert('File could not be uploaded at this time.\nIf this error persists, please DM me on Instagram.\n@darkheart_prod');
+			}
+		},
 		start: function() {
 			app.audioCtx = new AudioContext();
 			app.audio = document.getElementById('myAudio');
@@ -233,6 +248,9 @@
 			document.getElementById('changeToVibratingCircles').onclick = function() {
 				settings.graphics.bars.type = 'vibratingCircles';
 				document.getElementById('vibrateSettings').style.display = 'block';
+			}
+			document.getElementById('file').onchange = function() {
+				app.fileUploaded(this.files[0]);
 			}
 			document.getElementById('playpause').onclick = function() {
 				if (document.getElementById('url').value != app.audio.src) {

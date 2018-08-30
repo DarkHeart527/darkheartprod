@@ -60,7 +60,6 @@ app = {
 			fireRating: '3',
 			download: true,
 			code: '',
-			featuring: '',
 		},
 		'Bumpin': {
 			source: 'Bumpin.mp3',

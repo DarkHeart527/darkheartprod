@@ -354,6 +354,7 @@ app = {
 		}
 		let msg = `${h}${spacing}${m}${spacing}${s} ${suffix}`;
 		el.innerHTML = msg;
+		document.getElementsByTagName('title')[0] = `${msg} DarkHeart Productions`
 	},
 	iframe: false,
 	cPX: 14,

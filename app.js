@@ -17,7 +17,7 @@ app = {
 			source: 'True.mp3',
 			description: 'Initially made for someone, but if you want it, it\'ll work!',
 			releaseDate: '8 - 23 - 18',
-			fireRating: '',
+			fireRating: 'Not Rated',
 			download: true,
 			code: '',
 		},

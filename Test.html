@@ -233,30 +233,30 @@
 					} else {
 						mainSizing = settings.graphics.bars.mainSizing;
 					}
-					
+					/*
 					if (settings.graphics.bars.type == 'circles') {
 						c.ellipse(mainSizing / count * i + spacing * i, y, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 					} else if (settings.graphics.bars.type == 'bars') {
 						c.rect(mainSizing / count * i + spacing * i, innerHeight, 5, y);
-					}
-					/*if (settings.mode.studio == false) {
+					}*/
+					if (settings.mode.studio == false) {
 						app.analyser.getByteFrequencyData(app.frequencyData);
 						if (settings.graphics.bars.type == 'circles') {
-							c.ellipse(window.innerWidth / 2 / count * i, -app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
+							c.ellipse(mainSizing / 2 / count * i, -app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						} else if (settings.graphics.bars.type == 'bars') {
-							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * settings.graphics.bars.maxSize);
+							c.rect(mainSizing / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * settings.graphics.bars.maxSize);
 						} else if (settings.graphics.bars.type == 'vibratingCircles') { // NOT DONE
-							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
+							c.ellipse((mainSizing / 2 / count * i) + vibOffSetX, (-app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						}
 					} else {
 						if (settings.graphics.bars.type == 'circles') {
-							c.ellipse(window.innerWidth / 2 / count * i, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
+							c.ellipse(mainSizing / 2 / count * i, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						} else if (settings.graphics.bars.type == 'bars') {
-							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize);
+							c.rect(mainSizing / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize);
 						} else if (settings.graphics.bars.type == 'vibratingCircles') { // NOT DONE
-							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
+							c.ellipse((mainSizing / 2 / count * i) + vibOffSetX, (-Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						}
-					}*/
+					}
 					c.fill();
 					c.closePath();
 				}
@@ -347,6 +347,8 @@
 					if (app.audio.paused == true) {
 						document.getElementById('playpause').innerHTML = 'Audio: Paused';
 						alert('There might be an error in the URL, please check the URL you used. \n\nIf this problem persists, please DM through Instagram. \n@darkheart_prod');
+					} else {
+						document.getElementById('url').value = app.audio.src;
 					}
 				} else {
 					app.audio.pause();

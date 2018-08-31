@@ -188,10 +188,10 @@
 			preview: false,
 		},
 		keyCommands: {
-			'p': function() {
+			'-': function() {
 				document.getElementById('playpause').onclick();
 			},
-			'r': function() {
+			'+': function() {
 				if (settings.mode.record == false) {
 					settings.mode.record = true;
 					document.getElementsByClassName('controls')[0].style.display = 'none';

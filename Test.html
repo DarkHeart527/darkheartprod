@@ -99,7 +99,7 @@
 		}
 		</style>
 	</head>
-	<body>
+	<body onkeydown="app.checkCommand(event)">
 		<canvas id="canvas"></canvas>
 		<audio id="myAudio" src="tracks/High.mp3"></audio>
 		<div class="controls">
@@ -187,8 +187,28 @@
 			record: false,
 			preview: false,
 		},
+		keyCommands: {
+			'p': function() {
+				document.getElementById('playpause').onclick();
+			},
+			'r': function() {
+				if (settings.mode.record == false) {
+					settings.mode.record = true;
+					document.getElementsByClassName('controls')[0].style.display = 'none';
+				} else {
+					settings.mode.record = false;
+					document.getElementsByClassName('controls')[0].style.display = 'block';
+				}
+			},
+		},
 	};
 	let app = {
+		checkCommand: function(e) {
+			let key = e.key;
+			if (typeof settings.keyCommands[key] == 'function') {
+				settings.keyCommands[key]();
+			}
+		},
 		renderFrame: function() {
 			requestAnimationFrame(app.renderFrame); // This still has to run though
 			if (app.audio.paused == false || settings.mode.studio == true) { // In other words... Don't run commands you do not need

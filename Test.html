@@ -76,6 +76,27 @@
 		#url:hover {
 		 background-color: rgba(255, 255, 255 0.5);
 		}
+		#additionalSettingsPage {
+		 width: 100%;
+		 height: 100%;
+		 background-color: rgba(255, 255, 255, 0.5);
+		 position: absolute;
+		 left: 0px;
+		 top: 0px;
+		 display: none;
+		}
+		#closeAdditionalSettings {
+		 background-color: rgba(0, 0, 0, 0.5);
+		 width: 50px;
+		 height: 50px;
+		 position: absolute;
+		 top: 0px;
+		 right: 0px;
+		 cursor: pointer;
+		 color: red;
+		 font-size: 250%;
+		 text-align: center;
+		}
 		</style>
 	</head>
 	<body>
@@ -99,14 +120,19 @@
 					<p id="changeToBars">Bars</p>
 					<p id="changeToCircles">Circles</p>
 					<p id="changeToVibratingCircles">Vibrating Circles</p>
-					<!--<p id="bars">Bars</p>-->
+					<!--<p id="changeToVibratingBars">Vibrating Bars</p>
+					<p id="changeToVibratingCirclesBass">Vibrating Circles (Bass)</p>
+					<p id="changeToVibratingBarsBass">Vibrating Bars (Bass)</p>-->
 				</div>
 				<div id="vibrateSettings" style="display: none;">
 					<p class="sectionDivision">Vibrate Strength</p>
 					<input max="10" min="1" id="circleVibration" step="1" value="3" type="range"></input>
 				</div>
 				<p class="sectionDivision">Amount</p>
-				<input max="250" min="25" id="barAmount" step="1" value="25" type="range"></input>
+				<input max="200" min="10" id="barAmount" step="1" value="25" type="range"></input>
+				<p class="sectionDivision">Main Size</p>
+				<input id="barMainSizeAuto" type="checkbox" checked>
+				<input max="2000" min="1" value="500" id="barMainSize" step="1" type="range"></input>
 				<p class="sectionDivision">Max Size</p>
 				<input max="10" min="0" id="barMaxSize" step="0.01" value="1" type="range"></input>
 				<p class="sectionDivision">Color</p>
@@ -125,6 +151,9 @@
 				</div>
 			</div>
 		</div>
+		<div id="additionalSettingsPage">
+			<div id="closeAdditionalSettings">X</div>
+		</div>
 	</body>
 	<script>
 	let canvas = document.getElementById('canvas');
@@ -134,12 +163,15 @@
 	let settings = {
 		graphics: {
 			bars: {
-				amount: 25,
+				amount: 10,
 				type: 'bars',
 				maxSize: 1,
+				spacing: 'auto',
+				mainSizing: 'full',
 			},
 			circles: {
 				vibrateStrength: 3,
+				size: 10,
 			},
 			time: {
 				pos: {
@@ -168,13 +200,52 @@
 					let vibOffSetY = Math.floor(Math.random() * settings.graphics.circles.vibrateStrength - Math.random() * settings.graphics.circles.vibrateStrength);
 					c.beginPath();
 					c.fillStyle = `rgba(${document.getElementById('barRed').value},${document.getElementById('barGreen').value},${document.getElementById('barBlue').value},${document.getElementById('barTransparency').value})`;
+					
+					let x;
+					let y;
+					let x2;
+					let y2;
+					let spacing;
+					let mainSizing;
+					
 					if (settings.mode.studio == false) {
+						y = -app.frequencyData[i] * settings.graphics.bars.maxSize;
+					} else {
+						y = -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize;
+					}
+					
+					if (settings.graphics.bars.rotation == 180) {
+						y = -y;
+					}
+					
+					if (settings.graphics.bars.type == 'circles') {
+						y += innerHeight
+					}
+					
+					if (settings.graphics.bars.spacing == 'auto') {
+						spacing = 0          ;
+					} else {
+						spacing = settings.graphics.bars.spacing;
+					}
+					
+					if (settings.graphics.bars.mainSizing == 'full') {
+						mainSizing = innerHeight / 2;
+					} else {
+						mainSizing = settings.graphics.bars.mainSizing;
+					}
+					
+					if (settings.graphics.bars.type == 'circles') {
+						c.ellipse(mainSizing / count * i + spacing * i, y, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
+					} else if (settings.graphics.bars.type == 'bars') {
+						c.rect(mainSizing / count * i + spacing * i, innerHeight, 5, y);
+					}
+					/*if (settings.mode.studio == false) {
 						app.analyser.getByteFrequencyData(app.frequencyData);
 						if (settings.graphics.bars.type == 'circles') {
 							c.ellipse(window.innerWidth / 2 / count * i, -app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						} else if (settings.graphics.bars.type == 'bars') {
 							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * settings.graphics.bars.maxSize);
-						} else if (settings.graphics.bars.type == 'vibratingCircles') {
+						} else if (settings.graphics.bars.type == 'vibratingCircles') { // NOT DONE
 							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						}
 					} else {
@@ -182,10 +253,10 @@
 							c.ellipse(window.innerWidth / 2 / count * i, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						} else if (settings.graphics.bars.type == 'bars') {
 							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize);
-						} else if (settings.graphics.bars.type == 'vibratingCircles') {
+						} else if (settings.graphics.bars.type == 'vibratingCircles') { // NOT DONE
 							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						}
-					}
+					}*/
 					c.fill();
 					c.closePath();
 				}
@@ -220,6 +291,9 @@
 				settings.graphics.bars.amount = document.getElementById('barAmount').value;
 				settings.graphics.bars.maxSize = document.getElementById('barMaxSize').value;
 				settings.graphics.circles.vibrateStrength = document.getElementById('circleVibration').value;
+				if (document.getElementById('barMainSizeAuto').checked == false) {
+					settings.graphics.bars.mainSizing = document.getElementById('barMainSize').value;
+				}
 			}, 100);
 			
 			window.onresize = function() {
@@ -251,6 +325,17 @@
 			}
 			document.getElementById('file').onchange = function() {
 				app.fileUploaded(this.files[0]);
+			}
+			document.getElementById('additionalSettings').onclick = function() {
+				document.getElementById('additionalSettingsPage').style.display = 'block';
+			}
+			document.getElementById('closeAdditionalSettings').onclick = function() {
+				document.getElementById('additionalSettingsPage').style.display = 'none';
+			}
+			document.getElementById('barMainSizeAuto').onchange = function() {
+				if (this.checked) {
+					settings.graphics.bars.mainSizing = 'full';
+				}
 			}
 			document.getElementById('playpause').onclick = function() {
 				if (document.getElementById('url').value != app.audio.src) {

@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <h1>DarkHeart Productions</h1>
+    <h1>Sorry about the downloads being basic right now.</h1>
+    <h1 id="fileName"></h1>
+    <a href="" id="download" download></a>
+  </body>
+  <script>
+  let loc = location.href;
+  loc = loc.split('#');
+  let file = loc[1];
+  let path = 'tracks';
+  document.getElementById('fileName').innerHTML = file;
+  document.getElementById('download').href = path + '/' + file;
+  document.getElementById('download').innerHTML = `Click to download ${file}`;
+  </script>
+</html>

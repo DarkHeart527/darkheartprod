@@ -13,6 +13,22 @@ app = {
 			code: '',
 			featuring: '',
 		},*/
+		'Celestial': {
+			source: 'Celestial.mp3',
+			description: 'Are you Celestial? Well then, let\'s see how you can handle this beat.',
+			releaseDate: '9 - 4 - 18',
+			fireRating: '5',
+			download: true,
+			code: '',
+		},
+		'Undeniable': {
+			source: 'Undeniable.mp3',
+			description: 'Sooo good :).',
+			releaseDate: '9 - 3 - 18',
+			fireRating: '5',
+			download: true,
+			code: '',
+		},
 		'True': {
 			source: 'True.mp3',
 			description: 'Initially made for someone, but if you want it, it\'ll work!',

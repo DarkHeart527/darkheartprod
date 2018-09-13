@@ -1,0 +1,74 @@
+<html>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+  <script>
+  let canvas = document.getElementById('canvas');
+  let c = canvas.getContext('2d');
+  canvas.height = innerHeight;
+  canvas.width = innerWidth;
+  let snake = {
+    x: 0,
+    y: 0,
+    speed: 1,
+    dir: 'none',
+  }
+  
+  let keyPressed = (key) => {
+    key = key.key;
+    if (key == 'a') {
+      if (snake.dir != 'right') {
+        snake.dir = 'left';
+      }
+    } else if (key == 'd') {
+      if (snake.dir != 'left') {
+        snake.dir = 'right';
+      }
+    } else if (key == 'w') {
+      if (snake.dir != 'down') {
+        snake.dir = 'up';
+      }
+    } else if (key == 's') {
+      if (snake.dir != 'up') {
+        snake.dir = 'down';
+      }
+    }
+  }
+  
+  let draw = () => {
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    
+    // draw snake
+    c.beginPath();
+    c.fillStyle = 'black';
+    c.rect(snake.x, snake.y, 10, 10);
+    c.fill();
+    c.closePath();
+    
+    // draw apple
+    c.beginPath();
+    c.fillStyle = 'red';
+    c.rect(food.x, food.y, 10 10);
+    c.fill();
+    c.closePath();
+    requestAnimationFrame(draw);
+  }
+  
+  let moveSnake = () => {
+    if (snake.dir == 'left') {
+      sanke.x -= speed * 20;
+    } else if (snake.dir == 'right') {
+      snake.x += speed * 20;
+    } else if (snake.dir == 'right') {
+      snake.x += speed * 20;
+    } else if (snake.dir == 'up') {
+      snake.y -= speed * 20;
+    } else if (snake.dir == 'down') {
+      snake.y += speed * 20;
+    }
+  }
+  let moving = setInterval( function() {
+    moveSnake();
+  }, 150);
+  </script>
+</html>

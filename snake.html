@@ -1,6 +1,6 @@
 <html>
   <body>
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas" style="background-color: rgb(155, 155, 155)"></canvas>
   </body>
   <script>
   let canvas = document.getElementById('canvas');
@@ -20,7 +20,8 @@
   }
   
   let chooseFoodPlace = () => {
-    let x = Math.floor(Math.random() * 25 + 1) * 20
+    let x = Math.floor(Math.random() * 25 + 1) * 20;
+    let y = Math.floor(Math.random() * 25 + 1) * 20;
   }
   
   let keyPressed = (key) => {

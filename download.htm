@@ -1,17 +1,127 @@
 <html>
-  <body>
-    <h1>DarkHeart Productions</h1>
-    <h1>Sorry about the downloads being basic right now.</h1>
-    <h1 id="fileName"></h1>
-    <a href="" id="download" download></a>
-  </body>
-  <script>
-  let loc = location.href;
-  loc = loc.split('#');
-  let file = loc[1];
-  let path = 'tracks';
-  document.getElementById('fileName').innerHTML = file;
-  document.getElementById('download').href = path + '/' + file;
-  document.getElementById('download').innerHTML = `Click to download ${file}`;
-  </script>
+	<head>
+		<title>DarkHeart Productions</title>
+		<style>
+			body {
+				margin: 0px;
+				background-color: black;
+			}
+			header {
+				background-color: black;
+				width: 100%;
+				height: 10%;
+				text-align: center;
+				color: orange;
+				display: grid;
+				align-items: center;
+				justify-items: center;
+				text-shadow: 0px 0px 25px orange;
+				font-size: 35px;
+				box-shadow: 0px 0px 25px orange;
+			}
+			header p {
+				margin: 0px;
+			}
+			@keyframes page {
+				0% {background-color: orange;}
+				50% {background-color: black;box-shadow: 0px 0px 25px orange;}
+				100% {background-color: orange;}
+			}
+			.downloadPage {
+				width: 50%;
+				height: 50%;
+				border-radius: 25px;
+				margin: 0 auto;
+				padding: 5px;
+				margin-top: 5%;
+				animation: page 3s infinite linear;
+				color: white;
+			}
+			#links {
+				display: grid;
+				grid-template-rows: 1fr;
+				grid-template-columns: 1fr 1fr;
+				align-items: center;
+				justify-items: center;
+			}
+			#links a {
+				color: white;
+				transition: color .25s;
+				text-decoration: none;
+				font-size: 35px;
+			}
+			#links p {
+				color: green;
+				font-size: 35px;
+				margin: 0px;
+			}
+			#links a:hover {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<p>DarkHeart Productions</p>
+		</header>
+		<div class="downloadPage">
+			<h1 id="fileName"></h1>
+			<div id="links">
+				<a href="#viewAd1" id="link1" target="_blank">View Ad 1</a>
+				<a href="#viewAd2" id="link2" target="_blank">View Ad 2</a>
+			</div>
+			<a href="" id="download" download></a>
+		</div>
+	</body>
+	<script>
+	(function() {
+		let knownTracks = ['121', '300 AM Bordem', 'Another', 'Brass', 'Break In!', 'Bumpin', 'Celeste', 'Chaotic', 'Chill', 'Dark Death', 'Dark Loaf Matter', 'Death', 'dont play', 'dontplay_preview', 'Dubslide Remix', 'E.Z. Lop Les', 'Finally', 'Flames', 'Flute', 'Harden', 'Heavy', 'High', 'In your head', 'Life Is Life', 'Lil Happy', 'Locking Bars', 'Mass', 'Money', 'Nearly Nothing', 'Melted Mixtape', 'oohboi', 'Syko', 'Too Late', 'True', 'Untitled', 'War', 'Yet Simple'];
+		let loc = location.href;
+		loc = loc.split('#');
+		let file = loc[1];
+		if (file == 'viewAd1') {
+			localStorage.setItem('ad1', true);
+			window.close();
+		} else if (file == 'viewAd2') {
+			localStorage.setItem('ad2', true);
+			window.close();
+		}
+		if (typeof(file) == 'undefined') {
+		} else {
+			let known = false;
+			let ifKnown = '';
+			for (let i = 0; i < knownTracks.length; i++) {
+				if (file == knownTracks[i] + '.mp3') {
+					known = true;
+				}
+			}
+			if (known == false) {
+				ifKnown = '<br />Please note that this file might not exist. Contact me for help if the file does not download correctly.';
+			}
+			let path = 'tracks';
+			document.getElementById('fileName').innerHTML = `${file} ${ifKnown}`;
+			let check = function() {
+				if (localStorage.getItem('ad1') == "true") {
+					document.getElementById('link1').outerHTML = '<p id="link1">Viewed</p>';
+				}
+				if (localStorage.getItem('ad2') == "true") {
+					document.getElementById('link2').outerHTML = '<p id="link2">Viewed</p>';
+				}
+				if (localStorage.getItem('ad1') == "true" && localStorage.getItem('ad2') == "true") {
+					document.getElementById('download').href = path + '/' + file;
+					document.getElementById('download').innerHTML = `Click to download ${file}`;
+					document.getElementById('link2').innerHTML = 'Viewed';
+					document.getElementById('link1').innerHTML = 'Viewed';
+					setTimeout(function() {
+						localStorage.setItem('ad1', false);
+						localStorage.setItem('ad2', false);
+					}, 500);
+				} else {
+					setTimeout(function() {check()}, 500);
+				}
+			}
+			check();
+		}
+	})();
+	</script>
 </html>

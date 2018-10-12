@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>MIDI Pack by DarkHeart Productions</title>
+		<style>
+		body {
+		 mardin: 0px;
+		}
+		.page {
+		 width: 100%;
+		 height: 100%;
+		 display: grid;
+		 grid-template-rows: 1fr 1fr;
+		 grid-template-columns: 1fr 1fr;
+		 align-items: center;
+		 justify-items: center;
+		}
+		.subscribe {
+		 color: red;
+		 font-size: 75px;
+		 background-color: black;
+		 border-radius: 25px;
+		 text-align: center;
+		}
+		.subscribe a {
+		 text-decoration: none;
+		 color: blue;
+		}
+		.subscribe a:hover {
+		 color: lightblue;
+		}
+		.title {
+		 font-size: 50px;
+		 text-align: center;
+		}
+		.details {
+		 font-size: 35px;
+		 text-align: center;
+		}
+		.details p {
+		 margin: 2px;
+		}
+		.rf {
+		 font-size: 100px;
+		 text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="page">
+			<div class="subscribe">Subscibe to me on YouTube!<br/> <a href="https://www.youtube.com/channel/UCiPL4fbPA_0Ro0nQh58Ccxg">Click here for the link!</a></div>
+			<div class="title">
+				<p>MIDIs by <b>DarkHeart Productions</b></p>
+			</div>
+			<div class="rf">
+				<p><b>Royalty Free!!!</b></p>
+			</div>
+			<div class="details">
+				<p>Details</p>
+				<p>Type: <b>ZIP</b></p>
+				<p>Size: <b>0kb</b></p>
+				<p>Contents: <b>none</b></p>
+				<p>Version: <b>0.0.0</b></p>
+				<p>Last Update: <b>NEVER</b></p>
+				<p><a href="" download>Download</a></p>
+			</div>
+		</div>
+	</body>
+	<script>
+	let version = '0.0.0';
+	if (localStorage.getItem('version') != version) {
+		alert("You must view an ad from one of my beats, it\'s located in the description of each song, this happens every update.");
+		location = 'https://www.youtube.com/channel/UCiPL4fbPA_0Ro0nQh58Ccxg';
+	} else {
+		// Ignore
+	}
+	</script>
+</html>

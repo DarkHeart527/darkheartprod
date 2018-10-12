@@ -1,5 +1,14 @@
 <html>
 	<head>
+		<script>
+		let version = '0.0.0';
+		if (localStorage.getItem('version') != version) {
+			alert("You must view an ad from one of my beats, it\'s located in the description of each song or about section on my profile, this happens every update.");
+			location = 'https://www.youtube.com/channel/UCiPL4fbPA_0Ro0nQh58Ccxg';
+		} else {
+			// Ignore
+		}
+		</script>
 		<title>MIDI Pack by DarkHeart Productions</title>
 		<style>
 		body {
@@ -65,13 +74,4 @@
 			</div>
 		</div>
 	</body>
-	<script>
-	let version = '0.0.0';
-	if (localStorage.getItem('version') != version) {
-		alert("You must view an ad from one of my beats, it\'s located in the description of each song, this happens every update.");
-		location = 'https://www.youtube.com/channel/UCiPL4fbPA_0Ro0nQh58Ccxg';
-	} else {
-		// Ignore
-	}
-	</script>
 </html>

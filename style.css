@@ -40,6 +40,12 @@
          font-size: 35px;
          text-align: center;
         }
+.pricing-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ justify-items: center;
+ align-items: center;
+}
         .licensePricing {
          width: 35%;
          height: fit-content;

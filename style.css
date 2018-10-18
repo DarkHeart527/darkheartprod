@@ -24,7 +24,7 @@
          color: white;
         }
         .musicPlayer {
-         position: absolute;
+         position: fixed;
          width: 500px;
          height: 50px;
          right: 0px;

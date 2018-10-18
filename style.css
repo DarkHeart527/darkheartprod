@@ -1,16 +1,15 @@
-
-        body {
-         margin: 0px;
-         background-color: black;
-        }
-        header {
-         width: 100%;
-         height: 10%;
-         display: grid;
-         grid-template-columns: 1fr 1fr 1fr 1fr;
-         justify-items: center;
-         align-items: center;
-        }
+body {
+ margin: 0px;
+ background-color: black;
+}
+header {
+ width: 100%;
+ height: 10%;
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ justify-items: center;
+ align-items: center;
+}
         header a {
          text-decoration: none;
          font-size: 35px;

@@ -10,12 +10,12 @@ header {
  justify-items: center;
  align-items: center;
 }
-        header a {
-         text-decoration: none;
-         font-size: 35px;
-         color: white;
-         transition: .25s color;
-        }
+header a {
+ text-decoration: none;
+ font-size: 35px;
+ color: white;
+ transition: .25s color;
+}
         header a:hover {
          color: rgb(255, 155, 0);
         }

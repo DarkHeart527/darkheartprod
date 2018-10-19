@@ -21,6 +21,7 @@ header a:hover {
 }
 .page {
  color: white;
+ margin-top: 25px;
 }
         .musicPlayer {
          position: fixed;

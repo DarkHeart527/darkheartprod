@@ -68,6 +68,7 @@ header a:hover {
  grid-template-columns: 3fr 1fr 1fr 1fr;
  padding: 2.5px;
  margin-top: 5px;
+ cursor: default;
 }
 
 .bConHead {
@@ -85,10 +86,7 @@ header a:hover {
  cursor: pointer; 
 }
 
-.btn:hover {
- color: red;
-}
-
 .beat p {
  margin: 0px;
+ display: inline;
 }

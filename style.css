@@ -51,3 +51,44 @@ header a:hover {
  height: fit-content;
  display: content;
 }
+
+.beatContainer {
+	width: 80%;
+	height: fit-content;
+	padding: 5px;
+	background-color: white;
+	color: black;
+	margin: 0 auto;
+	margin-top: 25px;
+	border: 2px solid grey;
+}
+
+.beat {
+ display: grid;
+ grid-template-columns: 3fr 1fr 1fr 1fr;
+ padding: 2.5px;
+ margin-top: 5px;
+}
+
+.bConHead {
+ display: grid;
+ grid-template-columns: 3fr 1fr 1fr 1fr;
+ padding: 2.5px;
+ border-bottom: 1px solid black;
+}
+
+.beat:hover {
+ background-color: rgba(225, 225, 225, 1);
+}
+
+.btn {
+ cursor: pointer; 
+}
+
+.btn:hover {
+ color: red;
+}
+
+.beat p {
+ margin: 0px;
+}

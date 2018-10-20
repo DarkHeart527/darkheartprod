@@ -2,6 +2,17 @@ body {
  margin: 0px;
  background-color: black;
 }
+
+a {
+ text-decoration: none;
+ color: rgb(255, 155, 0);
+ transition: .25s color;
+}
+
+a:hover {
+ color: rgb(0, 200, 200);
+}
+
 header {
  width: 100%;
  height: 10%;
@@ -10,58 +21,69 @@ header {
  justify-items: center;
  align-items: center;
 }
+
 header a {
  text-decoration: none;
  font-size: 35px;
  color: white;
  transition: .25s color;
 }
+
 header a:hover {
  color: rgb(255, 155, 0);
 }
+
 .page {
  color: white;
  margin-top: 25px;
 }
-        .musicPlayer {
-         position: fixed;
-         width: 500px;
-         height: 50px;
-         right: 0px;
-         bottom: 0px;
-         background-color: rgba(255, 255, 255, 0.25);
-         display: grid;
-         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-         justify-items: center;
-         align-items: center;
-        }
-        .mainHead {
-         color: rgb(255, 155, 0);
-         font-size: 35px;
-         text-align: center;
-        }
+
+.musicPlayer {
+ position: fixed;
+ width: 500px;
+ height: 50px;
+ right: 0px;
+ bottom: 0px;
+ background-color: rgba(255, 255, 255, 0.25);
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+ justify-items: center;
+ align-items: center;
+}
+
+.mainHead {
+ color: rgb(255, 155, 0);
+ font-size: 35px;
+ text-align: center;
+}
+
 .pricing-grid {
  display: grid;
  grid-template-columns: 1fr 1fr;
  justify-items: center;
  align-items: center;
+ grid-gap: 10px;
  width: 100%;
+ margin-bottom: 5%;
 }
+
 .licensePricing {
- width: 35%;
+ width: 80%;
  height: fit-content;
- display: content;
+ background-color: rgba(255, 255, 255, 0.5);
+ padding: 5px;
+ border-radius: 5px;
 }
 
 .beatContainer {
-	width: 80%;
-	height: fit-content;
-	padding: 5px;
-	background-color: white;
-	color: black;
-	margin: 0 auto;
-	margin-top: 25px;
-	border: 2px solid grey;
+ width: 80%;
+ height: fit-content;
+ padding: 5px;
+ background-color: white;
+ color: black;
+ margin: 0 auto;
+ margin-top: 25px;
+ border: 2px solid grey;
 }
 
 .beat {
@@ -90,4 +112,56 @@ header a:hover {
 .beat p {
  margin: 0px;
  display: inline;
+}
+
+.note {
+ font-size: 25px;
+ text-align: center;
+ width: 75%;
+ margin: 0 auto;
+}
+
+.licensePricing .details {
+ font-size: 25px;
+}
+
+.licensePricing .cost {
+ font-size: 35px;
+ color: rgb(255, 155, 0);
+ text-align: center;
+}
+
+.licensePricing .license {
+ font-size: 35px;
+ text-align: center;
+}
+
+.support-types {
+ display: grid;
+ align-items: center;
+ justify-items: center;
+ width: 100%;
+ margin-bottom: 5%;
+ grid-gap: 25px;
+ grid-template-columns: 1fr 1fr 1fr 1fr;
+ margin-top: 2.5%;
+}
+
+.support {
+ width: 80%;
+ height: fit-content;
+ padding: 12.5px;
+ border-radius: 25px;
+ border: white solid 1px;
+ background-color: rgba(255, 255, 255, 0.5);
+}
+
+.support a {
+ font-size: 35px;
+ text-align: center;
+}
+
+.support div {
+ font-size: 24px;
+ text-align: center;
 }

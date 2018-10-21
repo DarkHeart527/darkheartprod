@@ -165,3 +165,31 @@ header a:hover {
  font-size: 24px;
  text-align: center;
 }
+
+.blog {
+ width: 80%;
+ height: fit-content;
+ margin: 0 auto;
+ margin-top: 5%;
+ background-color: rgba(255, 155, 0, 0.5);
+ padding: 25px;
+ border-radius: 25px;
+ font-size: 20px;
+}
+
+.blog .head {
+ font-size: 25px;
+ text-align: center;
+}
+
+.blog .desc {
+ font-size: 15px;
+ float: right;
+}
+
+.tab {
+ padding-right: 50px;
+ color: transparent;
+ width:1px;
+ height:1px;
+}

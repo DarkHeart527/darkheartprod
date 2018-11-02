@@ -20,16 +20,30 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
           }).then(function(response) {
            var range = response.result;
            if (range.values.length > 0) {
-             let data = {};
-             for (i = 0; i < range.values.length; i++) {
-               var row = range.values[i];
-               appendPre(row[0] + ', ' + row[1] + ', ' + row[2] + ', ' + row[3] + ', ' + row[4] + ', ' + row[5]
+             let data = [];
+             let nums = {
+                  A: 1,
+                  B: 2,
+                  C: 3,
+                  D: 4,
+                  E: 5,
+                  F: 6,
+                  G: 7,
              }
+             for (let i = 0; i < range.values.length; i++) {
+               var row = range.values[i];
+               let app = [];
+               for (let j = 0; j < 10; j++) {
+                app[app.length] = row[j];     
+               }
+                   data[data.length] = app;
+             }
+             return data;
            } else {
-             appendPre('No data found.');
+             return 'No data found';
            }
           }, function(response) {
-           appendPre('Error ' + response.result.error.message);
+           return 'Error ' + response.result.error.message
           });
         },
       }

@@ -104,7 +104,7 @@
       function listMajors() {
         gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: '1y9AiKbLUZ9MiZQZpAtqubu0Eg1iLrhYTjUpIuBmI2k0',
-          range: 'Class Data!A1',
+          range: 'Sheet1!A1',
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {

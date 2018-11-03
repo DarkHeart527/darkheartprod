@@ -1,4 +1,4 @@
-document.onload = function() {
+document.onload = function() { // UPDATE NOW!
 let gscript = document.createElement('script');
 gscript.src = 'https://apis.google.com/js/api.js';
 gscript.async = true;

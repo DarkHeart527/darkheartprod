@@ -11,7 +11,7 @@ gscript.onload = function() {
 var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleusercontent.com';
       var API_KEY = 'AIzaSyD7A_fA6gtbxXs-sqdeC3oplUVr1zzSZ2U';
       var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
-      var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
+      var SCOPES = "https://www.googleapis.com/auth/spreadsheets";
 
       function initClient() {
         gapi.client.init({

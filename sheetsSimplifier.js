@@ -5,7 +5,7 @@ gscript.async = true;
 gscript.defer = true;
 document.body.appendChild(gscript);
 gscript.onload = function() {
-      handleClientLoad();
+        gapi.load('client:auth2', initClient);
 }
 
 var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleusercontent.com';

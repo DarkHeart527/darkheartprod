@@ -22,7 +22,7 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
         });
       }
 
-      let Sheets = {
+      window.Sheets = {
         read: function(range) {
           gapi.client.sheets.spreadsheets.values.get({
            spreadsheetId: '1y9AiKbLUZ9MiZQZpAtqubu0Eg1iLrhYTjUpIuBmI2k0', // Sheets id

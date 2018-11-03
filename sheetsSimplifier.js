@@ -1,3 +1,4 @@
+document.onload = function() {
 let gscript = document.createElement('script');
 gscript.src = 'https://apis.google.com/js/api.js';
 gscript.async = true;
@@ -56,3 +57,4 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
           });
         },
       }
+ }

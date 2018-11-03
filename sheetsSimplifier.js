@@ -1,3 +1,12 @@
+let gscript = document.createElement('script');
+gscript.src = 'https://apis.google.com/js/api.js';
+gscript.async = true;
+gscript.defer = true;
+document.body.appendChild(gscript);
+gscript.onload = function() {
+      handleClientLoad();
+}
+
 var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleusercontent.com';
       var API_KEY = 'AIzaSyD7A_fA6gtbxXs-sqdeC3oplUVr1zzSZ2U';
       var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];

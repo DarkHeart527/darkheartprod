@@ -2,7 +2,14 @@
   <head>
   </head>
   <body>
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <button id="authorize_button" style="display: none;">Authorize</button>
+    <button id="signout_button" style="display: none;">Sign Out</button>
   </body>
     <script src="sheetsSimplifier.js">
     </script>
+  <script>
+      var authorizeButton = document.getElementById('authorize_button');
+      var signoutButton = document.getElementById('signout_button');
+  </script>
 </html>

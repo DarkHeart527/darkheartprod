@@ -157,7 +157,17 @@
 			let likes = Sheets.result[i][4];
 			let dislikes = Sheets.result[i][5];
 			let tp = Sheets.result[i][6];
-			alert(`${ph}\n${pb}\n${pd}\n${com}\n${likes}\n${dislikes}\n${tp}\n`);
+			let phe = document.createElement('div');
+			phe.className = 'head';
+			let blog = document.createElement('blog');
+			document.getElementsByClassName('page')[0].appendChild(blog);
+			blog.appendChild(phe);
+			let time = document.createElement('div');
+			time.innerHTML = '00:00 AM';
+			blog.appendChild(time);
+			let pde = document.createElement('div');
+			blog.appendChild(pde);
+			pde.innerHTML = `<article><div class="tab"></div>${pd}</article>`;
 		}
 	})}, 1000)
 	</script><!--

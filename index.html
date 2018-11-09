@@ -98,6 +98,24 @@
 					let com = '[{}]';
 					let likes = 0;
 					let dislikes = 0;
+					// Use dates to add to post date
+					let date = new Date();
+					let month = date.getMonth() + 1;
+					let day = date.getDay();
+					let year = date.getFullYear();
+					year = year.toString();
+					year = year[2] + year[3];
+					let hour = date.getHours();
+					let minute = date.getMinutes();
+					let frame = 'AM'; // Set initial to AM unless past 12 hour mark
+					if (hour > 12) { // Uses Standard 12 Hour Time and sets past 12 hour mark if true
+						hour = hour - 12;
+						frame = 'PM';
+					}
+					if (minute < 10) { // If minutes are less than 10, add a 0 before
+						minute = '0' + minute.toString();
+					}
+					let fullTime = `${month} - ${day} - ${year} ${hour}:${minute} ${frame}`;
 					Sheets.write(`Sheet1!A${length}`, ph);
 					Sheets.write(`Sheet1!C${length}`, pd);
 					Sheets.write(`Sheet1!B${length}`, pb);

@@ -148,9 +148,7 @@
 	<script src="sheetsSimplifier.js" id="simp">
 	</script>
 	<script>
-		document.onload = function() {
-	Sheets.read('A2:G');
-	setTimeout(function() {
+	Sheets.read('A2:G' function() {
 		for (let i = 0; i < Sheets.result.length; i++) {
 			let ph = Sheets.result[i][0];
 			let pb = Sheets.result[i][1];
@@ -161,7 +159,7 @@
 			let tp = Sheets.result[i][6];
 			alert(`${ph}\n${pb}\n${pd}\n${com}\n${likes}\n${dislikes}\n${tp}\n`);
 		}
-	}, 500)}
+	})
 	</script><!--
     https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&su=I+would+like+to+buy+[beatname]&body=I+would+like+to+purchase+[license]&to=officialdarkheartproductions@gmail.com
     -->

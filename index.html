@@ -111,7 +111,7 @@
 					let hour = date.getHours();
 					let minute = date.getMinutes();
 					let frame = 'AM'; // Set initial to AM unless past 12 hour mark
-					if (hour > 12) { // Uses Standard 12 Hour Time and sets past 12 hour mark if true
+					if (hour >= 13) { // Uses Standard 12 Hour Time and sets past 12 hour mark if true
 						hour = hour - 12;
 						frame = 'PM';
 					}

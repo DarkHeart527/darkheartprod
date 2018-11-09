@@ -16,6 +16,10 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
           clientId: CLIENT_ID,
           discoveryDocs: DISCOVERY_DOCS,
           scope: SCOPES
+        }).then(function() {
+              if (typeof updateSigninStatus == 'function') {
+                   updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());    
+              }
         });
       }
 

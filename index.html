@@ -161,7 +161,7 @@
 			phe.className = 'head';
 			phe.innerHTML = ph;
 			let blog = document.createElement('div');
-			document.getElementsByClassName('page')[0].appendChild(blog);
+			document.getElementsByClassName('page')[0].prepend(blog);
 			blog.appendChild(phe);
 			blog.className = 'blog';
 			let time = document.createElement('div');

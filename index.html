@@ -121,7 +121,7 @@
 			submitPost.onclick = function() {
 				Sheets.read('H2');
 				setTimeout(function() {
-					let length = Number(Sheets.result[0][0]) + 1;
+					let length = Number(Sheets.result[0][0]) + 2;
 					let ph = postHead.value;
 					let pd = postDescription.value;
 					let pb = gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig;

@@ -4,9 +4,6 @@ gscript.src = 'https://apis.google.com/js/api.js';
 gscript.async = true;
 gscript.defer = true;
 document.body.appendChild(gscript);
-gscript.onload = function() {
-        gapi.load('client:auth2', initClient);
-}
 
 var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleusercontent.com';
       var API_KEY = 'AIzaSyD7A_fA6gtbxXs-sqdeC3oplUVr1zzSZ2U';
@@ -69,3 +66,13 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
                 });      
         },
       }
+      let signIn = () => {
+          gapi.auth2.getAuthInstance().signIn()
+      }
+      let checkIfSignedIn = () => {
+              
+      }
+gscript.onload = function() {
+        gapi.load('client:auth2', initClient);
+      checkIfSignedIn();
+}

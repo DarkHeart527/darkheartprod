@@ -167,7 +167,15 @@
 			blog.appendChild(pde);
 			pde.innerHTML = `<article><span class="tab"></span>${pd}</article>`;
 		}
-	})}, 1000)
+	})}, 1000);
+	document.body.onkeyup = function(e) {
+		let key = e.key;
+		if (key == 'Escape') {
+			if (document.getElementsByClassName('postPage')[0]) {
+					document.getElementsByClassName('postPage')[0].outerHTML = '';
+			}
+		}
+	}
 	</script><!--
     https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&su=I+would+like+to+buy+[beatname]&body=I+would+like+to+purchase+[license]&to=officialdarkheartproductions@gmail.com
     -->

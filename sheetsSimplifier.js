@@ -25,7 +25,7 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
 
       let Sheets = {
         result: '',
-        read: function(range) {
+        read: function(range, func) {
           gapi.client.sheets.spreadsheets.values.get({
            spreadsheetId: '1y9AiKbLUZ9MiZQZpAtqubu0Eg1iLrhYTjUpIuBmI2k0', // Sheets id
            range: `Sheet1!${range}`,
@@ -49,6 +49,7 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
                    data[data.length] = app;
              }
              Sheets.result = data;
+             func();
            } else {
              Sheets.result = 'No data found';
            }

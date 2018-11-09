@@ -134,7 +134,10 @@
 					Sheets.write(`Sheet1!D${length}`, com);
 					Sheets.write(`Sheet1!E${length}`, likes);
 					Sheets.write(`Sheet1!F${length}`, dislikes);
-				}, 2500)
+				setTimeout(function() {
+				location = location
+				}, 1000)
+				}, 1500)
 			}
 			document.body.appendChild(pst);
 		}

@@ -41,9 +41,7 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
              for (let i = 0; i < range.values.length; i++) {
                var row = range.values[i];
                let app = [];
-               for (let j = 0; j < 10; j++) {
-                app[app.length] = row[j];     
-               }
+               app = row;
                    data[data.length] = app;
              }
              Sheets.result = data;

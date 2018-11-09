@@ -115,7 +115,7 @@
 					if (minute < 10) { // If minutes are less than 10, add a 0 before
 						minute = '0' + minute.toString();
 					}
-					let fullTime = `${month} - ${day} - ${year} ${hour}:${minute} ${frame}`;
+					let fullTime = `${month} - ${day} - ${year} at ${hour}:${minute} ${frame}`;
 					Sheets.write(`Sheet1!A${length}`, ph);
 					Sheets.write(`Sheet1!C${length}`, pd);
 					Sheets.write(`Sheet1!B${length}`, pb);

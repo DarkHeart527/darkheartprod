@@ -116,6 +116,7 @@
 			postDescription.className = 'postDescription';
 			pst.appendChild(postDescription);
 			let submitPost = document.createElement('div');
+			pst.appendChild(submitPost);
 			submitPost.onclick = function() {
 				Sheets.read('H2');
 				setTimeout(function() {

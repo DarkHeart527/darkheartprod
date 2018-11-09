@@ -13,7 +13,18 @@
 
   gtag('config', 'UA-127752129-2');
 </script>
-
+	<style>
+	#post {
+	 background-color: lightblue;
+	 width: 50px;
+	 height: 50px;
+	 border-radius: 50%;
+	 position: absolute;
+	 right: 25px;
+	 bottom: 25px;
+	 display: none;
+	}
+	</style>
 	</head>
 	<body>
     	<div class="mainHead">
@@ -83,8 +94,22 @@
            	<div>Prev</div>
             	<div>Next</div>
 	</div>
+	<div id="post">+
+	</div>
 	</body>
     <script>
+      function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+	  if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == 'DarkHeart Productions') {
+          	document.getElementById('post').style.display = 'block';
+	  }
+        } else {
+          post.style.display = 'none';
+        }
+      }
+
+	</script>
+	<script src="sheetsSimplifier.js">
 	</script>
 	<script id="_wauvxz">var _wau = _wau || []; _wau.push(["classic", "i7ihcvkrmg", "vxz"]);</script><script async src="http://waust.at/c.js"></script><!--
     https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&su=I+would+like+to+buy+[beatname]&body=I+would+like+to+purchase+[license]&to=officialdarkheartproductions@gmail.com

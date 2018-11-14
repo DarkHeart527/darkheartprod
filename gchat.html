@@ -149,7 +149,7 @@
 					let dislikes = 0;
 					let time = 'Today';
 					Sheets.read('E2', function() {
-						let length = Sheets.result[0][0];
+						let length = Number(Sheets.result[0][0]) + 4;
 						alert(length);
 						Sheets.write(`A${length}`, poster);
 						Sheets.write(`B${length}`, content);

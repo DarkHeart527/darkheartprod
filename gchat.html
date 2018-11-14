@@ -65,7 +65,7 @@
 		</div>
 		<div class="options">
 			<div id="signIn">Sign In via Google</div>
-			<input id="userName" maxlength="20" />
+			<input id="userName" value="PoppyPeopleFlower" maxlength="20" />
 			<div id="specialOptions">
 			</div>
 		</div>
@@ -141,6 +141,28 @@
 			};
 			app.updateData();
 			document.getElementById('chatInput').disabled = false;
+			document.getElementById('submmitChat').onclick = function() {
+				if (document.getElementById('userName') != '') {
+					let poster = document.getElementById('userName').value;
+					let content = document.getElementById('chatInput').value;
+					let likes = 0;
+					let dislikes = 0;
+					let time = 'Today';
+					Sheets.read('E2', function() {
+						let length = Number(Sheets.result[0][0]) + 1;
+						Sheets.write(`A${length}`, poster);
+						Sheets.write(`B${length}`, content);
+						Sheets.write(`C${length}`, likes);
+						Sheets.write(`D${length}`, dislikes);
+						Sheets.write(`E${length}`, time);
+						setTimeout(function() {
+							location = location;
+						}, 1000);
+					});
+				} else {
+					alert('Please insert a user name.');
+				}
+			}
 		}
 	</script>
 	<script src="sheetsSimplifier.js">

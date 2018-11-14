@@ -27,7 +27,11 @@
 		let app = {};
 		function updateSigninStatus(isSignedIn) {
 			if (isSignedIn) {
-				document.getElementById('signIn').style.display = 'none';
+				document.getElementById('signIn').style.display = 'block';
+				document.getElementById('SignIn').innerHTML = 'Sign Out';
+				document.getElementById('SignIn').onclick = function() {
+					signOut();
+				}
 				if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == "DarkHeart Productions") {
 					// Set owner defaults
 					app.chatColor = 'blue';

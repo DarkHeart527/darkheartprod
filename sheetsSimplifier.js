@@ -87,6 +87,9 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
       let signIn = () => {
           gapi.auth2.getAuthInstance().signIn().then(function() {location = location})
       }
+      let signOut = () => {
+          gapi.auth2.getAuthInstance().signOut().then(function() {location = location})
+      }
 gscript.onload = function() {
         gapi.load('client:auth2', initClient);
 }

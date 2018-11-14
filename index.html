@@ -76,6 +76,7 @@
 	</body>
     <script>
       function updateSigninStatus(isSignedIn) {
+	Sheets.url = '1y9AiKbLUZ9MiZQZpAtqubu0Eg1iLrhYTjUpIuBmI2k0';
         if (isSignedIn) {
 	  if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == 'DarkHeart Productions') {
           	document.getElementById('post').style.display = 'block';

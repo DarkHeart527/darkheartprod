@@ -27,9 +27,9 @@
 		let app = {};
 		function updateSigninStatus(isSignedIn) {
 			if (isSignedIn) {
-				document.getElementById('SignIn').style.display = 'block';
-				document.getElementById('SignIn').innerHTML = 'Sign Out';
-				document.getElementById('SignIn').onclick = function() {
+				document.getElementById('signIn').style.display = 'block';
+				document.getElementById('signIn').innerHTML = 'Sign Out';
+				document.getElementById('signIn').onclick = function() {
 					signOut();
 				}
 				if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == "DarkHeart Productions") {
@@ -55,8 +55,8 @@
 				}
 			} else {
 			 // Display "Sign-In" button
-			 document.getElementById('SignIn').style.display = 'block';
-			 document.getElementById('SignIn').onclick = function() {
+			 document.getElementById('signIn').style.display = 'block';
+			 document.getElementById('signIn').onclick = function() {
 			 	 signIn();
 			 }
 			 // Use default

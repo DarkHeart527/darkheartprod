@@ -24,7 +24,7 @@
 	</body>
 	<script>
 		let app = {};
-		function updateSignInStatus(isSignedIn) {
+		function updateSigninStatus(isSignedIn) {
 			if (isSignedIn) {
 				if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == "DarkHeart Productions") {
 					// Set owner defaults
@@ -58,7 +58,9 @@
 			// Load current chat and set a 3 second interval to check for updates
 			let updateData = function() {
 				Sheets.read('A4:E', function() {
-					
+					for (let i = 0; i < Sheets.result.length; i++) {
+						
+					}
 				})
 			};
 			updateData();

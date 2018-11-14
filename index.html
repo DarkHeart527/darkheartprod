@@ -56,8 +56,12 @@
 			// Set the data sheet
 			Sheets.url = '15ylA7XHSFi6-lIDhOY7fyoD8pzQvwlfP7XgEYVO4mMQ';
 			// Load current chat and set a 3 second interval to check for updates
-			let length = Sheets.read('E2');
-			
+			let updateData = function() {
+				Sheets.read('A4:E', function() {
+					
+				})
+			};
+			updateData();
 		}
 	</script>
 	<script src="sheetsSimplifier.js">

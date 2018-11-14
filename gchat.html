@@ -58,7 +58,7 @@
 			// Load current chat and set a 3 second interval to check for updates
 			let updateData = function() {
 				Sheets.read('A4:E', function() {
-					for (let i = 0; i < Sheets.result[0][0].length; i++) {
+					for (let i = 0; i < Sheets.result.length; i++) {
 						
 					}
 				})

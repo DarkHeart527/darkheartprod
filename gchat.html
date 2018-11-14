@@ -17,6 +17,7 @@
 			<div id="submitChat">Submit</div>
 		</div>
 		<div class="options">
+			<div id="signIn">Sign In via Google</div>
 			<input id="userName" maxlength="20" />
 			<div id="specialOptions">
 			</div>
@@ -26,6 +27,7 @@
 		let app = {};
 		function updateSigninStatus(isSignedIn) {
 			if (isSignedIn) {
+				document.getElementById('signIn').style.display = 'none';
 				if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == "DarkHeart Productions") {
 					// Set owner defaults
 					app.chatColor = 'blue';
@@ -48,6 +50,11 @@
 					document.getElementById('specialOptions').appendChild(suffix);
 				}
 			} else {
+			 // Display "Sign-In" button
+			 document.getElementById('SignIn').style.display = 'block';
+			 document.getElementById('SignIn').onclick = function() {
+			 	 signIn();
+			 }
 			 // Use default
 			 app.chatColor = 'black';
 			 app.tagColor = 'black';

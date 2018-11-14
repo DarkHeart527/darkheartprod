@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>
+			Group Chat by DarkHeart Productions
+		</title>
+		<style>
+			body {
+			 margin: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="chat">
+		</div>
+		<div class="chatInputBar">
+			<input id="chatInput" disabled />
+			<div id="submitChat">Submit</div>
+		</div>
+		<div class="options">
+			<input id="userName" maxlength="20" />
+			<div id="specialOptions">
+			</div>
+		</div>
+	</body>
+	<script>
+		function updateSignInStatus(isSignedIn) {
+			if (isSignedIn) {
+				if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == "DarkHeart Productions") {
+					// Set owner defaults
+					app.chatColor = 'blue';
+					app.tagColor = 'green';
+					app.suffix = ' >>> ';
+					// Change max length to unlimited (Due to sign-in but cannot be changed)
+					document.getElementById('userName').maxlength = '';
+					document.getElementById('userName').value = gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig;
+					document.getElementById('userName').disabled = true;
+					document.getElementById('userName').attributes.isDisabled = true;
+					// Create custom options
+					let chatColor = document.createElement('input');
+					chatColor.value = app.chatColor;
+					document.getElementById('specialOptions').appendChild(chatColor);
+					let tagColor = document.createElement('input');
+					tagColor.value = app.tagColor;
+					document.getElementById('specialOptions').appendChild(tagColor);
+					let suffix = document.createElement('input');
+					suffix.value = app.suffix;
+					document.getElementById('specialOptions').appendChild(suffix);
+				}
+			} else {
+			 // Use default
+			 app.chatColor = 'black';
+			 app.tagColor = 'black';
+			 app.suffix = ' : ';
+			}
+			// Set the data sheet
+			Sheets.url = '15ylA7XHSFi6-lIDhOY7fyoD8pzQvwlfP7XgEYVO4mMQ';
+			// Load current chat and set a 3 second interval to check for updates
+			let length = Sheets.read('E2');
+		}
+	</script>
+	<script src="sheetsSimplifier.js">
+	</script>
+</html>

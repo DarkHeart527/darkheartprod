@@ -1,4 +1,4 @@
-// Update
+
 let gscript = document.createElement('script');
 gscript.src = 'https://apis.google.com/js/api.js';
 gscript.async = true;

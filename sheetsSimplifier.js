@@ -30,7 +30,7 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
           if (!url) {
                 url = Sheets.url;
                 if (!url) {
-                  console.error("Google Sheets does not exist or the URL is wrong")'
+                  console.error("Google Sheets does not exist or the URL is wrong");
                   return false;
                 }
           }
@@ -69,7 +69,7 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
                 if (!url) {
                       url = Sheets.url;
                       if (!url) {
-                        console.error("Google Sheets does not exist or the URL is wrong")'
+                        console.error("Google Sheets does not exist or the URL is wrong");
                         return false;
                       }
                 }

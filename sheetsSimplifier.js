@@ -24,10 +24,18 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
       }
 
       let Sheets = {
+        url: '',
         result: '',
-        read: function(range, func) {
+        read: function(range, func, url) {
+          if (!url) {
+                url = Sheets.url;
+                if (!url) {
+                  console.error("Google Sheets does not exist or the URL is wrong")'
+                  return false;
+                }
+          }
           gapi.client.sheets.spreadsheets.values.get({
-           spreadsheetId: '1y9AiKbLUZ9MiZQZpAtqubu0Eg1iLrhYTjUpIuBmI2k0', // Sheets id
+           spreadsheetId: url, // Sheets id
            range: `Sheet1!${range}`,
           }).then(function(response) {
            var range = response.result;
@@ -57,9 +65,16 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
            Sheets.result = 'Error ' + response.result.error.message
           });
         },
-        write: function(range, value) {
+        write: function(range, value, url) {
+                if (!url) {
+                      url = Sheets.url;
+                      if (!url) {
+                        console.error("Google Sheets does not exist or the URL is wrong")'
+                        return false;
+                      }
+                }
                 gapi.client.sheets.spreadsheets.values.update({
-                   spreadsheetId: '1y9AiKbLUZ9MiZQZpAtqubu0Eg1iLrhYTjUpIuBmI2k0',
+                   spreadsheetId: url,
                    range: range,
                    valueInputOption: 'USER_ENTERED',
                    resource: {values:[[value]]}

@@ -74,19 +74,19 @@
 						let msg = document.createElement('div');
 						chat.appendChild(msg);
 						let user = document.createElement('div');
-						user.innerHTML = `Sheets.result[i][0]`;
+						user.innerHTML = Sheets.result[i][0];
 						msg.appendChild(user);
 						let message = document.createElement('div');
-						message.innerHTML = `Sheets.result[i][1]`;
+						message.innerHTML = Sheets.result[i][1];
 						msg.appendChild(message);
 						let likes = document.createElement('div');
-						likes.innerHTML = `Sheets.result[i][2]`;
+						likes.innerHTML = Sheets.result[i][2];
 						msg.appendChild(likes);
 						let dislikes = document.createElement('div');
-						dislikes.innerHTML = `Sheets.result[i][3]`;
+						dislikes.innerHTML = Sheets.result[i][3];
 						msg.appendChild(dislikes);
 						let timeposted = document.createElement('div');
-						timeposted.innerHTML = `Sheets.result[i][4]`;
+						timeposted.innerHTML = Sheets.result[i][4];
 						msg.appendChild(timeposted);
 						msg.className = 'msg';
 					}

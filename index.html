@@ -93,8 +93,7 @@
 			pst.appendChild(submitPost);
 			submitPost.innerHTML = 'Submit';
 			submitPost.onclick = function() {
-				Sheets.read('H2');
-				setTimeout(function() {
+				Sheets.read('H2', function() {
 					let length = Number(Sheets.result[0][0]) + 2;
 					let ph = postHead.value;
 					let pd = postDescription.value;
@@ -129,8 +128,7 @@
 					Sheets.write(`Sheet1!G${length}`, fullTime);
 				setTimeout(function() {
 				location = location
-				}, 1000)
-				}, 1500)
+				}, 1000);
 			}
 			document.body.appendChild(pst);
 		}

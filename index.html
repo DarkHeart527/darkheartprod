@@ -143,7 +143,7 @@
 	<script src="sheetsSimplifier.js" id="simp">
 	</script>
 	<script>
-	setTimeout(function() {Sheets.read('A2:G', function() {
+	document.onload = function() {Sheets.read('A2:G', function() {
 		for (let i = 0; i < Sheets.result.length; i++) {
 			let ph = Sheets.result[i][0];
 			let pb = Sheets.result[i][1];
@@ -167,7 +167,7 @@
 			blog.appendChild(pde);
 			pde.innerHTML = `<article><span class="tab"></span>${pd}</article>`;
 		}
-	})}, 1000);
+	})}
 	document.body.onkeyup = function(e) {
 		let key = e.key;
 		if (key == 'Escape') {

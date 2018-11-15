@@ -149,14 +149,16 @@
 				})
 			};
 			app.updateData();
-			let chkForUpdt = Sheets.read('E2', 
-				function() {
-					if (app.dataLength != Sheets.result[0][0]) {
-						document.getElementById('chat').innerHTML = '';
-						app.updateData();
-						app.dataLength = Sheets.result[0][0];
+			let chkForUpdt = function()  {
+				Sheets.read('E2', 
+					function() {
+						if (app.dataLength != Sheets.result[0][0]) {
+							document.getElementById('chat').innerHTML = '';
+							app.updateData();
+							app.dataLength = Sheets.result[0][0];
 					}
 				});
+			}
 			chkForUpdt();
 			setInterval( function() {
 				chkForUpdt();

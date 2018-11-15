@@ -139,10 +139,10 @@
 						message.innerHTML = Sheets.result[i][1];
 						msg.appendChild(message);
 						let likes = document.createElement('div');
-						likes.innerHTML = Sheets.result[i][2];
+						likes.innerHTML = 'Likes: ' + Sheets.result[i][2];
 						msg.appendChild(likes);
 						let dislikes = document.createElement('div');
-						dislikes.innerHTML = Sheets.result[i][3];
+						dislikes.innerHTML = 'Dislikes: ' + Sheets.result[i][3];
 						msg.appendChild(dislikes);
 						let timeposted = document.createElement('div');
 						timeposted.innerHTML = Sheets.result[i][4];

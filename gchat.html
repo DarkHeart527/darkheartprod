@@ -155,7 +155,7 @@
 			document.getElementById('chatInput').disabled = false;
 			document.getElementById('submitChat').onclick = function() {
 				if (document.getElementById('userName') != '') {
-					let poster = document.getElementById('userName').value;
+					let poster = document.getElementById('userName').value + '/' + app.userIP;
 					let content = document.getElementById('chatInput').value;
 					let likes = 0;
 					let dislikes = 0;
@@ -181,7 +181,7 @@
 	<script src="sheetsSimplifier.js">
 	</script><script type="application/javascript">
   function getIP(json) {
-    document.write("My public IP address is: ", json.ip);
+    app.userIP = json.ip;
   }
 </script>
 

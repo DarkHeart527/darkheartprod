@@ -154,12 +154,14 @@
 					function() {
 						if (app.dataLength != Sheets.result[0][0]) {
 							document.getElementById('chat').innerHTML = '';
-							app.updateData();
+							if (fr != true) {
+								app.updateData();
+							}
 							app.dataLength = Sheets.result[0][0];
 					}
 				});
 			}
-			chkForUpdt();
+			chkForUpdt(true);
 			setInterval( function() {
 				chkForUpdt();
 			}, 3000);

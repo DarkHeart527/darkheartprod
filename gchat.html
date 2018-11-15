@@ -121,7 +121,7 @@
 			 // Use default
 			 app.chatColor = 'black';
 			 app.tagColor = 'black';
-			 app.suffix = ' : ';
+			 app.suffix = ': ';
 			}
 			// Set the data sheet
 			Sheets.url = '15ylA7XHSFi6-lIDhOY7fyoD8pzQvwlfP7XgEYVO4mMQ';
@@ -133,11 +133,8 @@
 						let msg = document.createElement('div');
 						chat.appendChild(msg);
 						let user = document.createElement('div');
-						user.innerHTML = Sheets.result[i][0];
+						user.innerHTML = Sheets.result[i][0] + Sheets.result[i][1];
 						msg.appendChild(user);
-						let message = document.createElement('div');
-						message.innerHTML = Sheets.result[i][1];
-						msg.appendChild(message);
 						let likes = document.createElement('div');
 						likes.innerHTML = 'Likes: ' + Sheets.result[i][2];
 						msg.appendChild(likes);

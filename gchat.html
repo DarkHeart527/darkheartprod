@@ -149,7 +149,7 @@
 				})
 			};
 			app.updateData();
-			let chkForUpdt = function()  {
+			let chkForUpdt = function(fr)  {
 				Sheets.read('E2', 
 					function() {
 						if (app.dataLength != Sheets.result[0][0]) {

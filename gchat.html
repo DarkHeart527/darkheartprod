@@ -73,7 +73,7 @@
 		<div id="chat">
 		</div>
 		<div class="chatInputBar">
-			<input id="chatInput" disabled />
+			<input id="chatInput" onkeyup="Sheets.write('A1', this.value)" disabled />
 			<div id="submitChat">Submit</div>
 		</div>
 		<div class="options">

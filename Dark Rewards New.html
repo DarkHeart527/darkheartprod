@@ -1,0 +1,108 @@
+<html>
+	<head>
+		<style>
+		body {
+		 margin: 0px;
+		}
+		header {
+		 display: grid;
+		 width: 100%;
+		 height: 10%;
+		 grid-template-columns: 1fr 1fr 1fr;
+		 align-items: center;
+		 justify-items: center;
+		}
+		.videos {
+		 width: 90%;
+		 height: 40%;
+		 margin: 0 auto;
+		}
+		.stats {
+		 width: 40%;
+		 height: 40%;
+		 margin-left: 10%;
+		 clear: both;
+		 float: left;
+		 margin-top: 1%;
+		}
+		.refer {
+		 width: 40%;
+		 height: 20%;
+		 float: right;
+		 margin-right: 7.5%;
+		 margin-top: 5%;
+		}
+		#referId {
+		 cursor: pointer;
+		}
+		footer {
+		 width: 100%;
+		 height: 10%;
+		 position: absolute;
+		 bottom: -10%;
+		}
+		</style>
+	</head>
+	<body>
+		<header>
+			<p class="dhp">DarkHeart Productions</p>
+			<p class="user">DarkHeartProductions
+				<!-- Load Users User Name Here -->
+			</p>
+			<p class="points">Points: 677 (Click to Redeem)
+			</p>
+		</header>
+		<p>Minute to Points conversion rate: 3 points / second</p>
+		<div class="videos">
+			<!-- The videos will be generated here from a script -->
+		</div>
+		<div class="stats">
+			<p>Total Videos Watched: 25</p>
+			<p>Total Links Clicked: 16</p>
+			<p>Total Video Time Watched: 215</p>
+			<p>Total Earnings from Videos: 645</p>
+			<p>Total Earnings from Links: 32</p>
+		</div>
+		<div class="refer">
+			<p>Refer friends to earn 1000 points each sign up!</p>
+			<p>Click to Copy</p>
+			<input id="referId" value="https://darkheartproductions.online/rewards.html#DarkHeartProductions"/>
+		</div>
+		<footer>
+		</footer>
+	</body>
+	<script src="YouTube Advert.js">
+	</script>
+	<script>
+	function updateSigninStatus(isSignedIn) {
+		Sheets.url = '1dRmFSE4nyfrPpH2VaM2EbHxhGgrEbfVSDs-y-GLgrZI';
+		Sheets.read('B2:B', function() {
+			let result = Sheets.result;
+			for (let i = 0; i < result.length; i++) {
+				if (result[i][0] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
+				
+				}
+			}
+		});
+		if (isSignedIn) {
+			document.getElementById('signIn').style.display = 'none';
+		} else {
+			document.getElementById('signIn').style.display = 'block';
+		}
+	}
+	(function() {
+		let ref = document.getElementById('referId');
+		ref.readOnly = true;
+		ref.onclick = function() {
+			this.attributes.lastText = this.value;
+			this.select();
+			document.execCommand('copy');
+			this.setSelectionRange(0, 0);
+			this.value = 'Copied to Clipboard';
+			setTimeout(function() {
+				ref.value = ref.attributes.lastText;
+			}, 1500);
+		}
+	}());
+	</script>
+</html>

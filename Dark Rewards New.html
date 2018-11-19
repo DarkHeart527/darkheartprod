@@ -86,7 +86,7 @@
 			for (let i = 0; i < result.length; i++) {
 				if (result[i][0] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
 					i = result.length - 1;
-					Sheets.read(`A${i}:F${i}`, function() {
+					Sheets.read(`A${i + 1}:F${i + 1}`, function() {
 						data = Sheets.result;
 					});
 				}

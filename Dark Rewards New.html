@@ -61,7 +61,7 @@
 			<p class="user">
 				<!-- Load Users User Name Here -->
 			</p>
-			<p class="points" id="redeem">Points: 677 (Click to Redeem)
+			<p id="redeem">Points: <span class="points">677</span> (Click to Redeem)
 			</p>
 		</header>
 		<p>Minute to Points conversion rate: 3 points / second</p>
@@ -135,7 +135,7 @@
 							for (let k = 0; k < document.getElementsByClassName('points').length; k++) {
 								document.getElementsByClassName('points')[k].innerHTML = points;
 							}
-							document.getElementsByClassName('logs')[0].innerHTML = logs;
+							document.getElementsByClassName('logs')[0].innerHTML = userLogs;
 						});
 					}
 				}

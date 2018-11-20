@@ -82,7 +82,7 @@
 		<div class="refer">
 			<p>Refer friends to earn 1000 points each sign up!</p>
 			<p>Click to Copy</p>
-			<input id="referId" value="https://darkheartproductions.online/rewards.html#DarkHeartProductions"/>
+			<input id="referId" value="https://darkheartproductions.online/Dark%20Rewards%20New.html#DarkHeartProductions"/>
 		</div>
 		<footer>
 		</footer>
@@ -118,7 +118,7 @@
 							let stats = data[0][6];
 							let ref = document.getElementById('referId');
 							ref.readOnly = true;
-							ref.value = 'https://darkheartproductions.online/rewards.html#' + userName;
+							ref.value = 'https://darkheartproductions.online/Dark%20Rewards%20New.html#' + userName;
 							ref.onclick = function() {
 								this.attributes.lastText = this.value;
 								this.select();
@@ -151,7 +151,7 @@
 		}
 	}
 	document.getElementById('redeem').onclick = function() {
-		location = location.host + 'redeem.html';
+		location = location.host + '/redeem.html';
 	}
 	</script>
 	<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>

@@ -116,6 +116,19 @@
 							let userLogs = data[0][4];
 							let timeStamps = data[0][5];
 							let stats = data[0][6];
+							let ref = document.getElementById('referId');
+							ref.readOnly = true;
+							ref.value = 'https://darkheartproductions.online/rewards.html#' + userName;
+							ref.onclick = function() {
+								this.attributes.lastText = this.value;
+								this.select();
+								document.execCommand('copy');
+								this.setSelectionRange(0, 0);
+								this.value = 'Copied to Clipboard';
+								setTimeout(function() {
+									ref.value = ref.attributes.lastText;
+								}, 1500);
+							}
 							for (let j = 0; j < document.getElementsByClassName('user').length; j++) {
 								document.getElementsByClassName('user')[j].innerHTML = userName;
 							}
@@ -132,20 +145,6 @@
 			document.getElementById('signIn').style.display = 'block';
 		}
 	}
-	(function() {
-		let ref = document.getElementById('referId');
-		ref.readOnly = true;
-		ref.onclick = function() {
-			this.attributes.lastText = this.value;
-			this.select();
-			document.execCommand('copy');
-			this.setSelectionRange(0, 0);
-			this.value = 'Copied to Clipboard';
-			setTimeout(function() {
-				ref.value = ref.attributes.lastText;
-			}, 1500);
-		}
-	}());
 	function getIP(json) {
 		if (json.ip == '75.140.27.241') {
 			document.getElementsByClassName('overlay')[0].style.display = 'none';

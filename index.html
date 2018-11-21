@@ -74,95 +74,95 @@
 	</div>
 	</body>
     <script>
-      function updateSigninStatus(isSignedIn) {
-	Sheets.url = '1y9AiKbLUZ9MiZQZpAtqubu0Eg1iLrhYTjUpIuBmI2k0';
+    function updateSigninStatus(isSignedIn) {
+		Sheets.url = '1y9AiKbLUZ9MiZQZpAtqubu0Eg1iLrhYTjUpIuBmI2k0';
         if (isSignedIn) {
-	  if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == 'DarkHeart Productions') {
-          	document.getElementById('post').style.display = 'block';
-		window.post = () => {
-			let pst = document.createElement('div');
-			pst.className = 'postPage';
-			let postHead = document.createElement('textarea');
-			postHead.className = 'postHead';
-			pst.appendChild(postHead);
-			let postDescription = document.createElement('textarea');
-			postDescription.className = 'postDescription';
-			pst.appendChild(postDescription);
-			let submitPost = document.createElement('div');
-			pst.appendChild(submitPost);
-			submitPost.innerHTML = 'Submit';
-			submitPost.onclick = function() {
-				Sheets.read('H2', function() {
-					let length = Number(Sheets.result[0][0]) + 2;
-					let ph = postHead.value;
-					let pd = postDescription.value;
-					let pb = gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig;
-					let com = '[{}]';
-					let likes = 0;
-					let dislikes = 0;
-					// Use dates to add to post date
-					let date = new Date();
-					let month = date.getMonth() + 1;
-					let day = date.getDate();
-					let year = date.getFullYear();
-					year = year.toString();
-					year = year[2] + year[3];
-					let hour = date.getHours();
-					let minute = date.getMinutes();
-					let frame = 'AM'; // Set initial to AM unless past 12 hour mark
-					if (hour >= 13) { // Uses Standard 12 Hour Time and sets past 12 hour mark if true
-						hour = hour - 12;
-						frame = 'PM';
+			if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == 'DarkHeart Productions') {
+				document.getElementById('post').style.display = 'block';
+				window.post = () => {
+					let pst = document.createElement('div');
+					pst.className = 'postPage';
+					let postHead = document.createElement('textarea');
+					postHead.className = 'postHead';
+					pst.appendChild(postHead);
+					let postDescription = document.createElement('textarea');
+					postDescription.className = 'postDescription';
+					pst.appendChild(postDescription);
+					let submitPost = document.createElement('div');
+					pst.appendChild(submitPost);
+					submitPost.innerHTML = 'Submit';
+					submitPost.onclick = function() {
+						Sheets.read('H2', function() {
+							let length = Number(Sheets.result[0][0]) + 2;
+							let ph = postHead.value;
+							let pd = postDescription.value;
+							let pb = gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig;
+							let com = '[{}]';
+							let likes = 0;
+							let dislikes = 0;
+							// Use dates to add to post date
+							let date = new Date();
+							let month = date.getMonth() + 1;
+							let day = date.getDate();
+							let year = date.getFullYear();
+							year = year.toString();
+							year = year[2] + year[3];
+							let hour = date.getHours();
+							let minute = date.getMinutes();
+							let frame = 'AM'; // Set initial to AM unless past 12 hour mark
+							if (hour >= 13) { // Uses Standard 12 Hour Time and sets past 12 hour mark if true
+								hour = hour - 12;
+								frame = 'PM';
+							}
+							if (minute < 10) { // If minutes are less than 10, add a 0 before
+								minute = '0' + minute.toString();
+							}
+							let fullTime = `${month} - ${day} - ${year} at ${hour}:${minute} ${frame}`;
+							Sheets.write(`Sheet1!A${length}`, ph);
+							Sheets.write(`Sheet1!C${length}`, pd);
+							Sheets.write(`Sheet1!B${length}`, pb);
+							Sheets.write(`Sheet1!D${length}`, com);
+							Sheets.write(`Sheet1!E${length}`, likes);
+							Sheets.write(`Sheet1!F${length}`, dislikes);
+							Sheets.write(`Sheet1!G${length}`, fullTime);
+							setTimeout(function() {
+							location = location
+							}, 1000);
+						});
+						document.body.appendChild(pst);
 					}
-					if (minute < 10) { // If minutes are less than 10, add a 0 before
-						minute = '0' + minute.toString();
-					}
-					let fullTime = `${month} - ${day} - ${year} at ${hour}:${minute} ${frame}`;
-					Sheets.write(`Sheet1!A${length}`, ph);
-					Sheets.write(`Sheet1!C${length}`, pd);
-					Sheets.write(`Sheet1!B${length}`, pb);
-					Sheets.write(`Sheet1!D${length}`, com);
-					Sheets.write(`Sheet1!E${length}`, likes);
-					Sheets.write(`Sheet1!F${length}`, dislikes);
-					Sheets.write(`Sheet1!G${length}`, fullTime);
-					setTimeout(function() {
-					location = location
-					}, 1000);
+					document.getElementById('post').onclick = function() {post();}
+				}
+			} else {
+			  document.getElementById('post').style.display = 'none';
+			}
+		}
+		Sheets.read('A2:G', function() {
+				for (let i = 0; i < Sheets.result.length; i++) {
+					let ph = Sheets.result[i][0];
+					let pb = Sheets.result[i][1];
+					let pd = Sheets.result[i][2];
+					let com = Sheets.result[i][3];
+					let likes = Sheets.result[i][4];
+					let dislikes = Sheets.result[i][5];
+					let tp = Sheets.result[i][6];
+					let phe = document.createElement('div');
+					phe.className = 'head';
+					phe.innerHTML = ph;
+					let blog = document.createElement('div');
+					document.getElementsByClassName('page')[0].prepend(blog);
+					blog.appendChild(phe);
+					blog.className = 'blog';
+					let time = document.createElement('div');
+					time.innerHTML = tp;
+					time.className = 'desc';
+					blog.appendChild(time);
+					let pde = document.createElement('div');
+					blog.appendChild(pde);
+					pde.innerHTML = '<article><span class="tab"></span>' + pd + '</article>';
+				}
 			});
-			document.body.appendChild(pst);
 		}
-		document.getElementById('post').onclick = function() {post();}
-	  }
-        } else {
-          document.getElementById('post').style.display = 'none';
-        }
-	Sheets.read('A2:G', function() {
-		for (let i = 0; i < Sheets.result.length; i++) {
-			let ph = Sheets.result[i][0];
-			let pb = Sheets.result[i][1];
-			let pd = Sheets.result[i][2];
-			let com = Sheets.result[i][3];
-			let likes = Sheets.result[i][4];
-			let dislikes = Sheets.result[i][5];
-			let tp = Sheets.result[i][6];
-			let phe = document.createElement('div');
-			phe.className = 'head';
-			phe.innerHTML = ph;
-			let blog = document.createElement('div');
-			document.getElementsByClassName('page')[0].prepend(blog);
-			blog.appendChild(phe);
-			blog.className = 'blog';
-			let time = document.createElement('div');
-			time.innerHTML = tp;
-			time.className = 'desc';
-			blog.appendChild(time);
-			let pde = document.createElement('div');
-			blog.appendChild(pde);
-			pde.innerHTML = `<article><span class="tab"></span>${pd}</article>`;
-		}
-	});
-      }
-	  }
 	</script>
 	<script src="sheetsSimplifier.js" id="simp">
 	</script>

@@ -113,9 +113,9 @@
 	<script>
 	let data;
 	function updateSigninStatus(isSignedIn) {
+		Sheets.url = '1dRmFSE4nyfrPpH2VaM2EbHxhGgrEbfVSDs-y-GLgrZI';
 		if (isSignedIn) {
 			document.getElementById('signIn').style.display = 'none';
-			Sheets.url = '1dRmFSE4nyfrPpH2VaM2EbHxhGgrEbfVSDs-y-GLgrZI';
 			Sheets.read('B2:B', function() {
 				let result = Sheets.result;
 				for (let i = 0; i < result.length; i++) {

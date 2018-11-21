@@ -162,18 +162,20 @@
 			ytads.videos = [];
 		} else {
 			document.getElementById('signIn').style.display = 'block';
-			document.getElementById('signInButton').onclick = gapi.auth2.getAuthInstance().signIn().then(function() {
-				Sheets.read('B2:B', function() {
-					let data = Sheets.result;
-					for (let i = 0; i < data.length; i++) {
-						if (data[0][i] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
-							location = location;
-						} else {
-							document.getElementById('signUpDetails').style.display = 'block';
+			document.getElementById('signInButton').onclick = function() {
+				gapi.auth2.getAuthInstance().signIn().then(function() {
+					Sheets.read('B2:B', function() {
+						let data = Sheets.result;
+						for (let i = 0; i < data.length; i++) {
+							if (data[0][i] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
+								location = location;
+							} else {
+								document.getElementById('signUpDetails').style.display = 'block';
+							}
 						}
-					}
+					});
 				});
-			});
+			}
 		}
 	}
 	function getIP(json) {

@@ -87,6 +87,20 @@
 		<footer>
 		</footer>
 		<div id="signIn">
+			<div id="signInButton">
+				Sign In / Sign Up using Google
+			</div>
+		</div>
+		<div id="signUpDetails">
+			<div id="newUserName">
+			</div>
+			<div class="referral">
+				<p>Reffered? Put their Username here and you both get 500 Points!</p>
+				<input id="referredBy" />
+				<div id="submitSignUp">
+					Sign Up
+				</div>
+			</div>
 		</div>
 		<div class="overlay">
 			<div>
@@ -137,12 +151,29 @@
 							}
 							document.getElementsByClassName('logs')[0].innerHTML = userLogs;
 						});
+					} else {
+						gapi.auth2.getAuthInstance().signOut().then(function() {
+							alert('Signed Out.\nYou must sign up to start');
+							location = location;
+						});
 					}
 				}
 			});
 			ytads.videos = [];
 		} else {
 			document.getElementById('signIn').style.display = 'block';
+			document.getElementById('signInButton').onclick = gapi.auth2.getAuthInstance().signIn().then(function() {
+				Sheets.read('B2:B', function() {
+					let data = Sheets.result;
+					for (let i = 0; i < data.length; i++) {
+						if (data[0][i] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
+							location = location;
+						} else {
+							document.getElementById('signUpDetails').style.display = 'block';
+						}
+					}
+				});
+			});
 		}
 	}
 	function getIP(json) {

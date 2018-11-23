@@ -87,7 +87,7 @@
 			80% {color: transparent;text-shadow: -5px 5px 2px black}
 			100% {color: orange}
 		}
-		#signIn p {
+		#signIn p, .signInContainer .header {
 			font-size: 35px;
 			animation: dark 1.75s linear infinite;
 		}
@@ -133,7 +133,7 @@
 		</div>
 		<footer>
 		</footer>
-		<div id="signIn">
+		<div id="signIn" style="display: none;">
 			<div class="signInContainer">
 				<p>DarkHeart Rewards</p>
 				<div id="signInButton">
@@ -144,16 +144,21 @@
 				<div>If you have any questions, email me at <a href="mailto:officialdarkheartproductions@gmail.com">officialdarkheartproductions@gmail.com</a></div>
 			</div>
 		</div>
-		<div id="signUpDetails" style="display: none;">
-			<div class="inputUsername">
-				<input id="newUserName" placeholder="Username" />
-			</div>
-			<div class="referral">
-				<p>Reffered? Put their Username here and you both get 500 Points!</p>
-				<input id="referredBy" placeholder="Referral Code" />
+		<div id="signUpDetails">
+			<div class="signInContainer">
+				<p class="header">DarkHeart Rewards</p>
+				<div class="inputUsername">
+					<p>Put in a Username we can call you.</p>
+					<input id="newUserName" placeholder="Username" />
+				</div>
+				<div class="referral">
+					<p>Reffered? Put their Username here and you both get 500 Points!</p>
+					<input id="referredBy" placeholder="Referral Code" />
+				</div>
 				<div id="submitSignUp">
 					Sign Up
 				</div>
+				<div></div>
 			</div>
 		</div>
 		<div class="overlay">

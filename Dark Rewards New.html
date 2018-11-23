@@ -215,7 +215,7 @@
 			});
 			ytads.videos = [];
 		} else {
-			document.getElementById('signIn').style.display = 'block';
+			document.getElementById('signIn').style.display = 'grid';
 			document.getElementById('signInButton').onclick = function() {
 				gapi.auth2.getAuthInstance().signIn().then(function() {
 					Sheets.read('B2:B', function() {

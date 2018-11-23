@@ -53,16 +53,58 @@
 		 align-items: center;
 		 justify-items: center;
 		}
-		</style>		
-		<meta charset="UTF-8">
-		<meta name="description" content="DarkHeart Productions reward website for Free Gift Cards, Vouchers, and Money!">
-		<meta name="keywords" content="Free Giftcards,Free Robux,Giftcards,Free Money,Free Paypal,Free Likes, Likes, Free Views, Views, Free Subscribers, Subscribers, Free Followers, Followers, Free Dislikes, Dislikes,YouTube">
-		<meta name="author" content="DarkHeart Productions">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		#signIn, #signUpDetails {
+		 position: fixed;
+		 top: 0px;
+		 left: 0px;
+		 width: 100%;
+		 height: 100%;
+		 display: grid;
+		 align-items: center;
+		 justify-items: center;
+		 background-color: rgba(0, 0, 0, .5);
+		}
+		#signInButton {
+		 display: grid;
+		 grid-template-columns: 1fr 3fr;
+		 height: fit-content;
+		 border: 1px solid black;
+		 border-radius: 25px;
+		 justify-items: center;
+		 align-items: center;
+		 cursor: pointer;
+		 padding: 5px;
+		}
+		#signInButton img {
+		 width: 50px;
+		 height: 50px;
+		}
+		@keyframes dark {
+			0% {color: orange}
+			20% {color: transparent;text-shadow: 5px 5px 2px black}
+			40% {color: transparent;text-shadow: 5px -5px 2px black}
+			60% {color: transparent;text-shadow: -5px -5px 2px black}
+			80% {color: transparent;text-shadow: -5px 5px 2px black}
+			100% {color: orange}
+		}
+		#signIn p {
+			font-size: 35px;
+			animation: dark 1.75s linear infinite;
+		}
+		.signInContainer {
+		 width: 80%;
+		 height: 80%;
+		 background-color: white;
+		 box-shadow: 0px 0px 15px white;
+		 display: grid;
+		 justify-items: center;
+		 align-items: center;
+		}
+		</style>
 	</head>
 	<body>
 		<header>
-			<p class="dhp">DarkHeart Productions</p>
+			<p class="dhp">DarkHeart Rewards</p>
 			<p class="user">
 				<!-- Load Users User Name Here -->
 			</p>
@@ -92,11 +134,17 @@
 		<footer>
 		</footer>
 		<div id="signIn">
-			<div id="signInButton">
-				Sign In / Sign Up using Google
+			<div class="signInContainer">
+				<p>DarkHeart Rewards</p>
+				<div id="signInButton">
+					<img src="Google Image.jpg">
+					<span>Sign In / Sign Up using Google</span>
+				</div>
+				<div>A rewards program by DarkHeart Productions. Simple, and pays well.</div>
+				<div>If you have any questions, email me at <a href="mailto:officialdarkheartproductions@gmail.com">officialdarkheartproductions@gmail.com</a></div>
 			</div>
 		</div>
-		<div id="signUpDetails">
+		<div id="signUpDetails" style="display: none;">
 			<div class="inputUsername">
 				<input id="newUserName" placeholder="Username" />
 			</div>

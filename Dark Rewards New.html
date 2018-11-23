@@ -240,7 +240,7 @@
 								if (data[0][i] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
 									location = location;
 								} else {
-									document.getElementById('signUpDetails').style.display = 'block';
+									document.getElementById('signUpDetails').style.display = 'grid';
 									document.getElementById('submitSignUp').onclick = function() {
 										Sheets.read('H7', function() {
 											let length = Sheets.result;

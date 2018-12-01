@@ -185,7 +185,9 @@
 			Sheets.read('B2:B', function() {
 				let result = Sheets.result;
 				for (let i = 0; i < result.length; i++) {
+					let found = false;
 					if (result[i][0] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
+						found = true;
 						i = result.length - 1;
 						Sheets.read(`A${i + 2}:F${i + 2}`, function() {
 							data = Sheets.result;
@@ -217,6 +219,8 @@
 							}
 							document.getElementsByClassName('logs')[0].innerHTML = userLogs;
 						});
+					}
+					if (found) {
 					} else {
 						gapi.auth2.getAuthInstance().signOut().then(function() {
 							alert('Signed Out.\nYou must sign up to start');

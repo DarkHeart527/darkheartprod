@@ -13,6 +13,14 @@ app = {
 			code: '',
 			featuring: '',
 		},*/
+		'Spark': {
+			source: 'Spark.mp3',
+			description: 'Spark, Electronic Type Beat, get it? Electronic... Spark... Ok, never mind then.',
+			releaseDate: '12 - 2 - 2018',
+			fireRating: '5',
+			download: true,
+			code: 'notHappening',
+		},
 		'Celestial': {
 			source: 'Celestial.mp3',
 			description: 'Are you Celestial? Well then, let\'s see how you can handle this beat.',

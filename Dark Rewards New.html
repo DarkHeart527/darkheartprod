@@ -216,13 +216,13 @@
 							document.getElementsByClassName('logs')[0].innerHTML = userLogs;
 						});
 					}
-					if (found) {
-					} else {
-						gapi.auth2.getAuthInstance().signOut().then(function() {
-							alert('Signed Out.\nYou must sign up to start');
-							location = location;
-						});
-					}
+				}
+				if (found) {
+				} else {
+					gapi.auth2.getAuthInstance().signOut().then(function() {
+						alert('Signed Out.\nYou must sign up to start');
+						location = location;
+					});
 				}
 			});
 			ytads.videos = [];

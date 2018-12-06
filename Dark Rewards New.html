@@ -111,16 +111,16 @@
 			<p id="redeem">Points: <span class="points">677</span> (Click to Redeem)
 			</p>
 		</header>
-		<p>Minute to Points conversion rate: 3 points / second</p>
+		<p>Minute to Points conversion rate: 2 points / second</p>
 		<div class="earn">
 			<!-- The videos will be generated here from a script -->
 		</div>
 		<div class="stats">
-			<p>Total Videos Watched: 25</p>
-			<p>Total Links Clicked: 16</p>
-			<p>Total Video Time Watched: 215</p>
-			<p>Total Earnings from Videos: 645</p>
-			<p>Total Earnings from Links: 32</p>
+			<p>Total Videos Watched: 0</p>
+			<p>Total Links Clicked: 0</p>
+			<p>Total Video Time Watched: 0</p>
+			<p>Total Earnings from Videos: 0</p>
+			<p>Total Earnings from Links: 0</p>
 			<div class="logs">
 				Logs:
 				<p>Log</p>
@@ -156,7 +156,7 @@
 					<input id="newUserName" placeholder="Username" />
 				</div>
 				<div class="referral">
-					<p>Reffered? Put their Username here and you both get 500 Points!</p>
+					<p>Reffered? Put their Username here and you both get 1000 Points!</p>
 					<input id="referredBy" placeholder="Referral Code" />
 				</div>
 				<div id="submitSignUp">
@@ -164,7 +164,7 @@
 				</div>
 				<div>
 					<a href="https://darkheartproductions.online/about.html#pp" target="_blank">Privacy Policy</a>
-					<a href="https://darkheartproductions.online/about.html#tac" target="_blank">>Terms and Conditions</a>
+					<a href="https://darkheartproductions.online/about.html#tac" target="_blank">Terms and Conditions</a>
 				</div>
 			</div>
 		</div>
@@ -265,7 +265,7 @@
 											Sheets.write(`D${writeArea}`, '[]');
 											Sheets.write(`E${writeArea}`, '[]');
 											Sheets.write(`F${writeArea}`, '{}');
-											Sheets.write(`G${writeArea}`, '{}');
+											Sheets.write(`G${writeArea}`, '{videosWatched: 0, linksClicked: 0, videoTimeWatched: 0, earningVideos: 0, earningLinks: 0}');
 											Sheets.write(`C${writeArea}`, 0);
 											setTimeout(function() {
 												location = location;

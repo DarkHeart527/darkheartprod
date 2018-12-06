@@ -179,8 +179,9 @@
 			document.getElementById('signIn').style.display = 'none';
 			Sheets.read('B2:B', function() {
 				let result = Sheets.result;
+				let found = 'n/a';
 				for (let i = 0; i < result.length; i++) {
-					let found = false;
+					found = false;
 					console.log(result + '\n' + result[i][0]);
 					if (result[i][0] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
 						found = true;
@@ -217,7 +218,8 @@
 						});
 					}
 				}
-				if (found) {
+				if (found == 'n/a') {
+				} else if (found) {
 				} else {
 					gapi.auth2.getAuthInstance().signOut().then(function() {
 						alert('Signed Out.\nYou must sign up to start');

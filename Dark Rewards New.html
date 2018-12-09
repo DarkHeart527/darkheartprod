@@ -215,17 +215,15 @@
 								document.getElementsByClassName('points')[k].innerHTML = points;
 							}
 							document.getElementsByClassName('logs')[0].innerHTML = userLogs;
-							Sheets.read('', function() {
-								let vTW = ['x6et2UZepCc'];
-								for (let a = 0; a < vTW.length; a++) {
-									let vDiv = document.createElement('div');
-									let specTimeStamp = timeStamps[vTW[a]];
-									let lastTime;
-									if (!!specTimeStamp) {
-										lastTime = specTimeStamp;
-									}
+							let vTW = ['x6et2UZepCc'];
+							for (let a = 0; a < vTW.length; a++) {
+								let vDiv = document.createElement('div');
+								let specTimeStamp = timeStamps[vTW[a]];
+								let lastTime;
+								if (!!specTimeStamp) {
+									lastTime = specTimeStamp;
 								}
-							});
+							}
 						});
 					}
 				}

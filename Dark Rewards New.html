@@ -223,6 +223,13 @@
 								if (!!specTimeStamp) {
 									lastTime = specTimeStamp;
 								}
+								let vTitle = document.createElement('div');
+								vTitle.innerText = vTW[a];
+								let vDesc = document.createElement('div');
+								vDesc.innerText = 'Watch for Points!';
+								vDiv.appendChild(vTitle);
+								vDiv.appendChild(vDesc);
+								document.getElementById('earn').appendChild(vDiv);
 							}
 						});
 					}

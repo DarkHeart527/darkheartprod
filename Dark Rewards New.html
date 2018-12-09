@@ -12,6 +12,13 @@
 		 align-items: center;
 		 justify-items: center;
 		}
+		.endVideo {
+		 position: absolute;
+		 top: 0px;
+		 right: 0px;
+		 color: red;
+		 font-size: 35px;
+		}
 		.earn {
 		 width: 90%;
 		 height: 40%;
@@ -251,6 +258,12 @@
 									}
 									document.getElementsByClassName('overlay')[0].style.display = 'block';
 									ytads.newVideo(vTW[a]);
+									let closeBtn = document.createElement('div');
+									closeBtn.innerText = 'X';
+									closeBtn.onclick = function() {
+										endVideo();
+									}
+									closeBtn.className = 'endVideo';
 								}
 							}
 						});

@@ -121,7 +121,7 @@ let ytads = {
 		}, 100);
 		window.playint = setInterval( function() {
 			if (ytads.player.getPlayerState() == 1) {
-				if (ytads.watchTime >= ytads.settings.length) {
+				if (ytads.watchTime >= ytads.settings.length || ytads.watchTime == Math.floor(ytads.player.getDuration())) {
 					if (typeof(ytads.onTimeCompleted) == 'function') {
 						ytads.onTimeCompleted();
 					}
@@ -132,7 +132,7 @@ let ytads = {
 					ytads.watchTime = -1;
 					clearInterval(playint);
 					delete playint;
-				}
+				} else if (ytads.player.
 				ytads.watchTime++;
 				if (ytads.settings.timeShows == true) {
 					/*let f = ytads.settings.timeFormat;
@@ -152,4 +152,4 @@ let ytads = {
 	},
 	player: '',
 }
-console.log('YouTube Advert by DarkHeart Productions is now running, version: 3.0.0');
+console.log('YouTube Advert by DarkHeart Productions is now running, version: 2.0.0');

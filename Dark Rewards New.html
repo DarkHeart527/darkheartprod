@@ -197,7 +197,7 @@
 							let timeStamps = data[0][5];
 							let stats = data[0][6];
 							let ref = document.getElementById('referId');
-							window.index = i;
+							window.index = i + 2;
 							ref.readOnly = true;
 							ref.value = 'https://darkheartproductions.online/Dark%20Rewards%20New.html#' + userName;
 							ref.onclick = function() {
@@ -234,6 +234,7 @@
 								vDiv.appendChild(vDesc);
 								document.getElementsByClassName('earn')[0].appendChild(vDiv);
 								vDiv.onclick = function() {
+									ytads.settings.length = 'full';
 									let endVideo = function() {
 										ytads.pause();
 										let time = ytads.watchTime;

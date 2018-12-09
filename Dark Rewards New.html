@@ -251,7 +251,9 @@
 											curPoints = Number(curPoints);
 											curPoints += reward;
 											console.log(curPoints);
+											alert(`You have been rewarded ${reward} Points`);
 										});
+										document.getElementsByClassName('overlay')[0].style.display = 'none';
 									}
 									ytads.onTimeCompleted = function() {
 										endVideo();

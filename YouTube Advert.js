@@ -132,7 +132,7 @@ let ytads = {
 					ytads.watchTime = -1;
 					clearInterval(playint);
 					delete playint;
-				} else if (ytads.player.
+				}
 				ytads.watchTime++;
 				if (ytads.settings.timeShows == true) {
 					/*let f = ytads.settings.timeFormat;

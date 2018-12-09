@@ -229,7 +229,10 @@
 								vDesc.innerText = 'Watch for Points!';
 								vDiv.appendChild(vTitle);
 								vDiv.appendChild(vDesc);
-								document.getElementById('earn').appendChild(vDiv);
+								document.getElementsByClassName('earn')[0].appendChild(vDiv);
+								vDiv.onclick = function() {
+									let videoDiv = document.createElement('div');
+								}
 							}
 						});
 					}

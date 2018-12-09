@@ -1,335 +1,168 @@
-<html>
-	<head>
-		<style>
-		body {
-		 margin: 0px;
+let ytads = {
+	videos: ['rjteBAIPnE0'], // Only use ids of the videos, for start time use ',' then seconds (rjteBAIPnE0,35)
+	settings: {
+		length: 30, // How long the video must play, use "full" to set as the entire video
+		autoPlay: false, // No views are counted when true, Views counted when false because the user must press play
+		playType: 'inline', // "random" to select r.andom videos, "inline" to cycle through (1 > 2 > 3)
+		cover: true, // Cover the video with an invisible element upon playing (prevents button pressing)
+		canMute: true, // The video can be muted
+		timeShows: true, // Show the time of the ad
+		timeFormat: '=current= / =duration=', // Choose the time format =current= shows the current time
+		// =duration= shows the ad length or end
+	},
+	onTimeCompleted: '',
+	watchTime: 0,
+	interval: '',
+	pause: function() {
+		ytads.player.pauseVideo();
+	},
+	play: function() {
+		ytads.player.playVideo();
+	},
+	current: 0, // Do not change this
+	init: function(id) {
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/player_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		
+		window.onYouTubePlayerAPIReady = function() {
+			ytads.player = new YT.Player(id);
+			delete window.onYouTubePlayerAPIReady;
 		}
-		header {
-		 display: grid;
-		 width: 100%;
-		 height: 10%;
-		 grid-template-columns: 1fr 1fr 1fr;
-		 align-items: center;
-		 justify-items: center;
-		}
-		.earn {
-		 width: 90%;
-		 height: 40%;
-		 margin: 0 auto;
-		}
-		.stats {
-		 width: 40%;
-		 height: 40%;
-		 margin-left: 10%;
-		 clear: both;
-		 float: left;
-		 margin-top: 1%;
-		}
-		.refer {
-		 width: 40%;
-		 height: 20%;
-		 float: right;
-		 margin-right: 7.5%;
-		 margin-top: 5%;
-		}
-		#referId {
-		 cursor: pointer;
-		}
-		footer {
-		 width: 100%;
-		 height: 10%;
-		 position: absolute;
-		 bottom: -10%;
-		}
-		.overlay {
-		 background-color: rgba(0, 0, 0, 0.5);
-		 position: fixed;
-		 top: 0px;
-		 font-size: 35px;
-		 left: 0px;
-		 width: 100%;
-		 height: 100%;
-		 display: none;
-		 align-items: center;
-		 justify-items: center;
-		}
-		#signIn, #signUpDetails {
-		 position: fixed;
-		 top: 0px;
-		 left: 0px;
-		 width: 100%;
-		 height: 100%;
-		 display: grid;
-		 align-items: center;
-		 justify-items: center;
-		 background-color: rgba(0, 0, 0, .5);
-		}
-		#signInButton {
-		 display: grid;
-		 grid-template-columns: 1fr 3fr;
-		 height: fit-content;
-		 border: 1px solid black;
-		 border-radius: 25px;
-		 justify-items: center;
-		 align-items: center;
-		 cursor: pointer;
-		 padding: 5px;
-		}
-		#signInButton img {
-		 width: 50px;
-		 height: 50px;
-		}
-		@keyframes dark {
-			0% {color: orange}
-			20% {color: transparent;text-shadow: 5px 5px 2px black}
-			40% {color: transparent;text-shadow: 5px -5px 2px black}
-			60% {color: transparent;text-shadow: -5px -5px 2px black}
-			80% {color: transparent;text-shadow: -5px 5px 2px black}
-			100% {color: orange}
-		}
-		#signIn p, .signInContainer .header {
-			font-size: 35px;
-			animation: dark 1.75s linear infinite;
-		}
-		.signInContainer {
-		 width: 80%;
-		 height: 80%;
-		 background-color: white;
-		 box-shadow: 0px 0px 15px white;
-		 display: grid;
-		 justify-items: center;
-		 align-items: center;
-		}
-		</style>
-	</head>
-	<body>
-		<header>
-			<p class="dhp">DarkHeart Rewards</p>
-			<p class="user">
-				<!-- Load Users User Name Here -->
-			</p>
-			<p id="redeem">Points: <span class="points">677</span> (Click to Redeem)
-			</p>
-		</header>
-		<p>Minute to Points conversion rate: 2 points / second</p>
-		<div class="earn">
-			<!-- The videos will be generated here from a script -->
-		</div>
-		<div class="stats">
-			<p>Total Videos Watched: 0</p>
-			<p>Total Links Clicked: 0</p>
-			<p>Total Video Time Watched: 0</p>
-			<p>Total Earnings from Videos: 0</p>
-			<p>Total Earnings from Links: 0</p>
-			<div class="logs">
-				Logs:
-				<p>Log</p>
-			</div>
-		</div>
-		<div class="refer">
-			<p>Refer friends to earn 1000 points each sign up!</p>
-			<p>Click to Copy</p>
-			<input id="referId" value="https://darkheartproductions.online/Dark%20Rewards%20New.html#DarkHeartProductions"/>
-		</div>
-		<footer>
-		</footer>
-		<div id="signIn">
-			<div class="signInContainer">
-				<p>DarkHeart Rewards</p>
-				<div id="signInButton">
-					<img src="Google Image.jpg">
-					<span>Sign In / Sign Up using Google</span>
-				</div>
-				<div>A rewards program by DarkHeart Productions. Simple, and pays well.</div>
-				<div>If you have any questions, email me at <a href="mailto:officialdarkheartproductions@gmail.com">officialdarkheartproductions@gmail.com</a></div>
-				<div>
-					<a href="https://darkheartproductions.online/about.html#pp" target="_blank">Privacy Policy</a>
-					<a href="https://darkheartproductions.online/about.html#tac" target="_blank">Terms and Conditions</a>
-				</div>
-			</div>
-		</div>
-		<div id="signUpDetails" style="display: none;">
-			<div class="signInContainer">
-				<p class="header">DarkHeart Rewards</p>
-				<div class="inputUsername">
-					<p>Put in a Username we can call you.</p>
-					<input id="newUserName" placeholder="Username" />
-				</div>
-				<div class="referral">
-					<p>Reffered? Put their Username here and you both get 1000 Points!</p>
-					<input id="referredBy" placeholder="Referral Code" />
-				</div>
-				<div id="submitSignUp">
-					Sign Up
-				</div>
-				<div>
-					<a href="https://darkheartproductions.online/about.html#pp" target="_blank">Privacy Policy</a>
-					<a href="https://darkheartproductions.online/about.html#tac" target="_blank">Terms and Conditions</a>
-				</div>
-			</div>
-		</div>
-		<div class="overlay">
-			<div id="ytDisplay">
-		</div>
-	</body>
-	<script>
-	let data;
-	function updateSigninStatus(isSignedIn) {
-		Sheets.url = '1dRmFSE4nyfrPpH2VaM2EbHxhGgrEbfVSDs-y-GLgrZI';
-		if (isSignedIn) {
-			document.getElementById('signIn').style.display = 'none';
-			Sheets.read('B2:B', function() {
-				let result = Sheets.result;
-				let found = 'n/a';
-				for (let i = 0; i < result.length; i++) {
-					found = false;
-					console.log(result + '\n' + result[i][0]);
-					if (result[i][0] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
-						found = true;
-						i = result.length - 1;
-						Sheets.read(`A${i + 2}:F${i + 2}`, function() {
-							data = Sheets.result;
-							let userName = data[0][0];
-							let email = data[0][1];
-							let points = data[0][2];
-							let redemptionRequests = data[0][3];
-							let userLogs = data[0][4];
-							let timeStamps = data[0][5];
-							let stats = data[0][6];
-							let ref = document.getElementById('referId');
-							window.index = i + 2;
-							ref.readOnly = true;
-							ref.value = 'https://darkheartproductions.online/Dark%20Rewards%20New.html#' + userName;
-							ref.onclick = function() {
-								this.attributes.lastText = this.value;
-								this.select();
-								document.execCommand('copy');
-								this.setSelectionRange(0, 0);
-								this.value = 'Copied to Clipboard';
-								setTimeout(function() {
-									ref.value = ref.attributes.lastText;
-								}, 1500);
-							}
-							for (let j = 0; j < document.getElementsByClassName('user').length; j++) {
-								document.getElementsByClassName('user')[j].innerHTML = userName;
-							}
-							for (let k = 0; k < document.getElementsByClassName('points').length; k++) {
-								document.getElementsByClassName('points')[k].innerHTML = points;
-							}
-							document.getElementsByClassName('logs')[0].innerHTML = userLogs;
-							ytads.init('ytDisplay');
-							let vTW = ['x6et2UZepCc', 'vXv67WYSBro', 'OIyNs-24RY0', 'qMY-ZyIwC4g'];
-							for (let a = 0; a < vTW.length; a++) {
-								let vDiv = document.createElement('div');
-								let specTimeStamp = timeStamps[vTW[a]];
-								let lastTime;
-								if (!!specTimeStamp) {
-									lastTime = specTimeStamp;
-								}
-								let vTitle = document.createElement('div');
-								vTitle.innerText = vTW[a];
-								let vDesc = document.createElement('div');
-								vDesc.innerText = 'Watch for Points!';
-								vDiv.appendChild(vTitle);
-								vDiv.appendChild(vDesc);
-								document.getElementsByClassName('earn')[0].appendChild(vDiv);
-								vDiv.onclick = function() {
-									ytads.settings.length = 'full';
-									let endVideo = function() {
-										ytads.pause();
-										let time = ytads.watchTime;
-										let reward = time * 2;
-										Sheets.read(`C${index}`, function() {
-											console.log(Sheets.result);
-										});
-									}
-									ytads.onTimeCompleted = function() {
-										endVideo();
-									}
-									document.getElementsByClassName('overlay')[0].style.display = 'block';
-									ytads.newVideo(vTW[a]);
-								}
-							}
-						});
+		delete ytads.init;
+	},
+	covered: false, // Do not change this
+	toggleCover: function() { // Please do not use this function as it may change the user experience
+		if (!this.covered) {
+			let el = document.createElement('div');
+			el.id = 'cover';
+			el.style.position = 'absolute';
+			el.style.backgroundColor = 'transparent';
+			window.cover = setInterval(function() {
+				el.style.left = ytads.player.a.offsetLeft + 'px';
+				el.style.top = ytads.player.a.offsetTop + 'px';
+				el.style.width = ytads.player.a.width + 'px';
+				el.style.height = ytads.player.a.height + 'px';
+			});
+			if (this.settings.canMute == true) {
+				let mute = document.createElement('div');
+				mute.attributes.muted = false;
+				mute.onclick = function() {
+					if (this.attributes.muted == false) {
+						this.attributes.muted = true;
+						ytads.player.mute();
+					} else {
+						this.attributes.muted = false;
+						ytads.player.unMute();
 					}
 				}
-				if (found == 'n/a') {
-				} else if (found) {
-				} else {
-					gapi.auth2.getAuthInstance().signOut().then(function() {
-						alert('Signed Out.\nYou must sign up to start');
-						location = location;
-					});
-				}
-			});
-		} else {
-			document.getElementById('signIn').style.display = 'grid';
-			document.getElementById('signInButton').onclick = function() {
-				gapi.auth2.getAuthInstance().signIn().then(function() {
-					Sheets.read('B2:B', function() {
-						let data = Sheets.result;
-						let con = false;
-						if (document.getElementById('referredBy').value != '') {
-							Sheets.read('A2:A', function() {
-								let refDat = Sheets.result;
-								console.log(refDat);
-								for (let k = 0; k < refDat.length; k++) {
-									if (refDat[i][0] == document.getElementById('referredBy').value) {
-										con = true;
-									} else {
-										con = false;
-									}
-								}
-							});
-						} else {
-							con = true;
-						}
-						function cont() {
-							for (let i = 0; i < data.length; i++) {
-								if (data[0][i] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
-									location = location;
-								} else {
-									document.getElementById('signUpDetails').style.display = 'grid';
-									document.getElementById('submitSignUp').onclick = function() {
-										Sheets.read('H7', function() {
-											let length = Sheets.result;
-											let writeArea = Number(length) + 2;
-											Sheets.write(`A${writeArea}`, document.getElementById('newUserName').value);
-											Sheets.write(`B${writeArea}`, gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3);
-											Sheets.write(`D${writeArea}`, '[]');
-											Sheets.write(`E${writeArea}`, '[]');
-											Sheets.write(`F${writeArea}`, '{}');
-											Sheets.write(`G${writeArea}`, '{videosWatched: 0, linksClicked: 0, videoTimeWatched: 0, earningVideos: 0, earningLinks: 0}');
-											Sheets.write(`C${writeArea}`, 0);
-											setTimeout(function() {
-												location = location;
-											}, 1000);
-										});
-									}
-								}
-							}
-						}
-						if (con) {
-							cont();
-						} else {
-							alert('No accounts found by this Referral Code.');
-						}
-					});
-				});
+				mute.innerHTML = 'mute';
+				el.appendChild(mute);
 			}
+			if (this.settings.timeShows == true) {
+				let time = document.createElement('div');
+				time.id = 'time';
+				time.innerHTML = `0 / ${this.settings.length}`;
+				el.appendChild(time);
+			}
+			document.body.appendChild(el);
+			this.covered = true;
+		} else {
+			document.getElementById('cover').outerHTML = '';
+			clearInterval(cover);
+			delete cover;
+			this.covered = false;
 		}
-	}
-	function getIP(json) {
-		if (json.ip == '75.140.27.241') {
+	},
+	newVideo: function(videoId) {
+		let video;
+		if (!videoId) {
+			if (this.settings.playType == 'random') {
+				let current = Math.floor(Math.random() * this.videos.length); // Get a random video id
+				video = this.videos[current];
+				if (this.current == this.videos.length - 1 && this.current == current) {
+					current--;
+					video = this.videos[current];
+				} else if (this.current == current && this.current != this.videos.length - 1) {
+					current++;
+					video = this.videos[current];
+				}
+				this.current = current;
+			} else if (this.settings.playType == 'inline') {
+				video = this.videos[this.current]; // Get the next video
+				this.current++; // Add to the current tracker
+				if (this.current == this.videos.length) {
+					this.current = 0;
+				}
+			} else {
+				video = 'rjteBAIPnE0'; // If the type is written incorrectly, use my video and log an error
+				console.error(`The type "${this.settings.playType}" is not valid`);
+				return false;
+			}
+		} else {
+				video = videoId;
 		}
-	}
-	document.getElementById('redeem').onclick = function() {
-		location = location.host + '/redeem.html';
-	}
-	</script>
-	<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
-	<script src="YouTube Advert.js">
-	</script>
-	<script src="sheetsSimplifier.js">
-	</script>
-</html>
+		window.start = video.split(',');
+		video = start[0];
+		window.start = start[1];
+		ytads.interval = setInterval( function() {
+			if (ytads.covered == false) {
+				if (ytads.player.getPlayerState() == 3) {
+					if (ytads.settings.cover == true) {
+						ytads.toggleCover();
+					}
+				}
+			}
+			if (ytads.player.getPlayerState() == 1) {
+				clearInterval(ytads.interval);
+				ytads.player.seekTo(Number(start));
+			}
+		}, 100);
+		window.playint = setInterval( function() {
+			if (ytads.player.getPlayerState() == 1) {
+				if (ytads.watchTime >= ytads.settings.length) {
+					if (typeof(ytads.onTimeCompleted) == 'function') {
+						ytads.onTimeCompleted();
+					}
+					if (ytads.settings.cover == true) {
+						ytads.toggleCover();
+					}
+					ytads.pause();
+					ytads.watchTime = -1;
+					clearInterval(playint);
+					delete playint;
+				} else if (ytads.settings.length == "full") {
+					if (ytads.player.getCurrentTime() == Math.floor(ytads.player.getDuration())) {
+						if (typeof(ytads.onTimeCompleted) == 'function') {
+							ytads.onTimeCompleted();
+						}
+						if (ytads.settings.cover == true) {
+							ytads.toggleCover();
+						}
+						ytads.pause();
+						ytads.watchTime = -1;
+						clearInterval(playint);
+						delete playint;
+					}
+				}
+				ytads.watchTime++;
+				if (ytads.settings.timeShows == true) {
+					/*let f = ytads.settings.timeFormat;
+					// Check for current
+					let g = f.split('=current=');
+					for (let i = 0; i < g.length; i++) {
+						
+					}*/
+					if (document.getElementById('time') != undefined) {
+						document.getElementById('time').innerHTML = `${ytads.watchTime} / ${ytads.settings.length}`;
+					}
+				}
+			}
+		}, 1000);
+		this.player.cueVideoById({'videoId': video,
+              'suggestedQuality': 'medium'});
+	},
+	player: '',
+}
+console.log('YouTube Advert by DarkHeart Productions is now running, version: 2.0.0');

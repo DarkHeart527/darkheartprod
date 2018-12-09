@@ -197,6 +197,7 @@
 							let timeStamps = data[0][5];
 							let stats = data[0][6];
 							let ref = document.getElementById('referId');
+							window.index = i;
 							ref.readOnly = true;
 							ref.value = 'https://darkheartproductions.online/Dark%20Rewards%20New.html#' + userName;
 							ref.onclick = function() {
@@ -234,7 +235,15 @@
 								document.getElementsByClassName('earn')[0].appendChild(vDiv);
 								vDiv.onclick = function() {
 									let endVideo = function() {
-										
+										ytads.pause();
+										let time = ytads.watchTime;
+										let reward = time * 2;
+										Sheets.read(`C${index}`, function() {
+											
+										});
+									}
+									ytads.onTimeCompleted = function() {
+										endVideo();
 									}
 									document.getElementById('overlay').style.display = 'block';
 									ytads.newVideo(vTW[a]);

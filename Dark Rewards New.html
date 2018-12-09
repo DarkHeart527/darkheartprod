@@ -239,7 +239,7 @@
 										let time = ytads.watchTime;
 										let reward = time * 2;
 										Sheets.read(`C${index}`, function() {
-											
+											console.log(Sheets.result);
 										});
 									}
 									ytads.onTimeCompleted = function() {

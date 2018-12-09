@@ -182,7 +182,8 @@
 	<script>
 	let data;
 	function updateSigninStatus(isSignedIn) {
-		Sheets.url = '1dRmFSE4nyfrPpH2VaM2EbHxhGgrEbfVSDs-y-GLgrZI';
+		Sheets.url = '1dRmFSE4nyfrPpH2VaM2EbHxhGgrEbfVSDs-y-GLgrZI'; // Soon to be encrypted
+		let overlay = document.getElementsByClassName('overlay')[0];
 		if (isSignedIn) {
 			document.getElementById('signIn').style.display = 'none';
 			Sheets.read('B2:B', function() {
@@ -253,12 +254,12 @@
 											console.log(curPoints);
 											alert(`You have been rewarded ${reward} Points`);
 										});
-										document.getElementsByClassName('overlay')[0].style.display = 'none';
+										overlay.style.display = 'none';
 									}
 									ytads.onTimeCompleted = function() {
 										endVideo();
 									}
-									document.getElementsByClassName('overlay')[0].style.display = 'block';
+									overlay.style.display = 'block';
 									ytads.newVideo(vTW[a]);
 									let closeBtn = document.createElement('div');
 									closeBtn.innerText = 'X';
@@ -266,6 +267,7 @@
 										endVideo();
 									}
 									closeBtn.className = 'endVideo';
+									overlay.appendChild(closeBtn);
 								}
 							}
 						});

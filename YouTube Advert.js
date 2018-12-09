@@ -75,29 +75,33 @@ let ytads = {
 			this.covered = false;
 		}
 	},
-	newVideo: function() {
+	newVideo: function(videoId) {
 		let video;
-		if (this.settings.playType == 'random') {
-			let current = Math.floor(Math.random() * this.videos.length); // Get a random video id
-			video = this.videos[current];
-			if (this.current == this.videos.length - 1 && this.current == current) {
-				current--;
+		if (!videoId) {
+			if (this.settings.playType == 'random') {
+				let current = Math.floor(Math.random() * this.videos.length); // Get a random video id
 				video = this.videos[current];
-			} else if (this.current == current && this.current != this.videos.length - 1) {
-				current++;
-				video = this.videos[current];
-			}
-			this.current = current;
-		} else if (this.settings.playType == 'inline') {
-			video = this.videos[this.current]; // Get the next video
-			this.current++; // Add to the current tracker
-			if (this.current == this.videos.length) {
-				this.current = 0;
+				if (this.current == this.videos.length - 1 && this.current == current) {
+					current--;
+					video = this.videos[current];
+				} else if (this.current == current && this.current != this.videos.length - 1) {
+					current++;
+					video = this.videos[current];
+				}
+				this.current = current;
+			} else if (this.settings.playType == 'inline') {
+				video = this.videos[this.current]; // Get the next video
+				this.current++; // Add to the current tracker
+				if (this.current == this.videos.length) {
+					this.current = 0;
+				}
+			} else {
+				video = 'rjteBAIPnE0'; // If the type is written incorrectly, use my video and log an error
+				console.error(`The type "${this.settings.playType}" is not valid`);
+				return false;
 			}
 		} else {
-			video = 'rjteBAIPnE0'; // If the type is written incorrectly, use my video and log an error
-			console.error(`The type "${this.settings.playType}" is not valid`);
-			return false;
+				video = videoId;
 		}
 		window.start = video.split(',');
 		video = start[0];
@@ -148,4 +152,4 @@ let ytads = {
 	},
 	player: '',
 }
-console.log('YouTube Advert by DarkHeart Productions is now running, version: 2.0.0');
+console.log('YouTube Advert by DarkHeart Productions is now running, version: 3.0.0');

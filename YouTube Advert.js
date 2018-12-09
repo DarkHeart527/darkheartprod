@@ -20,7 +20,7 @@ let ytads = {
 		ytads.player.playVideo();
 	},
 	current: 0, // Do not change this
-	init: function(id) {
+	init: function(id, callback) {
 		var tag = document.createElement('script');
 		tag.src = "https://www.youtube.com/player_api";
 		var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -28,6 +28,9 @@ let ytads = {
 		
 		window.onYouTubePlayerAPIReady = function() {
 			ytads.player = new YT.Player(id);
+			if (typeof(callback) == 'function') {
+				callback();
+			}
 			delete window.onYouTubePlayerAPIReady;
 		}
 		delete ytads.init;
@@ -120,20 +123,9 @@ let ytads = {
 			}
 		}, 100);
 		window.playint = setInterval( function() {
-			if (ytads.player.getPlayerState() == 1) {
-				if (ytads.watchTime >= ytads.settings.length) {
-					if (typeof(ytads.onTimeCompleted) == 'function') {
-						ytads.onTimeCompleted();
-					}
-					if (ytads.settings.cover == true) {
-						ytads.toggleCover();
-					}
-					ytads.pause();
-					ytads.watchTime = -1;
-					clearInterval(playint);
-					delete playint;
-				} else if (ytads.settings.length == "full") {
-					if (ytads.player.getCurrentTime() == Math.floor(ytads.player.getDuration())) {
+			if (ytads.player.getPlayerState() == 1 || ytads.player.getPlayerState() == 0) {
+				if (ytads.settings.length != "full") {
+					if (ytads.watchTime >= ytads.settings.length) {
 						if (typeof(ytads.onTimeCompleted) == 'function') {
 							ytads.onTimeCompleted();
 						}
@@ -143,6 +135,22 @@ let ytads = {
 						ytads.pause();
 						ytads.watchTime = -1;
 						clearInterval(playint);
+						console.log("Specified Length");
+						delete playint;
+					}
+				} else if (ytads.settings.length == "full") {
+					let dur = Math.floor(ytads.player.getDuration()) - 1;
+					if (ytads.watchTime > dur) {
+						if (typeof(ytads.onTimeCompleted) == 'function') {
+							ytads.onTimeCompleted();
+						}
+						if (ytads.settings.cover == true) {
+							ytads.toggleCover();
+						}
+						ytads.pause();
+						ytads.watchTime = -1;
+						clearInterval(playint);
+						console.log("Full Length");
 						delete playint;
 					}
 				}

@@ -240,7 +240,10 @@
 										let time = ytads.watchTime;
 										let reward = time * 2;
 										Sheets.read(`C${index}`, function() {
-											console.log(Sheets.result);
+											let curPoints = Sheets.result[0][0];
+											curPoints = Number(curPoints);
+											curPoints += reward;
+											console.log(curPoints);
 										});
 									}
 									ytads.onTimeCompleted = function() {

@@ -127,7 +127,6 @@ let ytads = {
 				if (ytads.settings.length != "full") {
 					if (ytads.watchTime >= ytads.settings.length) {
 						ytads.pause();
-						ytads.watchTime = -1;
 						clearInterval(playint);
 						console.log("Specified Length");
 						if (typeof(ytads.onTimeCompleted) == 'function') {
@@ -136,13 +135,13 @@ let ytads = {
 						if (ytads.settings.cover == true) {
 							ytads.toggleCover();
 						}
+						ytads.watchTime = -1;
 						delete playint;
 					}
 				} else if (ytads.settings.length == "full") {
 					let dur = Math.floor(ytads.player.getDuration()) - 1;
 					if (ytads.watchTime > dur) {
 						ytads.pause();
-						ytads.watchTime = -1;
 						clearInterval(playint);
 						console.log("Full Length");
 						if (typeof(ytads.onTimeCompleted) == 'function') {
@@ -151,6 +150,7 @@ let ytads = {
 						if (ytads.settings.cover == true) {
 							ytads.toggleCover();
 						}
+						ytads.watchTime = -1;
 						delete playint;
 					}
 				}

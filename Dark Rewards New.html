@@ -202,7 +202,8 @@
 					console.log(result + '\n' + result[i][0]);
 					if (result[i][0] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
 						found = true;
-						//i = result.length - 1;
+						console.log(i);
+						i = result.length - 1;
 						Sheets.read(`A${i + 2}:F${i + 2}`, function() {
 							data = Sheets.result;
 							let userName = data[0][0];

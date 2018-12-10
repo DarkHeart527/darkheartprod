@@ -109,6 +109,7 @@ let ytads = {
 		window.start = video.split(',');
 		video = start[0];
 		window.start = start[1];
+		let intEn = false;
 		ytads.interval = setInterval( function() {
 			if (ytads.covered == false) {
 				if (ytads.player.getPlayerState() == 3) {
@@ -117,8 +118,9 @@ let ytads = {
 					}
 				}
 			}
-			if (ytads.player.getPlayerState() == 1) {
+			if (ytads.player.getPlayerState() == 1 && !intEn) {
 				clearInterval(ytads.interval);
+				intEn = true;
 				ytads.player.seekTo(Number(start));
 			}
 		}, 100);

@@ -234,56 +234,55 @@
 								document.getElementsByClassName('points')[k].innerHTML = points;
 							}
 							document.getElementsByClassName('logs')[0].innerHTML = userLogs;
-							ytads.init('ytDisplay', function() {
-								let vTW = ['x6et2UZepCc', 'vXv67WYSBro', 'OIyNs-24RY0', 'qMY-ZyIwC4g'];
-								for (let a = 0; a < vTW.length; a++) {
-									let vDiv = document.createElement('div');
-									let specTimeStamp = timeStamps[vTW[a]];
-									let lastTime;
-									if (!!specTimeStamp) {
-										lastTime = specTimeStamp;
-									}
-									let vTitle = document.createElement('div');
-									vTitle.innerText = vTW[a];
-									let vDesc = document.createElement('div');
-									vDesc.innerText = 'Watch for Points!';
-									vDiv.appendChild(vTitle);
-									vDiv.appendChild(vDesc);
-									vDiv.className = 'earnVideo';
-									document.getElementsByClassName('earn')[0].appendChild(vDiv);
-									vDiv.onclick = function() {
-										ytads.settings.length = 'full';
-										let endVideo = function() {
-											ytads.pause();
-											let time = ytads.watchTime;
-											let reward = time * 2;
-											Sheets.read(`C${index}`, function() {
-												let curPoints = Sheets.result[0][0];
-												curPoints = Number(curPoints);
-												curPoints += reward;
-												console.log(curPoints);
-												alert(`You have been rewarded ${reward} Points`);
-												Sheets.write(`C${index}`, curPoints);
-											});
-											overlay.style.display = 'none';
-											document.getElementsByClassName('closeBtn')[0].outerHTML = '';
-										}
-										ytads.onTimeCompleted = function() {
-											endVideo();
-										}
-										overlay.style.display = 'grid';
-										ytads.newVideo(vTW[a]);
-										let closeBtn = document.createElement('div');
-										closeBtn.innerText = 'X';
-										closeBtn.onclick = function() {
-											endVideo();
-											ytads.toggleCover();
-										}
-										closeBtn.className = 'endVideo';
-										overlay.appendChild(closeBtn);
-									}
+							ytads.init('ytDisplay');
+							let vTW = ['x6et2UZepCc', 'vXv67WYSBro', 'OIyNs-24RY0', 'qMY-ZyIwC4g'];
+							for (let a = 0; a < vTW.length; a++) {
+								let vDiv = document.createElement('div');
+								let specTimeStamp = timeStamps[vTW[a]];
+								let lastTime;
+								if (!!specTimeStamp) {
+									lastTime = specTimeStamp;
 								}
-							});
+								let vTitle = document.createElement('div');
+								vTitle.innerText = vTW[a];
+								let vDesc = document.createElement('div');
+								vDesc.innerText = 'Watch for Points!';
+								vDiv.appendChild(vTitle);
+								vDiv.appendChild(vDesc);
+								vDiv.className = 'earnVideo';
+								document.getElementsByClassName('earn')[0].appendChild(vDiv);
+								vDiv.onclick = function() {
+									ytads.settings.length = 'full';
+									let endVideo = function() {
+										ytads.pause();
+										let time = ytads.watchTime;
+										let reward = time * 2;
+										Sheets.read(`C${index}`, function() {
+											let curPoints = Sheets.result[0][0];
+											curPoints = Number(curPoints);
+											curPoints += reward;
+											console.log(curPoints);
+											alert(`You have been rewarded ${reward} Points`);
+											Sheets.write(`C${index}`, curPoints);
+										});
+										overlay.style.display = 'none';
+										document.getElementsByClassName('closeBtn')[0].outerHTML = '';
+									}
+									ytads.onTimeCompleted = function() {
+										endVideo();
+									}
+									overlay.style.display = 'grid';
+									ytads.newVideo(vTW[a]);
+									let closeBtn = document.createElement('div');
+									closeBtn.innerText = 'X';
+									closeBtn.onclick = function() {
+										endVideo();
+										ytads.toggleCover();
+									}
+									closeBtn.className = 'endVideo';
+									overlay.appendChild(closeBtn);
+								}
+							}
 						});
 					}
 				}

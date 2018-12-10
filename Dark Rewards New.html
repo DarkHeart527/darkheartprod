@@ -231,9 +231,12 @@
 							for (let j = 0; j < document.getElementsByClassName('user').length; j++) {
 								document.getElementsByClassName('user')[j].innerHTML = userName;
 							}
-							for (let k = 0; k < document.getElementsByClassName('points').length; k++) {
-								document.getElementsByClassName('points')[k].innerHTML = points;
+							function updatePoints() {
+								for (let k = 0; k < document.getElementsByClassName('points').length; k++) {
+									document.getElementsByClassName('points')[k].innerHTML = points;
+								}
 							}
+							updatePoints();
 							document.getElementsByClassName('logs')[0].innerHTML = userLogs;
 							ytads.init('ytDisplay');
 							let vTW = ['x6et2UZepCc', 'vXv67WYSBro', 'OIyNs-24RY0', 'qMY-ZyIwC4g'];
@@ -265,6 +268,8 @@
 											console.log(curPoints);
 											Sheets.write(`C${index}`, curPoints);
 											alert(`You have been rewarded ${reward} Points`);
+											points = curPoints;
+											updatePoints();
 										});
 										overlay.style.display = 'none';
 										document.getElementsByClassName('endVideo')[0].outerHTML = '';

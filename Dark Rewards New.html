@@ -263,14 +263,15 @@
 											curPoints = Number(curPoints);
 											curPoints += reward;
 											console.log(curPoints);
-											alert(`You have been rewarded ${reward} Points`);
 											Sheets.write(`C${index}`, curPoints);
+											alert(`You have been rewarded ${reward} Points`);
 										});
 										overlay.style.display = 'none';
 										document.getElementsByClassName('closeBtn')[0].outerHTML = '';
 									}
 									ytads.onTimeCompleted = function() {
 										endVideo();
+										ytads.onTimeCompleted = '';
 									}
 									overlay.style.display = 'grid';
 									ytads.newVideo(vTW[a]);

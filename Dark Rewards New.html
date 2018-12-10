@@ -268,11 +268,10 @@
 										});
 										overlay.style.display = 'none';
 										document.getElementsByClassName('closeBtn')[0].outerHTML = '';
-										endVideo = '';
+										location = location;
 									}
 									ytads.onTimeCompleted = function() {
 										endVideo();
-										ytads.onTimeCompleted = '';
 									}
 									overlay.style.display = 'grid';
 									ytads.newVideo(vTW[a]);

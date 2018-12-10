@@ -202,7 +202,6 @@
 					console.log(result + '\n' + result[i][0]);
 					if (result[i][0] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
 						found = true;
-						console.log(i);
 						i = i + 2;
 						Sheets.read(`A${i + 2}:F${i + 2}`, function() {
 							data = Sheets.result;
@@ -214,7 +213,7 @@
 							let timeStamps = data[0][5];
 							let stats = data[0][6];
 							let ref = document.getElementById('referId');
-							window.index = i + 2;
+							window.index = i;
 							console.log(index);
 							ref.readOnly = true;
 							ref.value = 'https://darkheartproductions.online/Dark%20Rewards%20New.html#' + userName;

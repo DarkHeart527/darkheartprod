@@ -23,6 +23,14 @@
 		 width: 90%;
 		 height: 40%;
 		 margin: 0 auto;
+		 overflow-x: auto;
+		}
+		.earnVideo {
+		 display: inline-block;
+		 height: 60%;
+		 background-color: red;
+		 margin-right: 25px;
+		 margin-bottom: 25px;
 		}
 		.stats {
 		 width: 40%;
@@ -240,6 +248,7 @@
 								vDesc.innerText = 'Watch for Points!';
 								vDiv.appendChild(vTitle);
 								vDiv.appendChild(vDesc);
+								vDiv.className = 'earnVideo';
 								document.getElementsByClassName('earn')[0].appendChild(vDiv);
 								vDiv.onclick = function() {
 									ytads.settings.length = 'full';
@@ -346,7 +355,8 @@
 		}
 	}
 	document.getElementById('redeem').onclick = function() {
-		location = location.host + '/redeem.html';
+		//location = location.host + '/redeem.html';
+		alert('We are still building this page');
 	}
 	</script>
 	<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>

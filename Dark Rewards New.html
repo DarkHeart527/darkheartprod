@@ -205,6 +205,7 @@
 						i = i + 2;
 						Sheets.read(`A${i + 2}:F${i + 2}`, function() {
 							data = Sheets.result;
+							console.log(data);
 							let userName = data[0][0];
 							let email = data[0][1];
 							let points = data[0][2];

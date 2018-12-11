@@ -98,6 +98,7 @@ let ytads = {
 				if (this.current == this.videos.length) {
 					this.current = 0;
 				}
+				alert(video)
 			} else {
 				video = 'rjteBAIPnE0'; // If the type is written incorrectly, use my video and log an error
 				console.error(`The type "${this.settings.playType}" is not valid`);

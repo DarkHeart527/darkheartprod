@@ -81,7 +81,7 @@
 			<p id="fileName"></p>
 			<div id="links">
 				<a href="https://clk.sh/FqPg" id="link1" target="_blank">View Ad 1</a>
-				<a href="https://clk.sh/GohMGuq" id="link2" target="_blank">View Ad 2</a>
+				<!--<a href="https://clk.sh/GohMGuq" id="link2" target="_blank">View Ad 2</a>-->
 			</div>
 			<div class="download">
 				<a href="" id="download" download></a>
@@ -97,10 +97,10 @@
 		if (file == 'viewAd1') {
 			localStorage.setItem('ad1', true);
 			window.close();
-		} else if (file == 'viewAd2') {
+		}/* else if (file == 'viewAd2') {
 			localStorage.setItem('ad2', true);
 			window.close();
-		}
+		}*/
 		if (typeof(file) == 'undefined') {
 			
 		} else {
@@ -120,17 +120,17 @@
 				if (localStorage.getItem('ad1') == "true") {
 					document.getElementById('link1').outerHTML = '<p id="link1">Viewed</p>';
 				}
-				if (localStorage.getItem('ad2') == "true") {
+				/*if (localStorage.getItem('ad2') == "true") {
 					document.getElementById('link2').outerHTML = '<p id="link2">Viewed</p>';
-				}
-				if (localStorage.getItem('ad1') == "true" && localStorage.getItem('ad2') == "true") {
+				}*/
+				if (localStorage.getItem('ad1') == "true" /*&& localStorage.getItem('ad2') == "true"*/) {
 					document.getElementById('download').href = path + '/' + file;
 					document.getElementById('download').innerHTML = `Click to download ${file}`;
 					document.getElementById('link2').innerHTML = 'Viewed';
 					document.getElementById('link1').innerHTML = 'Viewed';
 					setTimeout(function() {
 						localStorage.setItem('ad1', false);
-						localStorage.setItem('ad2', false);
+						//localStorage.setItem('ad2', false);
 					}, 500);
 				} else {
 					setTimeout(function() {check()}, 500);

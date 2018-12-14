@@ -34,7 +34,7 @@ let ytads = {
 	},
 	covered: false, // Do not change this
 	toggleCover: function() { // Please do not use this function as it may change the user experience
-		if (!this.covered) {
+		if (!this.covered) { // Bug 2 Expected Here
 			let el = document.createElement('div');
 			el.id = 'cover';
 			el.style.position = 'absolute';
@@ -139,7 +139,7 @@ let ytads = {
 						delete playint;
 					}
 				} else if (ytads.settings.length == "full") {
-					let dur = Math.floor(ytads.player.getDuration()) - 1;
+					let dur = Math.floor(ytads.player.getDuration()) - 1; // Bug 1 Expected Here
 					if (ytads.watchTime > dur) {
 						ytads.pause();
 						clearInterval(playint);

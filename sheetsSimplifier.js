@@ -80,7 +80,7 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
                 }).then((response) => {
                   var result = response.result;
                   callback();
-                  console.log(`${result.updatedCells} cells updated.`);
+                  alert(`${result.updatedCells} cells updated.`);
                 });      
         },
       }

@@ -133,7 +133,7 @@ let ytads = {
 							ytads.onTimeCompleted();
 						}
 						if (ytads.settings.cover == true) {
-							ytads.toggleCover();
+							//ytads.toggleCover();
 						}
 						ytads.watchTime = -1;
 						delete playint;

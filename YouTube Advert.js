@@ -27,7 +27,7 @@ let ytads = {
 		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 		
 		window.onYouTubePlayerAPIReady = function() {
-			ytads.player = new YT.Player(id, events{'onReady': callback});
+			ytads.player = new YT.Player(id, {events:{'onReady': callback}});
 			delete window.onYouTubePlayerAPIReady;
 		}
 		delete ytads.init;

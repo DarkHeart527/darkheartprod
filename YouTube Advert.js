@@ -122,33 +122,33 @@ let ytads = {
 				ytads.player.seekTo(Number(start));
 			}
 		}, 100);
-		window.playint = setInterval( function() {
+		window.playint = setInterval( function() { // Known Bug 1 & 3 Here -- Attempted Fix
 			if (ytads.player.getPlayerState() == 1 || ytads.player.getPlayerState() == 0) {
 				if (ytads.settings.length != "full") {
 					if (ytads.watchTime >= ytads.settings.length) {
 						ytads.pause();
-						clearInterval(playint);
+						clearInterval(window.playint);
 						console.log("Specified Length");
 						if (typeof(ytads.onTimeCompleted) == 'function') {
 							ytads.onTimeCompleted();
 						}
 						if (ytads.settings.cover == true) {
-							//ytads.toggleCover();
+							//ytads.toggleCover(); // BUG 4
 						}
 						ytads.watchTime = -1;
 						delete playint;
 					}
 				} else if (ytads.settings.length == "full") {
-					let dur = Math.floor(ytads.player.getDuration()) - 1; // Bug 1 Expected Here
+					let dur = Math.floor(ytads.player.getDuration()) - 1;
 					if (ytads.watchTime > dur) {
 						ytads.pause();
-						clearInterval(playint);
+						clearInterval(window.playint);
 						console.log("Full Length");
 						if (typeof(ytads.onTimeCompleted) == 'function') {
 							ytads.onTimeCompleted();
 						}
 						if (ytads.settings.cover == true) {
-							ytads.toggleCover();
+							//ytads.toggleCover(); // BUG 4
 						}
 						ytads.watchTime = -1;
 						delete playint;

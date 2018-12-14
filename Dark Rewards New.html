@@ -278,10 +278,11 @@
 											curPoints = Number(curPoints);
 											curPoints += reward;
 											console.log(curPoints);
-											Sheets.write(`C${index}`, curPoints);
-											alert(`You have been rewarded ${reward} Points`);
-											points = curPoints;
-											updatePoints();
+											Sheets.write(`C${index}`, curPoints, function() {
+												alert(`You have been rewarded ${reward} Points`);
+												points = curPoints;
+												updatePoints();
+											});
 										});
 										overlay.style.display = 'none';
 										document.getElementById('cover').outerHTML = '';
@@ -347,16 +348,20 @@
 										Sheets.read('H7', function() {
 											let length = Sheets.result;
 											let writeArea = Number(length) + 2;
-											Sheets.write(`A${writeArea}`, document.getElementById('newUserName').value);
-											Sheets.write(`B${writeArea}`, gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3);
-											Sheets.write(`D${writeArea}`, '[]');
-											Sheets.write(`E${writeArea}`, '[]');
-											Sheets.write(`F${writeArea}`, '{}');
-											Sheets.write(`G${writeArea}`, '{videosWatched: 0, linksClicked: 0, videoTimeWatched: 0, earningVideos: 0, earningLinks: 0}');
-											Sheets.write(`C${writeArea}`, 0);
-											setTimeout(function() {
-												location = location;
-											}, 1000);
+											Sheets.write(`A${writeArea}`, document.getElementById('newUserName').value, function() {
+												Sheets.write(`B${writeArea}`, gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3, function() {
+													Sheets.write(`D${writeArea}`, '[]', function() {
+														Sheets.write(`E${writeArea}`, '[]', function() {
+															Sheets.write(`F${writeArea}`, '{}', function() {
+															Sheets.write(`G${writeArea}`, '{videosWatched: 0, linksClicked: 0, videoTimeWatched: 0, earningVideos: 0, earningLinks: 0}', function() {
+																
+											Sheets.write(`C${writeArea}`, 0, function() {location = location;});
+															});
+															});
+														});
+													});
+												});
+											});
 										});
 									}
 								}

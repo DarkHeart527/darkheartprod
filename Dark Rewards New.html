@@ -270,6 +270,7 @@
 									vDiv.onclick = function() {
 										ytads.settings.length = 'full';
 										let endVideo = function() {
+											ytads.watchTime = 0;
 											ytads.pause();
 											let time = ytads.watchTime;
 											let reward = time;

@@ -269,8 +269,8 @@
 									document.getElementsByClassName('earn')[0].appendChild(vDiv);
 									vDiv.onclick = function() {
 										ytads.settings.length = 'full';
+										ytads.watchTime = 0;
 										let endVideo = function() {
-											ytads.watchTime = 0;
 											ytads.pause();
 											let time = ytads.watchTime;
 											let reward = time;

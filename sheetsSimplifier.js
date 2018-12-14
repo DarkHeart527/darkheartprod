@@ -1,4 +1,3 @@
-
 let gscript = document.createElement('script');
 gscript.src = 'https://apis.google.com/js/api.js';
 gscript.async = true;
@@ -65,7 +64,7 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
            Sheets.result = 'Error ' + response.result.error.message
           });
         },
-        write: function(range, value, url) {
+        write: function(range, value, callback, url) {
                 if (!url) {
                       url = Sheets.url;
                       if (!url) {
@@ -80,6 +79,7 @@ var CLIENT_ID = '1059757562983-o8p9bj4l12gkrj5orekusauom3tlien5.apps.googleuserc
                    resource: {values:[[value]]}
                 }).then((response) => {
                   var result = response.result;
+                  callback();
                   console.log(`${result.updatedCells} cells updated.`);
                 });      
         },

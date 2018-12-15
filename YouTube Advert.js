@@ -122,8 +122,9 @@ let ytads = {
 				ytads.player.seekTo(Number(start));
 			}
 		}, 100);
-		window.playint = setInterval( function() { // Known Bug 1 & 3 Here -- Attempted Fix
+		window.playint = setInterval( function() { // Known Bug 1 & 2 Here -- Attempted Fix
 			if (ytads.player.getPlayerState() == 1 || ytads.player.getPlayerState() == 0) {
+				clearInterval(window.playint);
 				if (ytads.settings.length != "full") {
 					if (ytads.watchTime >= ytads.settings.length) {
 						ytads.pause();
@@ -133,10 +134,10 @@ let ytads = {
 							ytads.onTimeCompleted();
 						}
 						if (ytads.settings.cover == true) {
-							//ytads.toggleCover(); // BUG 4
+							//ytads.toggleCover(); // BUG 3
 						}
 						ytads.watchTime = -1;
-						delete playint;
+						window.playint = 0;
 					}
 				} else if (ytads.settings.length == "full") {
 					let dur = Math.floor(ytads.player.getDuration()) - 1;
@@ -148,10 +149,10 @@ let ytads = {
 							ytads.onTimeCompleted();
 						}
 						if (ytads.settings.cover == true) {
-							//ytads.toggleCover(); // BUG 4
+							//ytads.toggleCover(); // BUG 3
 						}
 						ytads.watchTime = -1;
-						delete playint;
+						window.playint = 0;
 					}
 				}
 				ytads.watchTime++;

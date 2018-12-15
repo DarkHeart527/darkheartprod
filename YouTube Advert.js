@@ -125,7 +125,6 @@ let ytads = {
 		}, 100);
 		window.playint = setInterval( function() { // Known Bug 1 & 2 Here -- Attempted Fix
 			if (ytads.player.getPlayerState() == 1 || ytads.player.getPlayerState() == 0) {
-				clearInterval(window.playint);
 				if (ytads.settings.length != "full") {
 					if (ytads.watchTime >= ytads.settings.length) {
 						ytads.pause();

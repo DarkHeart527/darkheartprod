@@ -52,9 +52,11 @@ let ytads = {
 				mute.onclick = function() {
 					if (this.attributes.muted == false) {
 						this.attributes.muted = true;
+						this.innerText = 'UnMute';
 						ytads.player.mute();
 					} else {
 						this.attributes.muted = false;
+						this.innerText = 'Mute';
 						ytads.player.unMute();
 					}
 				}

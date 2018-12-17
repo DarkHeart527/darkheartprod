@@ -266,9 +266,7 @@
 												let curPoints = Sheets.result[0][0];
 												curPoints = Number(curPoints);
 												curPoints += reward;
-												console.log(curPoints);
 												Sheets.write(`C${index}`, curPoints, function() {
-													alert(`You have been rewarded ${reward} Points`);
 													points = curPoints;
 													updatePoints();
 													location = location;

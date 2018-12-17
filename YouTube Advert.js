@@ -59,12 +59,14 @@ let ytads = {
 					}
 				}
 				mute.innerHTML = 'mute';
+				mute.style.color = 'white';
 				el.appendChild(mute);
 			}
 			if (this.settings.timeShows == true) {
 				let time = document.createElement('div');
 				time.id = 'time';
 				time.innerHTML = `0 / ${this.settings.length}`;
+				time.style.color = 'white';
 				el.appendChild(time);
 			}
 			document.body.appendChild(el);

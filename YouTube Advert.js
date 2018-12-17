@@ -166,7 +166,11 @@ let ytads = {
 						
 					}*/
 					if (document.getElementById('time') != undefined) {
-						document.getElementById('time').innerHTML = `${ytads.watchTime} / ${ytads.settings.length}`;
+						if (ytads.settings.length == "full") {
+						document.getElementById('time').innerHTML = `${ytads.watchTime} / ${Mathh.floor(ytads.player.getDuration())}`;
+						} else {
+							document.getElementById('time').innerHTML = `${ytads.watchTime} / ${ytads.settings.length}`;
+						}
 					}
 				}
 			}

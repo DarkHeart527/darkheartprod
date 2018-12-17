@@ -261,7 +261,7 @@
 										let endVideo = function() {
 											ytads.pause();
 											let time = ytads.watchTime;
-											let reward = time;
+											let reward = Math.ceil(time/2);
 											Sheets.read(`C${index}`, function() {
 												let curPoints = Sheets.result[0][0];
 												curPoints = Number(curPoints);

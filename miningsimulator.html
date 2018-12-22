@@ -65,15 +65,19 @@
 			#mine {
 			 align-items: center;
 			 justify-items: center;
-			 grid-template-columns: 2fr 1fr 1fr;
-			 grid-template-rows: 1fr 1fr 1fr;
+			 grid-template-columns: 1fr 1fr 1fr;
+			 grid-template-rows: 2fr 1fr 1fr;
 			}
 			#blockStats {
 			 position: absolute;
-			 top: 32%;
+			 top: 40%;
 			}
 			header {
 			 font-size: 20px;
+			}
+			#blockDisplay {
+			 width: 50px;
+			 height: 50px;
 			}
 		}
 		</style>
@@ -128,6 +132,14 @@
 			blocks: {
 			},
 		},
+		save: () => {
+			localStorage.setItem('miningsimulator1', JSON.stringify(game.data));
+		},
+		load: () => {
+			if (localStorage.getItem('miningsimulator1')) {
+				game.data = JSON.parse(localStorage.getItem('miningsimulator1'));
+			}
+		},
 		currentBlock: {
 		
 		},
@@ -159,6 +171,7 @@
 			bS.style.left = window.innerWidth/2 - bS.offsetWidth/2;
 		},
 		init: () => {
+			game.load();
 			let updateBlockDisplay = () => {
 				let block = Object.keys(game.blocks)[game.blockDisplaying - 1];
 				let stats = game.blocks[block];
@@ -170,13 +183,21 @@
 				}
 				delete stats;
 				delete block;
+				if (!game.data.blocks[bks.name]) {
+					game.data.blocks[bks.name] = bks.amount = 0;
+				} else {
+					bks.amount = game.data.blocks[bks.name];
+				}
 				game.currentBlock.health = bks.health;
 				game.currentBlock.currentHealth = bks.health;
 				game.currentBlock.name = bks.name;
 				game.currentBlock.defense = bks.defense;
 				document.getElementById('healthDisplay').innerHTML = `${bks.name}: ${bks.health} / ${bks.health}`;
 				bks.name = '<div class="statName">' + bks.name + '</div>';
-				document.getElementById('blockStats').innerHTML = `${bks.name}<br/>Health: ${bks.health}<br/>Defense: ${bks.defense}`;
+				if (game.data.blocks[bks.name]) {
+					amount = game.data.blocks[bks.name];
+				}
+				document.getElementById('blockStats').innerHTML = `${bks.name}<br/>Health: ${bks.health}<br/>Defense: ${bks.defense}<br/><br/>Stored: ${bks.amount}`;
 			}
 			updateBlockDisplay();
 			let prv = document.getElementById('previous').onclick = () => {
@@ -199,8 +220,14 @@
 					game.currentBlock.currentHealth = game.currentBlock.health;
 					if (game.data.blocks[game.currentBlock.name]) {
 						game.data.blocks[game.currentBlock.name]++;
+						let name = '<div class="statName">' + game.currentBlock.name + '</div>';
+						document.getElementById('blockStats').innerHTML = `${name}<br/>Health: ${game.currentBlock.health}<br/>Defense: ${game.currentBlock.defense}<br/><br/>Stored: ${game.data.blocks[game.currentBlock.name]}`;
+						game.save();
 					} else {
 						game.data.blocks[game.currentBlock.name] = 1;
+						let name = '<div class="statName">' + game.currentBlock.name + '</div>';
+						document.getElementById('blockStats').innerHTML = `${name}<br/>Health: ${game.currentBlock.health}<br/>Defense: ${game.currentBlock.defense}<br/><br/>Stored: 1`;
+						game.save();
 					}
 				}
 				game.updateHealthDisplay();
@@ -209,12 +236,6 @@
 				game.updateHealthDisplay();
 			}
 			window.onresize();
-		},
-		save: () => {
-		
-		},
-		load: () => {
-		
 		},
 	}
 	game.init();

@@ -1,0 +1,219 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.5, user-scalable=0"/> <!--320-->
+ 		<title>Mining Simulator</title>
+		<style>
+		body {
+		 margin: 0px;
+		 color: yellow;
+		}
+		header {
+		 display: grid;
+		 width: 100%;
+		 height: 10%;
+		 grid-template-rows: 1fr;
+		 grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		 justify-items: center;
+		 align-items: center;
+		 background-color: black;
+		 color: white;
+		 font-size: 35px;
+		}
+		.page {
+		 width: 100%;
+		 height: 90%;
+		 display: none;
+		 background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAIAAABLMMCEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAjSURBVBhXYyAADMAAyBASEoKIgIQgDIQQEGARJVohFsDAAABxPQRvn1sNcwAAAABJRU5ErkJggg==');
+		}
+		#previous {
+		 font-size: 35px;
+		}
+		#next {
+		 font-size: 35px;
+		}
+		#mine {
+		 align-items: center;
+		 justify-items: center;
+		 grid-template-columns: 1fr 1fr 1fr 1fr;
+		 grid-template-rows: 1fr;
+		}
+		#blockStats {
+		 color: white;
+		 background-color: rgba(255, 255, 255, 0.25);
+		 padding: 15px;
+		 border: 1px solid white;
+		}
+		.statName {
+		 font-size: 25px;
+		 text-align: center;
+		}
+		#blockDisplay {
+		 background-color: white;
+		 width: 50px;
+		 height: 50px;
+		}
+		#healthDisplay {
+		 color: white;
+		 font-size: 35px;
+		 margin-top: -50px;
+		 position: absolute;
+		}
+		#healthDisplay * {
+		 display: inline-block;
+		}
+		@media (max-width: 800px) {
+			#mine {
+			 align-items: center;
+			 justify-items: center;
+			 grid-template-columns: 1fr 1fr 1fr;
+			 grid-template-rows: 1fr 1fr 1fr;
+			}
+			#blockStats {
+			 position: absolute;
+			 top: 30%;
+			}
+		}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="link">
+				Mine
+			</div>
+			<div class="link">
+				Sell
+			</div>
+			<div class="link">
+				Upgrades
+			</div>
+			<div class="link">
+				Shop
+			</div>
+			<div class="link">
+				Stats
+			</div>
+		</header>
+		<div id="mine" style="display:grid;" class="page">
+			<div id="previous">(--</div>
+			<div class="block">
+				<div id="healthDisplay">
+				</div>
+				<div id="blockDisplay">
+				</div>
+			</div>
+			<div id="next">--)</div>
+			<div id="blockStats"></div>
+		</div>
+		<div id="sell" class="page">
+			
+		</div>
+		<div id="upgrades" class="page">
+			
+		</div>
+		<div id="shop" class="page">
+			
+		</div>
+		<div id="stats" class="page">
+			
+		</div>
+	</body>
+	<script>
+	let game = {
+		data: {
+			gold: 0,
+			silver: 0,
+			blocks: {
+			},
+		},
+		currentBlock: {
+		
+		},
+		blocks: {
+			Dirt: {
+				health: 10,
+				defense: 0,
+				imageSrc: '',
+			},
+			Wood: {
+				health: 15,
+				defense: 0.1,
+				imageSrc: '',
+			},
+		},
+		blockDisplaying: 1,
+		sellPrices: { // (amount?paytype*gold/chance)
+			Dirt: '1?s*1/1',
+			Stone: '2?s*1/1',
+		},
+		updateHealthDisplay: () => {
+			document.getElementById('healthDisplay').innerHTML = `${game.currentBlock.name}: ${game.currentBlock.currentHealth} / ${game.currentBlock.health}`;
+			let hD = document.getElementById('healthDisplay');
+			hD.style.left = '';
+			hD.style.left = hD.offsetLeft - hD.offsetWidth/2.5;			
+			
+			let bS = document.getElementById('blockStats');
+			bS.style.left = '';
+			bS.style.left = window.innerWidth/2 - bS.offsetWidth/2;
+		},
+		init: () => {
+			let updateBlockDisplay = () => {
+				let block = Object.keys(game.blocks)[game.blockDisplaying - 1];
+				let stats = game.blocks[block];
+				let bks = {
+					name: block,
+					health: stats.health,
+					defense: stats.defense,
+					imageSrc: stats.imageSrc,
+				}
+				delete stats;
+				delete block;
+				game.currentBlock.health = bks.health;
+				game.currentBlock.currentHealth = bks.health;
+				game.currentBlock.name = bks.name;
+				game.currentBlock.defense = bks.defense;
+				document.getElementById('healthDisplay').innerHTML = `${bks.name}: ${bks.health} / ${bks.health}`;
+				bks.name = '<div class="statName">' + bks.name + '</div>';
+				document.getElementById('blockStats').innerHTML = `${bks.name}<br/>Health: ${bks.health}<br/>Defense: ${bks.defense}`;
+			}
+			updateBlockDisplay();
+			let prv = document.getElementById('previous').onclick = () => {
+				if (game.blockDisplaying != 1) {
+					game.blockDisplaying--;
+					updateBlockDisplay();
+				}
+			}
+			let nxt = document.getElementById('next').onclick = () => {
+				if (game.blockDisplaying != Object.keys(game.blocks).length) {
+					game.blockDisplaying++;
+					updateBlockDisplay();
+				}
+			}
+			document.getElementById('blockDisplay').onclick = () => {
+				let healthDepletion = 1 - game.currentBlock.defense;
+				game.currentBlock.currentHealth -= healthDepletion;
+				game.currentBlock.currentHealth = Number(game.currentBlock.currentHealth.toFixed(1));
+				if (game.currentBlock.currentHealth <= 0) {
+					game.currentBlock.currentHealth = game.currentBlock.health;
+					if (game.data.blocks[game.currentBlock.name]) {
+						game.data.blocks[game.currentBlock.name]++;
+					} else {
+						game.data.blocks[game.currentBlock.name] = 1;
+					}
+				}
+				game.updateHealthDisplay();
+			}
+			window.onresize = () => {
+				game.updateHealthDisplay();
+			}
+			window.onresize();
+		},
+		save: () => {
+		
+		},
+		load: () => {
+		
+		},
+	}
+	game.init();
+	</script>
+</html>

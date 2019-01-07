@@ -4,6 +4,7 @@
 	</head>
 	<body>
 		<div class="Samples"></div>
+		<div id="pp">Play</div>
 	</body>
 	<script>
 	let samples = 1;
@@ -16,7 +17,9 @@
 		el.onclick = () => {
 			audio.src = `samples/${el.innerText}.wav`;
 		}
-		console.log(`Sample ${i + 1}`);
 	} 
+		document.getElementById('pp').onclick = () => {
+			audio.play()
+		}
 	</script>
 </html>

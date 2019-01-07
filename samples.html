@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Samples - DarkHeart Productions</title>
+	</head>
+	<body>
+		<div class="Samples"></div>
+	</body>
+	<script>
+	let samples = 1;
+	let audio = document.createElement('audio');
+	audio.autoplay = true;
+	for (let i = 0; i < samples; i++) {
+		let el = document.createElement('div');
+		document.getElementsByClassName('Samples')[0].appendChild(el)
+		el.innerText = `Sample ${i + 1}`;
+		el.onclick = () => {
+			audio.src = `${el.innerText}.wav`;
+		}
+		console.log(`Sample ${i + 1}`);
+	} 
+	</script>
+</html>

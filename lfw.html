@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>Loops</title>
+		<style>
+		body {
+			margin: 0px;
+			background-color: black;
+			display: grid;
+			grid-template-rows: 1fr 1fr 1fr 1fr;
+			grid-template-columns: 1fr 1fr 1fr;
+			align-items: center;
+			justify-items: center;
+			height: 100%;
+		}
+		body div {
+			color: white;
+			font-size: 35px;
+		}
+		.playBar {
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			height: 10%;
+			width: 100%;
+			background-color: rgba(255, 255, 255, 0.5);
+		}
+		</style>
+	</head>
+	<body>
+	<div class="playBar">
+	</div>
+	</body>
+	<script>
+	let lps = {
+		audio: '',
+		init: () => {
+			lps.audio = document.createElement('audio')
+			lps.audio.autoplay = true;
+			for (i = 0; i < lps.o.length; i++) {
+				let div = document.createElement('div');
+				document.body.appendChild(div);
+				let title = document.createElement('div');
+				title.innerText = lps.o[i].name;
+				div.appendChild(title)
+				let play = document.createElement('div');
+				play.innerText = "Play";
+				let s = lps.o[i].source
+				play.onclick = () => {
+					lps.audio.src = s;
+				}
+				div.appendChild(play)
+			}
+		},
+		o: [
+		{name: "Loop 1",source:"lps/lp1.wav",},
+		{name: "Loop 2",source:"lps/lp2.wav",},
+		{name: "Loop 3",source:"lps/lp3.wav",},
+		{name: "Loop 4",source:"lps/lp4.wav",},
+		{name: "Loop 5",source:"lps/lp5.wav",},
+		{name: "Loop 6",source:"lps/lp6.wav",},
+		{name: "Loop 7",source:"lps/lp7.wav",},
+		{name: "Loop 8",source:"lps/lp8.wav",},
+		],
+	}
+	lps.init()
+	</script>
+</html>

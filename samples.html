@@ -14,7 +14,7 @@
 		document.getElementsByClassName('Samples')[0].appendChild(el)
 		el.innerText = `Sample ${i + 1}`;
 		el.onclick = () => {
-			audio.src = `${el.innerText}.wav`;
+			audio.src = `samples/${el.innerText}.wav`;
 		}
 		console.log(`Sample ${i + 1}`);
 	} 

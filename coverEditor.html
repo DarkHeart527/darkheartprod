@@ -1,0 +1,220 @@
+<html>
+	<head>
+		<title>DarkHeart Productions - Cover Creator</title>
+		<style>
+		body {
+		 margin: 0px;
+		 overflow: hidden
+		}
+		.imgLoad {
+		 display: none;
+		}
+		.controls {
+		 position: absolute;
+		 right: 0px;
+		 top: 0px;
+		 background-color: rgba(255, 155, 0, .5);
+		 height: 100%;
+		 overflow-x: auto;
+		}
+		.aDvert {
+		 width: 728;
+		 height: 90;
+		 margin: 0 auto;
+		 background-color: black;
+		}
+		.abs {
+		 left: 5px;
+		 position: absolute;
+		 bottom: 5px;
+		}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<div class="controls">
+			<p>Background Image</p>
+			<p>Upload</p>
+			<input type="file" onchange="app.uploadBgImage(this)" accept="image/*"/>
+			<p>Background Zoom</p>
+			<input value="0" max="500" id="zoom" min="0" type="range" />
+			<p>Background Tint Color</p>
+			<input value="0" id="bgColorR" max="255" min="0" type="range" />
+			<input value="0" id="bgColorG" max="255" min="0" type="range" />
+			<input value="0" id="bgColorB" max="255" min="0" type="range" />
+			<p>Background Tint Strength</p>
+			<input value="0.25" id="bgColorT" max="1" min="0" step="0.01" type="range" />
+			<p>Album Cover Position</p>
+			<div onclick="app.setAlbumCoverPosition('left')">Left</div>
+			<!--<div onclick="app.setAlbumCoverPosition('center')">Center</div>
+			<div onclick="app.setAlbumCoverPosition('right')">Right</div>-->
+			<p>Text</p>
+			<input placeholder="Title" value="TITLE" id="titleText" />
+			<input placeholder="Album" value="ALBUM" id="albumText" />
+			<input placeholder="Artist" value="ARTIST" id="artistText" />
+			<p>Text Closeness</p>
+			<input value="0" id="textCloseness" max="150" min="0" type="range" />
+			<p>Text Color</p>
+			<input value="255" id="textColorR" max="255" min="0" type="range" />
+			<input value="255" id="textColorG" max="255" min="0" type="range" />
+			<input value="255" id="textColorB" max="255" min="0" type="range" />
+			<p>Text Transparency</p>
+			<input value="1" id="textColorT" max="1" min="0" step="0.01" type="range" />
+			<p>Text Size</p>
+			<input value="25" id="textSize" max="100" min="0" type="range" />
+			<p>Text Font</p>
+			<select id="textFont">
+				<option value="Arial" selected>Arial</option>
+				<option value="Sans-serif">Sans Serif</option>
+				<option value="Serif">Serif</option>
+				<option value="Cursive">Cursive</option>
+				<option value="Fantasy">Fantasy</option>
+				<option value="Monospace">Monospace</option>
+				<option value="Custom" disabled>Custom</option>
+			</select>
+			<p id="downloadBtn">Download</p>
+		</div>
+		<div class="abs">
+			<div class="aDvert">
+				<script type="text/javascript" src="https://adhitzads.com/1022114"></script>
+			</div>
+		</div>
+	</body>
+	<script>
+	// To keep look of a computer, set these values to a computer's value, so when
+	// used on a mobile device, it shows a laptop version. Computer Used: Lenovo Ideapad 
+	innerHeight = 664;
+	innerWidth = 1366;
+	let canvas = document.getElementById('canvas');
+	let c = canvas.getContext('2d');
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	let app = {
+		background: {
+			picture: {
+				url: '',
+				zoom: '0',
+			},
+			effect: ['none'],			
+		},
+		cover: {
+			url: 'none',
+			position: 'left',
+		},
+		text: {
+			closeness: 0,
+			title: {
+				text: '',
+				color: 'white',
+				font: 'arial',
+				fontSize: '32px',
+			},
+			artist: {
+				text: '',
+				color: 'white',
+				font: 'arial',
+				fontSize: '32px',
+			},
+			album: {
+				text: '',
+				color: 'white',
+				font: 'arial',
+				fontSize: '32px',
+			},
+		},
+		uploadBgImage: function(e) {
+			let reader = new FileReader();
+			reader.readAsDataURL(e.files[0]);
+			reader.onload = function() {
+				app.background.picture.url = reader.result;
+			}
+		},
+		setAlbumCoverPosition: function(pos) {
+			app.cover.position = pos;
+		},
+		draw: function() {	
+			c.clearRect(0, 0, innerWidth, innerHeight);
+			let bgImg = document.createElement('img');
+			bgImg.src = app.background.picture.url;
+			bgImg.className = 'imgLoad';
+			document.body.appendChild(bgImg)
+			c.beginPath();
+			c.drawImage(bgImg, 0 - app.background.picture.zoom + innerWidth/2 - bgImg.width/2, 0 - app.background.picture.zoom + innerHeight/2 - bgImg.height/2, bgImg.width + app.background.picture.zoom * 2, bgImg.height + app.background.picture.zoom * 2);
+			c.fill();
+			c.closePath();
+			
+			c.beginPath();
+			c.fillStyle = `rgba(${document.getElementById('bgColorR').value},${document.getElementById('bgColorG').value},${document.getElementById('bgColorB').value},${document.getElementById('bgColorT').value})`;
+			c.rect(0, 0, innerWidth, innerHeight);
+			c.fill();
+			c.fillStyle = 'black';
+			c.closePath();
+			
+			switch (app.cover.position) {
+				case 'left':
+					c.beginPath();
+					c.drawImage(bgImg, innerWidth/3 - 250, innerHeight/2 - 250, 500, 500);
+					c.font = `${app.text.title.fontSize}px ${app.text.title.font}`;
+					c.fillStyle = `rgba(${document.getElementById('textColorR').value},${document.getElementById('textColorG').value},${document.getElementById('textColorB').value},${document.getElementById('textColorT').value})`;
+					c.fillText(app.text.title.text, innerWidth/1.85, innerHeight/2 - (150 - app.text.closeness));
+					c.fillText(app.text.album.text, innerWidth/1.85, innerHeight/2);
+					c.fillText(app.text.artist.text, innerWidth/1.85, innerHeight/2 + (150 - app.text.closeness));
+					c.fill();
+					c.closePath();
+				break;
+				case 'right':
+					c.beginPath();
+					c.drawImage(bgImg, innerWidth/2, innerHeight/2 - 250, 500, 500);
+					c.fillText('SONG TITLE', 20, 20);
+					c.fillText('ALBUM NAME', 20, 20);
+					c.fillText('ARTIST NAME', 20, 20);
+					c.fill();
+					c.closePath();
+				break;
+				case 'center':
+					c.beginPath();
+					c.drawImage(bgImg, innerWidth/2 - 250, innerHeight/2 - 350, 500, 500);
+					c.fillText('SONG TITLE', 20, 20);
+					c.fillText('ALBUM NAME', 20, 20);
+					c.fillText('ARTIST NAME', 20, 20);
+					c.fill();
+					c.closePath();
+				break;
+			}
+			
+			app.clearDraw();
+			// Update Inputs
+			app.background.picture.zoom = document.getElementById('zoom').value;
+			
+			app.text.title.text = document.getElementById('titleText').value;
+			app.text.album.text = document.getElementById('albumText').value;
+			app.text.artist.text = document.getElementById('artistText').value;
+			app.text.title.fontSize = document.getElementById('textSize').value;
+			app.text.album.fontSize = document.getElementById('textSize').value;
+			app.text.artist.fontSize = document.getElementById('textSize').value;
+			app.text.closeness = document.getElementById('textCloseness').value;
+			
+			requestAnimationFrame(app.draw);
+		},
+		clearDraw: function() {
+			for (let i = 0; i < document.getElementsByClassName('imgLoad').length; i++) {
+				document.getElementsByClassName('imgLoad')[i].outerHTML = '';
+			}
+		},
+		updateFont: function() {
+			let font = document.getElementById('textFont').value;
+			app.text.title.font = font;
+			app.text.artist.font = font;
+			app.text.album.font = font;
+		},
+	}
+	app.draw();
+	document.getElementById('downloadBtn').onclick = function() {
+		let a = document.createElement('a');
+		a.download = true;
+		a.href = canvas.toDataURL();
+		a.click();
+	}
+	document.getElementById('textFont').onchange = function() {app.updateFont()};
+	</script>
+</html>

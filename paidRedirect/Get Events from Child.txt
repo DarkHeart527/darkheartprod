@@ -1,0 +1,19 @@
+local StarterGui = game:GetService("StarterGui")
+StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+
+local player = game.Players.LocalPlayer
+local search = workspace:GetChildren() 
+local deleteTime = 1
+local createToolMsg = function(messageContext)
+      local msg = Instance.new("Tool")
+      msg.Name = messageContext
+      msg.Parent = player.Backpack
+      wait(deleteTime)
+      msg:Remove()
+end
+
+for i = 0, #search do
+	if search[i+1].ClassName == "RemoteEvent" or search[i+1].ClassName == "BindableEvent" then
+      		createToolMsg(search[i+1].Name)
+	end
+end

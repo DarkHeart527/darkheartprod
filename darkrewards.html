@@ -308,6 +308,7 @@
 			document.getElementById('signIn').style.display = 'grid';
 			document.getElementById('signInButton').onclick = function() {
 				gapi.auth2.getAuthInstance().signIn().then(function() {
+					document.getElementById('signInButton').disabled = true;
 					Sheets.read('B2:B', function() {
 						let data = Sheets.result;
 						let con = false;

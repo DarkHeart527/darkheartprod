@@ -47,6 +47,7 @@
 				let s = lps.o[i].source
 				play.onclick = () => {
 					lps.audio.src = s;
+					lps.audio.play();
 				}
 				div.appendChild(play)
 			}

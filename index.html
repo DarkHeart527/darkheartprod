@@ -1,181 +1,256 @@
 <html>
 	<head>
-    		<title>DarkHeart Productions</title>
-        	<link href="style.css" rel="stylesheet" type="text/css" /><meta name="google-site-verification" content="tWS1rG9aSp8sz3HtklKSLNOZPIrdpYfASyO5Tu0dTV0" />
-			<link rel="icon" href="images/profileico.jpg" />
-			<script src="linkHandler.js">
-			</script><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127752129-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-127752129-2');
-</script>
-	<style>
-	#post {
-	 background-color: lightblue;
-	 width: 50px;
-	 height: 50px;
-	 border-radius: 50%;
-	 position: fixed;
-	 right: 25px;
-	 bottom: 25px;
-	 display: none;
-	 color: white;
-	 text-align: center;
-	 font-size: 42.5px;
-	 cursor: pointer;
-	}
-	.postPage {
-	 width: 100%;
-	 height: 100%;
-	 position: fixed;
-	 top: 0px;
-	 left: 0px;
-	 background-color: rgba(0, 0, 0, 0.75);
-	}
-	.postHead {
-	 display: block;
-	 margin: 0 auto;
-	 width: 35%;
-	 height: 50px;
-	 background-color: transparent;
-	 border: none;
-	 color: white;
-	 margin-top: 10%;
-	 border-bottom: 2px solid orange;
-	}
-	</style>
+		<title>DarkHeart Productions</title>
+		<script src="">
+		</script>
+		<style>
+		body {
+			margin: 0px;
+			color: white;
+			background-color: black;
+		}
+		a {
+			color: white;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		.mainHeader {
+			display: grid;
+			grid-template-columns: 1fr 1fr 6fr 1fr 1fr;
+			justify-items: center;
+			align-items: center;
+			height: 12.5%;
+			font-size: 25px;
+			grid-gap: 25px;
+			background-color: rgba(0, 0, 0, .75);
+		}
+		@keyframes rotate {
+			0% {transform: rotate(0deg)}
+			100% {transform: rotate(360deg)}
+		}
+		.mainHeader .profilePic {
+			width: 75px;
+			height: 75px;
+			border-radius: 50%;
+			justify-self: right;
+			grid-area: 1/1;
+			animation: rotate 120s infinite linear;
+		}
+		.mainHeader .name {
+			grid-area: 1/2;
+			grid-column-end: 6;
+			justify-self: normal;
+			font-size: 35px;
+		}
+		@keyframes time {
+			0% {color: pink}
+			100% {color: white}
+		}
+		#time {
+			grid-area: 1/4;
+			font-size: 35px;
+			grid-column-end: 6;
+			animation: time 1s infinite linear;
+		}
+		header {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			color: white;
+			font-size: 25px;
+			height: 12.5%;
+			justify-items: center;
+			background-color: rgba(0, 0, 0, .75);
+			align-items: center;
+		}
+		header a {
+			text-decoration: none;
+			color: white;
+			font-size: 35px;
+		}
+		header a:hover {
+			text-decoration: underline;
+		}
+		footer {
+			position: fixed;
+			bottom: 0px;
+			left: 0px;
+			width: 100%;
+			height: 10%;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			justify-items: center;
+			align-items: center;
+			background-color: rgba(0, 0, 0, .75);
+		}
+		.page {
+			width: 80%;
+			height: fit-content;
+			display: grid;
+			margin: 0 auto;
+			margin-top: 50px;
+			grid-template-columns: 2fr 1fr 2fr;
+		}
+		.side {
+			grid-area: 1/3;
+		}
+		.about {
+			border: 1px solid grey;
+			border-radius: 25px;
+			padding: 10px;
+			background-color: rgba(0, 0, 0, .75);
+			margin-bottom: 50px;
+			transition: box-shadow 0.4s, border 0.4s;
+		}
+		.about:hover {
+			box-shadow: 0px 0px 25px grey;
+			border: 1px solid transparent;
+		}
+		.post {
+			border: 1px solid grey;
+			border-radius: 25px;
+			padding: 10px;
+			background-color: rgba(0, 0, 0, .75);
+			transition: box-shadow 0.4s, border 0.4s;
+		}
+		.post:hover {
+			box-shadow: 0px 0px 25px grey;
+			border: 1px solid transparent;
+		}
+		#background {
+			position: fixed;
+			z-index: -1;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: url('bkc2.png');
+		}
+		#background .img {
+			margin: 0 auto;
+			width: fit-content;
+		}
+		footer a {
+			font-size: 25px;
+		}
+		.autobio a {
+			font-weight: bold;
+		}
+		.adSpaceLandscape {
+			width: 728px;
+			height: 60px;
+		}
+		.adSpaceSkyscraper {
+			width: 0px;
+			height: 0px;
+		}
+		@keyframes beats {
+			0% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid transparent;
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			20% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			40% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid rgb(255, 155, 0);
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			60% {
+				border-top: 2px solid rgb(255, 155, 0);
+				border-right: 2px solid rgb(255, 155, 0);
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			80% {
+				border-top: 2px solid rgb(255, 155, 0);
+				border-right: 2px solid rgb(255, 155, 0);
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid rgb(255, 155, 0);
+				padding: 4px;}
+			100% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid transparent;
+				border-left: 2px solid transparent;
+				padding: 15px;}
+		}
+		.beatsLink {
+			animation: beats 3s infinite;
+			border-top: 2px solid transparent;
+			border-right: 2px solid transparent;
+			border-bottom: 2px solid transparent;
+			border-left: 2px solid transparent;
+			padding: 4px;
+			border-radius: 10px;
+		}
+		</style>
 	</head>
 	<body>
-    	<div class="mainHead">
-        	DarkHeart Productions
-        </div>
-    	<header>
-        	<a href="http://darkheartproductions.online" hrefalt="index.html">Home</a>
-        	<a href="beats.html" hrefalt="beats.html">Beats</a>
-        	<a href="pricing.html" hrefalt="pricing.html">Pricing</a>
-        	<a href="about.html" hrefalt="about.html">About</a>
-            <a href="support.html" hrefalt="support.html">Support</a>
-            <a href="supportme.html" hrefalt="supportme.html">Support Me</a>
-            <a href="upload.html" hrefalt="upload.html">Upload</a>
-        </header>
-        <div class="page">
-	</div>
-	<div class="musicPlayer" style="display: none">
-        	<div>Play</div>
-           	<div>0:00</div>
-           	<input value="0" type="range" />
-           	<div>Prev</div>
-            	<div>Next</div>
-	</div>
-	<div id="post">+
-	</div>
+		<div id="background">
+			<div class="img">
+				<img src="Promotion Sounds.png" />
+			</div>
+		</div>
+		<div class="mainHeader">
+			<img src="profile.jpg" class="profilePic"/>
+			<div class="name">
+				<a href="index.html">DarkHeart Productions</a>
+			</div>
+			<div id="time">0:00 PM
+			</div>
+		</div>
+		<header>
+			<a href="beats.html" class="beatsLink">Beats</a>
+			<a href="https://goo.gl/forms/4qSNEoo8aFC9UKtJ2" target="_blank">Submit a Beat</a>
+			<a href="https://goo.gl/forms/BhbYz6yzKpLs4tKu1" target="_blank">Submit a Track</a>
+			<a href="supportme.html">Support Me</a>
+			<a href="more.html">More</a>
+		</header>
+		<div class="page">
+			<div>
+			</div>
+			<div class="side">
+				<div class="about">
+					<div class="name">DarkHeart Productions</div>
+					<div class="autobio">Hello! I am DarkHeart Productions, a producer from San Diego, California. I have been making beats since 2016. I was very bad at it, like, really bad. I first used Magix Music Maker until I realized how bad it was. I later read their Terms of Use and saw that you can not make any sort of money and that anything you mix is still their's. So, I decided to use a better program, it allowed you to claim the track completely. That was Pocketband, it was discontinued in the early August of 2018 due to money problems and not having the ability to pay for the servers, but I stopped using it February 27, 2018. <a href="http://pocketband.net/person/DarkHeart527" target="_blank">Click here to see my profile.</a> Then I found FL Studio, I used the demo version for awhile, about two months. I also tried ableton, but did not like it. I then bought FL Studio 20 Signature, and here I am now.</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<a href="privacyPolicy.html">Privacy Policy</a>
+			<a href="termsofuse.html">Terms of Use</a>
+		</footer>
 	</body>
-    <script>
-    function updateSigninStatus(isSignedIn) {
-		Sheets.url = '1y9AiKbLUZ9MiZQZpAtqubu0Eg1iLrhYTjUpIuBmI2k0';
-        if (isSignedIn) {
-			if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig == 'DarkHeart Productions') {
-				document.getElementById('post').style.display = 'block';
-				window.post = () => {
-					let pst = document.createElement('div');
-					pst.className = 'postPage';
-					let postHead = document.createElement('textarea');
-					postHead.className = 'postHead';
-					pst.appendChild(postHead);
-					let postDescription = document.createElement('textarea');
-					postDescription.className = 'postDescription';
-					pst.appendChild(postDescription);
-					let submitPost = document.createElement('div');
-					pst.appendChild(submitPost);
-					submitPost.innerHTML = 'Submit';
-					submitPost.onclick = function() {
-						Sheets.read('H2', function() {
-							let length = Number(Sheets.result[0][0]) + 2;
-							let ph = postHead.value;
-							let pd = postDescription.value;
-							let pb = gapi.auth2.getAuthInstance().currentUser.Ab.w3.ig;
-							let com = '[{}]';
-							let likes = 0;
-							let dislikes = 0;
-							// Use dates to add to post date
-							let date = new Date();
-							let month = date.getMonth() + 1;
-							let day = date.getDate();
-							let year = date.getFullYear();
-							year = year.toString();
-							year = year[2] + year[3];
-							let hour = date.getHours();
-							let minute = date.getMinutes();
-							let frame = 'AM'; // Set initial to AM unless past 12 hour mark
-							if (hour >= 13) { // Uses Standard 12 Hour Time and sets past 12 hour mark if true
-								hour = hour - 12;
-								frame = 'PM';
-							}
-							if (minute < 10) { // If minutes are less than 10, add a 0 before
-								minute = '0' + minute.toString();
-							}
-							let fullTime = `${month} - ${day} - ${year} at ${hour}:${minute} ${frame}`;
-							Sheets.write(`Sheet1!A${length}`, ph);
-							Sheets.write(`Sheet1!C${length}`, pd);
-							Sheets.write(`Sheet1!B${length}`, pb);
-							Sheets.write(`Sheet1!D${length}`, com);
-							Sheets.write(`Sheet1!E${length}`, likes);
-							Sheets.write(`Sheet1!F${length}`, dislikes);
-							Sheets.write(`Sheet1!G${length}`, fullTime);
-							setTimeout(function() {
-							location = location
-							}, 1000);
-						});
-						document.body.appendChild(pst);
-					}
-					document.getElementById('post').onclick = function() {post();}
-				}
-			} else {
-			  document.getElementById('post').style.display = 'none';
-			}
-		}
-		Sheets.read('A2:G', function() {
-				for (let i = 0; i < Sheets.result.length; i++) {
-					let ph = Sheets.result[i][0];
-					let pb = Sheets.result[i][1];
-					let pd = Sheets.result[i][2];
-					let com = Sheets.result[i][3];
-					let likes = Sheets.result[i][4];
-					let dislikes = Sheets.result[i][5];
-					let tp = Sheets.result[i][6];
-					let phe = document.createElement('div');
-					phe.className = 'head';
-					phe.innerHTML = ph;
-					let blog = document.createElement('div');
-					document.getElementsByClassName('page')[0].prepend(blog);
-					blog.appendChild(phe);
-					blog.className = 'blog';
-					let time = document.createElement('div');
-					time.innerHTML = tp;
-					time.className = 'desc';
-					blog.appendChild(time);
-					let pde = document.createElement('div');
-					blog.appendChild(pde);
-					pde.innerHTML = '<article><span class="tab"></span>' + pd + '</article>';
-				}
-			});
-		}
-	</script>
-	<script src="sheetsSimplifier.js" id="simp">
-	</script>
 	<script>
-	document.body.onkeyup = function(e) {
-		let key = e.key;
-		if (key == 'Escape') {
-			if (document.getElementsByClassName('postPage')[0]) {
-					document.getElementsByClassName('postPage')[0].outerHTML = '';
+	(function() {
+		let checkIfOnline = false;
+		setInterval(function() {
+			let d = new Date();
+			let t = 'AM';
+			let hour = d.getHours();
+			if (hour > 12) {
+				hour -= 12;
+				t = 'PM';
 			}
-		}
-	}
-	</script><!--
-    https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&su=I+would+like+to+buy+[beatname]&body=I+would+like+to+purchase+[license]&to=officialdarkheartproductions@gmail.com
-    -->
+			let minutes = d.getMinutes();
+			if (minutes < 10) {
+				minutes = '0' + minutes;
+			}
+			document.getElementById('time').innerText = `${hour}:${minutes} ${t}`;
+			if (navigator.onLine == false && checkIfOnline == false) {
+				alert('Please note that you have lost your internet connection.');
+				checkIfOnline = true;
+			}
+		}, 50);
+	})();
+	</script>
 </html>

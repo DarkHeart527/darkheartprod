@@ -77,6 +77,20 @@ let getHead = () => {
 }
 
 let simple = {
+	readXml: function(file) {
+		let returnData;
+		let xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			   // Typical action to be performed when the document is ready:
+			   returnData = simple.xmlResult = xhttp.responseText;
+			}
+			return returnData;
+		};
+		xhttp.open("GET", file, true);
+		xhttp.send();
+	},
+	xmlResult: '',
 	addExt: function(src) {
 		let s;
 		if (getHead()) {

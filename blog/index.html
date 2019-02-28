@@ -3,6 +3,11 @@
     <title>E109 History</title>
     <script src="https://darkheartproductions.online/scripts/simple.js">
     </script>
+    <style>
+      body {
+       background-color: rgba(155, 155, 255, 1); 
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -21,6 +26,7 @@
     Sheets.read("E1", function() {
       let data = Sheets.result;
       Sheets.read("A2:C", function() {
+        data = Sheets.result;
         
       });
     });

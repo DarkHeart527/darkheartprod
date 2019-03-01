@@ -56,15 +56,17 @@
           let dataHtml = data[i][1];
           let postDate = data[i][2];
           let postHead = data[i][3];
+          let postLink = data[i][4];
           
           let div = document.createElement('div');
           document.getElementsByClassName('page')[0].appendChild(div);
           div.className = 'article';
           
-          let articleHead = document.createElement('div');
+          let articleHead = document.createElement('a');
           div.appendChild(articleHead);
           articleHead.innerText = postHead;
           articleHead.className = 'head';
+          articleHead.href = `https://darkheartproductions.online/blog/${postLink}`;
           
           let postData = document.createElement('div');
           postData.innerText = dataHtml.slice(0, 50) + '...';

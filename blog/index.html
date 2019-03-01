@@ -57,7 +57,9 @@
       Sheets.read("A2:C", function() {
         data = Sheets.result;
         for (let i = 0; i < data.length; i++) {
-        
+          let postBy = data[i][0];
+          let dataHtml = data[i][1];
+          let postDate = data[i][2];
         }
       });
     });

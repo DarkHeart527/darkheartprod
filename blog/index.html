@@ -69,14 +69,17 @@
           let articleHead = document.createElement('div');
           div.appendChild(articleHead);
           articleHead.innerText = postHead;
+          articleHead.className = 'head';
           
           let postData = document.createElement('div');
           postData.innerText = dataHtml.slice(0, 50) + '...';
           div.appendChild(postData);
+          postData.className = 'postData';
           
           let postBy = document.createElement('div');
           postBy.innerText = postBy;
           div.appendChild(postBy);
+          postBy.className = 'postBy';
         }
       });
     });

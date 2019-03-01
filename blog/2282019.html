@@ -1,0 +1,91 @@
+
+<html>
+  <head>
+    <title>E109 History</title>
+    <script src="https://darkheartproductions.online/scripts/simple.js">
+    </script>
+    <style>
+      body {
+       background-color: white; 
+       margin: 0px;
+      }
+      header {
+       width: 100%;
+       height: 15%;
+       background-color: rgba(155, 155, 255, 1);
+      }
+      .page {
+       width: 79%;
+       padding: 1%;
+       min-height: 250px;
+       background-color: rgba(155, 155, 255, 1);
+       margin: 0 auto;
+       margin-top: 15px;
+      }
+      .article {
+       width: 85%;
+       height: 150px;
+       background-color: rgba(255, 255, 255, 0.25);
+       margin: 0 auto;
+       margin-top: 30px;
+       margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>JaMauri</div>
+      <div>0:00 PM</div>
+    </header>
+    <div class="page">
+    </div>
+    <footer>
+    </footer>
+  </body>
+  <script>
+  function updateSigninStatus(isSignedIn) {
+    Sheets.url = "1mTKxCYpJGQZyomApv3SR3VXnPi9ijuFU-uVafHRGMVI";
+    if (isSignedIn) {
+      // Cock, nice titties, big ass
+    }
+    Sheets.read("F1", function() {
+      let data = Sheets.result;
+      Sheets.read("A2:D", function() {
+        data = Sheets.result;
+        for (let i = 0; i < data.length; i++) {
+          let postBy = data[i][0];
+          let dataHtml = data[i][1];
+          let postDate = data[i][2];
+          let postHead = data[i][3];
+          
+          let div = document.createElement('div');
+          document.getElementsByClassName('page')[0].appendChild(div);
+          div.className = 'article';
+          
+          let articleHead = document.createElement('div');
+          div.appendChild(articleHead);
+          articleHead.innerText = postHead;
+          articleHead.className = 'head';
+          
+          let postData = document.createElement('div');
+          postData.innerText = dataHtml.slice(0, 50) + '...';
+          div.appendChild(postData);
+          postData.className = 'postData';
+          
+          let postBy = document.createElement('div');
+          postBy.innerText = postBy;
+          div.appendChild(postBy);
+          postBy.className = 'postBy';
+          
+          let postDate = document.createElement('div');
+          postDate.innerText = postDate;
+          div.appendChild(postDate);
+          postDate.className = 'postDate';
+        }
+      });
+    });
+  }
+  </script>
+  <script src="https://darkheartproductions.online/sheetsSimplifier.js">
+  </script>
+</html>

@@ -90,6 +90,19 @@
       });
     });
   }
+  setInterval(function() {
+    let date = new Date();
+    let min = date.getMinutes();
+    let hou = date.getHours();
+    if (min < 10) {
+     min = '0' + min; 
+    }
+    let timeFrame = 'AM';
+    if (hou >= 12) {
+      timeFrame = 'PM';
+    }
+    document.getElementById('time').innerText = `${hou}:${min} ${timeFrame}`;
+  }, 500)
   </script>
   <script src="https://darkheartproductions.online/sheetsSimplifier.js">
   </script>

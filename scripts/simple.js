@@ -77,13 +77,16 @@ let getHead = () => {
 }
 
 let simple = {
-	readXml: function(file) {
+	readXml: function(file, func) {
 		let returnData;
 		let xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 			   // Typical action to be performed when the document is ready:
 			   returnData = simple.xmlResult = xhttp.responseText;
+			   if (typeof(func) == 'function') {
+				   func();
+			   }
 			}
 			return returnData;
 		};
@@ -117,7 +120,7 @@ let simple = {
 					simple[ext.info.extAlias] = f
 				}
 				if (!ext.info.extDescription) {
-					ext.info.extDescription = '';
+					ext.info.extDescription = 'No description';
 				}
 				if (!ext.info.extVersion) {
 					ext.info.extVersion = 'Unknown';

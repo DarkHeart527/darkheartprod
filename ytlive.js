@@ -1,6 +1,10 @@
 let ytlive = {
 	getSubscribers: function() {
-	
+		simple.readXml(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${this.channel}&key=${this.apiKey}`, function() {
+				let data = simple.xmlResult;
+				data = JSON.parse(data);
+				return data.items[0].statistics.subscriberCount;
+		});
 	},
 	getViews: function() {
 	

@@ -7,6 +7,7 @@
 		<img src="Untitled.png" style="display: none;">
 		<button id="test">Put a Picture</button>
 		<button id="test2">Gray Scale</button>
+		<button id="test3">Remove Blue</button>
 	</body>
 	<script>
 	let app = {
@@ -84,6 +85,24 @@
 					}
 					iw();
 				break;
+				case 'noblue':
+					let i = 0;
+					function iw() {
+						for (let j = 0; j < app.canvas.height; j++) {
+							let dat = app.ctx.getImageData(i, j, 1, 1).data;
+							let fS = '';
+							app.ctx.beginPath();
+							app.ctx.rect(i, j, 1, 1);
+							app.ctx.fillStyle = `rgba(dat[0], dat[1], 0, 1)`;
+							app.ctx.fill();
+							app.ctx.closePath();
+						}
+						setTimeout(function(){
+						i++;
+						iw()}, 1000/perSec);
+					}
+					iw();
+				break;
 				default:
 				
 				break;
@@ -107,6 +126,9 @@
 		}
 		document.getElementById('test2').onclick = () => {
 			app.lightfilter('grayscale', 1000);
+		}
+		document.getElementById('test3').onclick = () => {
+			app.lightfilter('noblue', 1000);
 		}
 	}, 500);
 	</script>

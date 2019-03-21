@@ -90,11 +90,10 @@
 	}
 	</script>
 	<script>
-	app.setCanvas(document.getElementsByTagName('canvas')[0])
 	setTimeout(function() {
+		app.setCanvas(document.getElementsByTagName('canvas')[0]);
 		app.canvas.width = window.innerWidth;
 		app.canvas.height = window.innerHeight;
-		app.setCanvas(document.getElementsByTagName('canvas')[0]);
 		app.ctx.fillStyle = 'rgb(255, 155, 5)';
 		app.ctx.fillRect(0, 0, 25, 25)
 		app.ctx.fillStyle = 'rgb(125, 155, 5)';

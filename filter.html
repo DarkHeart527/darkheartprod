@@ -116,8 +116,8 @@
 	</script>
 	<script>
 	setTimeout(function() {
-		app.canvas.width = window.innerWidth;
-		app.canvas.height = window.innerHeight;
+		app.canvas.width = window.innerWidth + 'px';
+		app.canvas.height = window.innerHeight + 'px';
 		app.setCanvas(document.getElementsByTagName('canvas')[0]);
 		app.ctx.fillStyle = 'rgb(255, 155, 5)';
 		app.ctx.fillRect(0, 0, 25, 25)
@@ -127,7 +127,7 @@
 		app.ctx.fillRect(25, 25, 25, 25)
 	}, 500);
 	document.getElementById('test').onclick = () => {
-		app.ctx.drawImage(document.getElementsByTagName('img')[0], 0, 0 window.innerWidth, window.innerHeight);
+		app.ctx.drawImage(document.getElementsByTagName('img')[0], 0, 0 app.canvas.width, app.canvas.height);
 	}
 	document.getElementById('test2').onclick = () => {
 		app.lightfilter('grayscale');

@@ -57,6 +57,8 @@
 	}
 	</script>
 	<script>
+	app.canvas.width = window.innerWidth;
+	app.canvas.height = window.innerHeight;
 	setTimeout(function() {
 		app.setCanvas(document.getElementsByTagName('canvas')[0]);
 		app.ctx.fillStyle = 'rgb(255, 155, 5)';

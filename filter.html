@@ -48,31 +48,6 @@
 						}
 					}
 				break;
-				case 'pennink':
-					for (let i = 0; i < app.canvas.width; i++) {
-						for (let j = 0; j < app.canvas.height; j++) {
-							let dat = app.ctx.getImageData(i, j, 1, 1).data;
-							let fS = '';
-							if (dat[0] > dat[1] && dat [0] > dat[2]) { // Red is the highest
-								fS = dat[0];
-							} else if (dat[1] > dat[0] && dat [1] > dat[2]) { // Green is the highest
-								fS = dat[1];
-							} else if (dat[2] > dat[0] && dat [2] > dat[1]) { // Blue is the highest
-								fS = dat[2];
-							} else { // White, black, or plain grey
-								fS = dat[0];
-							}
-							app.ctx.beginPath();
-							app.ctx.rect(i, j, 1, 1);
-							app.ctx.fillStyle = `rgba(${fS}, ${fS}, ${fS}, ${dat[3]})`;
-							app.ctx.fill();
-							app.ctx.closePath();
-						}
-					}
-				break;
-				default:
-				
-				break;
 			}
 		},
 		lightfilter: (scale, perSec) => {
@@ -115,9 +90,10 @@
 	}
 	</script>
 	<script>
+	app.setCanvas(document.getElementByTagName('canvas')[0])
 	setTimeout(function() {
-		app.canvas.width = window.innerWidth + 'px';
-		app.canvas.height = window.innerHeight + 'px';
+		app.canvas.width = window.innerWidth;
+		app.canvas.height = window.innerHeight;
 		app.setCanvas(document.getElementsByTagName('canvas')[0]);
 		app.ctx.fillStyle = 'rgb(255, 155, 5)';
 		app.ctx.fillRect(0, 0, 25, 25)
@@ -130,7 +106,7 @@
 		app.ctx.drawImage(document.getElementsByTagName('img')[0], 0, 0 app.canvas.width, app.canvas.height);
 	}
 	document.getElementById('test2').onclick = () => {
-		app.lightfilter('grayscale');
+		app.lightfilter('grayscale', 1000);
 	}
 	</script>
 </html>

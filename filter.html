@@ -8,6 +8,8 @@
 		<button id="test">Put a Picture</button>
 		<button id="test2">Gray Scale</button>
 		<button id="test3">Remove Blue</button>
+		<button id="test4">Remove Red</button>
+		<button id="test5">Remove Green</button>
 	</body>
 	<script>
 	let app = {
@@ -86,22 +88,55 @@
 					iw();
 				break;
 				case 'noblue':
-					let i = 0;
-					function iw() {
+					let k = 0;
+					function kw() {
 						for (let j = 0; j < app.canvas.height; j++) {
-							let dat = app.ctx.getImageData(i, j, 1, 1).data;
-							let fS = '';
+							let dat = app.ctx.getImageData(k, j, 1, 1).data;
 							app.ctx.beginPath();
-							app.ctx.rect(i, j, 1, 1);
-							app.ctx.fillStyle = `rgba(${dat[0]}, ${dat[1]}, 0, 1)`;
+							app.ctx.rect(k, j, 1, 1);
+							app.ctx.fillStyle = `rgba(${dat[0]}, ${dat[1]}, 0, ${dat[3]})`;
 							app.ctx.fill();
 							app.ctx.closePath();
 						}
 						setTimeout(function(){
-						i++;
-						iw()}, 1000/perSec);
+						k++;
+						kw()}, 1000/perSec);
 					}
-					iw();
+					kw();
+				break;
+				case 'nogreen':
+					let g = 0;
+					function gw() {
+						for (let j = 0; j < app.canvas.height; j++) {
+							let dat = app.ctx.getImageData(g, j, 1, 1).data;
+							app.ctx.beginPath();
+							app.ctx.rect(g, j, 1, 1);
+							app.ctx.fillStyle = `rgba(${dat[0]}, 0, ${dat[2]}, ${dat[3]})`;
+							app.ctx.fill();
+							app.ctx.closePath();
+						}
+						setTimeout(function(){
+						g++;
+						gw()}, 1000/perSec);
+					}
+					gw();
+				break;
+				case 'nored':
+					let r = 0;
+					function rw() {
+						for (let j = 0; j < app.canvas.height; j++) {
+							let dat = app.ctx.getImageData(r, j, 1, 1).data;
+							app.ctx.beginPath();
+							app.ctx.rect(r, j, 1, 1);
+							app.ctx.fillStyle = `rgba(0, ${dat[1]}, ${dat[2]}, ${dat[3]})`;
+							app.ctx.fill();
+							app.ctx.closePath();
+						}
+						setTimeout(function(){
+						r++;
+						rw()}, 1000/perSec);
+					}
+					rw();
 				break;
 				default:
 				
@@ -121,6 +156,8 @@
 		app.ctx.fillRect(40, 0, 25, 25)
 		app.ctx.fillStyle = 'rgb(125, 155, 36)';
 		app.ctx.fillRect(25, 25, 25, 25);
+		app.ctx.fillStyle = 'rgb(125, 0, 155)';
+		app.ctx.fillRect(45, 45, 25, 25);
 		document.getElementById('test').onclick = () => {
 			app.ctx.drawImage(document.getElementsByTagName('img')[0], 0, 0, window.innerWidth, window.innerHeight);
 		}
@@ -129,6 +166,12 @@
 		}
 		document.getElementById('test3').onclick = () => {
 			app.lightfilter('noblue', 1000);
+		}
+		document.getElementById('test4').onclick = () => {
+			app.lightfilter('nored', 1000);
+		}
+		document.getElementById('test5').onclick = () => {
+			app.lightfilter('nogreen', 1000);
 		}
 	}, 500);
 	</script>

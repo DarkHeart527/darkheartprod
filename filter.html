@@ -48,6 +48,8 @@
 						}
 					}
 				break;
+				default:
+				break;
 			}
 		},
 		lightfilter: (scale, perSec) => {
@@ -100,12 +102,12 @@
 		app.ctx.fillRect(40, 0, 25, 25)
 		app.ctx.fillStyle = 'rgb(125, 155, 36)';
 		app.ctx.fillRect(25, 25, 25, 25);
-		document.getElementById('test').onclick = () => {
+		/*document.getElementById('test').onclick = () => {
 			app.ctx.drawImage(document.getElementsByTagName('img')[0], 0, 0 app.canvas.width, app.canvas.height);
 		}
 		document.getElementById('test2').onclick = () => {
 			app.lightfilter('grayscale', 1000);
-		}
+		}*/
 	}, 500);
 	</script>
 </html>

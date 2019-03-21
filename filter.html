@@ -93,7 +93,7 @@
 							let fS = '';
 							app.ctx.beginPath();
 							app.ctx.rect(i, j, 1, 1);
-							app.ctx.fillStyle = `rgba(dat[0], dat[1], 0, 1)`;
+							app.ctx.fillStyle = `rgba(${dat[0]}, ${dat[1]}, 0, 1)`;
 							app.ctx.fill();
 							app.ctx.closePath();
 						}

@@ -5,6 +5,7 @@
 		<canvas style="background-color: rgba(0, 0, 0, 0.25)">
 		</canvas>
 		<img src="Untitled.png" style="display: none;">
+		<img src="Untitled2.jpg" style="display: none;">
 		<button id="test">Put a Picture</button>
 		<button id="test2">Gray Scale</button>
 		<button id="test3">Remove Blue</button>
@@ -205,6 +206,9 @@
 		app.ctx.fillRect(45, 45, 25, 25);
 		document.getElementById('test').onclick = () => {
 			app.ctx.drawImage(document.getElementsByTagName('img')[0], 0, 0, window.innerWidth, window.innerHeight);
+		}
+		document.getElementById('test9').onclick = () => {
+			app.ctx.drawImage(document.getElementsByTagName('img')[1], 0, 0, window.innerWidth, window.innerHeight);
 		}
 		document.getElementById('test2').onclick = () => {
 			app.lightfilter('grayscale', 1000);

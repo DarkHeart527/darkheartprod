@@ -146,10 +146,10 @@
 					mw();
 				break;
 				case 'keepOnly':
-					let m = 0;
-					function mw() {
+					let n = 0;
+					function nw() {
 						for (let j = 0; j < app.canvas.height; j++) {
-							let dat = app.ctx.getImageData(m, j, 1, 1).data;
+							let dat = app.ctx.getImageData(n, j, 1, 1).data;
 							let fS = '';
 							if (dat[0] < dat[1] && dat [0] < dat[2]) { // Red is the highest
 								fS = dat[0];
@@ -161,20 +161,20 @@
 								fS = dat[0];
 							}
 							app.ctx.beginPath();
-							app.ctx.rect(m, j, 1, 1);
+							app.ctx.rect(n, j, 1, 1);
 							app.ctx.fillStyle = `rgba(${Math.abs(dat[0]-fS)}, ${Math.abs(dat[1]-fS)}, ${Math.abs(dat[2]-fS)}, ${dat[3]})`;
 							app.ctx.fill();
 							app.ctx.closePath();
 						}
-						if (m >= app.canvas.width) {
+						if (n >= app.canvas.width) {
 						
 						} else {
 							setTimeout(function(){
-							m++;
-							mw()}, 1000/perSec);
+							n++;
+							nw()}, 1000/perSec);
 						}
 					}
-					mw();
+					nw();
 				break;
 				
 				default:

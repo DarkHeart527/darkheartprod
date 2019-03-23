@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<script src="pe.js">
+		</script>
+	</head>
+	<body>
+		<canvas style="background-color: rgba(0, 0, 0, 0.25)">
+		</canvas>
+		<button id="test">Put a Picture</button>
+		<button id="test9">Put a Picture 2</button>
+		<button id="test2">Gray Scale</button>
+		<button id="test3">Reverse Contrast</button>
+		<button id="test4">Reverse Lighting</button>
+		<button id="test5">Keep Orange Colors</button>
+	</body>
+	<script>
+	app.setCanvas(document.getElementsByTagName('canvas')[0]);
+	app.loadPicture('w', '../Untitled.png');
+	app.loadPicture('t', '../Untitled2.jpg');
+	app.canvas.width = window.innerWidth/2;
+	app.canvas.height = window.innerHeight/2;
+	app.ctx.fillStyle = 'rgb(55, 55, 55)';
+	app.ctx.fillRect(0, 0, 25, 25)
+	app.ctx.fillStyle = 'rgb(200, 200, 200)';
+	app.ctx.fillRect(25, 25, 25, 25)
+	app.ctx.fillStyle = 'rgb(255, 255, 255)';
+	app.ctx.fillRect(50, 50, 25, 25)
+	app.ctx.fillStyle = 'rgb(0, 0, 0)';
+	app.ctx.fillRect(75, 75, 25, 25)
+	app.ctx.fillStyle = 'rgb(255, 0, 0)';
+	app.ctx.fillRect(100, 100, 25, 25)
+	app.ctx.fillStyle = 'rgb(124, 215, 36)';
+	app.ctx.fillRect(125, 125, 25, 25)
+	app.ctx.fillStyle = 'rgb(0, 0, 255)';
+	app.ctx.fillRect(150, 150, 25, 25)
+	app.ctx.fillStyle = 'rgb(255, 0, 255)';
+	app.ctx.fillRect(175, 175, 25, 25)
+	app.ctx.fillStyle = 'rgb(0, 255, 255)';
+	app.ctx.fillRect(200, 200, 25, 25)
+	document.getElementById('test').onclick = () => {
+		app.ctx.drawImage(app.pictures.w, 0, 0, window.innerWidth, window.innerHeight);
+	}
+	document.getElementById('test9').onclick = () => {
+		app.ctx.drawImage(app.pictures.t, 0, 0, window.innerWidth, window.innerHeight);
+	}
+	document.getElementById('test2').onclick = () => {
+		app.lightfilter('grayscale', 1000);
+	}
+	document.getElementById('test3').onclick = () => {
+		app.lightfilter('reverseContrast', undefined, undefined, undefined, 1000);
+	}
+	document.getElementById('test4').onclick = () => {
+		app.lightfilter('reverseLighting', undefined, undefined, undefined, 1000);
+	}
+	document.getElementById('test5').onclick = () => {
+			app.lightfilter('keepOnly', 'grayscale', [0, 200, 0], [200, 255, 200], 1000);
+	}
+	</script>
+</html>

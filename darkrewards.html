@@ -258,6 +258,10 @@
 										ytads.settings.length = 'full';
 										ytads.watchTime = 0;
 										let endVideo = function() {
+											if (ytads.vinterval) {
+												clearInterval(ytads.vinterval);
+												ytads.vinterval = '';
+											}
 											ytads.pause();
 											let time = ytads.watchTime;
 											let reward = Math.ceil(time/2);

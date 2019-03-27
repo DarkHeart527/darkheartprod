@@ -293,15 +293,12 @@
 								}
 							});
 						});
+					} else {
+						gapi.auth2.getAuthInstance().signOut().then(function() {
+							alert('Signed Out.\nYou must sign up to start');
+							location = location;
+						});
 					}
-				}
-				if (found == 'n/a') {
-				} else if (found) {
-				} else {
-					gapi.auth2.getAuthInstance().signOut().then(function() {
-						alert('Signed Out.\nYou must sign up to start');
-						location = location;
-					});
 				}
 			});
 		} else {

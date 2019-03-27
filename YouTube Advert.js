@@ -169,7 +169,7 @@ let ytads = {
 					}*/
 					if (document.getElementById('time') != undefined) {
 						if (ytads.settings.length == "full") {
-						document.getElementById('time').innerHTML = `${ytads.watchTime} / ${Mathh.floor(ytads.player.getDuration())}`;
+						document.getElementById('time').innerHTML = `${ytads.watchTime} / ${Math.floor(ytads.player.getDuration())}`;
 						} else {
 							document.getElementById('time').innerHTML = `${ytads.watchTime} / ${ytads.settings.length}`;
 						}

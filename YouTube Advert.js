@@ -14,6 +14,7 @@ let ytads = {
 	onTimeCompleted: '',
 	watchTime: 0,
 	interval: '',
+	vinterval: '',
 	pause: function() {
 		ytads.player.pauseVideo();
 	},
@@ -81,6 +82,10 @@ let ytads = {
 		}
 	},
 	newVideo: function(videoId) {
+		if (ytads.vinterval) {
+			clearInterval(ytads.vinterval);
+			ytads.vinterval = '';
+		}
 		let video;
 		if (!videoId) {
 			if (this.settings.playType == 'random') {
@@ -127,12 +132,12 @@ let ytads = {
 				ytads.player.seekTo(Number(start));
 			}
 		}, 100);
-		ytads.interval = setInterval( function() { // Known Bug 1 & 2 Here -- Attempted Fix
+		ytads.vinterval = setInterval( function() {
 			if (ytads.player.getPlayerState() == 1 || ytads.player.getPlayerState() == 0) {
 				if (ytads.settings.length != "full") {
 					if (ytads.watchTime >= ytads.settings.length) {
 						ytads.pause();
-						clearInterval(ytads.interval);
+						clearInterval(ytads.vinterval);
 						console.log("Specified Length");
 						if (typeof(ytads.onTimeCompleted) == 'function') {
 							ytads.onTimeCompleted();
@@ -147,7 +152,7 @@ let ytads = {
 					let dur = Math.floor(ytads.player.getDuration()) - 1;
 					if (ytads.watchTime > dur) {
 						ytads.pause();
-						clearInterval(ytads.interval);
+						clearInterval(ytads.vinterval);
 						console.log("Full Length");
 						if (typeof(ytads.onTimeCompleted) == 'function') {
 							ytads.onTimeCompleted();

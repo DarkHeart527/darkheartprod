@@ -1,4 +1,3 @@
-//updaate
 let ytads = {
 	videos: ['rjteBAIPnE0'], // Only use ids of the videos, for start time use ',' then seconds (rjteBAIPnE0,35)
 	settings: {

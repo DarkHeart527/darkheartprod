@@ -196,9 +196,8 @@
 			document.getElementById('signIn').style.display = 'none';
 			Sheets.read('B2:B', function() {
 				let result = Sheets.result;
-				let found = 'n/a';
+				let found = false;
 				for (let i = 0; i < result.length; i++) {
-					found = false;
 					console.log(result + '\n' + result[i][0]);
 					if (result[i][0] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
 						found = true;
@@ -269,7 +268,7 @@
 												Sheets.write(`C${index}`, curPoints, function() {
 													points = curPoints;
 													updatePoints();
-													location = location;
+													//location = location;
 												});
 											});
 											overlay.style.display = 'none';

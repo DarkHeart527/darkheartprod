@@ -127,12 +127,12 @@ let ytads = {
 				ytads.player.seekTo(Number(start));
 			}
 		}, 100);
-		window.playint = setInterval( function() { // Known Bug 1 & 2 Here -- Attempted Fix
+		ytads.interval = setInterval( function() { // Known Bug 1 & 2 Here -- Attempted Fix
 			if (ytads.player.getPlayerState() == 1 || ytads.player.getPlayerState() == 0) {
 				if (ytads.settings.length != "full") {
 					if (ytads.watchTime >= ytads.settings.length) {
 						ytads.pause();
-						clearInterval(window.playint);
+						clearInterval(ytads.interval);
 						console.log("Specified Length");
 						if (typeof(ytads.onTimeCompleted) == 'function') {
 							ytads.onTimeCompleted();
@@ -147,7 +147,7 @@ let ytads = {
 					let dur = Math.floor(ytads.player.getDuration()) - 1;
 					if (ytads.watchTime > dur) {
 						ytads.pause();
-						clearInterval(window.playint);
+						clearInterval(ytads.interval);
 						console.log("Full Length");
 						if (typeof(ytads.onTimeCompleted) == 'function') {
 							ytads.onTimeCompleted();
@@ -169,7 +169,7 @@ let ytads = {
 					}*/
 					if (document.getElementById('time') != undefined) {
 						if (ytads.settings.length == "full") {
-						document.getElementById('time').innerHTML = `${ytads.watchTime} / ${Math.floor(ytads.player.getDuration())}`;
+						document.getElementById('time').innerHTML = `${ytads.watchTime} / ${Mathh.floor(ytads.player.getDuration())}`;
 						} else {
 							document.getElementById('time').innerHTML = `${ytads.watchTime} / ${ytads.settings.length}`;
 						}

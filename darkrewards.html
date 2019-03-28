@@ -12,7 +12,7 @@
 		 align-items: center;
 		 justify-items: center;
 		}
-		.endVideo {
+		.endVideo, .close {
 		 position: absolute;
 		 top: 0px;
 		 right: 0px;
@@ -25,7 +25,7 @@
 		 margin: 0 auto;
 		 overflow-x: auto;
 		}
-		.earnVideo, .close {
+		.earnVideo {
 		 display: inline-block;
 		 height: 60%;
 		 background-color: red;
@@ -376,11 +376,14 @@
 	}
 	document.getElementById('redeem').onclick = function() {
 		let redPage = document.createElement('div');
-		redPage.className = "Redeem Page";
+		redPage.className = "overlay";
 		document.body.appendChild(redPage);
 		let close = document.createElement('div');
 		close.innerText = 'X';
 		close.className = 'close';
+		close.onclick = () => {
+			redPage.outerHTML = '';
+		}
 		redPage.appendChild(close);
 	}
 	</script>

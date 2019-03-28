@@ -30,8 +30,8 @@ let ytlive = {
 			if (typeof(this.onRefresh) == 'object') {
 				this.onRefresh();
 			}
-			if (this.channelSubsDisplay) {
-				this.channelSubsDisplay.innerText = data.items[0].statistics.subscriberCount;
+			if (ytlive.channelSubsDisplay) {
+				ytlive.channelSubsDisplay.innerText = data.items[0].statistics.subscriberCount;
 			}
 		});
 	},

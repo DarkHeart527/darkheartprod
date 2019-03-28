@@ -216,7 +216,6 @@
 							let stats = data[0][6];
 							let ref = document.getElementById('referId');
 							window.index = i;
-							console.log(index);
 							ref.readOnly = true;
 							ref.value = 'https://darkheartproductions.online/Dark%20Rewards%20New.html#' + userName;
 							ref.onclick = function() {
@@ -318,7 +317,6 @@
 						if (document.getElementById('referredBy').value != '') {
 							Sheets.read('A2:A', function() {
 								let refDat = Sheets.result;
-								console.log(refDat);
 								for (let k = 0; k < refDat.length; k++) {
 									if (refDat[i][0] == document.getElementById('referredBy').value) {
 										con = true;

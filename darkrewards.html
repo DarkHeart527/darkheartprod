@@ -371,8 +371,13 @@
 		}
 	}
 	document.getElementById('redeem').onclick = function() {
-		//location = location.host + '/redeem.html';
-		alert('We are still building this page');
+		let redPage = document.createElement('div');
+		redPage.className = "Redeem Page";
+		document.body.appendChild(redPage);
+		let close = document.createElement('div');
+		close.innerText = 'X';
+		close.className = 'close';
+		redPage.appendChild(close);
 	}
 	</script>
 	<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>

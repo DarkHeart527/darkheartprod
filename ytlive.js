@@ -31,7 +31,7 @@ let ytlive = {
 				this.onRefresh();
 			}
 			if (this.channelSubsDisplay) {
-				channelSubsDisplay.innerText = data.items[0].statistics.subscriberCount;
+				this.channelSubsDisplay.innerText = data.items[0].statistics.subscriberCount;
 			}
 		});
 	},

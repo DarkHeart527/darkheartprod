@@ -200,6 +200,10 @@
 				for (let i = 0; i < result.length; i++) {
 					console.log(result + '\n' + result[i][0]);
 					if (result[i][0] == gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3) {
+						if (result[i][0] == 'officialdarkheartproductions@gmail.com') {
+							let dashboard = document.createElement('div');
+							document.body.appendChild(dashboard);
+						}
 						found = true;
 						i = i + 2;
 						Sheets.read(`A${i}:F${i}`, function() {

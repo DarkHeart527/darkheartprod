@@ -128,7 +128,7 @@
 				if (localStorage.getItem('ad1') == "true" /*&& localStorage.getItem('ad2') == "true"*/) {
 					document.getElementById('download').href = path + '/' + file;
 					document.getElementById('download').innerHTML = `Click to download ${file}`;
-					document.getElementById('link2').innerHTML = 'Viewed';
+					//document.getElementById('link2').innerHTML = 'Viewed';
 					document.getElementById('link1').innerHTML = 'Viewed';
 					setTimeout(function() {
 						localStorage.setItem('ad1', false);

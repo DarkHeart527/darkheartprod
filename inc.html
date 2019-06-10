@@ -18,7 +18,11 @@
         if (nfiae == Sheets.result[0][0]) {
           // Leave it be
           let name = prompt('Please put your name, using an invalid name will result in a ban. For the reset of the Summer School Term. Thank you!');
-          console.re.info(`${name} has connected!`);
+          if (!name) {
+            
+          } else {
+           console.re.info(`${name} has connected!`); 
+          }
         } 
         else {
             document.body.innerHTML = '';

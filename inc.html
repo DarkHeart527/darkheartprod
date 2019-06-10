@@ -11,8 +11,8 @@
   <script>
   init();
   function init() {
-    let nfiae=prompt(`To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.`)
-    if (nfiae == `jjjadhp2020`) {
+    let nfiae=prompt("To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.")
+    if (nfiae == 'jjjadhp2020') {
       function updateSignInStatus(isSignedIn) {
         Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
         if (isSignedIn) {
@@ -24,13 +24,13 @@
         } else {
 
         }
-        Sheets.read(`A1:B`, function() {
+        Sheets.read("A1:B", function() {
           document.write(Sheets.result);
         }
       }
     } else {
-        alert(`The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!`)
-        location = `about:blank`;
+        alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
+        location = "about:blank";
     }
   }
   </script>

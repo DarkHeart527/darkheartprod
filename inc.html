@@ -27,8 +27,10 @@
         else {
             document.body.innerHTML = '';
             console.re.info(`A user has entered the wrong passcode and was sent to about:blank. Input: ${nfiae}`);
+          setTimeout( function() {
             alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
             location = "about:blank";
+          }, 1000);
         }
       });
       if (isSignedIn) {

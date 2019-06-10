@@ -9,18 +9,20 @@
   </body>
   <script>
     let nfiae = prompt("To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.")
-    if (nfiae == 'jjjadhp2020') {
-      // Leave it be
-    } 
-    else {
-        alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
-        location = "about:blank";
+    Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
+    Sheets.read('D2', function() {
+      if (nfiae == Sheets.result[0][0]) {
+        // Leave it be
+      } 
+      else {
+          alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
+          location = "about:blank";
+      }
     }
       let s = document.createElement('script');
       s.src = 'sheetsSimplifier.js';
       document.body.appendChild(s);
       function updateSignInStatus(isSignedIn) {
-        Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
         if (isSignedIn) {
           if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 == 'officialdarkheartproductions@gmail.com') {
             let te = document.createElement('textarea');

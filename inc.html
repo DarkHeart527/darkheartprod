@@ -10,7 +10,6 @@
   <script src="sheetsSimplifier.js">
   </script>
   <script>
-try {
     let nfiae = prompt("To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.")
     if (nfiae == 'jjjadhp2020') {
       function updateSignInStatus(isSignedIn) {
@@ -36,9 +35,6 @@ try {
     } else {
         alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
         location = "about:blank";
-    }
-    } catch(err) {
-     document.write(err);
     }
   </script>
 </html>

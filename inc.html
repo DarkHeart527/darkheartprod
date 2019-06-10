@@ -16,6 +16,8 @@
     Sheets.read('D2', function() {
       if (nfiae == Sheets.result[0][0]) {
         // Leave it be
+        let name = prompt('Please put your name');
+        console.re.info(`${name} has connected!`);
       } 
       else {
           document.body.innerHTML = '';

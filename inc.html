@@ -17,7 +17,12 @@
         Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
         if (isSignedIn) {
           if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 == 'officialdarkheartproductions@gmail.com') {
-
+            let te = document.createElement('textarea');
+            te.onchange = function() {
+              Sheets.write('A2', te.value, function() {
+                
+              });
+            }
           } else {
             signOut();
           }

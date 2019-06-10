@@ -8,6 +8,9 @@
     </div>
   </body>
   <script>
+      let s = document.createElement('script');
+      s.src = 'sheetsSimplifier.js';
+      document.body.appendChild(s);
     let nfiae = prompt("To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.")
     Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
     Sheets.read('D2', function() {
@@ -20,9 +23,6 @@
           location = "about:blank";
       }
     }
-      let s = document.createElement('script');
-      s.src = 'sheetsSimplifier.js';
-      document.body.appendChild(s);
       function updateSignInStatus(isSignedIn) {
         if (isSignedIn) {
           if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 == 'officialdarkheartproductions@gmail.com') {

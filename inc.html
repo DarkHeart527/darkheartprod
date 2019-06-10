@@ -10,6 +10,7 @@
   <script src="sheetsSimplifier.js">
   </script>
   <script>
+    setTimeout(function() {
     let nfiae = prompt("To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.")
     Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
     Sheets.read('D2', function() {
@@ -46,5 +47,6 @@
       }
       setInterval(updateDisplay, 1000);
     }
+    }, 1000);
   </script>
 </html>

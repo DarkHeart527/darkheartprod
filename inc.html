@@ -30,7 +30,7 @@
         }
         function updateDisplay() {
           Sheets.read("A2", function() {
-            document.write(Sheets.result);
+            document.getElementById('answers').innerText = Sheets.result[0][0];
           })
         }
       }

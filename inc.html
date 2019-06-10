@@ -10,22 +10,22 @@
   <script src="sheetsSimplifier.js">
   </script>
   <script>
-    setTimeout(function() {
-    let nfiae = prompt("To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.")
-    Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
-    Sheets.read('D2', function() {
-      if (nfiae == Sheets.result[0][0]) {
-        // Leave it be
-        let name = prompt('Please put your name, using an invalid name will result in a ban. For the reset of the Summer School Term. Thank you!');
-        console.re.info(`${name} has connected!`);
-      } 
-      else {
-          document.body.innerHTML = '';
-          alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
-          location = "about:blank";
-      }
-    });
+   
     function updateSignInStatus(isSignedIn) {
+      let nfiae = prompt("To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.")
+      Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
+      Sheets.read('D2', function() {
+        if (nfiae == Sheets.result[0][0]) {
+          // Leave it be
+          let name = prompt('Please put your name, using an invalid name will result in a ban. For the reset of the Summer School Term. Thank you!');
+          console.re.info(`${name} has connected!`);
+        } 
+        else {
+            document.body.innerHTML = '';
+            alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
+            location = "about:blank";
+        }
+      });
       if (isSignedIn) {
         if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 == 'officialdarkheartproductions@gmail.com') {
           let te = document.createElement('textarea');
@@ -47,6 +47,5 @@
       }
       setInterval(updateDisplay, 1000);
     }
-    }, 1000);
   </script>
 </html>

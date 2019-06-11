@@ -410,6 +410,16 @@
       					updateBtn.value = 'Force Update';
       					updateBtn.addEventListener(click, updateData);
       					document.body.appendChild(updateBtn);
+						
+						let hidden = true;
+						let hideAndUnhide = document.getElementById('Logo');
+						if (hidden) {
+							hidden = false;
+							document.getElementById('answers').display = 'initial';
+						} else {
+							hidden = true;
+							document.getElementById('answers').display = 'none';
+						}
       				});
       			} else {
       				alert('You are not an editor, it is not required to sign in');

@@ -401,18 +401,9 @@
       							updateDisplay();
       						});
       					}
-      					te.onkeyup = u++;
-      					if (u == 5) {
-      						u = 0;
-      						updateData();
-      					}
-      					let updateBtn = document.createElement('button');
-      					updateBtn.value = 'Force Update';
-      					updateBtn.onclick = function() {
+      					te.onkeyup = function() {
 							updateData();
 						}
-      					document.body.appendChild(updateBtn);
-						
 						let hidden = true;
 						let hideAndUnhide = document.getElementById('Logo');
 						if (hidden) {

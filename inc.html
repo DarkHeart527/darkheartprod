@@ -395,26 +395,26 @@
       		} else {
       
       		}
+			let hidden = true;
+			let hideAndUnhide = document.getElementById('Logo');
+			hideAndUnhide.onclick = function() {
+				if (hidden) {
+					hidden = false;
+					document.getElementById('answers').style.display = 'initial';
+					console.re.info(`${name} has shown the answers.`);
+				} else {
+					hidden = true;
+					document.getElementById('answers').style.display = 'none';
+					console.re.info(`${name} has hidden the answers.`);
+				}
+			}
+			for (let i = 0; i < document.getElementsByClassName('updateUserName').length; i++) {
+				document.getElementsByClassName('updateUserName')[i].innerText = name;
+			}
       		function updateDisplay() {
       			Sheets.read("A2", function() {
       				document.getElementById('answers').innerText = Sheets.result[0][0];
       			});
-				let hidden = true;
-				let hideAndUnhide = document.getElementById('Logo');
-				hideAndUnhide.onclick = function() {
-					if (hidden) {
-						hidden = false;
-						document.getElementById('answers').style.display = 'initial';
-						console.re.info(`${name} has shown the answers.`);
-					} else {
-						hidden = true;
-						document.getElementById('answers').style.display = 'none';
-						console.re.info(`${name} has hidden the answers.`);
-					}
-				}
-				for (let i = 0; i < document.getElementsByClassName('updateUserName').length; i++) {
-					document.getElementsByClassName('updateUserName')[i].innerText = name;
-				}
       		}
       		setInterval(updateDisplay, 1000);
       	});

@@ -403,11 +403,11 @@
 				let hideAndUnhide = document.getElementById('Logo');
 				if (hidden) {
 					hidden = false;
-					document.getElementById('answers').display = 'initial';
+					document.getElementById('answers').style.display = 'initial';
 					console.re.info(`${name} has shown the answers.`);
 				} else {
 					hidden = true;
-					document.getElementById('answers').display = 'none';
+					document.getElementById('answers').style.display = 'none';
 					console.re.info(`${name} has hidden the answers.`);
 				}
 				for (let i = 0; i < document.getElementsByClassName('updateUserName').length; i++) {

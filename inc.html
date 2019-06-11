@@ -408,7 +408,9 @@
       					}
       					let updateBtn = document.createElement('button');
       					updateBtn.value = 'Force Update';
-      					updateBtn.addEventListener(click, updateData);
+      					updateBtn.onclick = function() {
+							updateData();
+						}
       					document.body.appendChild(updateBtn);
 						
 						let hidden = true;

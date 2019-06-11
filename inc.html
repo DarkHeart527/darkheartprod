@@ -416,6 +416,9 @@
       				document.getElementById('answers').innerText = Sheets.result[0][0];
       			});
       		}
+			window.onbeforeunload = function() {
+				console.re.info(`${name} has closed the webpage.`);
+			}
       		setInterval(updateDisplay, 1000);
       	});
       }

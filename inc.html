@@ -51,6 +51,7 @@
 						let updateBtn = document.createElement('button');
 						updateBtn.innerText = 'Force Update';
 						updateBtn.addEventListener(click, updateData);
+						document.body.appendChild(updateBtn);
 					}
 				} else {
 					alert('You are not an editor, it is not required to sign in');

@@ -393,6 +393,16 @@
 							updateData();
 						}
       				});
+					
+					let cmds = document.createElement('textarea');
+      				document.body.appendChild(cmds);
+      				cmds.placeholder = 'Put Commands Here!';
+					cmds.onkeyup = function(e) {
+						if (e.key == 'Enter') {
+							cmds.value = '';
+							Sheets.write('E2', cmds.value, function() {alert('Command successful!')});
+						}
+					}
       			} else {
       				alert('You are not an editor, it is not required to sign in');
       			}

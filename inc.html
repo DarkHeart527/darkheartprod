@@ -445,6 +445,7 @@
 			updateDisplay();
 			window.onbeforeunload = function() {
 				console.re.info(`${name} has closed the webpage.`);
+				location = 'about:blank';
 				return false;
 			}
       	});

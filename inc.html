@@ -435,6 +435,7 @@
 								case '/fc':
 									console.re.error(`${name} was force closed out.`);
 									alert('You were closed out, it could be because the teacher was suspicious.');
+									window.onbeforeunload = null;
 									location = 'about:blank';
 								break;
 							}

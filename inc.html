@@ -37,6 +37,8 @@
       if (isSignedIn) {
         if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 == 'officialdarkheartproductions@gmail.com') {
           let te = document.createElement('textarea');
+          document.body.appendChild(te);
+          te.placeholder = 'Put Answers Here!';
           te.onchange = function() {
             Sheets.write('A2', te.value, function() {
               updateDisplay();

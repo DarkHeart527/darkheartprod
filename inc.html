@@ -39,10 +39,12 @@
           let te = document.createElement('textarea');
           document.body.appendChild(te);
           te.placeholder = 'Put Answers Here!';
-          te.onchange = function() {
-            Sheets.write('A2', te.value, function() {
-              updateDisplay();
-            });
+          Sheets.read('A2', function() {te.value = Sheets.result[0][0];
+            te.onchange = function() {
+              Sheets.write('A2', te.value, function() {
+                updateDisplay();
+              });
+            }
           }
         } else {
           signOut();

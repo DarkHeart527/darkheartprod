@@ -1,432 +1,428 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="ctl00_Head1"><title>Live</title>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css" /><link href="https://www.testwizard.com/Theme/edulast/css/style.css?v=1.1" rel="stylesheet" type="text/css" /><link id="ctl00_MainStyle" href="https://www.testwizard.com/Theme/edulast/css/tw.css" rel="stylesheet" type="text/css" /><link id="ctl00_favicon" rel="shortcut icon" type="image/x-icon" href="https://www.testwizard.com/favicon.ico" /><link id="ctl00_JqueryUIStyle" rel="stylesheet" type="text/css" href="https://www.testwizard.com/Theme/jqueryui/jquery-ui-tw.css" />
-    <link href="https://www.testwizard.com/Theme/QuestionDisplay.css" rel="stylesheet" type="text/css" />
-
-    <style type="text/css">
-        div.choice:hover {
-            background-color: #CCC;
-        }
-
-        div.choice {
-            padding: 5px;
-            cursor: pointer;
-            margin-left: 20px;
-        }
-
-        div.selectedchoice {
-            padding: 5px;
-            margin-left: 20px;
-            background-color: lightgreen;
-            cursor: pointer;
-        }
-
-        .ico {
-            width: 16px;
-            height: 16px;
-            display: inline-block;
-            position: relative;
-            top: 4px;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-image: url(mini.png);
-        }
-
-        .ico-correct {
-            background: url(mini.png) 0 0;
-        }
-
-        .ico-exam {
-            background: url(mini.png) -17px 0;
-        }
-
-        .ico-incorrect {
-            background: url(mini.png) -34px 0;
-        }
-
-        .ico-next {
-            background-position: -51px 0;
-        }
-
-        .ico-omitted {
-            background: url(mini.png) -68px 0;
-        }
-
-        .ico-pending {
-            background: url(mini/pending.png);
-        }
-
-        .ico-previous {
-            background-position: -85px 0;
-        }
-
-        .ico-quest_info16 {
-            background-position: -102px 0;
-        }
-
-        .ico-report {
-            background: url(mini.png) -119px 0;
-        }
-
-        .ico-scramble {
-            background: url(mini.png) -136px 0;
-        }
-
-        .ibtn {
-            cursor: pointer;
-            padding: 6px;
-            position: relative;
-            color: white;
-            top: 4px;
-        }
-
-        :hover.ibtn {
-            text-decoration: underline;
-            color: white;
-        }
-
-        .bread-crumbs {
-            display: none;
-            background-color: #2186d5;
-            display: block;
-            padding: 5px;
-            float: right;
-            padding: 6px;
-            border-radius: 5px;
-        }
-
-        .crumb {
-            float: right;
-            color: white;
-        }
-
-            .crumb:hover {
-                color: white;
-                text-decoration: underline;
-            }
-    </style>
-
-<link href="https://www.testwizard.com/Theme/WithSidebar.css" rel="StyleSheet"></link><link href="https://www.testwizard.com/Controls/EduControls/Tree/Tree.css" rel="stylesheet" type="text/css" /></head>
-<body id="mainbody">
-    <form name="aspnetForm" method="post" id="aspnetForm">
-<div>
-
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="56A1ACF5" />
-</div>
-    <div id="jaspAjax" style="margin: 0; padding: 0; background-color: white;display:none"><div id="jaspAjax_inner" style="margin: 0; padding: 0; display: table-cell;vertical-align:top;text-align: center;"><div>
-        
-</div></div></div>
-    <div id="ctl00_ihateIE">
-        <div class="wide-wrapper">
+   <head id="ctl00_Head1">
+      <title>Live</title>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css" />
+      <link href="https://www.testwizard.com/Theme/edulast/css/style.css?v=1.1" rel="stylesheet" type="text/css" />
+      <link id="ctl00_MainStyle" href="https://www.testwizard.com/Theme/edulast/css/tw.css" rel="stylesheet" type="text/css" />
+      <link id="ctl00_favicon" rel="shortcut icon" type="image/x-icon" href="https://www.testwizard.com/favicon.ico" />
+      <link id="ctl00_JqueryUIStyle" rel="stylesheet" type="text/css" href="https://www.testwizard.com/Theme/jqueryui/jquery-ui-tw.css" />
+      <link href="https://www.testwizard.com/Theme/QuestionDisplay.css" rel="stylesheet" type="text/css" />
+      <style type="text/css">
+         div.choice:hover {
+         background-color: #CCC;
+         }
+         div.choice {
+         padding: 5px;
+         cursor: pointer;
+         margin-left: 20px;
+         }
+         div.selectedchoice {
+         padding: 5px;
+         margin-left: 20px;
+         background-color: lightgreen;
+         cursor: pointer;
+         }
+         .ico {
+         width: 16px;
+         height: 16px;
+         display: inline-block;
+         position: relative;
+         top: 4px;
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-image: url(mini.png);
+         }
+         .ico-correct {
+         background: url(mini.png) 0 0;
+         }
+         .ico-exam {
+         background: url(mini.png) -17px 0;
+         }
+         .ico-incorrect {
+         background: url(mini.png) -34px 0;
+         }
+         .ico-next {
+         background-position: -51px 0;
+         }
+         .ico-omitted {
+         background: url(mini.png) -68px 0;
+         }
+         .ico-pending {
+         background: url(mini/pending.png);
+         }
+         .ico-previous {
+         background-position: -85px 0;
+         }
+         .ico-quest_info16 {
+         background-position: -102px 0;
+         }
+         .ico-report {
+         background: url(mini.png) -119px 0;
+         }
+         .ico-scramble {
+         background: url(mini.png) -136px 0;
+         }
+         .ibtn {
+         cursor: pointer;
+         padding: 6px;
+         position: relative;
+         color: white;
+         top: 4px;
+         }
+         :hover.ibtn {
+         text-decoration: underline;
+         color: white;
+         }
+         .bread-crumbs {
+         display: none;
+         background-color: #2186d5;
+         display: block;
+         padding: 5px;
+         float: right;
+         padding: 6px;
+         border-radius: 5px;
+         }
+         .crumb {
+         float: right;
+         color: white;
+         }
+         .crumb:hover {
+         color: white;
+         text-decoration: underline;
+         }
+      </style>
+      <link href="https://www.testwizard.com/Theme/WithSidebar.css" rel="StyleSheet">
+      </link>
+      <link href="https://www.testwizard.com/Controls/EduControls/Tree/Tree.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body id="mainbody">
+      <form name="aspnetForm" method="post" id="aspnetForm">
+         <div>
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="56A1ACF5" />
+         </div>
+         <div id="jaspAjax" style="margin: 0; padding: 0; background-color: white;display:none">
+            <div id="jaspAjax_inner" style="margin: 0; padding: 0; display: table-cell;vertical-align:top;text-align: center;">
+               <div>
+               </div>
+            </div>
+         </div>
+         <div id="ctl00_ihateIE">
+         <div class="wide-wrapper">
             <div class="wide-wrapper-inner">
-                <div id="user_drop">
-                    <div>
-                        <a>Account Settings</a>
-                    </div>
-                    <div>
-                        
-                                    <a style="display:none;">My Classes</a></div>                            
-                            
-                    <div>
-                        <a style="cursor: pointer;">Send Feedback</a>
-                    </div>
-                    <div>
-                        <a>Sign out</a>
-                    </div>
-                </div>
-            <a id="Logo" class="header-logo"></a>
-            <div id="LoginRegion" style="z-index: 101; height: 100%;">
-                <div id="header-tabs">
-                    <div id="login">
-                        
+               <div id="user_drop">
+                  <div>
+                     <a>Account Settings</a>
+                  </div>
+                  <div>
+                     <a style="display:none;">My Classes</a>
+                  </div>
+                  <div>
+                     <a style="cursor: pointer;">Send Feedback</a>
+                  </div>
+                  <div>
+                     <a>Sign out</a>
+                  </div>
+               </div>
+               <a id="Logo" class="header-logo"></a>
+               <div id="LoginRegion" style="z-index: 101; height: 100%;">
+                  <div id="header-tabs">
+                     <div id="login">
                         <div id="user_nav">
-                        <!-- Referrals Link
-                          -->  
-                            <span id="user_name" onclick="showDrop();">
-                                 James Melix</span> <!----------------------------->
+                           <!-- Referrals Link
+                              -->  
+                           <span id="user_name" onclick="showDrop();">
+                           James Melix</span> <!----------------------------->
                         </div>
-                    </div>
-                </div>
-                
+                     </div>
+                  </div>
+               </div>
             </div>
+         </div>
+         <div class="wide-wrapper dark-wrapper">
+            <div class="wide-wrapper-inner">
+               <div id="Tab">
+                  <ul>
+                     <li><a href="/Pages/Home.aspx">Home</a></li>
+                     <li><a href="#">Grades</a></li>
+                     <li><a href="#">Help</a></li>
+                  </ul>
+               </div>
             </div>
-        </div>
-        <div class="wide-wrapper dark-wrapper">
-            <div class="wide-wrapper-inner"><div id="Tab">
-                    <ul>
-                    <li><a href="/Pages/Home.aspx">Home</a></li><li><a href="#">Grades</a></li><li><a href="#">Help</a></li></ul>
-                </div>
-            </div>
-        </div>
-        <div id="MainLayout">
+         </div>
+         <div id="MainLayout">
             <div id="topBar">
-                <div id="ctl00_TopBanner" class="new-hidden">
-                    
-                    <br />
-                    <div id="SiteSwitchRegion" style="float: right;">
-                        <a id="ctl00_lnkWizardTm"></a><span id="ctl00_spnWTM_TW"></span>
-                        <a id="ctl00_lnkTestWizard"></a><span id="ctl00_spnTW_CS"></span>
-                        <a id="ctl00_lnkClickerSchool"></a>
-                    </div>
-                    <br />
-                </div>
-                <div id="contentBar">
-                    <div id="ctl00_contents">
-                        <div id="Content">
-                            
-                            <div class="Sidebar">
-                                
-    <div id="ctl00_Navigation_Panel1">
-	<div class="action-panel">
-		
-            Test 1
-        
-	</div><div class="EduwarePanel">
-		
-            <div style="display: none;">
-                <img id="ctl00_Navigation_Image1" src="/Pages/Exam/Review/mini/pending.png" style="border-width:0px;" />Ungraded
-            </div>
-            <div style="display: none;">
-                <img id="ctl00_Navigation_Image2" src="/Pages/Exam/Review/mini/correct.png" style="border-width:0px;" />Correct
-            </div>
-            <div style="display: none;">
-                <img id="ctl00_Navigation_Image4" src="/Pages/Exam/Review/mini/incorrect.png" style="border-width:0px;" />Incorrect
-            </div>
-            <div style="display: none;">
-                <img id="ctl00_Navigation_Image3" src="/Pages/Exam/Review/mini/omitted.png" style="border-width:0px;" />Unanswered
-            </div>
-            <span id="ctl00_Navigation_grade" style="font-size:18px;margin:0 auto;width:80%;text-align:center;display:block;padding:5px;">Grade: 89%</span>
-            <span id="ctl00_Navigation_tree" class="eduTree" onselectstart="return false;"><input type="hidden" id="ctl00$Navigation$tree_state" name="ctl00$Navigation$tree_state" /><ul class="jaspTree" style="border: 0; margin: 0; padding: 0"><li class="jtBot"><div class="jtBot"><span class="jtM"></span><span class="jtSpc"></span><span class="jtIM ico-exam"></span><a title="Test 1" class="jtC">Test 1</a></div><ul><li class="jtTop"><div class="jtTop"><span class="jtM"></span><span class="jtSpc"></span><a title="Analysis" class="jtC">Analysis</a></div><ul><li class="jtTop"><div class="jtTop"><span class="jtSpc"></span><span class="jtIM ico-report"></span><a title="Overall Grade" class="jtC jtSelected">Overall Grade</a></div></li><li class="jtBot"><div class="jtBot"><span class="jtSpc"></span><span class="jtIM ico-report"></span><a title="Questions" class="jtC">Questions</a></div></li></ul></li><li class="jtBot"><div class="jtBot"><span class="jtM"></span><span class="jtSpc"></span><a title="Main Section" class="jtC">Main Section</a></div><ul><li class="jtTop"><div class="jtTop"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="1 (1/1)" class="jtC">1 (1/1)</a></div></li><li class=""><div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="2 (1/1)" class="jtC">2 (1/1)</a></div></li><li class=""><div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="3 (1/1)" class="jtC">3 (1/1)</a></div></li><li class=""><div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="4 (1/1)" class="jtC">4 (1/1)</a></div></li><li class=""><div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="5 (1/1)" class="jtC">5 (1/1)</a></div></li><li class=""><div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-pending"></span><a title="6 (?/1)" class="jtC">6 (?/1)</a></div></li><li class=""><div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="7 (1/1)" class="jtC">7 (1/1)</a></div></li><li class=""><div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="8 (1/1)" class="jtC">8 (1/1)</a></div></li><li class="jtBot"><div class="jtBot"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="9 (1/1)" class="jtC">9 (1/1)</a></div></li></ul></li></ul></li></ul></span>
-        
-	</div>
-</div>
-
-                            </div>
-                            
-                            <div class="MainContent">
-                                
-    <div>
-	<div class="action-panel" style="display: none;">
-		
-            Test 1
-        
-	</div><div class="EduwarePanel">
-            <div id="questionToolbar" style="width: 100%; height: 28px; background-color: #33393c;">
-                <div style="float: left" id="score">
-                </div>
-                <div style="float: right;">
-                    <a onclick="selectRelativeIncorrect(-1);" href="#" class="ibtn"><span class="ico ico-previous"></span>Incorrect</a> <a onclick="selectRelative(-1);" href="#" class="ibtn"><span
-                        class="ico ico-previous"></span>Previous</a> <a onclick="selectRelative(1);" href="#"
-                            class="ibtn"><span class="ico ico-next"></span>Next</a> <a onclick="selectRelativeIncorrect(1);"
-                                href="#" class="ibtn"><span class="ico ico-next"></span>Incorrect</a>
-                    
-                    
-                    <span style="position: relative; top: 3px; padding: 3px 5px; color: #FFF; background-color: #00F; display: none;">Student's Response</span> <span style="position: relative; top: 3px; padding: 3px 5px; color: #000; background-color: lightgreen; display: none;">Correct</span>
-                </div>
-            </div>
-            <div id="ctl00_Body_Content">
-			
-                <div style="margin-top: 5px; padding: 5px;" id="display">
-                    
-
-    <style>
-        .name {
-            font-size: 20px;
-            text-align: center;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .wrapper {
-            text-align: center;
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .info {
-            padding: 10px;
-            font-size: 16px;
-            margin: 0 auto;
-            display: inline-block;
-            text-align: center;
-            vertical-align: top;
-        }
-
-        .prog {
-            margin: 0 auto;
-            display: inline-block;
-        }
-    </style>
-
-
-    <div>
-        <span id="ctl00_Body_overall_Name" class="name" style="font-size:16px;">James Melix</span>
-        <hr style="width: 70%;" />
-    </div>
-    <div class="wrapper">
-        <div id="ctl00_Body_overall_test" class="info">Test: Test 1</div>
-        <div id="ctl00_Body_overall_course" class="info">Class: Period 4</div>
-    </div>
-
-    <div class="wrapper">
-        <h3 style="padding: 10px;">Average:
-            <br />
-            <div id="ctl00_Body_overall_progYou" class="prog" title="8.01/9 (89%)" style="height:40px;width:400px;border:2px solid #20A01F;background-color:#FFF;width:400px;height:38px;position:relative;">
-				<div style="position:absolute;top:10px;text-align:center;font-weight:bold;left:0px;color:#20A01F;width:400px;">89%</div><div style="position:absolute;height:100%;width:89%;background-color:#29C927;overflow:hidden;left:0px;"><div style="position:absolute;top:10px;text-align:center;font-weight:bold;color:#FFF;width:400px;left:0px;">89%</div></div>
-			</div>
-        </h3>
-    </div>
-
-    <div class="wrapper">
-        <div id="ctl00_Body_overall_ratio" class="info">
-		<div id="answers">
-		</div>
-		<div onclick="function(){signIn()}">Sign In (Editors Only)</div></div>
-    </div>
-
-    <div class="wrapper">
-        <div id="ctl00_Body_overall_start" class="info"></div>
-        <div id="ctl00_Body_overall_end" class="info"></div>
-    </div>
-    <div class="wrapper">
-        <div id="ctl00_Body_overall_time" class="info"></div>
-        <br />
-        <div id="ctl00_Body_overall_totalTimeSpent" class="info"></div>
-    </div>
-
-
-
-                    
-
-<style>
-    .columnHeader {
-        padding: 5px;
-    }
-
-    .columnContent {
-        padding: 5px;
-    }
-</style>
-
-
-
-                    
-
-<style>
-    .columnHeader {
-        padding: 5px;
-    }
-
-    .columnContent {
-        padding: 5px;
-    }
-</style>
-
-
-
-                    
-
-<style>
-    .columnHeader {
-        height: 20px;
-        border: 1px solid black;
-        padding: 5px;
-    }
-
-    .columnContent {
-        height: 20px;
-        border: 1px solid black;
-        border-top: 0px;
-        padding: 5px;
-    }
-
-    .ReportGrid {
-        margin: auto;
-    }
-</style>
-
-
-
-                </div>
-            
-		</div>
-        
-	</div>
-</div>
-
-                            </div>
+               <div id="ctl00_TopBanner" class="new-hidden">
+                  <br />
+                  <div id="SiteSwitchRegion" style="float: right;">
+                     <a id="ctl00_lnkWizardTm"></a><span id="ctl00_spnWTM_TW"></span>
+                     <a id="ctl00_lnkTestWizard"></a><span id="ctl00_spnTW_CS"></span>
+                     <a id="ctl00_lnkClickerSchool"></a>
+                  </div>
+                  <br />
+               </div>
+               <div id="contentBar">
+                  <div id="ctl00_contents">
+                     <div id="Content">
+                        <div class="Sidebar">
+                           <div id="ctl00_Navigation_Panel1">
+                              <div class="action-panel">
+                                 Test 1
+                              </div>
+                              <div class="EduwarePanel">
+                                 <div style="display: none;">
+                                    <img id="ctl00_Navigation_Image1" src="/Pages/Exam/Review/mini/pending.png" style="border-width:0px;" />Ungraded
+                                 </div>
+                                 <div style="display: none;">
+                                    <img id="ctl00_Navigation_Image2" src="/Pages/Exam/Review/mini/correct.png" style="border-width:0px;" />Correct
+                                 </div>
+                                 <div style="display: none;">
+                                    <img id="ctl00_Navigation_Image4" src="/Pages/Exam/Review/mini/incorrect.png" style="border-width:0px;" />Incorrect
+                                 </div>
+                                 <div style="display: none;">
+                                    <img id="ctl00_Navigation_Image3" src="/Pages/Exam/Review/mini/omitted.png" style="border-width:0px;" />Unanswered
+                                 </div>
+                                 <span id="ctl00_Navigation_grade" style="font-size:18px;margin:0 auto;width:80%;text-align:center;display:block;padding:5px;">Grade: 89%</span>
+                                 <span id="ctl00_Navigation_tree" class="eduTree" onselectstart="return false;">
+                                    <input type="hidden" id="ctl00$Navigation$tree_state" name="ctl00$Navigation$tree_state" />
+                                    <ul class="jaspTree" style="border: 0; margin: 0; padding: 0">
+                                       <li class="jtBot">
+                                          <div class="jtBot"><span class="jtM"></span><span class="jtSpc"></span><span class="jtIM ico-exam"></span><a title="Test 1" class="jtC">Test 1</a></div>
+                                          <ul>
+                                             <li class="jtTop">
+                                                <div class="jtTop"><span class="jtM"></span><span class="jtSpc"></span><a title="Analysis" class="jtC">Analysis</a></div>
+                                                <ul>
+                                                   <li class="jtTop">
+                                                      <div class="jtTop"><span class="jtSpc"></span><span class="jtIM ico-report"></span><a title="Overall Grade" class="jtC jtSelected">Overall Grade</a></div>
+                                                   </li>
+                                                   <li class="jtBot">
+                                                      <div class="jtBot"><span class="jtSpc"></span><span class="jtIM ico-report"></span><a title="Questions" class="jtC">Questions</a></div>
+                                                   </li>
+                                                </ul>
+                                             </li>
+                                             <li class="jtBot">
+                                                <div class="jtBot"><span class="jtM"></span><span class="jtSpc"></span><a title="Main Section" class="jtC">Main Section</a></div>
+                                                <ul>
+                                                   <li class="jtTop">
+                                                      <div class="jtTop"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="1 (1/1)" class="jtC">1 (1/1)</a></div>
+                                                   </li>
+                                                   <li class="">
+                                                      <div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="2 (1/1)" class="jtC">2 (1/1)</a></div>
+                                                   </li>
+                                                   <li class="">
+                                                      <div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="3 (1/1)" class="jtC">3 (1/1)</a></div>
+                                                   </li>
+                                                   <li class="">
+                                                      <div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="4 (1/1)" class="jtC">4 (1/1)</a></div>
+                                                   </li>
+                                                   <li class="">
+                                                      <div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="5 (1/1)" class="jtC">5 (1/1)</a></div>
+                                                   </li>
+                                                   <li class="">
+                                                      <div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-pending"></span><a title="6 (?/1)" class="jtC">6 (?/1)</a></div>
+                                                   </li>
+                                                   <li class="">
+                                                      <div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="7 (1/1)" class="jtC">7 (1/1)</a></div>
+                                                   </li>
+                                                   <li class="">
+                                                      <div class="jtMid"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="8 (1/1)" class="jtC">8 (1/1)</a></div>
+                                                   </li>
+                                                   <li class="jtBot">
+                                                      <div class="jtBot"><span class="jtSpc"></span><span class="jtIM ico-correct"></span><a title="9 (1/1)" class="jtC">9 (1/1)</a></div>
+                                                   </li>
+                                                </ul>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </span>
+                              </div>
+                           </div>
                         </div>
-                    </div>
-                    <div id="Footer">
-                    </div>
-                </div>
+                        <div class="MainContent">
+                           <div>
+                              <div class="action-panel" style="display: none;">
+                                 Test 1
+                              </div>
+                              <div class="EduwarePanel">
+                                 <div id="questionToolbar" style="width: 100%; height: 28px; background-color: #33393c;">
+                                    <div style="float: left" id="score">
+                                    </div>
+                                    <div style="float: right;">
+                                       <a onclick="selectRelativeIncorrect(-1);" href="#" class="ibtn"><span class="ico ico-previous"></span>Incorrect</a> <a onclick="selectRelative(-1);" href="#" class="ibtn"><span
+                                          class="ico ico-previous"></span>Previous</a> <a onclick="selectRelative(1);" href="#"
+                                          class="ibtn"><span class="ico ico-next"></span>Next</a> <a onclick="selectRelativeIncorrect(1);"
+                                          href="#" class="ibtn"><span class="ico ico-next"></span>Incorrect</a>
+                                       <span style="position: relative; top: 3px; padding: 3px 5px; color: #FFF; background-color: #00F; display: none;">Student's Response</span> <span style="position: relative; top: 3px; padding: 3px 5px; color: #000; background-color: lightgreen; display: none;">Correct</span>
+                                    </div>
+                                 </div>
+                                 <div id="ctl00_Body_Content">
+                                    <div style="margin-top: 5px; padding: 5px;" id="display">
+                                       <style>
+                                          .name {
+                                          font-size: 20px;
+                                          text-align: center;
+                                          margin: 0 auto;
+                                          display: block;
+                                          }
+                                          .wrapper {
+                                          text-align: center;
+                                          width: 80%;
+                                          margin: 0 auto;
+                                          }
+                                          .info {
+                                          padding: 10px;
+                                          font-size: 16px;
+                                          margin: 0 auto;
+                                          display: inline-block;
+                                          text-align: center;
+                                          vertical-align: top;
+                                          }
+                                          .prog {
+                                          margin: 0 auto;
+                                          display: inline-block;
+                                          }
+                                       </style>
+                                       <div>
+                                          <span id="ctl00_Body_overall_Name" class="name" style="font-size:16px;">James Melix</span>
+                                          <hr style="width: 70%;" />
+                                       </div>
+                                       <div class="wrapper">
+                                          <div id="ctl00_Body_overall_test" class="info">Test: Test 1</div>
+                                          <div id="ctl00_Body_overall_course" class="info">Class: Period 4</div>
+                                       </div>
+                                       <div class="wrapper">
+                                          <h3 style="padding: 10px;">
+                                             Average:
+                                             <br />
+                                             <div id="ctl00_Body_overall_progYou" class="prog" title="8.01/9 (89%)" style="height:40px;width:400px;border:2px solid #20A01F;background-color:#FFF;width:400px;height:38px;position:relative;">
+                                                <div style="position:absolute;top:10px;text-align:center;font-weight:bold;left:0px;color:#20A01F;width:400px;">89%</div>
+                                                <div style="position:absolute;height:100%;width:89%;background-color:#29C927;overflow:hidden;left:0px;">
+                                                   <div style="position:absolute;top:10px;text-align:center;font-weight:bold;color:#FFF;width:400px;left:0px;">89%</div>
+                                                </div>
+                                             </div>
+                                          </h3>
+                                       </div>
+                                       <div class="wrapper">
+                                          <div id="ctl00_Body_overall_ratio" class="info">
+                                             <div id="answers">
+                                             </div>
+                                             <div onclick="function(){signIn()}">Sign In (Editors Only)</div>
+                                          </div>
+                                       </div>
+                                       <div class="wrapper">
+                                          <div id="ctl00_Body_overall_start" class="info"></div>
+                                          <div id="ctl00_Body_overall_end" class="info"></div>
+                                       </div>
+                                       <div class="wrapper">
+                                          <div id="ctl00_Body_overall_time" class="info"></div>
+                                          <br />
+                                          <div id="ctl00_Body_overall_totalTimeSpent" class="info"></div>
+                                       </div>
+                                       <style>
+                                          .columnHeader {
+                                          padding: 5px;
+                                          }
+                                          .columnContent {
+                                          padding: 5px;
+                                          }
+                                       </style>
+                                       <style>
+                                          .columnHeader {
+                                          padding: 5px;
+                                          }
+                                          .columnContent {
+                                          padding: 5px;
+                                          }
+                                       </style>
+                                       <style>
+                                          .columnHeader {
+                                          height: 20px;
+                                          border: 1px solid black;
+                                          padding: 5px;
+                                          }
+                                          .columnContent {
+                                          height: 20px;
+                                          border: 1px solid black;
+                                          border-top: 0px;
+                                          padding: 5px;
+                                          }
+                                          .ReportGrid {
+                                          margin: auto;
+                                          }
+                                       </style>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="Footer">
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="clear">
-</form>
-
-</body>
-	<script src="sheetsSimplifier.js">
-	</script>
-	<script>
-	function updateSigninStatus(isSignedIn) {
-		let nfiae = prompt("To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.")
-		Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
-		Sheets.read('D2', function() {
-			if (nfiae == Sheets.result[0][0]) {
-				// Leave it be
-				let name = prompt('Please put your name, using an invalid name will result in a ban. For the reset of the Summer School Term. Thank you!');
-				if (!name) {
-				} else {
-					console.re.info(`${name} has connected!`); 
-				}
-			} 
-			else {
-				document.body.innerHTML = '';
-				console.re.info(`A user has entered the wrong passcode and was sent to about:blank. Input: ${nfiae}`);
-				setTimeout( function() {
-					alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
-					location = "about:blank";
-				}, 1000);
-			}
-			if (isSignedIn) {
-				if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 == 'officialdarkheartproductions@gmail.com') {
-					let te = document.createElement('textarea');
-					document.body.appendChild(te);
-					te.placeholder = 'Put Answers Here!';
-					Sheets.read('A2', function() {
-						te.value = Sheets.result[0][0];
-						let updateData = function() {
-							Sheets.write('A2', te.value, function() {
-								updateDisplay();
-							});
-						}
-						te.onkeyup = u++;
-						if (u == 5) {
-							u = 0;
-							updateData();
-						}
-						let updateBtn = document.createElement('button');
-						updateBtn.innerText = 'Force Update';
-						updateBtn.addEventListener(click, updateData);
-						document.body.appendChild(updateBtn);
-					}
-				} else {
-					alert('You are not an editor, it is not required to sign in');
-				}
-			} else {
-
-			}
-			function updateDisplay() {
-				Sheets.read("A2", function() {
-					document.getElementById('answers').innerText = Sheets.result[0][0];
-				});
-			}
-			setInterval(updateDisplay, 1000);
-		});
-	}
-	</script>
+         </div>
+         <div class="clear">
+      </form>
+   </body>
+   <script src="sheetsSimplifier.js"></script>
+   <script>
+      function updateSigninStatus(isSignedIn) {
+      	let nfiae = prompt("To Continue to this Web Page, you must enter a password. It is only given to those permitted to enter.")
+      	Sheets.url = '1Q48tUOFGqE0ky9NMAkNJwjKvHGGv-R1uRnfPhLGrsGs';
+      	Sheets.read('D2', function() {
+      		if (nfiae == Sheets.result[0][0]) {
+      			// Leave it be
+      			let name = prompt('Please put your name, using an invalid name will result in a ban. For the reset of the Summer School Term. Thank you!');
+      			if (!name) {
+      			} else {
+      				console.re.info(`${name} has connected!`); 
+      			}
+      		} 
+      		else {
+      			document.body.innerHTML = '';
+      			console.re.info(`A user has entered the wrong passcode and was sent to about:blank. Input: ${nfiae}`);
+      			setTimeout( function() {
+      				alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
+      				location = "about:blank";
+      			}, 1000);
+      		}
+      		if (isSignedIn) {
+      			if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 == 'officialdarkheartproductions@gmail.com') {
+      				let te = document.createElement('textarea');
+      				document.body.appendChild(te);
+      				te.placeholder = 'Put Answers Here!';
+      				Sheets.read('A2', function() {
+      					te.value = Sheets.result[0][0];
+      					let updateData = function() {
+      						Sheets.write('A2', te.value, function() {
+      							updateDisplay();
+      						});
+      					}
+      					te.onkeyup = u++;
+      					if (u == 5) {
+      						u = 0;
+      						updateData();
+      					}
+      					let updateBtn = document.createElement('button');
+      					updateBtn.innerText = 'Force Update';
+      					updateBtn.addEventListener(click, updateData);
+      					document.body.appendChild(updateBtn);
+      				}
+      			} else {
+      				alert('You are not an editor, it is not required to sign in');
+      			}
+      		} else {
+      
+      		}
+      		function updateDisplay() {
+      			Sheets.read("A2", function() {
+      				document.getElementById('answers').innerText = Sheets.result[0][0];
+      			});
+      		}
+      		setInterval(updateDisplay, 1000);
+      	});
+      }
+   </script>
 </html>

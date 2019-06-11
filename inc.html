@@ -366,7 +366,7 @@
       		} 
       		else {
       			document.body.innerHTML = '';
-				if (nfiae == '') {
+				if (!nfiae) {
 					console.re.info(`A user has not entered a code, but was still sent to about:blank.`);
 				} else {
 					console.re.info(`A user has entered the wrong passcode and was sent to about:blank. Input: ${nfiae}`);

@@ -441,11 +441,10 @@
 								alert(cmd.slice(5, cmd.length));
 							}
 						}
-						updateDisplay();
 					});
       			});
       		}
-			updateDisplay();
+			setInterval( function() {updateDisplay();}, 1000);
 			window.onbeforeunload = function() {
 				console.re.info(`${name} has closed the webpage.`);
 				location = 'about:blank';

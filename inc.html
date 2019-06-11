@@ -431,7 +431,7 @@
 					Sheets.read("E2", function() {
 						if (window.cmd != Sheets.result[0][0]) {
 							window.cmd = Sheets.result[0][0];
-							if (cmd == '/fc') {
+							if (cmd.includes('/fc')) {
 								console.re.error(`${name} was force closed out.`);
 								alert('You were closed out, it could be because the teacher was suspicious.');
 								window.onbeforeunload = null;

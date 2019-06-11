@@ -132,7 +132,7 @@
                         <div id="user_nav">
                            <!-- Referrals Link
                               -->  
-                           <span id="user_name">
+                           <span id="user_name" class="updateUserName">
                            James Melix</span> <!----------------------------->
                         </div>
                      </div>
@@ -394,6 +394,7 @@
       				document.body.appendChild(te);
       				te.placeholder = 'Put Answers Here!';
       				Sheets.read('A2', function() {
+						let u = 0;
       					te.value = Sheets.result[0][0];
       					let updateData = function() {
       						Sheets.write('A2', te.value, function() {

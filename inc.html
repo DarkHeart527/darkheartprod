@@ -399,8 +399,8 @@
       				cmds.placeholder = 'Put Commands Here!';
 					cmds.onkeyup = function(e) {
 						if (e.key == 'Enter') {
-							cmds.value = '';
 							Sheets.write('E2', cmds.value, function() {alert('Command successful!')});
+							cmds.value = '';
 						}
 					}
       			} else {

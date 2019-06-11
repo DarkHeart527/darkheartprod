@@ -33,31 +33,32 @@
             location = "about:blank";
           }, 1000);
         }
-      });
-      if (isSignedIn) {
-        if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 == 'officialdarkheartproductions@gmail.com') {
-          let te = document.createElement('textarea');
-          document.body.appendChild(te);
-          te.placeholder = 'Put Answers Here!';
-          Sheets.read('A2', function() {te.value = Sheets.result[0][0];
-            te.onchange = function() {
-              Sheets.write('A2', te.value, function() {
-                updateDisplay();
-              });
+        
+        if (isSignedIn) {
+          if (gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 == 'officialdarkheartproductions@gmail.com') {
+            let te = document.createElement('textarea');
+            document.body.appendChild(te);
+            te.placeholder = 'Put Answers Here!';
+            Sheets.read('A2', function() {te.value = Sheets.result[0][0];
+              te.onchange = function() {
+                Sheets.write('A2', te.value, function() {
+                  updateDisplay();
+                });
+              }
             }
+          } else {
+            signOut();
           }
         } else {
-          signOut();
+
         }
-      } else {
-        
-      }
-      function updateDisplay() {
-        Sheets.read("A2", function() {
-          document.getElementById('answers').innerText = Sheets.result[0][0];
-        })
-      }
-      setInterval(updateDisplay, 1000);
+        function updateDisplay() {
+          Sheets.read("A2", function() {
+            document.getElementById('answers').innerText = Sheets.result[0][0];
+          })
+        }
+        setInterval(updateDisplay, 1000);
+      });
     }
   </script>
 </html>

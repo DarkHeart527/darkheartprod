@@ -421,8 +421,8 @@
       			});
       		}
 			window.onbeforeunload = function() {
-				alert(`Thank you ${name}, we hope to see you again!`);
 				console.re.info(`${name} has closed the webpage.`);
+				return false;
 			}
       		setInterval(updateDisplay, 1000);
       	});

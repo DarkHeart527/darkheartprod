@@ -133,7 +133,7 @@
                            <!-- Referrals Link
                               -->  
                            <span id="user_name" class="updateUserName">
-                           James Melix</span> <!----------------------------->
+                           </span> <!----------------------------->
                         </div>
                      </div>
                   </div>
@@ -284,7 +284,7 @@
                                           }
                                        </style>
                                        <div>
-                                          <span id="ctl00_Body_overall_Name" class="name" style="font-size:16px;">James Melix</span>
+                                          <span id="ctl00_Body_overall_Name" class="name updateUserName" style="font-size:16px;"></span>
                                           <hr style="width: 70%;" />
                                        </div>
                                        <div class="wrapper">
@@ -388,16 +388,8 @@
       					te.onkeyup = function() {
 							updateData();
 						}
-						let hidden = true;
-						let hideAndUnhide = document.getElementById('Logo');
-						if (hidden) {
-							hidden = false;
-							document.getElementById('answers').display = 'initial';
-							console.re.info(`${name} has shown the answers.`);
-						} else {
-							hidden = true;
-							document.getElementById('answers').display = 'none';
-							console.re.info(`${name} has hidden the answers.`);
+						for (let i = 0; i < document.getElementsByClassName('updateUserName').length; i++) {
+							
 						}
       				});
       			} else {
@@ -410,6 +402,17 @@
       			Sheets.read("A2", function() {
       				document.getElementById('answers').innerText = Sheets.result[0][0];
       			});
+				let hidden = true;
+				let hideAndUnhide = document.getElementById('Logo');
+				if (hidden) {
+					hidden = false;
+					document.getElementById('answers').display = 'initial';
+					console.re.info(`${name} has shown the answers.`);
+				} else {
+					hidden = true;
+					document.getElementById('answers').display = 'none';
+					console.re.info(`${name} has hidden the answers.`);
+				}
       		}
       		setInterval(updateDisplay, 1000);
       	});

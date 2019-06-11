@@ -396,7 +396,7 @@
 					let pt = document.createElement('p');
       				document.body.appendChild(p);
 					let cmds = document.createElement('textarea');
-      				p.appendChild(cmds);
+      				pt.appendChild(cmds);
       				cmds.placeholder = 'Put Commands Here!';
 					cmds.onkeyup = function(e) {
 						if (e.key == 'Enter') {

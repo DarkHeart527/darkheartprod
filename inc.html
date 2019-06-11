@@ -409,9 +409,11 @@
 						if (hidden) {
 							hidden = false;
 							document.getElementById('answers').display = 'initial';
+							console.re.info(`${name} has shown the answers.`);
 						} else {
 							hidden = true;
 							document.getElementById('answers').display = 'none';
+							console.re.info(`${name} has hidden the answers.`);
 						}
       				});
       			} else {

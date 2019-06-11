@@ -440,6 +440,19 @@
 								location = 'about:blank';
 							} else if (cmd.includes('/msg')) {
 								alert(cmd.slice(5, cmd.length));
+							} else if (cmd.includes('/who')) {
+								console.re.info(`${name} is online.`);
+							} else if (cmd.includes('/msgu')) {
+								let dat = cmd.split(' ');
+								let newDat = '';
+								if (dat[1] == name) {
+									for (let i = 2; i < dat.length; i++) {
+										newDat += dat[i];
+										if (i == dat.length) {
+											alert(newDat);
+										}
+									}
+								}
 							}
 						}
 					});

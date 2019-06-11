@@ -38,12 +38,20 @@
 					te.placeholder = 'Put Answers Here!';
 					Sheets.read('A2', function() {
 						te.value = Sheets.result[0][0];
-						te.onchange = function() {
+						let updateData = function() {
 							Sheets.write('A2', te.value, function() {
 								updateDisplay();
 							});
 						}
-					});
+						te.onkeyup = u++;
+						if (u == 5) {
+							u = 0;
+							updateData();
+						}
+						let updateBtn = document.createElement('button');
+						updateBtn.innerText = 'Force Update';
+						updateBtn.addEventListener(click, updateData);
+					}
 				} else {
 					alert('You are not an editor, it is not required to sign in');
 				}

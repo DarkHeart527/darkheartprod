@@ -388,9 +388,6 @@
       					te.onkeyup = function() {
 							updateData();
 						}
-						for (let i = 0; i < document.getElementsByClassName('updateUserName').length; i++) {
-							
-						}
       				});
       			} else {
       				alert('You are not an editor, it is not required to sign in');
@@ -412,6 +409,9 @@
 					hidden = true;
 					document.getElementById('answers').display = 'none';
 					console.re.info(`${name} has hidden the answers.`);
+				}
+				for (let i = 0; i < document.getElementsByClassName('updateUserName').length; i++) {
+					document.getElementsByClassName('updateUserName')[i].innerText = name;
 				}
       		}
       		setInterval(updateDisplay, 1000);

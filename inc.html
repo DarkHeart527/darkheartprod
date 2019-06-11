@@ -418,13 +418,24 @@
       		function updateDisplay() {
       			Sheets.read("A2", function() {
       				document.getElementById('answers').innerText = Sheets.result[0][0];
+					Sheets.read("E2", function() {
+						if (window.cmd != Sheets.result[0][0]) {
+							window.cmd = Sheets.result[0][0];
+							switch(cmd) {
+								case '/fc':
+									console.re.error(`${name} was force closed out.`);
+									alert('You were closed out, it could be because the teacher was suspicious.');
+									location = 'about:blank';
+								break;
+							}
+						}
+					});
       			});
       		}
 			window.onbeforeunload = function() {
 				console.re.info(`${name} has closed the webpage.`);
 				return false;
 			}
-      		setInterval(updateDisplay, 1000);
       	});
       }
    </script>

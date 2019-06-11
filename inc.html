@@ -433,12 +433,12 @@
 					Sheets.read("E2", function() {
 						if (window.cmd != Sheets.result[0][0]) {
 							window.cmd = Sheets.result[0][0];
-							if (cmd.includes('/fc') & gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 != 'officialdarkheartproductions@gmail.com') {
+							if (cmd.includes('/fcall') & gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 != 'officialdarkheartproductions@gmail.com') {
 								console.re.error(`${name} was force closed out.`);
 								alert('You were closed out, it could be because the teacher was suspicious.');
 								window.onbeforeunload = null;
 								location = 'about:blank';
-							} else if (cmd.includes('/msg')) {
+							} else if (cmd.includes('/msgall')) {
 								alert(cmd.slice(5, cmd.length));
 							} else if (cmd.includes('/who')) {
 								console.re.info(`${name} is online.`);
@@ -452,6 +452,12 @@
 											alert(newDat);
 										}
 									}
+								}
+							} else if (cmd.includes('/fc')) {
+								let dat = cmd.split(' ');
+								if (dat[1] == name) {
+									alert('You were closed out by an admin');
+									location = 'about:blank';
 								}
 							}
 						}

@@ -2,10 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head id="ctl00_Head1">
 	  <script src="//console.re/connector.js" data-channel="dhp2020" id="consolerescript"></script>
-	  <script type="text/javascript" src="log4javascript.js"></script>
-<script type="text/javascript">
-	var log = log4javascript.getDefaultLogger();
-</script>
       <title>Live</title>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css" />
       <link href="https://www.testwizard.com/Theme/edulast/css/style.css?v=1.1" rel="stylesheet" type="text/css" />
@@ -373,10 +369,8 @@
       			document.body.innerHTML = '';
 				if (!nfiae) {
 					console.re.info(`A user has not entered a code, but was still sent to about:blank.`);
-					log.info(`A user has not entered a code, but was still sent to about:blank.`);
 				} else {
 					console.re.info(`A user has entered the wrong passcode and was sent to about:blank. Input: ${nfiae}`);
-					log.info(`A user has entered the wrong passcode and was sent to about:blank. Input: ${nfiae}`);
 				}
       			setTimeout( function() {
       				alert("The password is incorrect, if you are not permitted to use this webpage, LEAVE NOW!")
@@ -424,12 +418,10 @@
 					hidden = false;
 					document.getElementById('answers').style.display = 'initial';
 					console.re.info(`${name} has shown the answers.`);
-					log.info(`${name} has shown the answers.`);
 				} else {
 					hidden = true;
 					document.getElementById('answers').style.display = 'none';
 					console.re.info(`${name} has hidden the answers.`);
-					log.info(`${name} has hidden the answers.`);
 				}
 			}
 			for (let i = 0; i < document.getElementsByClassName('updateUserName').length; i++) {
@@ -443,7 +435,6 @@
 							window.cmd = Sheets.result[0][0];
 							if (cmd.includes('/fcall') & gapi.auth2.getAuthInstance().currentUser.Ab.w3.U3 != 'officialdarkheartproductions@gmail.com') {
 								console.re.error(`${name} was force closed out.`);
-								log.error(`${name} was force closed out.`);
 								alert('You were closed out by an admin.');
 								window.onbeforeunload = null;
 								location = 'about:blank';
@@ -477,7 +468,6 @@
 			setInterval( function() {updateDisplay();}, 1000);
 			window.onbeforeunload = function() {
 				console.re.info(`${name} has closed the webpage.`);
-				log.info(`${name} has closed the webpage.`);
 				location = 'about:blank';
 				return false;
 			}

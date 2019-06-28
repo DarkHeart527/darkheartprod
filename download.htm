@@ -228,6 +228,7 @@
 		<div class="page">
 		      <div class="post">
 		      		<h3 class="instructions">
+					<p id="fileName"></p>
 					1) Click "<span id="linkName"></span>" to open the advertisement<br/>
 					2) Complete the Google Verification Puzzle (Anti-Robot)<br/>
 					3) Click "Click here to continue"<br/>
@@ -290,6 +291,7 @@
 			let path = 'tracks';
 			document.getElementById('linkName').innerText = document.getElementById('ad1').innerHTML;
 			document.getElementById('trackName2').innerText = file;
+			document.getElementById('fileName').innerText = file;
 			if (known == false) {
 				document.getElementById('pF').innerText = ifKnown;
 			}

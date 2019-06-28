@@ -309,17 +309,12 @@
 				if (localStorage.getItem('ad1') == "true") {
 					document.getElementById('link1').outerHTML = '<p id="link1">Viewed</p>';
 				}
-				/*if (localStorage.getItem('ad2') == "true") {
-					document.getElementById('link2').outerHTML = '<p id="link2">Viewed</p>';
-				}*/
-				if (localStorage.getItem('ad1') == "true" /*&& localStorage.getItem('ad2') == "true"*/) {
+				if (localStorage.getItem('ad1') == "true") {
 					document.getElementById('download').href = path + '/' + file;
 					document.getElementById('download').innerHTML = `Click to download ${file}`;
-					//document.getElementById('link2').innerHTML = 'Viewed';
 					document.getElementById('link1').innerHTML = 'Viewed';
 					setTimeout(function() {
 						localStorage.setItem('ad1', false);
-						//localStorage.setItem('ad2', false);
 					}, 500);
 				} else {
 					setTimeout(function() {check()}, 500);

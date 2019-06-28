@@ -234,6 +234,7 @@
 					4) Wait 10 seconds for the link<br/>
 					5) Click "Get Link"<br/>
 					6) Click "Download <span id="trackName2"></span>"<br/>
+					<p id="pF"></p>
 			      	</h3>
 			      	<center><a href="https://clk.sh/FqPg" id="link1" target="_blank">View Ad 1</a></center>
 			     	<center><a id="download" download></a></center>
@@ -287,7 +288,11 @@
 				ifKnown = '<br />Please note that this file might not exist. Contact me for help if the file does not download correctly.';
 			}
 			let path = 'tracks';
-			document.getElementById('fileName').innerHTML = "<span style='color: blue;font-size: 35px;'>" + file + "</span> " + ifKnown + "<br />To download just visit the links and press Skip! The pages will close automatically, just view them both and the download button will show.";
+			document.getElementById('linkName').innerText = file;
+			document.getElementById('trackName2').innerText = file;
+			if (known == false) {
+				document.getElementById('pF').innerText = ifKnown;
+			}
 			let check = function() {
 				if (localStorage.getItem('ad1') == "true") {
 					document.getElementById('link1').outerHTML = '<p id="link1">Viewed</p>';

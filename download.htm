@@ -1,97 +1,241 @@
 <html>
-	<head><!-- Hotjar Tracking Code for https://darkheartproductions.online -->
-	<script src="hj.js">
-	</script>
+	<head>
 		<title>DarkHeart Productions</title>
+		<link rel="icon" href="images/profileico.jpg" />
+		<script src="hj.js"></script>
+		<script src="scripts/simple.js">
+		</script>
 		<style>
-			body {
-				margin: 0px;
-				background-color: black;
-			}
-			header {
-				background-color: black;
-				width: 100%;
-				height: 10%;
-				text-align: center;
-				color: orange;
-				display: grid;
-				align-items: center;
-				justify-items: center;
-				text-shadow: 0px 0px 25px orange;
-				font-size: 35px;
-				box-shadow: 0px 0px 25px orange;
-			}
-			header p {
-				margin: 0px;
-			}
-			@keyframes page {
-				0% {background-color: orange;}
-				50% {background-color: black;box-shadow: 0px 0px 25px orange;}
-				100% {background-color: orange;}
-			}
-			.downloadPage {
-				width: 60%;
-				height: 75%;
-				border-radius: 25px;
-				margin: 0 auto;
-				padding: 5px;
-				margin-top: 5%;
-				animation: page 3s infinite linear;
-				color: white;
-			}
-			#links {
-				display: grid;
-				grid-template-rows: 1fr;
-				grid-template-columns: 1fr 1fr;
-				align-items: center;
-				justify-items: center;
-			}
-			#links a {
-				color: white;
-				transition: color .25s;
-				text-decoration: none;
-				font-size: 35px;
-			}
-			#links p {
-				color: green;
-				font-size: 35px;
-				margin: 0px;
-			}
-			#links a:hover {
-				color: red;
-			}
-			#fileName {
-			 color: white;
-			 font-size: 25px;
-			}
-			#download {
-				color: white;
-				font-size: 35px;
-				text-align: center;
-			}
-			.download {
-			 margin: 0 auto;
-			 width: fix-content;
-			}
+		body {
+			margin: 0px;
+			color: white;
+			background-color: black;
+		}
+		a {
+			color: white;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		.mainHeader {
+			display: grid;
+			grid-template-columns: 1fr 1fr 6fr 1fr 1fr;
+			justify-items: center;
+			align-items: center;
+			height: 12.5%;
+			font-size: 25px;
+			grid-gap: 25px;
+			background-color: rgba(0, 0, 0, .75);
+		}
+		@keyframes rotate {
+			0% {transform: rotate(0deg)}
+			100% {transform: rotate(360deg)}
+		}
+		.mainHeader .profilePic {
+			width: 75px;
+			height: 75px;
+			border-radius: 50%;
+			justify-self: right;
+			grid-area: 1/1;
+			animation: rotate 120s infinite linear;
+		}
+		.mainHeader .name {
+			grid-area: 1/2;
+			grid-column-end: 6;
+			justify-self: normal;
+			font-size: 35px;
+		}
+		@keyframes time {
+			0% {color: pink}
+			100% {color: white}
+		}
+		#time {
+			grid-area: 1/4;
+			font-size: 35px;
+			grid-column-end: 6;
+			animation: time 1s infinite linear;
+		}
+		header {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			color: white;
+			font-size: 25px;
+			height: 12.5%;
+			justify-items: center;
+			background-color: rgba(0, 0, 0, .75);
+			align-items: center;
+		}
+		header a {
+			text-decoration: none;
+			color: white;
+			font-size: 35px;
+		}
+		header a:hover {
+			text-decoration: underline;
+		}
+		footer {
+			position: fixed;
+			bottom: 0px;
+			left: 0px;
+			width: 100%;
+			height: 10%;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			justify-items: center;
+			align-items: center;
+			background-color: rgba(0, 0, 0, .75);
+		}
+		.page {
+			width: 80%;
+			height: fit-content;
+			margin: 0 auto;
+			margin-top: 50px;
+		}
+		.side {
+			grid-area: 1/3;
+		}
+		.about {
+			border: 1px solid grey;
+			border-radius: 25px;
+			padding: 10px;
+			background-color: rgba(0, 0, 0, .75);
+			margin-bottom: 50px;
+			transition: box-shadow 0.4s, border 0.4s;
+		}
+		.about:hover {
+			box-shadow: 0px 0px 25px grey;
+			border: 1px solid transparent;
+		}
+		.post {
+			border: 1px solid grey;
+			border-radius: 25px;
+			padding: 10px;
+			background-color: rgba(0, 0, 0, .75);
+			transition: box-shadow 0.4s, border 0.4s;
+		}
+		.post:hover {
+			box-shadow: 0px 0px 25px grey;
+			border: 1px solid transparent;
+		}
+		#background {
+			position: fixed;
+			z-index: -1;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: url('bkc2.png');
+		}
+		#background .img {
+			margin: 0 auto;
+			width: fit-content;
+		}
+		#background .img img {
+			width: 100%;
+			height: 100%;
+		}
+		footer a {
+			font-size: 25px;
+		}
+		.autobio a {
+			font-weight: bold;
+		}
+		.adSpaceLandscape {
+			width: 728px;
+			height: 60px;
+			background-color: rgba(0, 0, 0, .5);
+		}
+		.adSpaceSkyscraper {
+			width: 120px;
+			height: 600px;
+			background-color: rgba(0, 0, 0, .5);
+			margin: 0 auto;
+		}
+		.error404 {
+			color: red;
+		}
+		@keyframes beats {
+			0% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid transparent;
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			20% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			40% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid rgb(255, 155, 0);
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			60% {
+				border-top: 2px solid rgb(255, 155, 0);
+				border-right: 2px solid rgb(255, 155, 0);
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			80% {
+				border-top: 2px solid rgb(255, 155, 0);
+				border-right: 2px solid rgb(255, 155, 0);
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid rgb(255, 155, 0);
+				padding: 4px;}
+			100% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid transparent;
+				border-left: 2px solid transparent;
+				padding: 15px;}
+		}
+		.beatsLink {
+			animation: beats 3s infinite;
+			border-top: 2px solid transparent;
+			border-right: 2px solid transparent;
+			border-bottom: 2px solid transparent;
+			border-left: 2px solid transparent;
+			padding: 4px;
+			border-radius: 10px;
+		}
 		</style>
 	</head>
 	<body>
-		<header>
-			<p>DarkHeart Productions</p>
-		</header>
-		<div class="downloadPage">
-			<p id="fileName"></p>
-			<script type="text/javascript" src="https://adhitzads.com/1022114"></script>
-			<div id="links">
-				<a href="https://clk.sh/FqPg" id="link1" target="_blank">View Ad 1</a>
-				<!--<a href="https://clk.sh/GohMGuq" id="link2" target="_blank">View Ad 2</a>-->
+		<div id="background">
+			<div class="img">
+				<img src="images/background.jpg" />
 			</div>
-			<div class="download">
-				<a href="" id="download" download></a>
-			</div>
-			<script type="text/javascript" src="https://adhitzads.com/1022112"></script>
 		</div>
-	</body>
+		<div class="mainHeader">
+			<img src="images/profile.jpg" class="profilePic"/>
+			<div class="name">
+				<a href="https://darkheartproductions.online">DarkHeart Productions</a>
+			</div>
+			<div id="time">0:00 PM
+			</div>
+		</div>
+		<header>
+			<a href="beats" class="beatsLink">Beats</a>
+			<a href="https://goo.gl/forms/4qSNEoo8aFC9UKtJ2" target="_blank">Submit a Beat</a>
+			<a href="https://goo.gl/forms/BhbYz6yzKpLs4tKu1" target="_blank">Submit a Track</a>
+			<a href="supportme">Support Me</a>
+			<a href="more">More</a>
+		</header>
+		<div class="page">
+		      <div class="post error404">
+				<a href="https://clk.sh/FqPg" id="link1" target="_blank">View Ad 1</a>
+		      </div>
+		</div>
+		<footer>
+			<a href="privacypolicy">Privacy Policy</a>
+			<a href="termsofuse">Terms of Use</a>
+		</footer>
+		<br /><br /><br /><br /><br />
+		
 	<script>
 	(function() {
 		let knownTracks = ['Distinct', 'Short', 'Ghost', 'Lure', 'Maybe', 'WarnU', 'MorphineU', 'ShadowU', 'Crazy', 'Left', 'NX_SURVIVXRS', 'Black_Rose', 'Feeling', 'Runaway', 'Sakura', '$uicide', 'Narco', 'PXISXN', 'Gun', 'Effortless', 'Trippin', 'Declined', 'CXT', 'Deadpool', 'Dead_Already', 'Downtime', 'Smoke', 'BRXKE', 'Grand', 'Heaven', 'Trap_Demon', 'Unbalanced', 'SUPREME', 'Limited', 'Unintentional', 'DXXM', '6ixFeet9ine', 'Hung_Over', 'Pull_Up', 'Voltage', '300', 'Hunted', 'Alone', 'Broke', 'Diamond', 'Dark_Soul', 'Choir', 'Work', 'CLXWN', 'Secrets', 'Lore', 'Challenge', 'Chain', 'Mark', 'Burn', 'Decision', 'Built', 'Ill', 'Fallen', 'Trustworthy', 'Bell', 'Arrogant', 'Fake', 'End', 'Turnt', 'Pitch', 'Low', 'Danger', 'Undesirable', 'Battle', 'Bum', 'Keys', 'PXWN', 'Grin', 'Turn', 'Molten', 'Create', 'Pain', 'Sick', 'Demo', 'Pump', 'Dream', 'Hype', 'FXCK', 'Time', 'Spoken', 'Test', 'Bent', 'Cold', 'Hell', 'Incapable', 'Honest', 'Asian', 'Sine', 'Definitive', 'Instant', 'M1', 'GLXCK', 'Intruder', 'Backdoor', 'Amplify', 'Flow', 'Raw', 'One', 'NXTHING', 'Rounds', 'Gross', 'Get_Lost', 'Spark', 'Turned', 'Nocturnal', 'Lost', 'TXRRIFIXD', 'overdRUNk', 'Arp', 'GXNE', 'DXTXRMINXD', 'Drop', 'Steady', 'Life\'saBitch', 'Pianist', 'NoLoveOnlyHate', 'Heat', 'BO4', 'Inconsiderate', 'DEXD', 'Lost_Luck', 'Walls', 'LXVE', 'No_Trust', 'Lust', 'Bust', 'YXU_DXNT_DESERVE_SHXT', 'Pluck', 'Illuminate', 'NX%20HXPE', 'SYRINGE', 'Leslie', 'Brian', 'Reyunna', 'Rajon', 'Undeniable', 'Cesliestial', 'LXFE', 'SYRINGE', '121', '300 AM Bordem', 'Another', 'Brass', 'Break In!', 'Bumpin', 'Celeste', 'Chaotic', 'Chill', 'Dark Death', 'Dark Loaf Matter', 'Death', 'dont play', 'dontplay_preview', 'Dubslide Remix', 'E.Z. Lop Les', 'Finally', 'Flames', 'Flute', 'Harden', 'Heavy', 'High', 'In your head', 'Life Is Life', 'Lil Happy', 'Locking Bars', 'Mass', 'Money', 'Nearly Nothing', 'Melted Mixtape', 'oohboi', 'Syko', 'Too Late', 'True', 'Untitled', 'War', 'Yet Simple'];
@@ -143,5 +287,28 @@
 			check();
 		}
 	})();
+	(function() {
+		let checkIfOnline = false;
+		setInterval(function() {
+			let d = new Date();
+			let t = 'AM';
+			let hour = d.getHours();
+			if (hour > 12) {
+				hour -= 12;
+				t = 'PM';
+			}
+			let minutes = d.getMinutes();
+			if (minutes < 10) {
+				minutes = '0' + minutes;
+			}
+			document.getElementById('time').innerText = `${hour}:${minutes} ${t}`;
+			if (navigator.onLine == false && checkIfOnline == false) {
+				alert('Please note that you have lost your internet connection.');
+				checkIfOnline = true;
+			}
+		}, 50);
+	})();
 	</script>
+	<script type="text/javascript" src="https://adhitzads.com/1022112"></script>
+	</body>
 </html>

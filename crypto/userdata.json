@@ -1,1 +1,13 @@
-
+{
+  "1PMHd5fw38ca2KHLVN36TcM1rs1GfSqU6H":{
+    "payouts": [
+              {"Hashes": "66000", "Satoshi": "2", "Fee": "660"}, 
+              {"Hashes": "33000", "Satoshi": "1", "Fee": "330"}
+             ],
+    "totalHashes": "124084",
+    "hashesPaid": "99990",
+    "hashesUnpaid": "",
+    "type": "bitcoin",
+    "totalSatoshiPaid": "3",
+  },
+}

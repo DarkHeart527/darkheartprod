@@ -74,7 +74,7 @@
         addon = ' * ' + email.value;
       }
       if (coin.value && user.value) {
-        app.setupMiner(user + ' * ' + coin + addon);
+        app.setupMiner(user.value + ' * ' + coin.value + addon);
         err.style.display = 'none';
       } else {
         err.innerText = 'Please fill out both fields and make sure your address is valid, we do not check.';

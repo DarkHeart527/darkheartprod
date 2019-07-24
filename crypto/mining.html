@@ -33,7 +33,15 @@
         }
       }
       setInterval(function() {
-        
+        if (app.miner) {
+          if (!localStorage.getItem('feian')) {
+            localStorage.setItem('feian', 0);
+          } else {
+            localStorage.setItem('feian', Number(localStorage.getItem('feian')) + Number(app.miner.getTotalHashes()));
+          }
+          document.getElementById('hashesPerSecond').innerText = app.miner.getHashesPerSecond();
+          document.getElementById('totalHashes').innerText = localStorage.getItem('feian');
+        }
       }, 250);
   </script>
 </html>

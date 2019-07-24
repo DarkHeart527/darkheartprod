@@ -11,7 +11,16 @@
       <div class="th"><span id="sessionHashes"></span> Hashes this session @ <span id="hashesPerSecond">0</span> H/s</div>
       <div><span id="totalHashes"></span> All Time Hashes</div>
       <input id="threads" value="4" placeholder="Please enter thread amount.">
-      <input id="address" value="" placeholder="Please enter your coin address">
+      <input id="address" value="" placeholder="Please enter your coin address.">
+      <select id="selectedCoin">
+        <option value="btc">Bitcoin</option>
+        <option value="ltc">Litecoin</option>
+        <option value="doge">Dogecoin</option>
+        <option value="xmr">Monero</option>
+        <option value="hora">Hora Token</option>
+        <option value="trx">Tron</option>
+      </select>
+      <div id="startMiner">Start</div>
     </div>
   </body>
   <script src="https://webminepool.com/lib/base.js"></script>
@@ -51,6 +60,13 @@
        document.getElementById('totalHashes').innerText = localStorage.getItem('feian');
     } else {
        document.getElementById('totalHashes').innerText = '0';
+    }
+    document.getElementById('startMiner').onclick = () => {
+      let user = document.getElementById('address');
+      let coin = document.getElementById('selectedCoin');
+      if (coin.value && user.value) {
+        app.setupMiner(user + ' * ' + coin);
+      }
     }
   </script>
 </html>

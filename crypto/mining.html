@@ -87,12 +87,14 @@
   <script>
       let app = {
         added: 0,
-        toggleOverlay: () => {
+        toggleOverlay: (a) => {
           let oL = document.getElementById('overlay');
           if (oL.style.display == 'none') {
             oL.style.display = 'block';
+            document.getElementById(a).style.display = 'block';
           } else {
             oL.style.display = 'none';
+            document.getElementById(a).style.display = 'none';
           }
         },
       };
@@ -166,7 +168,7 @@
       localStorage.setItem('egad', document.getElementById('address').value);
     }
     document.getElementById('openHIW').onclick = () => {
-      app.toggleOverlay();
+      app.toggleOverlay('HIW');
     }
   </script>
 </html>

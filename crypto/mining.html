@@ -81,5 +81,10 @@
         err.style.display = 'block';
       }
     }
+    document.getElementById('threads').onchange = () => {
+      if (app.miner) {
+        app.miner.setNumThreads(Number(this.value))
+      }
+    }
   </script>
 </html>

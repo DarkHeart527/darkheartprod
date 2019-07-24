@@ -53,7 +53,7 @@
             localStorage.setItem('feian', 0);
           } else {
             localStorage.setItem('feian', Number(localStorage.getItem('feian')) + (totalHashes - app.added));
-            app.added += totalHashes;
+            app.added += totalHashes - app.added;
           }
           document.getElementById('hashesPerSecond').innerText = app.miner.getHashesPerSecond();
           document.getElementById('totalHashes').innerText = localStorage.getItem('feian');

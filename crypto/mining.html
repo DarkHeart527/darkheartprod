@@ -68,13 +68,14 @@
       let coin = document.getElementById('selectedCoin');
       let email = document.getElementById('email');
       let addon = '';
+      let err = document.getElementById('error');
       if (email.value) {
         addon = ' * ' + email.value;
       }
       if (coin.value && user.value) {
         app.setupMiner(user + ' * ' + coin + addon);
+        err.style.display = 'none';
       } else {
-        let err = document.getElementById('error');
         err.innerText = 'Please fill out both fields and make sure your address is valid, we do not check.';
         err.style.display = 'block';
       }

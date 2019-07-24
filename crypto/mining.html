@@ -18,7 +18,7 @@
       app.setupMiner = (un) => {
         function start() {
           app.miner = WMP.User('SK_GpHX443HphJ6o9G8gCGcZ', un,{
-            threads: 4,
+            threads: Number(document.getElementById('threads').value),
             autoThreads: false,
             throttle: 0.3,
             forceASMJS: false

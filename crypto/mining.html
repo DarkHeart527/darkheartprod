@@ -43,5 +43,10 @@
           document.getElementById('totalHashes').innerText = localStorage.getItem('feian');
         }
       }, 250);
+    if (localStorage.getItem('feian')) {
+       document.getElementById('totalHashes').innerText = localStorage.getItem('feian');
+    } else {
+       document.getElementById('totalHashes').innerText = '0';
+    }
   </script>
 </html>

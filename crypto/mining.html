@@ -98,10 +98,10 @@
         app.miner.setNumThreads(Number(document.getElementById('threads').value))
       }
     }
-    document.getElementById('email').onkeyup = () => {
+    document.getElementById('email').onchange = () => {
       localStorage.setItem('iniol', document.getElementById('email').value);
     }
-    document.getElementById('user').onkeyup = () => {
+    document.getElementById('user').onchange = () => {
       localStorage.setItem('egad', document.getElementById('user').value);
     }
   </script>

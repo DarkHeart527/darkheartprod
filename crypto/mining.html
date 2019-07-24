@@ -57,6 +57,7 @@
           }
           document.getElementById('hashesPerSecond').innerText = app.miner.getHashesPerSecond();
           document.getElementById('totalHashes').innerText = localStorage.getItem('feian');
+          document.getElementById('sessionHashes').innerText = totalHashes;
         }
       }, 250);
     if (localStorage.getItem('feian')) {

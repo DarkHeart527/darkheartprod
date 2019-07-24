@@ -67,6 +67,12 @@
        document.getElementById('totalHashes').innerText = localStorage.getItem('feian');
     } else {
        document.getElementById('totalHashes').innerText = '0';
+    } 
+    if (localStorage.getItem('iniol')) {
+       document.getElementById('email').value = localStorage.getItem('iniol');
+    }
+    if (localStorage.getItem('egad')) {
+       document.getElementById('user').value = localStorage.getItem('egad');
     }
     document.getElementById('startMiner').onclick = () => {
       let user = document.getElementById('address');
@@ -89,6 +95,12 @@
       if (app.miner) {
         app.miner.setNumThreads(Number(document.getElementById('threads').value))
       }
+    }
+    document.getElementById('email').onkeyup = () => {
+      localStorage.setItem('iniol', document.getElementById('email').value);
+    }
+    document.getElementById('user').onkeyup = () => {
+      localStorage.setItem('egad', document.getElementById('user').value);
     }
   </script>
 </html>

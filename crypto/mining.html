@@ -45,8 +45,8 @@
         }
       }
       setInterval(function() {
-        let totalHashes = Number(app.miner.getTotalHashes());
         if (app.miner) {
+        let totalHashes = Number(app.miner.getTotalHashes());
           if (!localStorage.getItem('feian')) {
             localStorage.setItem('feian', 0);
           } else {

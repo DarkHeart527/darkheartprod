@@ -43,9 +43,7 @@
           app.miner.start();
         }
         if (app.miner) {
-          app.miner.stop()
-          delete app.miner;
-          start();
+          location = location; // refresh
         } else {
           start();
         }

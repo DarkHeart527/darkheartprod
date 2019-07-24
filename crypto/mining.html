@@ -8,12 +8,13 @@
       
     </header>
     <div class="page">
+      <div id="error" style="display: none"></div>
       <div class="th"><span id="sessionHashes"></span> Hashes this session @ <span id="hashesPerSecond">0</span> H/s</div>
       <div><span id="totalHashes"></span> All Time Hashes</div>
       <input id="threads" value="4" placeholder="Please enter thread amount.">
       <input id="address" value="" placeholder="Please enter your coin address.">
       <select id="selectedCoin">
-        <option value="btc">Bitcoin</option>
+        <option value="btc" selected>Bitcoin</option>
         <option value="ltc">Litecoin</option>
         <option value="doge">Dogecoin</option>
         <option value="xmr">Monero</option>
@@ -66,6 +67,10 @@
       let coin = document.getElementById('selectedCoin');
       if (coin.value && user.value) {
         app.setupMiner(user + ' * ' + coin);
+      } else {
+        let err = document.getElementById('error');
+        err.innerText = 'Please fill out both fields and make sure your address is valid, we do not check.';
+        err.style.display = 'block';
       }
     }
   </script>

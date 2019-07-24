@@ -66,8 +66,13 @@
     document.getElementById('startMiner').onclick = () => {
       let user = document.getElementById('address');
       let coin = document.getElementById('selectedCoin');
+      let email = document.getElementById('email');
+      let addon = '';
+      if (email.value) {
+        addon = ' * ' + email.value;
+      }
       if (coin.value && user.value) {
-        app.setupMiner(user + ' * ' + coin);
+        app.setupMiner(user + ' * ' + coin + addon);
       } else {
         let err = document.getElementById('error');
         err.innerText = 'Please fill out both fields and make sure your address is valid, we do not check.';

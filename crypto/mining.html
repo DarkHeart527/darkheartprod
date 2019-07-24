@@ -84,7 +84,7 @@
     }
     document.getElementById('threads').onchange = () => {
       if (app.miner) {
-        app.miner.setNumThreads(Number(this.value))
+        app.miner.setNumThreads(Number(document.getElementById('threads').value))
       }
     }
   </script>

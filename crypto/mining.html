@@ -29,6 +29,13 @@
        justify-items: center;
        align-items: center;
       }
+      .overlay {
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       top: 0px;
+       left: 0px;
+      }
     </style>
   </head>
   <body>
@@ -58,6 +65,7 @@
     <footer>
       Hashes are paid out every day at 12PM (UTC-700). So don't stress if you don't see a withdrawal button.
     </footer>
+    <div id="HIW"></div>
   </body>
   <script src="https://webminepool.com/lib/base.js"></script>
   <script>
@@ -130,6 +138,9 @@
     }
     document.getElementById('address').onchange = () => {
       localStorage.setItem('egad', document.getElementById('address').value);
+    }
+    document.getElementById('openHIW').onclick = () => {
+      document.getElementById('HIW').style.display = 'block';
     }
   </script>
 </html>

@@ -63,8 +63,9 @@
 		console.log(file);
 		read.readAsDataURL(file);
 		read.onload = () => {
-			app.loadPicture('a' + (Math.random() * 10), read.result, function() {
-				app.ctx.drawImage(app.pictures.a, 0, 0, window.innerWidth, window.innerHeight);
+			let name = 'a' + (Math.random() * 10);
+			app.loadPicture(name, read.result, function() {
+				app.ctx.drawImage(app.pictures.name, 0, 0, window.innerWidth, window.innerHeight);
 			});
 			conosole.log('loaded');
 		}

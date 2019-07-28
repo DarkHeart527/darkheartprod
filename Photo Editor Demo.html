@@ -60,11 +60,13 @@
 	let lf = () => {
 		let read = new FileReader();
 		let file = document.getElementById('file').files[0];
+		console.log(file);
 		read.readAsDataURL(file);
 		read.onload = () => {
 			app.loadPicture('a', read.result, function() {
 				app.ctx.drawImage(app.pictures.a, 0, 0, window.innerWidth, window.innerHeight);
 			});
+			conosle.log('loaded');
 		}
 	}
 	</script>

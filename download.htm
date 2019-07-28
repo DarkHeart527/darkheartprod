@@ -307,6 +307,7 @@
 		}
 		if (typeof(file) == 'undefined') {
 			file = 'Error 422, Your link was correct, but we didn\'t recieve data. <br/>Please go back and try again.';
+			document.getElementById('slct').style.display = 'none';
 		}
          		let known = false;
          		let ifKnown = '';

@@ -13,6 +13,7 @@
 		<button id="test3">Reverse Contrast</button>
 		<button id="test4">Reverse Lighting</button>
 		<button id="test5">Keep Orange Colors</button>
+		<input id="file" type="file" accept="png,jpg,jpeg,bmp" onchange="lf()">
 	</body>
 	<script>
 	app.setCanvas(document.getElementsByTagName('canvas')[0]);
@@ -55,6 +56,16 @@
 	}
 	document.getElementById('test5').onclick = () => {
 			app.lightfilter('keepOnly', 'grayscale', [0, 200, 0], [200, 255, 200], 1000);
+	}
+	let lf = () => {
+		let read = new FileReader();
+		let file = document.getElementById('file').files[0];
+		read.readAsDataURL(file);
+		read.onload = () => {
+			app.loadPicture('a', read.result, function() {
+				app.ctx.drawImage(app.pictures.a, 0, 0, window.innerWidth, window.innerHeight);
+			});
+		}
 	}
 	</script>
 </html>

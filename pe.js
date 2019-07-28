@@ -135,7 +135,7 @@ let app = {
 				function mw() {
 					for (let j = 0; j < app.canvas.height; j++) {
 						let dat = app.ctx.getImageData(m, j, 1, 1).data;
-						let fS = '';
+						let li, fS;
 						if (dat[0] < dat[1] && dat [0] < dat[2]) { // Red is the lowest
 							fS = dat[0];
 						} else if (dat[1] < dat[0] && dat [1] < dat[2]) { // Green is the lowest
@@ -145,9 +145,18 @@ let app = {
 						} else { // White, black, or plain grey
 							fS = dat[0];
 						}
+						if (fS < 127) { // Dark Color
+							li = false; // Lighten
+						} else { // Bright Color
+							li = true; // Darken
+						}
 						app.ctx.beginPath();
 						app.ctx.rect(m, j, 1, 1);
-						app.ctx.fillStyle = `rgba(${Math.abs(dat[0]-fS)}, ${Math.abs(dat[1]-fS)}, ${Math.abs(dat[2]-fS)}, ${dat[3]})`;
+						if (li) {
+							app.ctx.fillStyle = `rgba(${Math.abs(dat[0]+fS)}, ${Math.abs(dat[1]+fS)}, ${Math.abs(dat[2]+fS)}, ${dat[3]})`;
+						} else {
+							app.ctx.fillStyle = `rgba(${Math.abs(dat[0]-fS)}, ${Math.abs(dat[1]-fS)}, ${Math.abs(dat[2]-fS)}, ${dat[3]})`;
+						}
 						app.ctx.fill();
 						app.ctx.closePath();
 					}

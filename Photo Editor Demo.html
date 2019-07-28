@@ -19,8 +19,8 @@
 	app.setCanvas(document.getElementsByTagName('canvas')[0]);
 	app.loadPicture('w', '../img.jpg');
 	app.loadPicture('t', '../Untitled2.jpg');
-	app.canvas.width = window.innerWidth/2;
-	app.canvas.height = window.innerHeight/2;
+	app.canvas.width = window.innerWidth;
+	app.canvas.height = window.innerHeight;
 	app.ctx.fillStyle = 'rgb(55, 55, 55)';
 	app.ctx.fillRect(0, 0, 25, 25)
 	app.ctx.fillStyle = 'rgb(200, 200, 200)';
@@ -63,7 +63,7 @@
 		console.log(file);
 		read.readAsDataURL(file);
 		read.onload = () => {
-			app.loadPicture('a', read.result, function() {
+			app.loadPicture('a' + (Math.random() * 10), read.result, function() {
 				app.ctx.drawImage(app.pictures.a, 0, 0, window.innerWidth, window.innerHeight);
 			});
 			conosole.log('loaded');

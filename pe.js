@@ -157,7 +157,6 @@ let app = {
 						}
 						if (fS < 127) { // Dark Color
 							li = false; // Lighten
-							console.log('lighten ' + fS);
 						} else { // Bright Color
 							li = true; // Darken
 						}
@@ -167,9 +166,9 @@ let app = {
 						if (li) {
 							app.ctx.fillStyle = `rgba(${dat[0]-fS2}, ${dat[1]-fS2}, ${dat[2]-fS2}, ${dat[3]})`;
 						} else if (!li) {
-							app.ctx.fillStyle = `rgba(${dat[0]+fS2}, ${dat[1]+fS2}, ${dat[2]+fS2}, ${dat[3]})`;
+							app.ctx.fillStyle = `rgba(${dat[0]+fS}, ${dat[1]+fS}, ${dat[2]+fS}, ${dat[3]})`;
 						} else {
-							app.ctx.fillStyle = `rgba(${adat[0]}, ${dat[1]}, ${dat[2]}, ${dat[3]})`;
+							app.ctx.fillStyle = `rgba(${dat[0]}, ${dat[1]}, ${dat[2]}, ${dat[3]})`;
 						}
 						app.ctx.fill();
 						app.ctx.closePath();

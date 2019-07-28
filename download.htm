@@ -305,9 +305,9 @@
 			document.getElementById('slct').style.display = 'none';
 			document.getElementById('shortlink').style.display = '';
 		}
-         	if (typeof(file) == 'undefined') {
-         		location = location.href.toString() + '#Your link was not found, try going back and trying again...';
-         	} else {
+		if (typeof(file) == 'undefined') {
+			file = 'Error 422, Your link was correct, but we didn\'t recieve data. <br/>Please go back and try again.';
+		}
          		let known = false;
          		let ifKnown = '';
          		for (let i = 0; i < knownTracks.length; i++) {
@@ -315,14 +315,14 @@
          				known = true;
          			}
          		}
-         		if (known == false) {
+         		if (!known) {
          			ifKnown = 'Please note that this file might not exist. Contact me for help if the file does not download correctly.';
          		}
          		let path = 'tracks';
          		document.getElementById('linkName').innerText = document.getElementById('link1').innerHTML;
          		document.getElementById('trackName2').innerText = file;
-         		document.getElementById('fileName').innerText = file;
-         		if (known == false) {
+         		document.getElementById('fileName').innerHTML = file;
+         		if (!known) {
          			document.getElementById('pF').innerText = ifKnown;
          		}
          		let check = function() {
@@ -341,7 +341,7 @@
          			}
          		}
          		check();
-         	}
+         	
          })();
          (function() {
          	let checkIfOnline = false;

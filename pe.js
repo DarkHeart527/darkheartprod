@@ -14,7 +14,7 @@ let app = {
 		this.ctx.closePath();
 	},
 	pictures: {},
-	loadPicture: (id, src) => {
+	loadPicture: (id, src, cb) => {
 		if (!id) {
 			id = Math.random() * Math.random() * 20;
 		}
@@ -24,7 +24,12 @@ let app = {
 				newEl.style.display = 'none';
 				newEl.src = src;
 				app.pictures[id] = newEl;
-				return newEl;
+				if (typeof cb == 'function') {
+					cb();
+					return newEl;
+				} else {
+					return newEl;
+				}
 			} else {
 				throw new Error(`The id ${id} has already been used, please use a different id.`);
 			}

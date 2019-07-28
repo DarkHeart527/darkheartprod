@@ -65,7 +65,7 @@
 		read.onload = () => {
 			let name = 'a' + (Math.random() * 10);
 			app.loadPicture(name, read.result, function() {
-				app.ctx.drawImage(app.pictures.name, 0, 0, window.innerWidth, window.innerHeight);
+				app.ctx.drawImage(app.pictures[name], 0, 0, window.innerWidth, window.innerHeight);
 			});
 			conosole.log('loaded');
 		}

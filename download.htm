@@ -300,16 +300,13 @@
          	if (file == 'viewAd1') {
          		localStorage.setItem('ad1', true);
          		window.close();
-         	}/* else if (file == 'viewAd2') {
-         		localStorage.setItem('ad2', true);
-         		window.close();
-         	}*/
+         	}
 		document.getElementById('slctshrtlnk').onclick = () => {
 			document.getElementById('slct').style.display = 'none';
 			document.getElementById('shortlink').style.display = '';
 		}
          	if (typeof(file) == 'undefined') {
-         		
+         		location = location.href.toString() + '#Your link was not found, try going back and trying again...';
          	} else {
          		let known = false;
          		let ifKnown = '';

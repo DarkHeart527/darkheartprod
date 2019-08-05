@@ -65,8 +65,8 @@
           loadPage = (url, page) => {
             for (let i = 0; i < data.length; i++) {
               if (data[i][0] == url) {
-                for (let j = 0; j < data[i].length) {
-                  let pageFound = JSON.parse(data[i][2])
+                for (let j = 0; j < data[i].length; j++) {
+                  let pageFound = JSON.parse(data[i][2]);
                   if (page == pageFound.Name) {
                     // Setup Page
                     console.log(pageFound.data);

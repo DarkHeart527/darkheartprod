@@ -54,6 +54,7 @@
   </body>
   <script>
     (function() {
+      let loadPage;
       function updateSigninStatus(isSignedIn) {
         Sheets.url = "1I-wJNe01txCE4lzjFoAyQVuNFEaiVpsx_YVvt8ukKyM";
         if (isSignedIn) {
@@ -61,6 +62,18 @@
         }
         Sheets.read("A:Z", function() {
           let data = Sheets.result;
+          loadPage = (url, page) => {
+            for (let i = 0; i < data.length; i++) {
+              if (data[i][0] == url) {
+                for (let j = 0; j < data[i].length) {
+                  if (data[i][j] == JSON.parse(data[i][j])) {
+                    // Setup Page
+                  }
+                }
+              }
+            }
+          }
+          loadPage('homepage', 'Home Page');
         });
       }
     })();

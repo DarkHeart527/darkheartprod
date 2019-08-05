@@ -62,7 +62,7 @@
         }
         Sheets.read("A:Z", function() {
           let data = Sheets.result;
-          loadPage = (url, page) => {
+          function loadPage(url, page) {
             for (let i = 0; i < data.length; i++) {
               if (data[i][0] == url) {
                 for (let j = 0; j < data[i].length; j++) {

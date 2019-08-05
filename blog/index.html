@@ -1,130 +1,23 @@
 
 <html>
   <head>
-    <title>E109 History</title>
+    <title>Blog - DarkHeart Productions</title>
     <script src="https://darkheartproductions.online/scripts/simple.js">
     </script>
-    <style>
-      body {
-       background-color: white; 
-       margin: 0px;
-      }
-      header {
-       width: 100%;
-       height: 15%;
-       background-color: rgba(155, 155, 255, 1);
-       display: grid;
-       grid-template-columns: 1fr 1fr;
-       color: white;
-       font-size: 35px;
-      }
-      .page {
-       width: 79%;
-       padding: 1%;
-       min-height: 250px;
-       background-color: rgba(155, 155, 255, 1);
-       margin: 0 auto;
-       margin-top: 15px;
-      }
-      .article {
-       width: 85%;
-       height: 150px;
-       background-color: rgba(255, 255, 255, 0.25);
-       margin: 0 auto;
-       margin-top: 30px;
-       margin-bottom: 30px;
-      }
-    </style>
   </head>
   <body>
-    <header>
-      <div>Ja-Mauri</div>
-      <div id="time">0:00 PM</div>
-    </header>
-    <div class="page">  
-      <div class="article">
-        <a class="head" href="https://darkheartproductions.online/blog/2282019.html">
-          Allied Victory
-        </a>
-        <div class="desc">
-        Technology was one of the most important factors for victory. There are a few that helped lead us to victory...
-        </div>
-        <div class="postBy">
-          Ra-Mauri Bynum
-        </div>
-      </div>
-      <div class="article">
-        <a class="head" href="https://darkheartproductions.online/blog/22820192.html">
-          Two Superpowers
-        </a>
-        <div class="desc">
-          The US and the USSR both became superpowers in a variety of ways, the US had the Atom Bomb and the USSR g...
-        </div>
-        <div class="postBy">
-          James Melix
-        </div>
-      </div>
-    </div>
-    <footer>
-    </footer>
+    
   </body>
   <script>
   function updateSigninStatus(isSignedIn) {
     Sheets.url = "1mTKxCYpJGQZyomApv3SR3VXnPi9ijuFU-uVafHRGMVI";
     if (isSignedIn) {
-      // Cock, nice titties, big ass
+      
     }
-    Sheets.read("G1", function() {
+    Sheets.read("A:Z", function() {
       let data = Sheets.result;
-      Sheets.read("A2:E", function() {
-        data = Sheets.result;
-        for (let i = 0; i < data.length; i++) {
-          let postBy = data[i][0];
-          let dataHtml = data[i][1];
-          let postDate = data[i][2];
-          let postHead = data[i][3];
-          let postLink = data[i][4];
-          
-          let div = document.createElement('div');
-          document.getElementsByClassName('page')[0].appendChild(div);
-          div.className = 'article';
-          
-          let articleHead = document.createElement('a');
-          div.appendChild(articleHead);
-          articleHead.innerText = postHead;
-          articleHead.className = 'head';
-          articleHead.href = `https://darkheartproductions.online/blog/${postLink}`;
-          
-          let postData = document.createElement('div');
-          postData.innerText = dataHtml.slice(0, 50) + '...';
-          div.appendChild(postData);
-          postData.className = 'postData';
-          
-          let postByD = document.createElement('div');
-          postByD.innerText = postBy;
-          div.appendChild(postByD);
-          postByD.className = 'postBy';
-          
-          let postDate = document.createElement('div');
-          postDate.innerText = postDate;
-          div.appendChild(postDate);
-          postDate.className = 'postDate';
-        }
-      });
     });
   }
-  setInterval(function() {
-    let date = new Date();
-    let min = date.getMinutes();
-    let hou = date.getHours();
-    if (min < 10) {
-     min = '0' + min; 
-    }
-    let timeFrame = 'AM';
-    if (hou >= 12) {
-      timeFrame = 'PM';
-    }
-    document.getElementById('time').innerText = `${hou}:${min} ${timeFrame}`;
   }, 500)
   </script>
   <script src="https://darkheartproductions.online/sheetsSimplifier.js">

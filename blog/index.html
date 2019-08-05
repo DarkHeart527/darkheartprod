@@ -64,7 +64,7 @@
             for (let i = 0; i < data.length; i++) {
               if (data[i][0] == url) {
                 for (let j = 0; j < data[i].length; j++) {
-                  let pageFound = JSON.parse(data[i][2]);
+                  let pageFound = JSON.parse(data[i][j]);
                   if (page == pageFound.Name) {
                     // Setup Page
                     document.getElementsByClassName('page')[0].innerHTML = pageFound.data;

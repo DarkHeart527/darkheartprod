@@ -53,6 +53,8 @@
       <a href="https://darkheartproductions.online/termsofuse">Terms of Use</a>
     </footer>
   </body>
+  <script src="https://darkheartproductions.online/sheetsSimplifier.js" id="googleSheets">
+  </script>
   <script>
       function updateSigninStatus(isSignedIn) {
         Sheets.url = "1I-wJNe01txCE4lzjFoAyQVuNFEaiVpsx_YVvt8ukKyM";
@@ -77,7 +79,8 @@
           loadPage('homepage', 'Home Page');
         });
       }
-  </script>
-  <script src="https://darkheartproductions.online/sheetsSimplifier.js">
+    document.getElementById('googleSheets').onload = () => {
+      updateSigninStatus();
+    }
   </script>
 </html>

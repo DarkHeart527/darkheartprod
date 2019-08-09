@@ -4,6 +4,7 @@
     <title>Blog - DarkHeart Productions</title>
     <script src="https://darkheartproductions.online/scripts/simple.js">
     </script>
+    <script src="//console.re/connector.js" data-channel="YOUR-CHANNEL-NAME" id="consolerescript"></script>
     <style>
       * {
         color: white;
@@ -58,7 +59,7 @@
   <script>
       function updateSigninStatus(isSignedIn) {
         Sheets.url = "1I-wJNe01txCE4lzjFoAyQVuNFEaiVpsx_YVvt8ukKyM";
-        alert(Sheets.url);
+        console.re.log(Sheets.url);
         if (isSignedIn) {
           
         }

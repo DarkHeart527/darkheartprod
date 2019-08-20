@@ -74,6 +74,20 @@
     </footer>
   </body>
   <script>
+    let rot = () => {
+      let imgs = [''];
+      let pic = 0;
+      function change() {
+        document.getElementById('rotatingPic').innerHTML = `<img src="${imgs[pic]}" width="500px" height="500px">`;
+      }
+      setInterval(function() {
+        pic++;
+        if (pic == 4) {
+          pic = 0;
+        }
+        change();
+      }, 1000);
+    }
   </script>
   </body>
 </html>

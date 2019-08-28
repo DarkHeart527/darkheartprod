@@ -1,0 +1,27 @@
+// ==UserScript==
+// @name         New Userscript
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @include      https://course.apexlearning.com/public/activity/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+setInterval( function() {
+    // Your code here...
+    function apply() {
+        if (document.getElementsByClassName('sia-question-stem')[0]) {
+            document.getElementsByClassName('sia-question-stem')[0].style.cursor = 'pointer';
+            document.getElementsByClassName('sia-question-stem')[0].onclick = () => {
+                window.open(`https://www.google.com/search?safe=active&q=${document.getElementsByClassName('sia-question-stem')[0].innerText}`);
+            };
+        } else {
+            setTimeout(apply, 500);
+        }
+    }
+    apply();
+}, 1000);
+})();

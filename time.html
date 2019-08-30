@@ -258,54 +258,54 @@
 		}, 50);
 	})();
 	</script>
-  <script>
-(function() {
-    let format = (conversion, h, m, s) => {
-        if (s == 0) {
-            s = ':00';
-        } else if (s < 10) {
-            s = ':0' + s;
-        } else if (s) {
-            s = ':' + s
-        } else {
-            s = '';
-        }
-        if (conversion == '12') {
-            let per = 'AM';
-            if (h > 12) {
-                per = 'PM';
-                h -= 12;
-            }
-            if (m < 10) {
-                m = '0' + m;
-            }
-            return `${h}:${m}${s} ${per}`;
-        } else if (conversion == '24') {
-            if (h < 10) {
-                h = '0' + h;
-            }
-            if (m < 10) {
-                m = '0' + m;
-            }
-            return `${h}:${m}${s}`;
-        }
-    }
-    let myUTCDisplay = document.getElementById('myUTC');
-    let yourUTCDisplay = document.getElementById('yourUTC');
-    setInterval(function() {
-        let time = new Date();
-        let myUTC = -7;
-        let yourUTC = Number(time.toString().split(' ')[5].split('0')[1]);
-        let yourOS = time.toString().split(' ')[5].split('T')[1].split('0')[0];
-        if (yourOS == '-') {
-            yourUTC *= -1;
-        }
-        let UTCZero = new Date().getUTCHours();
-        let yourUTCC = UTCZero + yourUTC;
-        let myUTCC = UTCZero + myUTC;
-        myUTCDisplay.innerText = 'My Time: ' + format(12, myUTCC, time.getMinutes(), time.getSeconds());
-        yourUTCDisplay.innerText = 'Your Time: ' + format(12, myUTCC, time.getMinutes(), time.getSeconds());
-    }, 250);
-})();
-  </script>
+ 	<script>
+	(function() {
+	    let format = (conversion, h, m, s) => {
+		if (s == 0) {
+		    s = ':00';
+		} else if (s < 10) {
+		    s = ':0' + s;
+		} else if (s) {
+		    s = ':' + s
+		} else {
+		    s = '';
+		}
+		if (conversion == '12') {
+		    let per = 'AM';
+		    if (h > 12) {
+			per = 'PM';
+			h -= 12;
+		    }
+		    if (m < 10) {
+			m = '0' + m;
+		    }
+		    return `${h}:${m}${s} ${per}`;
+		} else if (conversion == '24') {
+		    if (h < 10) {
+			h = '0' + h;
+		    }
+		    if (m < 10) {
+			m = '0' + m;
+		    }
+		    return `${h}:${m}${s}`;
+		}
+	    }
+	    let myUTCDisplay = document.getElementById('myUTC');
+	    let yourUTCDisplay = document.getElementById('yourUTC');
+	    setInterval(function() {
+		let time = new Date();
+		let myUTC = -7;
+		let yourUTC = Number(time.toString().split(' ')[5].split('0')[1]);
+		let yourOS = time.toString().split(' ')[5].split('T')[1].split('0')[0];
+		if (yourOS == '-') {
+		    yourUTC *= -1;
+		}
+		let UTCZero = new Date().getUTCHours();
+		let yourUTCC = UTCZero + yourUTC;
+		let myUTCC = UTCZero + myUTC;
+		myUTCDisplay.innerText = 'My Time: ' + format(12, myUTCC, time.getMinutes(), time.getSeconds());
+		yourUTCDisplay.innerText = 'Your Time: ' + format(12, myUTCC, time.getMinutes(), time.getSeconds());
+	    }, 250);
+	})();
+  	</script>
 </html>

@@ -1,0 +1,311 @@
+<html>
+	<head>
+		<title>DarkHeart Productions</title>
+		<link rel="icon" href="images/profileico.jpg" />
+		<script src="scripts/simple.js">
+		</script>
+		<script src="hj.js"></script>
+		<style>
+		body {
+			margin: 0px;
+			color: white;
+			background-color: black;
+		}
+		a {
+			color: white;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		.mainHeader {
+			display: grid;
+			grid-template-columns: 1fr 1fr 6fr 1fr 1fr;
+			justify-items: center;
+			align-items: center;
+			height: 12.5%;
+			font-size: 25px;
+			grid-gap: 25px;
+			background-color: rgba(0, 0, 0, .75);
+		}
+		@keyframes rotate {
+			0% {transform: rotate(0deg)}
+			100% {transform: rotate(360deg)}
+		}
+		.mainHeader .profilePic {
+			width: 75px;
+			height: 75px;
+			border-radius: 50%;
+			justify-self: right;
+			grid-area: 1/1;
+			animation: rotate 120s infinite linear;
+		}
+		.mainHeader .name {
+			grid-area: 1/2;
+			grid-column-end: 6;
+			justify-self: normal;
+			font-size: 35px;
+		}
+		@keyframes time {
+			0% {color: pink}
+			100% {color: white}
+		}
+		#time {
+			grid-area: 1/4;
+			font-size: 35px;
+			grid-column-end: 6;
+			animation: time 1s infinite linear;
+		}
+		header {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			color: white;
+			font-size: 25px;
+			height: 12.5%;
+			justify-items: center;
+			background-color: rgba(0, 0, 0, .75);
+			align-items: center;
+		}
+		header a {
+			text-decoration: none;
+			color: white;
+			font-size: 35px;
+		}
+		header a:hover {
+			text-decoration: underline;
+		}
+		footer {
+			position: fixed;
+			bottom: 0px;
+			left: 0px;
+			width: 100%;
+			height: 10%;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			justify-items: center;
+			align-items: center;
+			background-color: rgba(0, 0, 0, .75);
+		}
+		.page {
+			width: 80%;
+			height: fit-content;
+			margin: 0 auto;
+			margin-top: 50px;
+		}
+		.side {
+			grid-area: 1/3;
+		}
+		.about {
+			border: 1px solid grey;
+			border-radius: 25px;
+			padding: 10px;
+			background-color: rgba(0, 0, 0, .75);
+			margin-bottom: 50px;
+			transition: box-shadow 0.4s, border 0.4s;
+		}
+		.about:hover {
+			box-shadow: 0px 0px 25px grey;
+			border: 1px solid transparent;
+		}
+		.post {
+			border: 1px solid grey;
+			border-radius: 25px;
+			padding: 10px;
+			background-color: rgba(0, 0, 0, .75);
+			transition: box-shadow 0.4s, border 0.4s;
+		}
+		.post:hover {
+			box-shadow: 0px 0px 25px grey;
+			border: 1px solid transparent;
+		}
+		#background {
+			position: fixed;
+			z-index: -1;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: url('bkc2.png');
+		}
+		#background .img {
+			margin: 0 auto;
+			width: fit-content;
+		}
+		#background .img img {
+			width: 100%;
+			height: 100%;
+		}
+		footer a {
+			font-size: 25px;
+		}
+		.autobio a {
+			font-weight: bold;
+		}
+		.adSpaceLandscape {
+			width: 728px;
+			height: 60px;
+			background-color: rgba(0, 0, 0, .5);
+		}
+		.adSpaceSkyscraper {
+			width: 120px;
+			height: 600px;
+			background-color: rgba(0, 0, 0, .5);
+			margin: 0 auto;
+		}
+		.error404 {
+			color: red;
+		}
+		@keyframes beats {
+			0% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid transparent;
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			20% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			40% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid rgb(255, 155, 0);
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			60% {
+				border-top: 2px solid rgb(255, 155, 0);
+				border-right: 2px solid rgb(255, 155, 0);
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid transparent;
+				padding: 4px;}
+			80% {
+				border-top: 2px solid rgb(255, 155, 0);
+				border-right: 2px solid rgb(255, 155, 0);
+				border-bottom: 2px solid rgb(255, 155, 0);
+				border-left: 2px solid rgb(255, 155, 0);
+				padding: 4px;}
+			100% {
+				border-top: 2px solid transparent;
+				border-right: 2px solid transparent;
+				border-bottom: 2px solid transparent;
+				border-left: 2px solid transparent;
+				padding: 15px;}
+		}
+		.beatsLink {
+			animation: beats 3s infinite;
+			border-top: 2px solid transparent;
+			border-right: 2px solid transparent;
+			border-bottom: 2px solid transparent;
+			border-left: 2px solid transparent;
+			padding: 4px;
+			border-radius: 10px;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="background">
+			<div class="img">
+				<img src="images/background.jpg" />
+			</div>
+		</div>
+		<div class="mainHeader">
+			<img src="images/profile.jpg" class="profilePic"/>
+			<div class="name">
+				<a href="https://darkheartproductions.online">DarkHeart Productions</a>
+			</div>
+			<div id="time">0:00 PM
+			</div>
+		</div>
+		<header>
+			<a href="beats" class="beatsLink">Beats</a>
+			<a href="https://goo.gl/forms/4qSNEoo8aFC9UKtJ2" target="_blank">Submit a Beat</a>
+			<a href="https://goo.gl/forms/BhbYz6yzKpLs4tKu1" target="_blank">Submit a Track</a>
+			<a href="supportme">Support Me</a>
+			<a href="more">More</a>
+		</header>
+		<div class="page">
+      <div id="myUTC"></div>
+      <div id="yourUTC"></div>
+		</div>
+		<footer>
+			<a href="privacyPolicy">Privacy Policy</a>
+			<a href="termsofusel">Terms of Use</a>
+		</footer>
+		<br /><br /><br /><br /><br />
+	</body>
+	<script>
+	(function() {
+		let checkIfOnline = false;
+		setInterval(function() {
+			let d = new Date();
+			let t = 'AM';
+			let hour = d.getHours();
+			if (hour > 12) {
+				hour -= 12;
+				t = 'PM';
+			}
+			let minutes = d.getMinutes();
+			if (minutes < 10) {
+				minutes = '0' + minutes;
+			}
+			document.getElementById('time').innerText = `${hour}:${minutes} ${t}`;
+			if (navigator.onLine == false && checkIfOnline == false) {
+				alert('Please note that you have lost your internet connection.');
+				checkIfOnline = true;
+			}
+		}, 50);
+	})();
+	</script>
+  <script>
+(function() {
+    let format = (conversion, h, m, s) => {
+        if (s == 0) {
+            s = ':00';
+        } else if (s < 10) {
+            s = ':0' + s;
+        } else if (s) {
+            s = ':' + s
+        } else {
+            s = '';
+        }
+        if (conversion == '12') {
+            let per = 'AM';
+            if (h > 12) {
+                per = 'PM';
+                h -= 12;
+            }
+            if (m < 10) {
+                m = '0' + m;
+            }
+            return `${h}:${m}${s} ${per}`;
+        } else if (conversion == '24') {
+            if (h < 10) {
+                h = '0' + h;
+            }
+            if (m < 10) {
+                m = '0' + m;
+            }
+            return `${h}:${m}${s}`;
+        }
+    }
+    let myUTCDisplay = document.getElementById('myUTC');
+    let yourUTCDisplay = document.getElementById('yourUTC');
+    setInterval(function() {
+        let time = new Date();
+        let myUTC = -7;
+        let yourUTC = Number(time.toString().split(' ')[5].split('0')[1]);
+        let yourOS = time.toString().split(' ')[5].split('T')[1].split('0')[0];
+        if (yourOS == '-') {
+            yourUTC *= -1;
+        }
+        let UTCZero = new Date().getUTCHours();
+        let yourUTCC = UTCZero + yourUTC;
+        let myUTCC = UTCZero + myUTC;
+        myUTCDisplay.innerText = 'My Time: ' + format(12, myUTCC, time.getMinutes(), time.getSeconds());
+        yourUTCDisplay.innerText = 'Your Time: ' + format(12, myUTCC, time.getMinutes(), time.getSeconds());
+    }, 250);
+})();
+  </script>
+</html>

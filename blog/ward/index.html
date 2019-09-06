@@ -5,15 +5,6 @@
     body {
       margin: 0px;
     }
-    .page {
-      width: 100%;
-      height: 80%;
-      margin-top: 10%;
-      overflow-y: auto;
-      overflow-x: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
     header {
       position: fixed;
       width: 100%;
@@ -53,6 +44,30 @@
     	width: 100%;
         height: 100%;
     }
+    .post {
+    	width: 75%;
+        background-color: rgba(0, 0, 0, 0.5);
+        margin-top: 10%;
+        padding: 10px;
+        border: 1px white solid;
+        border-radius: 15px;
+        transition: border 0.5s, box-shadow 0.5s;
+    }
+    .post:hover {
+    	border: 1px solid transparent;
+        box-shadow: 0px 0px 25px white;
+    }
+    .page {
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: absolute;
+      top: 10%;
+      left: 0px;
+      justify-items: center;
+      align-items: center;
+    }
     </style>
   </head>
   <body>
@@ -63,9 +78,7 @@
       <div>Physical Science, Period 5</div>
     </header>
     <div class="page">
-      <div class="post">
-        <div id="rotatingPic"></div>
-        <p>The five senses are Vision, Smell, Taste, Touch, and Hearing.</p>
+      <div class="post">This is a post.
       </div>
     </div>
     <footer>

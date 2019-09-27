@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Physical Science - Ward - DarkHeart Productions</title>
+    <style>
+    body {
+      margin: 0px;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      color: white;
+      height: 10%;
+      font-size: 25px;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: grid;
+      top: 0px;
+      align-items: center;
+      justify-items: center;
+      left: 0px;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    footer {
+      position: fixed;
+      width: 100%;
+      align-items: center;
+      justify-items: center;
+      height: 10%;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 25px;
+      bottom: 0px;
+      left: 0px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+    .backgroundPic {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+    .backgroundPic img {
+    	width: 100%;
+        height: 100%;
+    }
+    .post {
+    	width: 75%;
+        background-color: rgba(0, 0, 0, 0.5);
+        margin-top: 10%;
+        padding: 10px;
+        border: 1px white solid;
+        border-radius: 15px;
+        transition: border 0.5s, box-shadow 0.5s;
+    }
+    .post:hover {
+    	border: 1px solid transparent;
+        box-shadow: 0px 0px 25px white;
+    }
+    .page {
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: absolute;
+      top: 10%;
+      left: 0px;
+      justify-items: center;
+      align-items: center;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="backgroundPic">
+      <img class="actualBackgroundPic" src="https://darkheartproductions.online/blog/ward/bck.jpg">
+    </div>
+    <header>
+      <div>Physical Science, Period 5</div>
+    </header>
+    <div class="page">
+      <div class="post">This is a post.
+      </div>
+    </div>
+    <footer>
+    	<div>James Melix</div>
+    </footer>
+  </body>
+  <script>
+    let rot = () => {
+      let imgs = [''];
+      let pic = 0;
+      function change() {
+        document.getElementById('rotatingPic').innerHTML = `<img src="${imgs[pic]}" width="500px" height="500px">`;
+      }
+      setInterval(function() {
+        pic++;
+        if (pic == 4) {
+          pic = 0;
+        }
+        change();
+      }, 1000);
+    }
+  </script>
+</html>

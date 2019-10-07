@@ -174,7 +174,9 @@
 							c.ellipse(window.innerWidth / 2 / count * i, -app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						} else if (settings.graphics.bars.type == 'bars') {
 							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -app.frequencyData[i] * settings.graphics.bars.maxSize);
-						} else if (settings.graphics.bars.type == 'vibratingCircles') { // NOT DONE
+						} else if (settings.graphics.bars.type == 'vibratingCircles') {
+							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
+						} else if (settings.graphics.bars.type == 'vibratingCirclesMaxedF') {
 							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						}
 					} else {
@@ -182,8 +184,10 @@
 							c.ellipse(window.innerWidth / 2 / count * i, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						} else if (settings.graphics.bars.type == 'bars') {
 							c.rect(window.innerWidth / 2 / count * i, innerHeight, 5, -Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize);
-						} else if (settings.graphics.bars.type == 'vibratingCircles') { // NOT DONE
+						} else if (settings.graphics.bars.type == 'vibratingCircles') {
 							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-Math.floor(Math.random() * 255) * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
+						} else if (settings.graphics.bars.type == 'vibratingCirclesMaxedF') {
+							c.ellipse((window.innerWidth / 2 / count * i) + vibOffSetX, (-app.frequencyData[i] * settings.graphics.bars.maxSize + innerHeight) + vibOffSetY, 10, 10, 0 * Math.PI/180, 0, 2 * Math.PI);
 						}
 					}
 					c.fill();

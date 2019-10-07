@@ -99,7 +99,7 @@
 					<p id="changeToBars">Bars</p>
 					<p id="changeToCircles">Circles</p>
 					<p id="changeToVibratingCircles">Vibrating Circles</p>
-					<!--<p id="bars">Bars</p>-->
+					<p id="changeToVibratingCirclesMaxedF">Vibrating Circles (Maxed Frequencies)</p>
 				</div>
 				<div id="vibrateSettings" style="display: none;">
 					<p class="sectionDivision">Vibrate Strength</p>
@@ -247,6 +247,10 @@
 			}
 			document.getElementById('changeToVibratingCircles').onclick = function() {
 				settings.graphics.bars.type = 'vibratingCircles';
+				document.getElementById('vibrateSettings').style.display = 'block';
+			}
+			document.getElementById('changeToVibratingCirclesMaxedF').onclick = function() {
+				settings.graphics.bars.type = 'vibratingCirclesMaxedF';
 				document.getElementById('vibrateSettings').style.display = 'block';
 			}
 			document.getElementById('file').onchange = function() {

@@ -37,7 +37,7 @@
 			document.body.appendChild(el);
 				let conNumber = i+1;
 				let conNumberEl = document.createElement('div');
-				conNumberEl.style = `text-align:center;margin-bottom: 15;font-size: 25px;`;
+				conNumberEl.style = `text-align:center;margin-bottom: 5;margin-top: 25;font-size: 25px;border-top: 1px solid black`;
 				el.appendChild(conNumberEl);
 				conNumberEl.innerText = conNumber;
 				let data = msgs[i].conversation; //msgs[i].conversation[Text Number].[sender, created_at, likes, text]
@@ -71,7 +71,7 @@
 				console.log(userCount);
 				let part = document.createElement('div');
 				part.innerText = `Members: ${participants}`;
-				part.style.display = 'none';
+				//part.style.display = 'none';
 				part.className = 'parti';
 				el.appendChild(part);
 				el.appendChild(dataEl);
@@ -86,12 +86,12 @@
 				el.appendChild(close);
 				conNumberEl.onclick = () => {
 					if (!d) {
-						part.style.display = 'block';
+						//part.style.display = 'block';
 						dataEl.style.display = 'block';
 						close.style.display = 'block';
 						d = true;
 					} else {
-						part.style.display = 'none';
+						//part.style.display = 'none';
 						dataEl.style.display = 'none';
 						close.style.display = 'none';
 						d = false;

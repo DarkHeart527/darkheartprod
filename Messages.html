@@ -15,13 +15,14 @@
 			document.body.appendChild(el);
 				let conNumber = i+1;
 				let conNumberEl = document.createElement('div');
+				conNumberEl.style = `text-align:center;margin-bottom: 15;font-size: 25px;`;
 				el.appendChild(conNumberEl);
 				conNumberEl.innerText = conNumber;
 				let data = msgs[i].conversation; //msgs[i].conversation[Text Number].[sender, created_at, likes, text]
 				let dataEl = document.createElement('div');
-				el.appendChild(dataEl);
+				dataEl.style.display = 'none';
 				if (data[0]) { // Check to see if data exists (if a conversation exists)
-					let fullDat = '';
+					let fullDat = ``;
 					for (let j = data.length-1; j > - 1; j--) {
 						fullDat += `[${data[j].created_at}] ${data[j].sender} >>> ${data[j].text}<br/>`;
 						if (data[j].text == '') {
@@ -32,12 +33,22 @@
 				} else {
 					dataEl.innerText = 'No Conversation Data';
 				}
+				let participants = msgs[i].participants;
+				let part = document.createElement('div');
+				part.innerText = participants;
+				part.style.display = 'none';
+				el.appendChild(part);
+				el.appendChild(dataEl);
 				let d = false;
 				conNumberEl.onclick = () => {
 					if (!d) {
+						part.style.display = 'block';
 						dataEl.style.display = 'block';
+						d = true;
 					} else {
-						dataEl.style.display = 'hidden';
+						part.style.display = 'none';
+						dataEl.style.display = 'none';
+						d = false;
 					}
 				}
 		}

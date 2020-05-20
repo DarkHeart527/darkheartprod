@@ -9,3 +9,5 @@ app.newTableEntry('songs', ['5/8/2020 3:19:29', 'D I P', '#BOHEMIAN', 'haku beat
 app.newTableEntry('songs', ['5/8/2020 3:19:30', 'D I P', '#BOHEMIAN', 'haku beats', '', 'REJECTED', 'Duplicate / Spam']);
 app.newTableEntry('songs', ['5/8/2020 3:19:42', 'D I P', '#BOHEMIAN', 'haku beats', '', 'REJECTED', 'Duplicate / Spam']);
 app.newTableEntry('songs', ['5/8/2020 3:19:46', 'D I P', '#BOHEMIAN', 'haku beats', '', 'REJECTED', 'Duplicate / Spam']);
+
+//Force update

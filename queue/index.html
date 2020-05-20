@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<title>Queue - DarkHeart Productions</title>
+		<style>
+		body {
+			margin: 0px;
+		}
+		.beats {
+			float: left;
+			margin-left: 5%;
+		}
+		.songs {
+			float: right;
+			margin-right: 5%;
+		}
+		.songs, .beats {
+			overflow: auto;
+			white-space: nowrap;
+			max-height: 75%;
+			background-color: white;
+			width: 42.5%;
+		}
+		.beats .entry:nth-child(even), .songs .entry:nth-child(even) {
+			background-color: rgba(150, 150, 150, 1);
+		}
+		.sectionName, .head {
+			background-color: white;
+		}
+		.sectionName {
+			font-size: 35px;
+		}
+		.beats .entry:hover, .songs .entry:hover {
+			background-color: rgba(200, 200, 200, 1);
+			cursor: pointer;
+		}
+		.beats div, .songs div {
+			width: fit-content;
+		}
+		.head p, .beats .entry p, .songs .entry p {
+			display: inline-block;
+			width: 160px;
+			text-align: center;
+			background-color: inherit;
+		}
+		.beats .head, .songs .head {
+			cursor: default;
+			border-bottom: 1px solid black;
+			width: fit-content;
+		}
+		.entry {
+			background-color: inherit;
+		}
+		.controlsVisibility {
+			font-size: 35px;
+			width: fit-content;
+			cursor: pointer;
+		}
+		.visibilityEnabled {
+			color: rgba(55, 255, 55, 1);
+		}
+		.visibilityDisabled {
+			color: rgba(255, 55, 55, 1);
+		}
+		.songsN::after {
+			content: 'Songs';
+		}
+		.beatsN::after {
+			content: 'Beats';
+		}
+		.producerN::after {
+			content: 'Producers';
+		}
+		.collaboratorN::after {
+			content: 'Collaborators';
+		}
+		</style>
+	</head>
+	<body charset="UTF-8">
+		<div class="controls">
+			<div class="visibility">
+			</div>
+		</div>
+		<div class="beats">
+			<div class="sectionName">Beats</div>
+		</div>
+		<div class="songs">
+			<div class="sectionName">Songs</div>
+		</div>
+		<script>
+			//(function() {
+				let app = {
+					newTableEntry(table, data, head) {
+						if (table == 'beats') {
+								let timeStamp = data[0];
+								let producer = data[1];
+								let collaborators = data[2];
+								let title = data[3];
+								let status = data[4];
+								let expectedUploadDate;
+								
+								let entry = document.createElement('div');
+								if (!head) {
+									entry.className = 'entry';
+								} else {
+									entry.className = 'head';
+								}
+								document.getElementsByClassName('beats')[0].appendChild(entry);
+								
+								let timeStampEl = document.createElement('p');
+								let producerEl = document.createElement('p');
+								let collaboratorsEl = document.createElement('p');
+								let titleEl = document.createElement('p');
+								let statusEl = document.createElement('p');
+								let expectedUploadDateEl = document.createElement('p');
+								
+								timeStampEl.innerText = timeStamp;
+								producerEl.innerText = producer;
+								producerEl.className = 'producerVisibility';
+								collaboratorsEl.innerText = collaborators;
+								titleEl.innerText = title;
+								statusEl.innerText = status;
+								if (status == 'Status') {
+									expectedUploadDate = 'Expected Upload Date';
+								}
+								
+								timeStampEl.title = timeStamp;
+								producerEl.title = producer;
+								collaboratorsEl.title = collaborators;
+								collaboratorsEl.className = 'collaboratorVisibility';
+								titleEl.title = title;
+								statusEl.title = status;
+								
+								entry.appendChild(timeStampEl);
+								entry.appendChild(producerEl);
+								entry.appendChild(collaboratorsEl);
+								entry.appendChild(titleEl);
+								entry.appendChild(statusEl);
+								entry.appendChild(expectedUploadDateEl);
+								
+								if (status.toLowerCase() == 'rejected' || status.toLowerCase() == 'copyright') {
+									expectedUploadDate = 'Not Applicable';
+								} else if (status.toLowerCase() == 'completed') {
+									expectedUploadDate = 'Uploaded';
+								} else if (status.toLowerCase() == 'pending') {
+									expectedUploadDate = app.calcUploadDate(timeStamp, 'beats');
+								}
+								expectedUploadDateEl.innerText = expectedUploadDate;
+								expectedUploadDateEl.title = expectedUploadDate;
+						} else if (table == 'songs' || table == 'tracks') {
+								let timeStamp = data[0];
+								let artist = data[1];
+								let title = data[2];
+								let producers = data[3];
+								let features = data[4];
+								let status = data[5];
+								let expectedUploadDate;
+								
+								let entry = document.createElement('div');
+								if (!head) {
+									entry.className = 'entry';
+								} else {
+									entry.className = 'head';
+								}
+								document.getElementsByClassName('songs')[0].appendChild(entry);
+								
+								let timeStampEl = document.createElement('p');
+								let artistEl = document.createElement('p');
+								let titleEl = document.createElement('p');
+								let producerEl = document.createElement('p');
+								let featuresEl = document.createElement('p');
+								let statusEl = document.createElement('p');
+								let expectedUploadDateEl = document.createElement('p');
+								
+								timeStampEl.innerText = timeStamp;
+								artistEl.innerText = artist;
+								titleEl.innerText = title;
+								producerEl.innerText = producers;
+								producerEl.className = 'producerVisibility';
+								featuresEl.innerText = features;
+								statusEl.innerText = status;
+								if (status == 'Status') {
+									expectedUploadDate = 'Expected Upload Date';
+								}
+								
+								timeStampEl.title = timeStamp;
+								artistEl.title = artist;
+								titleEl.title = title;
+								producerEl.title = producers;
+								featuresEl.title = features;
+								statusEl.title = status;
+								
+								entry.appendChild(timeStampEl);
+								entry.appendChild(artistEl);
+								entry.appendChild(titleEl);
+								entry.appendChild(producerEl);
+								entry.appendChild(featuresEl);
+								entry.appendChild(statusEl);
+								entry.appendChild(expectedUploadDateEl);
+								
+								if (status.toLowerCase() == 'rejected' || status.toLowerCase() == 'copyright') {
+									expectedUploadDateEl = 'Not Applicable';
+								} else if (status.toLowerCase() == 'completed') {
+									expectedUploadDate = 'Uploaded';
+								} else if (status.toLowerCase() == 'pending') {
+									expectedUploadDate = app.calcUploadDate(timeStamp, 'songs');
+								}
+								expectedUploadDateEl.innerText = expectedUploadDate;
+								expectedUploadDateEl.title = expectedUploadDate;
+						} else {
+							console.error(`Table ("${table}") not found.`);
+						}
+					},
+					init() {
+						app.newTableEntry('beats', ['Timestamp', 'Producer', 'Collaborators', 'Title', 'Status', 'Expected Upload Date'], true);
+						app.newTableEntry('songs', ['Timestamp', 'Artist', 'Title', 'Producers', 'Features', 'Status'], true);
+						let vEl = document.getElementsByClassName('visibility')[0];
+						
+						let songVisibility = document.createElement('div');
+						songVisibility.className = 'visibilityEnabled controlsVisibility songsN';
+						songVisibility.attributes.isVisible = true;
+						songVisibility.addEventListener('click', ()=>{
+							if (songVisibility.attributes.isVisible) {
+								songVisibility.className = 'visibilityDisabled controlsVisibility songsN';
+								songVisibility.attributes.isVisible = false;
+								document.getElementsByClassName('songs')[0].style.display = 'none';
+								document.getElementsByClassName('beats')[0].style.width = '90%';
+							} else {
+								songVisibility.className = 'visibilityEnabled controlsVisibility songsN';
+								songVisibility.attributes.isVisible = true;
+								document.getElementsByClassName('songs')[0].style.display = '';
+								document.getElementsByClassName('beats')[0].style.width = '';
+							}
+						});
+						vEl.appendChild(songVisibility);
+						
+						let beatVisibility = document.createElement('div');
+						beatVisibility.className = 'visibilityEnabled controlsVisibility beatsN';
+						beatVisibility.attributes.isVisible = true;
+						beatVisibility.addEventListener('click', ()=>{
+							if (beatVisibility.attributes.isVisible) {
+								beatVisibility.className = 'visibilityDisabled controlsVisibility beatsN';
+								beatVisibility.attributes.isVisible = false;
+								document.getElementsByClassName('beats')[0].style.display = 'none';
+								document.getElementsByClassName('songs')[0].style.width = '90%';
+							} else {
+								beatVisibility.className = 'visibilityEnabled controlsVisibility beatsN';
+								beatVisibility.attributes.isVisible = true;
+								document.getElementsByClassName('beats')[0].style.display = '';
+								document.getElementsByClassName('songs')[0].style.width = '';
+							}
+						});
+						vEl.appendChild(beatVisibility);
+						
+						let styleUpdate = document.createElement('style');
+						document.head.appendChild(styleUpdate);
+						
+						let visibilityObj = {
+							producer: '',
+							collaborator: '',
+						}
+						
+						let producerVisibility = document.createElement('div');
+						producerVisibility.className = 'visibilityEnabled controlsVisibility producerN';
+						producerVisibility.attributes.isVisible = true;
+						producerVisibility.addEventListener('click', ()=>{
+							if (producerVisibility.attributes.isVisible) {
+								producerVisibility.className = 'visibilityDisabled controlsVisibility producerN';
+								producerVisibility.attributes.isVisible = false;
+								visibilityObj.producer = 'none';
+							} else {
+								producerVisibility.className = 'visibilityEnabled controlsVisibility producerN';
+								producerVisibility.attributes.isVisible = true;
+								visibilityObj.producer = '';
+							}
+							updateTable();
+						});
+						vEl.appendChild(producerVisibility);
+						
+						let collaboratorVisibility = document.createElement('div');
+						collaboratorVisibility.className = 'visibilityEnabled controlsVisibility collaboratorN';
+						collaboratorVisibility.attributes.isVisible = true;
+						collaboratorVisibility.addEventListener('click', ()=>{
+							if (collaboratorVisibility.attributes.isVisible) {
+								collaboratorVisibility.className = 'visibilityDisabled controlsVisibility collaboratorN';
+								collaboratorVisibility.attributes.isVisible = false;
+								visibilityObj.collaborator = 'none';
+							} else {
+								collaboratorVisibility.className = 'visibilityEnabled controlsVisibility collaboratorN';
+								collaboratorVisibility.attributes.isVisible = true;
+								visibilityObj.collaborator = '';
+							}
+							updateTable();
+						});
+						vEl.appendChild(collaboratorVisibility);
+						
+						let updateTable = () => {
+							styleUpdate.innerHTML = `.producerVisibility {display: ${visibilityObj.producer} !important} .collaboratorVisibility {display: ${visibilityObj.collaborator} !important}`;
+						}
+					},
+					queue: {
+						beatSubmission: [],
+						songSubmission: [],
+					},
+					calcUploadDate(expectedDate, type) {
+						expectedDate = expectedDate.split(' ')[0].split('/');
+						let m = Number(expectedDate[0]);
+						let d = Number(expectedDate[1]);
+						let y = Number(expectedDate[2]);
+						let days;
+						let searching = true;
+						let today;
+						if (type == 'beats') {
+							if (!app.lastDate.beats) {
+								today = new Date();
+							} else {
+								today = app.lastDate.beats;
+							}
+						} else if (type == 'songs') {
+							if (!app.lastDate.songs) {
+								today = new Date();
+							} else {
+								today = app.lastDate.songs;
+							}
+						}
+						
+						while(searching) {
+							let curMonth = today.getMonth() + 1;
+							let curDay = today.getDate();
+							let curYear = today.getFullYear();
+							let dOTW = today.toString().split(' ')[0];
+							if (type == 'songs') {
+								if (app.lastDate.songs == today || app.lastDate.beats == today) {
+									today.setDate(curDay + 1);
+									app.lastDate.songs = today;
+								}
+								if (dOTW == 'Wed' || dOTW == 'Sun') {
+									if (app.lastDate.songs && today != app.lastDate.beats) {
+										if (app.lastDate.songs.getTime() <= today.getTime()) {
+											app.lastDate.songs = today;
+											searching = false;
+											return `${curMonth}/${curDay}/${curYear} ${dOTW}`;
+										}
+										if (app.lastDate.songs == today || app.lastDate.beats == today) {
+											today.setDate(curDay + 1);
+											app.lastDate.songs = today;
+										}
+									} else {
+										today.setDate(curDay + 1);
+										app.lastDate.songs = today;
+									}
+								} else {
+									today.setDate(curDay + 1);
+									app.lastDate.songs = today;
+								}
+							} else if (type == 'beats') {
+								if (dOTW == 'Wed') {
+									if (app.lastDate.beats) {
+										if (app.lastDate.beats.getTime() <= today.getTime()) {
+											console.log(app.lastDate.beats == today)
+											console.log(today)
+											console.log(`${curMonth}/${curDay}/${curYear}`)
+											app.lastDate.beats = today;
+											searching = false;
+											if (app.lastDate.beats == today) {
+												today.setDate(curDay + 1);
+												console.log('NN')
+												app.lastDate.beats = today;
+											}
+											return `${curMonth}/${curDay}/${curYear} ${dOTW}`;
+										}
+									} else {
+										console.log(`${curMonth}/${curDay}/${curYear} L`)
+										today.setDate(curDay + 1);
+										app.lastDate.beats = today;
+										return `${curMonth}/${curDay}/${curYear} ${dOTW}`;
+									}
+								} else {
+									today.setDate(curDay + 1);
+									app.lastDate.beats = today;
+								}
+							}//return false
+							//console.log(dOTW)
+						}
+						//return 'Work in Progress'
+					},
+					lastDate: {
+						songs: undefined,
+						beats: undefined,
+					},
+				}
+			app.init();
+			//})();
+			app.newTableEntry('beats', ['5/15/20 5:24:31:52', 'DarkHeart Productions', 'Mistik, Downtime', 'Chance', 'Pending']);
+			app.newTableEntry('songs', ['5/15/20 5:24:31:52', 'DarkHeart Productions', 'Chance', 'Downtime', 'Lil Dicky', 'Pending']);
+		</script>
+	</body>
+</html>
